@@ -1,6 +1,0 @@
-# Title
-
-Text
-
-```{tableofcontents}
-```
