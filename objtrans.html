@@ -6,8 +6,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Object transformation &#8212; Title</title>
   
   
   
@@ -57,9 +58,13 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
-    <link rel="index" title="Index" href="#" />
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'objtrans';</script>
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lagrangian mechanics" href="lagrange.html" />
+    <link rel="prev" title="Title" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -121,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -176,8 +179,8 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="objtrans.html">Object transformation</a></li>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Object transformation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lagrange.html">Lagrangian mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
@@ -241,6 +244,54 @@
 
 
 
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/objtrans.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
   title="Fullscreen mode"
@@ -274,7 +325,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -285,11 +338,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1></h1>
+    <h1>Object transformation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformations-of-space">Transformations of Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-frame-and-body-frame">Spatial frame and body frame</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -299,13 +361,73 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
+  <section class="tex2jax_ignore mathjax_ignore" id="object-transformation">
+<h1>Object transformation<a class="headerlink" href="#object-transformation" title="Link to this heading">#</a></h1>
+<p>We first have to define how we treat the motion of bodies in general.</p>
+<section id="transformations-of-space">
+<h2>Transformations of Space<a class="headerlink" href="#transformations-of-space" title="Link to this heading">#</a></h2>
+<p>The motion of bodies in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> can be described using two functions:</p>
+<ul class="simple">
+<li><p><strong>Translations</strong>,
+<span class="math notranslate nohighlight">\(g_1(r) = (r + r_0)\)</span>
+Defined by three parameters: <span class="math notranslate nohighlight">\(r_0 \in \mathbb{R}^{3}\)</span>, for three dimensions in Space.</p></li>
+<li><p><strong>Rotations</strong>,
+<span class="math notranslate nohighlight">\(g_2(r) = (Or)\)</span>
+with <span class="math notranslate nohighlight">\(O\)</span> being a orthogonal Transformation <span class="math notranslate nohighlight">\(O: \mathbb{R}^{3} \mapsto \mathbb{R}^{3}\)</span> having <span class="math notranslate nohighlight">\(det(O) = 1\)</span> (for Rotations) and <span class="math notranslate nohighlight">\(O^T = O^{-1}\)</span>. Rotations have three Parameters for the three axes of rotation.</p></li>
+</ul>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 1 </span> (Lie group)</p>
+<section class="definition-content" id="proof-content">
+<p>A <strong>Lie group</strong> is a <strong>group</strong> which is also a <strong>smooth manifold</strong> on which the group operations are smooth functions.</p>
+</section>
+</div><div class="proof definition admonition" id="definition-1">
+<p class="admonition-title"><span class="caption-number">Definition 2 </span> (Special orthogonal Group <span class="math notranslate nohighlight">\(SO(3)\)</span>)</p>
+<section class="definition-content" id="proof-content">
+<p>The Special orthogonal group consists of proper Rotations <span class="math notranslate nohighlight">\(g_2(O)\)</span> and forms a <strong>lie group</strong>.</p>
+</section>
+</div><div class="proof definition admonition" id="definition-2">
+<p class="admonition-title"><span class="caption-number">Definition 3 </span> (Special euclidean group <span class="math notranslate nohighlight">\(SE(3)\)</span>))</p>
+<section class="definition-content" id="proof-content">
+<p>The special euclidean group consists of proper Rotations <span class="math notranslate nohighlight">\(g_2(O)\)</span> combined with translations <span class="math notranslate nohighlight">\(g_1(r_0)\)</span> and forms a <strong>lie group</strong>. We write an element <span class="math notranslate nohighlight">\(E \in SE(3)\)</span> as <span class="math notranslate nohighlight">\( E = (a, O)\)</span> where <span class="math notranslate nohighlight">\(a\)</span> defines a translations and <span class="math notranslate nohighlight">\(O\)</span> a rotation.</p>
+</section>
+</div></section>
+<section id="spatial-frame-and-body-frame">
+<h2>Spatial frame and body frame<a class="headerlink" href="#spatial-frame-and-body-frame" title="Link to this heading">#</a></h2>
+<p>The motion of a body in general can now be described by a function <span class="math notranslate nohighlight">\(U: \mathbb{R} \rightarrow SE(3)\)</span> and the initial coordinates of the body <span class="math notranslate nohighlight">\(r_0\)</span> as the following:</p>
+<div class="math notranslate nohighlight">
+\[r(t) = a(t) + O(t)r_0\]</div>
+<p>This leaves us with the possibility to look at a body in two different ways:</p>
+<ul class="simple">
+<li><p><strong>The spatial frame (global)</strong>
+A coordinates system which stays fixed in time and in which our initial position <span class="math notranslate nohighlight">\(r_0\)</span> is defined.</p></li>
+<li><p><strong>The body frame (local)</strong>
+A coordinate system specific to the body where the body is stationary in.</p></li>
+</ul>
+<p>Let <span class="math notranslate nohighlight">\((B_1, B_2, B_3)\)</span> be the initial coordinates of the body relative to the spatial basis <span class="math notranslate nohighlight">\((E_1, E_2, E_3)\)</span>. Then the body frame relative to the spatial frame at time <span class="math notranslate nohighlight">\(t \in \mathbb{R}^+\)</span> is the the three dimensional affine room
+<span class="math notranslate nohighlight">\(a(t) + span{ O(t)B_1, O(t)B_2, O(t)B_3 }\)</span></p>
+<p>We now see that <span class="math notranslate nohighlight">\(r_0\)</span> denotes the local position of a body and <span class="math notranslate nohighlight">\(r(t)\)</span> the global coordinates.</p>
+</section>
+</section>
 
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
-</div>
-
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -317,6 +439,24 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Title</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lagrange.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lagrangian mechanics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -324,7 +464,21 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformations-of-space">Transformations of Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-frame-and-body-frame">Spatial frame and body frame</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
