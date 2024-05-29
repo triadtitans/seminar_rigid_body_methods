@@ -3,7 +3,7 @@
 
 title: Title
 author: Linus Knoll, Tobias Leichtfried, Norbert Hammer
-logo: logo.png
+logo: cubes.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -49,3 +49,7 @@ parse:
     - strikethrough
     - substitution
     - tasklist
+
+sphinx:
+  extra_extensions:
+    - sphinx_proof
