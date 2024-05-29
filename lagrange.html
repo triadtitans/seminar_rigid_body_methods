@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -58,10 +58,12 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lagrange';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Markdown Files" href="markdown.html" />
+    <link rel="next" title="Bibliography" href="bibliography.html" />
     <link rel="prev" title="Object transformation" href="objtrans.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -151,8 +153,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Title - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Title - Home"/>`);</script>
+    <img src="_static/cubes.png" class="logo__image only-light" alt="Title - Home"/>
+    <script>document.write(`<img src="_static/cubes.png" class="logo__image only-dark" alt="Title - Home"/>`);</script>
   
   
 </a></div>
@@ -180,9 +182,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="objtrans.html">Object transformation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Lagrangian mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
 
     </div>
@@ -323,7 +323,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -339,6 +341,19 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-introduction-to-langrangian-mechanics">An introduction to langrangian mechanics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-lagrangian-mechanics-to-the-project">Applying lagrangian mechanics to the project</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#describing-position-and-rotation">Describing position and rotation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kinetic-energy">Kinetic energy</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -350,6 +365,44 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lagrangian-mechanics">
 <h1>Lagrangian mechanics<a class="headerlink" href="#lagrangian-mechanics" title="Link to this heading">#</a></h1>
+<section id="an-introduction-to-langrangian-mechanics">
+<h2>An introduction to langrangian mechanics<a class="headerlink" href="#an-introduction-to-langrangian-mechanics" title="Link to this heading">#</a></h2>
+<p>There is now a way to move a body. However, this motion shall follow the laws of physics.
+The approach of this project was to use langrangian mechanics.</p>
+</section>
+<section id="applying-lagrangian-mechanics-to-the-project">
+<h2>Applying lagrangian mechanics to the project<a class="headerlink" href="#applying-lagrangian-mechanics-to-the-project" title="Link to this heading">#</a></h2>
+<section id="describing-position-and-rotation">
+<h3>Describing position and rotation<a class="headerlink" href="#describing-position-and-rotation" title="Link to this heading">#</a></h3>
+<p>The generalised coordinates of a mass-point with rotation consist of the components of the translation vector and rotation matrix.
+However, not all matrices are allowed; the rotation matrix needs to describe a valid rotation.
+That is, it needs to lie in the special orthogonal group.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-efd224ac-5dfb-4045-b0d4-b07c5c9f6faf">
+<span class="eqno">(1)<a class="headerlink" href="#equation-efd224ac-5dfb-4045-b0d4-b07c5c9f6faf" title="Permalink to this equation">#</a></span>\[\begin{align}
+    B ~ \text{orthonormal} \\
+    \Leftrightarrow \forall x \in \mathbb{R}^3:~ \| Bx \| &amp; = \| x \| \\
+    \Leftrightarrow \forall x \in \mathbb{R}^3:~ \| Bx \|^2 &amp; = \| x \|^2 \\
+    \Leftrightarrow \forall x \in \mathbb{R}^3:~ xB^TBx &amp; = x^Tx \\
+    \Leftrightarrow B^TB &amp; = I
+\end{align}\]</div>
+<p><span id="id1">[<a class="reference internal" href="bibliography.html#id2" title="Joachim Schöberl. &quot;meeting notes seminar scientific computing - handwritten&quot;. https://example.com, 2024.">Sch24</a>]</span></p>
+<p>Therefore, the program only needs to check whether or not <span class="math notranslate nohighlight">\(B^TB = I\)</span>.
+This can be broken down into 9 scalar equations, one for each compontent of <span class="math notranslate nohighlight">\(I\)</span>.
+However, as <span class="math notranslate nohighlight">\(B^TB\)</span> is symmetric <span id="id2">[]</span>, the program only needs to check six of these equations.</p>
+<p>These generalised coordinates and constraints describe the configuration space of one mass-point with added rotation.</p>
+</section>
+<section id="kinetic-energy">
+<h3>Kinetic energy<a class="headerlink" href="#kinetic-energy" title="Link to this heading">#</a></h3>
+<p>In order to use the laws of langrangian mechanics, the langrangian function <span class="math notranslate nohighlight">\(L = T - V\)</span> of the rigid-body system needs to be set up.
+It holds that:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-26912685-b9a0-4f60-aed9-7ced1c63a445">
+<span class="eqno">(2)<a class="headerlink" href="#equation-26912685-b9a0-4f60-aed9-7ced1c63a445" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    T(\dot{u}) = \int_B \rho
+\end{equation}\]</div>
+<p>In addition, other constraints can be formulated to describe beams connecting two bodies (or a body and a point in space).
+Anchorpoints can also be implemented that way (as beams of length zero).</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -392,11 +445,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="markdown.html"
+       href="bibliography.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Markdown Files</p>
+        <p class="prev-next-title">Bibliography</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -407,7 +460,25 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-introduction-to-langrangian-mechanics">An introduction to langrangian mechanics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-lagrangian-mechanics-to-the-project">Applying lagrangian mechanics to the project</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#describing-position-and-rotation">Describing position and rotation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kinetic-energy">Kinetic energy</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

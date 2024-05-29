@@ -154,8 +154,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Title - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Title - Home"/>`);</script>
+    <img src="_static/cubes.png" class="logo__image only-light" alt="Title - Home"/>
+    <script>document.write(`<img src="_static/cubes.png" class="logo__image only-dark" alt="Title - Home"/>`);</script>
   
   
 </a></div>
@@ -183,9 +183,7 @@
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="objtrans.html">Object transformation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lagrange.html">Lagrangian mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
 
     </div>
@@ -326,7 +324,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -342,6 +342,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-demonstration">Interactive demonstration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of contents</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -353,25 +362,28 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="title">
 <h1>Title<a class="headerlink" href="#title" title="Link to this heading">#</a></h1>
-<p>Text</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4dc9f7e6-ba1a-416e-b289-05b175c76354">
-<span class="eqno">(1)<a class="headerlink" href="#equation-4dc9f7e6-ba1a-416e-b289-05b175c76354" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\mathbb{R}
-\end{equation}\]</div>
-<div class="math notranslate nohighlight">
-\[
-\mathbb{R}
-\]</div>
+<p><strong>Linus Knoll, Tobias Leichtfried, Norbert Hammer</strong></p>
+<p>Seminararbeit in Scientic Computing</p>
+<p>Professor Joachim Schöberl</p>
+<p>This seminar work goes into the simulation of rigid bodies. This is achieved using <strong>???</strong></p>
+<p>At the center of the project stands an inplementation using C++ and Python. It can be found here:
+<strong><a class="reference external" href="https://github.com/triadtitans/ASC-ODE">ASC-ODE</a></strong></p>
+<section id="interactive-demonstration">
+<h2>Interactive demonstration<a class="headerlink" href="#interactive-demonstration" title="Link to this heading">#</a></h2>
+<p>The implementation can also run in-browser:</p>
+<p>(<a href="https://triadtitans.github.io/rigid_body_interactive/" target="_blank">Click to open in new tab.</a>)</p>
 <iframe src=https://triadtitans.github.io/rigid_body_interactive/ width=100% height=600></iframe>
+</section>
+<section id="table-of-contents">
+<h2>Table of contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="objtrans.html">Object transformation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lagrange.html">Lagrangian mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -420,7 +432,21 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-demonstration">Interactive demonstration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of contents</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

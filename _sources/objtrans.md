@@ -21,7 +21,7 @@ A **Lie group** is a **group** which is also a **smooth manifold** on which the 
 The Special orthogonal group consists of proper Rotations $g_2(O)$ and forms a **lie group**.
 ````
 
-````{prf:definition} Special euclidean group $SE(3)$)
+````{prf:definition} Special euclidean group $SE(3)$
 
 The special euclidean group consists of proper Rotations $g_2(O)$ combined with translations $g_1(r_0)$ and forms a **lie group**. We write an element $E \in SE(3)$ as $ E = (a, O)$ where $a$ defines a translations and $O$ a rotation.
 ````
