@@ -5,6 +5,8 @@
 There is now a way to move a body. However, this motion shall follow the laws of physics.
 The approach of this project was to use langrangian mechanics.
 
+As opposed to newtonian mechanics, lagrangian mechanics allow for so-called generalized coordinates.
+
 
 ## Applying lagrangian mechanics to the project
 
@@ -21,7 +23,7 @@ That is, it needs to be orthonormal.
     \Leftrightarrow \forall x \in \mathbb{R}^3:~ xB^TBx & = x^Tx \\
     \Leftrightarrow B^TB & = I
 \end{align}
-{cite}`mn`
+{cite}`mn{March 6, p. 2}`
 
 Therefore, the program only needs to check whether or not $B^TB = I$.
 This can be broken down into 9 scalar equations, one for each compontent of $I$.
@@ -85,7 +87,17 @@ where $I$ can be calculated from the inertia tensor:
             \end{cases}
 \end{equation}
 
-
-In addition, other constraints can be formulated to describe beams connecting two bodies (or a body and a point in space).
+### Other constraints
+In addition to $B^TB = I$, other constraints can be formulated to describe beams connecting two bodies (or a body and a point in space).
 Anchorpoints can also be implemented that way (as beams of length zero).
+
+
+### Kinetic energy
+
+```{todo}
+write something
+```
+
+### Putting it together
+
 
