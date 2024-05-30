@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -64,7 +64,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Lagrangian mechanics" href="lagrange.html" />
-    <link rel="prev" title="Title" href="intro.html" />
+    <link rel="prev" title="Interactive demonstration" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,7 +175,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Title
+                    Interactive demonstration
                 </a>
             </li>
         </ul>
@@ -348,6 +348,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformations-of-space">Transformations of Space</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-frame-and-body-frame">Spatial frame and body frame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storing-transformations">Storing transformations</a></li>
 </ul>
             </nav>
         </div>
@@ -370,8 +371,8 @@ document.write(`
 <span class="math notranslate nohighlight">\(g_1(r) = (r + r_0)\)</span>
 Defined by three parameters: <span class="math notranslate nohighlight">\(r_0 \in \mathbb{R}^{3}\)</span>, for three dimensions in Space.</p></li>
 <li><p><strong>Rotations</strong>,
-<span class="math notranslate nohighlight">\(g_2(r) = (Or)\)</span>
-with <span class="math notranslate nohighlight">\(O\)</span> being a orthogonal Transformation <span class="math notranslate nohighlight">\(O: \mathbb{R}^{3} \mapsto \mathbb{R}^{3}\)</span> having <span class="math notranslate nohighlight">\(det(O) = 1\)</span> (for Rotations) and <span class="math notranslate nohighlight">\(O^T = O^{-1}\)</span>. Rotations have three Parameters for the three axes of rotation.</p></li>
+<span class="math notranslate nohighlight">\(g_2(r) = O \cdot r\)</span>
+with <span class="math notranslate nohighlight">\(O\)</span> being a orthogonal Transformation <span class="math notranslate nohighlight">\(O: \mathbb{R}^{3} \mapsto \mathbb{R}^{3}\)</span> having <span class="math notranslate nohighlight">\(det(O) = 1\)</span> (for rotations) and <span class="math notranslate nohighlight">\(O^T = O^{-1}\)</span>. Rotations have three Parameters for the three axes of rotation.</p></li>
 </ul>
 <div class="proof definition admonition" id="definition-0">
 <p class="admonition-title"><span class="caption-number">Definition 1 </span> (Lie group)</p>
@@ -399,11 +400,28 @@ with <span class="math notranslate nohighlight">\(O\)</span> being a orthogonal 
 <li><p><strong>The spatial frame (global)</strong>
 A coordinates system which stays fixed in time and in which our initial position <span class="math notranslate nohighlight">\(r_0\)</span> is defined.</p></li>
 <li><p><strong>The body frame (local)</strong>
-A coordinate system specific to the body where the body is stationary in.</p></li>
+A coordinate system specific to the body in which the body is stationary.</p></li>
 </ul>
 <p>Let <span class="math notranslate nohighlight">\((B_1, B_2, B_3)\)</span> be the initial coordinates of the body relative to the spatial basis <span class="math notranslate nohighlight">\((E_1, E_2, E_3)\)</span>. Then the body frame relative to the spatial frame at time <span class="math notranslate nohighlight">\(t \in \mathbb{R}^+\)</span> is the the three dimensional affine room
-<span class="math notranslate nohighlight">\(a(t) + span{ O(t)B_1, O(t)B_2, O(t)B_3 }\)</span></p>
+<span class="math notranslate nohighlight">\(a(t) + span\{ O(t)B_1, O(t)B_2, O(t)B_3 \}\)</span></p>
 <p>We now see that <span class="math notranslate nohighlight">\(r_0\)</span> denotes the local position of a body and <span class="math notranslate nohighlight">\(r(t)\)</span> the global coordinates.</p>
+</section>
+<section id="storing-transformations">
+<h2>Storing transformations<a class="headerlink" href="#storing-transformations" title="Link to this heading">#</a></h2>
+<p>For storing a transformation <span class="math notranslate nohighlight">\(u(x) = p + R \cdot x \in SE(3)\)</span>, ASC-ODE stores the components in a vector <span class="math notranslate nohighlight">\(X \in \mathbb{R}^{12}\)</span>.
+Three different shapes of <span class="math notranslate nohighlight">\(X\)</span> have developed:</p>
+<ul class="simple">
+<li><p><strong>“The intuitive way”</strong>: <span class="math notranslate nohighlight">\( X = (p_1, p_2, p_3, R_{11}, R_{12}, R_{13}, R_{23}, \ldots) \)</span> That is: First <span class="math notranslate nohighlight">\(p\)</span>, then <span class="math notranslate nohighlight">\(R\)</span> in row-major ordering.</p></li>
+<li><p><strong>“Range-component-first”</strong>: <span class="math notranslate nohighlight">\( X = (p_1, R_{11}, R_{12}, R_{13}, R_{23}, p_2, R_{21}, \ldots) \)</span> Components are grouped together per output coordinate. This makes things far more beautiful in the next chapter.</p></li>
+<li><p><strong>“Pythreejs-style”</strong>: <span class="math notranslate nohighlight">\( X = (R_{11}, R_{21}, R_{31}, R_{12}, R_{22}, \ldots , p_1, p_2, p_3) \)</span> This is the way that the visualisation framework pythreejs goes.</p></li>
+</ul>
+<div class="todo admonition">
+<p class="admonition-title">TODO</p>
+<ul class="simple">
+<li><p><strong>citation needed</strong></p></li>
+<li><p><strong>add code example to last point</strong></p></li>
+</ul>
+</div>
 </section>
 </section>
 
@@ -443,7 +461,7 @@ A coordinate system specific to the body where the body is stationary in.</p></l
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Title</p>
+        <p class="prev-next-title">Interactive demonstration</p>
       </div>
     </a>
     <a class="right-next"
@@ -473,6 +491,7 @@ A coordinate system specific to the body where the body is stationary in.</p></l
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformations-of-space">Transformations of Space</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-frame-and-body-frame">Spatial frame and body frame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storing-transformations">Storing transformations</a></li>
 </ul>
   </nav></div>
 

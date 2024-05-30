@@ -376,28 +376,71 @@ The approach of this project was to use langrangian mechanics.</p>
 <h3>Describing position and rotation<a class="headerlink" href="#describing-position-and-rotation" title="Link to this heading">#</a></h3>
 <p>The generalised coordinates of a mass-point with rotation consist of the components of the translation vector and rotation matrix.
 However, not all matrices are allowed; the rotation matrix needs to describe a valid rotation.
-That is, it needs to lie in the special orthogonal group.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-efd224ac-5dfb-4045-b0d4-b07c5c9f6faf">
-<span class="eqno">(1)<a class="headerlink" href="#equation-efd224ac-5dfb-4045-b0d4-b07c5c9f6faf" title="Permalink to this equation">#</a></span>\[\begin{align}
+That is, it needs to be orthonormal.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-063596c5-e23e-4b51-bea3-990f92430c31">
+<span class="eqno">(1)<a class="headerlink" href="#equation-063596c5-e23e-4b51-bea3-990f92430c31" title="Permalink to this equation">#</a></span>\[\begin{align}
     B ~ \text{orthonormal} \\
     \Leftrightarrow \forall x \in \mathbb{R}^3:~ \| Bx \| &amp; = \| x \| \\
     \Leftrightarrow \forall x \in \mathbb{R}^3:~ \| Bx \|^2 &amp; = \| x \|^2 \\
     \Leftrightarrow \forall x \in \mathbb{R}^3:~ xB^TBx &amp; = x^Tx \\
     \Leftrightarrow B^TB &amp; = I
 \end{align}\]</div>
-<p><span id="id1">[<a class="reference internal" href="bibliography.html#id2" title="Joachim Schöberl. &quot;meeting notes seminar scientific computing - handwritten&quot;. https://example.com, 2024.">Sch24</a>]</span></p>
+<p><span id="id1">[<a class="reference internal" href="bibliography.html#id2" title="Joachim Schöberl. &quot;meeting notes seminar scientific computing - handwritten&quot;. https://example.com, 2024.">Schoberl24</a>]</span></p>
 <p>Therefore, the program only needs to check whether or not <span class="math notranslate nohighlight">\(B^TB = I\)</span>.
 This can be broken down into 9 scalar equations, one for each compontent of <span class="math notranslate nohighlight">\(I\)</span>.
-However, as <span class="math notranslate nohighlight">\(B^TB\)</span> is symmetric <span id="id2">[]</span>, the program only needs to check six of these equations.</p>
+However, as <span class="math notranslate nohighlight">\(B^TB\)</span> is symmetric <span id="id2">[<a class="reference internal" href="bibliography.html#id4" title="Hans Havlicek. Lineare Algebra für technische Mathematik. Berliner Studienreihe zur Mathematik. Heldermann Verlag, Lemgo, vierte, korrigierte und erweiterte auflage edition, 2022. ISBN 3885381168.">Hav22</a>]</span>, the program only needs to check six of these equations.</p>
 <p>These generalised coordinates and constraints describe the configuration space of one mass-point with added rotation.</p>
 </section>
 <section id="kinetic-energy">
 <h3>Kinetic energy<a class="headerlink" href="#kinetic-energy" title="Link to this heading">#</a></h3>
 <p>In order to use the laws of langrangian mechanics, the langrangian function <span class="math notranslate nohighlight">\(L = T - V\)</span> of the rigid-body system needs to be set up.
-It holds that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-26912685-b9a0-4f60-aed9-7ced1c63a445">
-<span class="eqno">(2)<a class="headerlink" href="#equation-26912685-b9a0-4f60-aed9-7ced1c63a445" title="Permalink to this equation">#</a></span>\[\begin{equation}
-    T(\dot{u}) = \int_B \rho
+Let <span class="math notranslate nohighlight">\( u(t)(x) = p(t) + R(t) \cdot x \in SE(3) \)</span>.
+Let <span class="math notranslate nohighlight">\(X \in \mathbb{R}^{12}\)</span> be a vector that stores the components of <span class="math notranslate nohighlight">\(p(t)\)</span> and <span class="math notranslate nohighlight">\(R(t)\)</span>.
+Let <span class="math notranslate nohighlight">\(B\)</span> be the body that is supposed to be moved by <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(\rho\)</span> its density.
+Then there exists a matrix <span class="math notranslate nohighlight">\( M \in \mathbb{R}^{12 \times 12} \)</span> such that:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-aebcf1cc-171b-4b37-9c68-c03d75162b83">
+<span class="eqno">(2)<a class="headerlink" href="#equation-aebcf1cc-171b-4b37-9c68-c03d75162b83" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    T(\dot{u}) = \frac{1}{2} \int_B \rho \| \dot{u} \|^2 dx = \frac{1}{2} \dot{X}^T M \dot{X}
+\end{equation}\]</div>
+<p>The dot denotes the time derivative.
+<span id="id3">[<a class="reference internal" href="bibliography.html#id2" title="Joachim Schöberl. &quot;meeting notes seminar scientific computing - handwritten&quot;. https://example.com, 2024.">Schoberl24</a>]</span></p>
+<p>The first equation above is essentially a continuous version of <span class="math notranslate nohighlight">\( T = \frac{1}{2} \sum_i m_i \dot{x}_i\)</span> <span id="id4">[<a class="reference internal" href="bibliography.html#id3" title="Matthias Bartelmann, Björn Feuerbacher, Timm Krüger, Dieter Lüst, Anton Rebhan, and Andreas Wipf. Theoretische Physik. Springer Berlin Heidelberg, Berlin, Heidelberg, 2015. ISBN 3642546188. URL: 10.1007/978-3-642-54618-1.">BFK+15</a>]</span>.
+<span class="math notranslate nohighlight">\(\dot{x}_i \)</span> denotes a generalised coordinate.</p>
+<p>As for the second equation, <span class="math notranslate nohighlight">\(\left( f, g \right) := \frac{1}{2} \int_B \rho \| f \cdot g \| dx \)</span> is a scalar product, which is easy to prove.
+<span class="math notranslate nohighlight">\(M\)</span> is a version of the scalar product’s gram matrix. A version in the sense that is compatible with a vector representation of functions in <span class="math notranslate nohighlight">\(SE(3)\)</span>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">The gram matrix</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Consider <span class="math notranslate nohighlight">\( S := \{ u(x) = p + R \cdot x ~|~ p(t) \in \mathbb{R}^3, R(t) \in \mathbb{R}^{3 \times 3} \} \)</span>.
+<span class="math notranslate nohighlight">\(S\)</span> is isomorphic to <span class="math notranslate nohighlight">\(\mathbb{R}^{12}\)</span> (via “storing” the entries of <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(R\)</span> into <span class="math notranslate nohighlight">\(X \in \mathbb{R}^{12}\)</span>).
+Let <span class="math notranslate nohighlight">\(\varphi: \mathbb{R}^{12} \to S\)</span> be an isomorphism between the two spaces.
+<span class="math notranslate nohighlight">\(S\)</span> is thus finite-dimensional and a gram matrix of the scalar product <span class="math notranslate nohighlight">\((\cdot, \cdot)\)</span> on <span class="math notranslate nohighlight">\(S\)</span> can be calculated.
+As <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(\mathbb{R}^{12}\)</span> are isomorphic, <span class="math notranslate nohighlight">\(M\)</span> can be defined: <span class="math notranslate nohighlight">\(M_{ij} := (\varphi(e_i), \varphi(e_j))\)</span>.
+<span class="math notranslate nohighlight">\( SE(3) \)</span> is a subset of <span class="math notranslate nohighlight">\(S\)</span>, which makes the above applicable.</p>
+</div>
+</details><p>For an arbitrary object, netgen’s occ bindings provide enough information to assemble <span class="math notranslate nohighlight">\(M\)</span>, namely:
+The mass of the object, it’s center of mass and it’s inertia tensor <span class="math notranslate nohighlight">\(\Theta = (\int_B \rho ~ x \cdot x - x_i x_j)_{i,j=1}^3\)</span> <span id="id5">[<a class="reference internal" href="bibliography.html#id3" title="Matthias Bartelmann, Björn Feuerbacher, Timm Krüger, Dieter Lüst, Anton Rebhan, and Andreas Wipf. Theoretische Physik. Springer Berlin Heidelberg, Berlin, Heidelberg, 2015. ISBN 3642546188. URL: 10.1007/978-3-642-54618-1.">BFK+15</a>]</span>.
+The components of the inertia tensor are called moments of inertia.
+Using the right ordering of <span class="math notranslate nohighlight">\(X\)</span>, one obtains:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c97f6c55-69ad-4c8a-bcfc-a7d5bed21ec1">
+<span class="eqno">(3)<a class="headerlink" href="#equation-c97f6c55-69ad-4c8a-bcfc-a7d5bed21ec1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    M = \begin{pmatrix}
+            m &amp; m \cdot c \\
+            m \cdot c &amp; I \\
+            &amp; &amp; m &amp; m \cdot c \\
+            &amp; &amp; m \cdot c &amp; I \\
+            &amp; &amp; &amp; &amp; m &amp; m \cdot c \\
+            &amp; &amp; &amp; &amp; m \cdot c &amp; I \\
+        \end{pmatrix}
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(I\)</span> can be calculated from the inertia tensor:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-80935f5e-3597-4e53-b04c-36027255107a">
+<span class="eqno">(4)<a class="headerlink" href="#equation-80935f5e-3597-4e53-b04c-36027255107a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    I_{ij} = \begin{cases}
+                \Theta_{ij} &amp; i \neq j \\
+                \frac{1}{2} (\Theta_{22} + \Theta_{33} - \Theta_{11}) &amp; i = j = 1 \\
+                \vdots &amp; \vdots
+            \end{cases}
 \end{equation}\]</div>
 <p>In addition, other constraints can be formulated to describe beams connecting two bodies (or a body and a point in space).
 Anchorpoints can also be implemented that way (as beams of length zero).</p>
