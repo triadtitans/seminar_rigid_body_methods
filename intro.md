@@ -1,24 +1,29 @@
 # Title
 
+````{card}
+
 **Linus Knoll, Tobias Leichtfried, Norbert Hammer**
++++
+Supervisor: **Professor Dr. Joachim Schöberl**
 
-Seminararbeit in Scientic Computing
+[Seminar mit Seminararbeit aus Scientific Computing](https://tiss.tuwien.ac.at/course/courseDetails.xhtml?dswid=7194&dsrid=332&courseNr=101558&semester=2024S)
+````
 
-Professor Joachim Schöberl
+This seminar paper deals with the simulation of rigid bodies.
+The main part of the corresponding seminar was the development of rigid body simulation framework ASC-ODE.
+The latter implements lagrangian mechanics and an ODE solver as well as a novel algorithm based on the Discontinuous galerkin method.
 
 
-This seminar work goes into the simulation of rigid bodies. This is achieved using **???**
 
-At the center of the project stands an inplementation using C++ and Python. It can be found here:
-**[ASC-ODE](https://github.com/triadtitans/ASC-ODE)**
+````{card} [ASC-ODE](https://github.com/triadtitans/ASC-ODE)
+:link: https://github.com/triadtitans/ASC-ODE
 
-## Interactive demonstration
+At the center of the project stands ASC-ODE, an inplementation using C++ and Python.
+````
 
-The implementation can also run in-browser:
+Many thanks to Dipl.-Ing. Matthias Hochsteger for his help with jupyterlite.
 
-(<a href="https://triadtitans.github.io/rigid_body_interactive/" target="_blank">Click to open in new tab.</a>)
 
-<iframe src=https://triadtitans.github.io/rigid_body_interactive/ width=100% height=600></iframe>
 
 ## Table of contents
 
