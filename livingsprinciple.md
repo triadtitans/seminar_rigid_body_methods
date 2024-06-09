@@ -35,6 +35,7 @@ This reads as follows
 Note the two additonal indepent variables $v\in T \mathcal{Q}$ and $p T^{*} \mathcal{Q}$. Where $T\mathcal{Q}$
 is the tangential space of \mathcal{Q}.
 
-This functional can be understood as a Lagrianan with constraint 
-$\dot{q}-v$ and corresponding lagrangian multipliers $p$. 
+This functional can be understood as a Lagrianan with constraint $\dot{q}-v$ and corresponding lagrangian multipliers $p$. 
+These lagrangian multiplies can later be identified as the conjugate momenata of the system.
+
 
