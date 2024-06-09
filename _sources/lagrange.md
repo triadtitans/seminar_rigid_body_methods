@@ -23,7 +23,6 @@ That is, it needs to be orthonormal.
     \Leftrightarrow \forall x \in \mathbb{R}^3:~ xB^TBx & = x^Tx \\
     \Leftrightarrow B^TB & = I
 \end{align}
-{cite}`mn{March 6, p. 2}`
 
 Therefore, the program only needs to check whether or not $B^TB = I$.
 This can be broken down into 9 scalar equations, one for each compontent of $I$.
@@ -44,7 +43,6 @@ Then there exists a matrix $ M \in \mathbb{R}^{12 \times 12} $ such that:
     T(\dot{u}) = \frac{1}{2} \int_B \rho \| \dot{u} \|^2 dx = \frac{1}{2} \dot{X}^T M \dot{X}
 \end{equation}
 The dot denotes the time derivative.
-{cite}`mn`
 
 The first equation above is essentially a continuous version of $ T = \frac{1}{2} \sum_i m_i \dot{x}_i$ {cite}`theorph`.
 $\dot{x}_i $ denotes a generalised coordinate.

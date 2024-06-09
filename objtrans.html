@@ -64,7 +64,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Lagrangian mechanics" href="lagrange.html" />
-    <link rel="prev" title="Interactive demonstration" href="intro.html" />
+    <link rel="prev" title="Interactive demonstration" href="interactive.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,11 +175,12 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Interactive demonstration
+                    Variational integrators on symplectic manifolds?
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive demonstration</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Object transformation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lagrange.html">Lagrangian mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
@@ -348,7 +349,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformations-of-space">Transformations of Space</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-frame-and-body-frame">Spatial frame and body frame</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storing-transformations">Storing transformations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motion-in-so-3">Motion in <span class="math notranslate nohighlight">\(SO(3)\)</span></a></li>
 </ul>
             </nav>
         </div>
@@ -362,65 +363,153 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="object-transformation">
 <h1>Object transformation<a class="headerlink" href="#object-transformation" title="Link to this heading">#</a></h1>
-<p>We first have to define how we treat the motion of bodies in general.</p>
+<p>We first have to define how we treat the motion of bodies in general.
+<span class="math notranslate nohighlight">\(\newcommand{\RR}[0]{{\mathbb{R}}}\)</span></p>
 <section id="transformations-of-space">
 <h2>Transformations of Space<a class="headerlink" href="#transformations-of-space" title="Link to this heading">#</a></h2>
-<p>The motion of bodies in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> can be described using two functions:</p>
+<p>The motion of a body in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> can be described using two types of functions:</p>
 <ul class="simple">
-<li><p><strong>Translations</strong>,
-<span class="math notranslate nohighlight">\(g_1(r) = (r + r_0)\)</span>
-Defined by three parameters: <span class="math notranslate nohighlight">\(r_0 \in \mathbb{R}^{3}\)</span>, for three dimensions in Space.</p></li>
-<li><p><strong>Rotations</strong>,
-<span class="math notranslate nohighlight">\(g_2(r) = O \cdot r\)</span>
-with <span class="math notranslate nohighlight">\(O\)</span> being a orthogonal Transformation <span class="math notranslate nohighlight">\(O: \mathbb{R}^{3} \mapsto \mathbb{R}^{3}\)</span> having <span class="math notranslate nohighlight">\(det(O) = 1\)</span> (for rotations) and <span class="math notranslate nohighlight">\(O^T = O^{-1}\)</span>. Rotations have three Parameters for the three axes of rotation.</p></li>
+<li><p><strong>Translations</strong>
+<span class="math notranslate nohighlight">\(T_{x_0}(x) = x + x_0\)</span>,
+defined by three parameters: <span class="math notranslate nohighlight">\(x_0 \in \mathbb{R}^{3}\)</span>, for three dimensions in space.</p></li>
+<li><p><strong>Rotations</strong>
+<span class="math notranslate nohighlight">\(R_O(x) = O \cdot x\)</span>
+with <span class="math notranslate nohighlight">\(O\)</span> being an orthogonal transformation <span class="math notranslate nohighlight">\(O: \mathbb{R}^{3} \mapsto \mathbb{R}^{3}\)</span> having <span class="math notranslate nohighlight">\(det(O) = 1\)</span> (for rotations) and <span class="math notranslate nohighlight">\(O^T = O^{-1}\)</span>.
+Rotations have three degrees of freedom for the three axes of rotation.</p></li>
 </ul>
 <div class="proof definition admonition" id="definition-0">
 <p class="admonition-title"><span class="caption-number">Definition 1 </span> (Lie group)</p>
 <section class="definition-content" id="proof-content">
-<p>A <strong>Lie group</strong> is a <strong>group</strong> which is also a <strong>smooth manifold</strong> on which the group operations are smooth functions.</p>
+<p>A <strong>lie group</strong> is a <strong>group</strong> which is also a <strong>smooth manifold</strong> on which the group operations are smooth functions.
+If the group operation of a lie group can be seen as a matrix multiplication, it is called a <strong>matrix lie group</strong>.
+The topological tangent space of a matrix lie group is called <strong>lie algebra</strong>.</p>
 </section>
 </div><div class="proof definition admonition" id="definition-1">
 <p class="admonition-title"><span class="caption-number">Definition 2 </span> (Special orthogonal Group <span class="math notranslate nohighlight">\(SO(3)\)</span>)</p>
 <section class="definition-content" id="proof-content">
-<p>The Special orthogonal group consists of proper Rotations <span class="math notranslate nohighlight">\(g_2(O)\)</span> and forms a <strong>lie group</strong>.</p>
+<p>The special orthogonal group consists of rotations <span class="math notranslate nohighlight">\(R_O\)</span>.</p>
 </section>
 </div><div class="proof definition admonition" id="definition-2">
 <p class="admonition-title"><span class="caption-number">Definition 3 </span> (Special euclidean group <span class="math notranslate nohighlight">\(SE(3)\)</span>)</p>
 <section class="definition-content" id="proof-content">
-<p>The special euclidean group consists of proper Rotations <span class="math notranslate nohighlight">\(g_2(O)\)</span> combined with translations <span class="math notranslate nohighlight">\(g_1(r_0)\)</span> and forms a <strong>lie group</strong>. We write an element <span class="math notranslate nohighlight">\(E \in SE(3)\)</span> as <span class="math notranslate nohighlight">\( E = (a, O)\)</span> where <span class="math notranslate nohighlight">\(a\)</span> defines a translations and <span class="math notranslate nohighlight">\(O\)</span> a rotation.</p>
+<p>The special euclidean group consists of rotations <span class="math notranslate nohighlight">\(R_O\)</span> combined with translations <span class="math notranslate nohighlight">\(T_{x_0}\)</span>.
+We write an element <span class="math notranslate nohighlight">\(E \in SE(3)\)</span> as <span class="math notranslate nohighlight">\( E = (a, O)\)</span> where <span class="math notranslate nohighlight">\(a\)</span> defines a translation and <span class="math notranslate nohighlight">\(O\)</span> a rotation.
+An element of <span class="math notranslate nohighlight">\(SE(3)\)</span> shall be called a <strong>transformation</strong>.
+The group operation on SE(3) is defined as <span class="math notranslate nohighlight">\((O_1, t_1) \cdot (O_2, t_2) = (O_1 O_2, O_1 t_2 + t_1)\)</span></p>
 </section>
-</div></section>
+</div><p><span id="id1">[<a class="reference internal" href="bibliography.html#id5" title="Peter Betsch, editor. Structure-preserving integrators in nonlinear structural dynamics and flexible multibody dynamics. Volume 565 of CISM International Centre for Mechanical Sciences. Courses and Lectures. Springer, [Cham], 2016. ISBN 978-3-319-31877-6; 978-3-319-31879-0. Lecture notes from the course held at the International Centre for Mechanical Sciences (CISM), Udine, October 7–11, 2013.">Bet16</a>, Chapter 2.1]</span></p>
+<p>The implementation in ASC-ODE also uses <span class="math notranslate nohighlight">\(SE(3)\)</span>.
+The group operation can be reproduced using Transformation.applyTranslation and Transformation.applyRotation.
+(See python API.)
+Mostly, however, ASC-ODE actually makes use of the product group <span class="math notranslate nohighlight">\(SO(3) \times \RR^3\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(SO(3)\)</span>, <span class="math notranslate nohighlight">\(SE(3)\)</span> and <span class="math notranslate nohighlight">\(SO(3) \times \RR^3\)</span> are lie groups <span id="id2">[<a class="reference internal" href="bibliography.html#id5" title="Peter Betsch, editor. Structure-preserving integrators in nonlinear structural dynamics and flexible multibody dynamics. Volume 565 of CISM International Centre for Mechanical Sciences. Courses and Lectures. Springer, [Cham], 2016. ISBN 978-3-319-31877-6; 978-3-319-31879-0. Lecture notes from the course held at the International Centre for Mechanical Sciences (CISM), Udine, October 7–11, 2013.">Bet16</a>, p. 96]</span>.
+They are even matrix lie groups <span id="id3">[<a class="reference internal" href="bibliography.html#id5" title="Peter Betsch, editor. Structure-preserving integrators in nonlinear structural dynamics and flexible multibody dynamics. Volume 565 of CISM International Centre for Mechanical Sciences. Courses and Lectures. Springer, [Cham], 2016. ISBN 978-3-319-31877-6; 978-3-319-31879-0. Lecture notes from the course held at the International Centre for Mechanical Sciences (CISM), Udine, October 7–11, 2013.">Bet16</a>, p. 95]</span>.
+As their subgroup <span class="math notranslate nohighlight">\(SO(3)\)</span> (rotations) is not commutative, they are not commutative, either.</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">TODO</p>
+<p>JUPYTERLITE EXAMPLE</p>
+</div>
+</section>
 <section id="spatial-frame-and-body-frame">
 <h2>Spatial frame and body frame<a class="headerlink" href="#spatial-frame-and-body-frame" title="Link to this heading">#</a></h2>
-<p>The motion of a body in general can now be described by a function <span class="math notranslate nohighlight">\(U: \mathbb{R} \rightarrow SE(3)\)</span> and the initial coordinates of the body <span class="math notranslate nohighlight">\(r_0\)</span> as the following:</p>
+<p>The motion of a body can now be described by a function <span class="math notranslate nohighlight">\(U: \mathbb{R} \rightarrow SO(3) \times \RR^3\)</span> as the following:</p>
 <div class="math notranslate nohighlight">
-\[r(t) = a(t) + O(t)r_0\]</div>
+\[ U(t)(x) = a(t) + O(t) \cdot x \]</div>
+<p>with <span class="math notranslate nohighlight">\(x \in \RR^3\)</span>.</p>
 <p>This leaves us with the possibility to look at a body in two different ways:</p>
-<ul class="simple">
+<ul>
 <li><p><strong>The spatial frame (global)</strong>
-A coordinates system which stays fixed in time and in which our initial position <span class="math notranslate nohighlight">\(r_0\)</span> is defined.</p></li>
+A global coordinate system which stays fixed in time.</p></li>
 <li><p><strong>The body frame (local)</strong>
-A coordinate system specific to the body in which the body is stationary.</p></li>
+A coordinate system specific to the body in which the body is stationary.</p>
+<p><span id="id4">[<a class="reference internal" href="bibliography.html#id4" title="Darryl D Holm. Geometric mechanics : 2. Rotating, translating and rolling. World Scientific Publ. Imperial College Press, Singapore [u.a.] London, 2008. ISBN 1848161557.">Hol08</a>, Chapter 2]</span></p>
+</li>
 </ul>
-<p>Let <span class="math notranslate nohighlight">\((B_1, B_2, B_3)\)</span> be the initial coordinates of the body relative to the spatial basis <span class="math notranslate nohighlight">\((E_1, E_2, E_3)\)</span>. Then the body frame relative to the spatial frame at time <span class="math notranslate nohighlight">\(t \in \mathbb{R}^+\)</span> is the the three dimensional affine room
-<span class="math notranslate nohighlight">\(a(t) + span\{ O(t)B_1, O(t)B_2, O(t)B_3 \}\)</span></p>
-<p>We now see that <span class="math notranslate nohighlight">\(r_0\)</span> denotes the local position of a body and <span class="math notranslate nohighlight">\(r(t)\)</span> the global coordinates.</p>
+<p>Let <span class="math notranslate nohighlight">\(a(t), O(t)\)</span> describe the transformation of a body.
+Then <span class="math notranslate nohighlight">\(U\)</span> converts vectors from the body frame to the spatial frame.
+Therefore, the body frame can be seen as the affine space</p>
+<div class="amsmath math notranslate nohighlight" id="equation-df527af0-c080-41ff-a3b4-9c112effa17b">
+<span class="eqno">(1)<a class="headerlink" href="#equation-df527af0-c080-41ff-a3b4-9c112effa17b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+   U(\RR^3) = a(t) + O(t) \cdot \RR^3
+\end{equation}\]</div>
+<p>During the project, <span class="math notranslate nohighlight">\(U\)</span> was used as such a conversion function. This has proven useful for multibody interaction (via springs and beams) and visualisation.</p>
+<!-- Let $(B_1, B_2, B_3)$ be the initial coordinates of the body relative to the spatial basis $(E_1, E_2, E_3)$. Then the body frame relative to the spatial frame at time $t \in \mathbb{R}^+$ is the three dimensional affine space
+$a(t) + span\{ O(t)B_1, O(t)B_2, O(t)B_3 \}$
+
+We now see that $r_0$ denotes the local position of a body and $r(t)$ the global coordinates. -->
+<!-- ## Storing transformations
+
+For storing a transformation $u(x) = p + R \cdot x \in SE(3)$, ASC-ODE stores the components in a vector $X \in \mathbb{R}^{12}$.
+Three different shapes of $X$ have developed:
+
+ - **"The intuitive way"**: $ X = (p_1, p_2, p_3, R_{11}, R_{12}, R_{13}, R_{23}, \ldots) $ That is: First $p$, then $R$ in row-major ordering.
+ - **"Range-component-first"**: $ X = (p_1, R_{11}, R_{12}, R_{13}, R_{23}, p_2, R_{21}, \ldots) $ Components are grouped together per output coordinate. This makes things far more beautiful in the next chapter.
+ - **"Pythreejs-style"**: $ X = (R_{11}, R_{21}, R_{31}, R_{12}, R_{22}, \ldots , p_1, p_2, p_3) $ This is the way that the visualisation framework pythreejs goes.
+A transformation $(a,O) \in SE(3)$ can be stored by storing $a$ and $O$ seperately. However, storing it as the matrix
+\begin{pmatrix}
+
+\end{pmatrix}
+-->
 </section>
-<section id="storing-transformations">
-<h2>Storing transformations<a class="headerlink" href="#storing-transformations" title="Link to this heading">#</a></h2>
-<p>For storing a transformation <span class="math notranslate nohighlight">\(u(x) = p + R \cdot x \in SE(3)\)</span>, ASC-ODE stores the components in a vector <span class="math notranslate nohighlight">\(X \in \mathbb{R}^{12}\)</span>.
-Three different shapes of <span class="math notranslate nohighlight">\(X\)</span> have developed:</p>
-<ul class="simple">
-<li><p><strong>“The intuitive way”</strong>: <span class="math notranslate nohighlight">\( X = (p_1, p_2, p_3, R_{11}, R_{12}, R_{13}, R_{23}, \ldots) \)</span> That is: First <span class="math notranslate nohighlight">\(p\)</span>, then <span class="math notranslate nohighlight">\(R\)</span> in row-major ordering.</p></li>
-<li><p><strong>“Range-component-first”</strong>: <span class="math notranslate nohighlight">\( X = (p_1, R_{11}, R_{12}, R_{13}, R_{23}, p_2, R_{21}, \ldots) \)</span> Components are grouped together per output coordinate. This makes things far more beautiful in the next chapter.</p></li>
-<li><p><strong>“Pythreejs-style”</strong>: <span class="math notranslate nohighlight">\( X = (R_{11}, R_{21}, R_{31}, R_{12}, R_{22}, \ldots , p_1, p_2, p_3) \)</span> This is the way that the visualisation framework pythreejs goes.</p></li>
-</ul>
-<div class="todo admonition">
+<section id="motion-in-so-3">
+<h2>Motion in <span class="math notranslate nohighlight">\(SO(3)\)</span><a class="headerlink" href="#motion-in-so-3" title="Link to this heading">#</a></h2>
+<p>ASC-ODE treats velocity in <span class="math notranslate nohighlight">\(SO(3)\)</span> and <span class="math notranslate nohighlight">\(\RR^3\)</span> seperately.</p>
+<div class="proof definition admonition" id="definition-3">
+<p class="admonition-title"><span class="caption-number">Definition 4 </span> (Skew symmetric matrix)</p>
+<section class="definition-content" id="proof-content">
+<p>A <strong>skew-symmetric</strong> matrix is a matrix <span class="math notranslate nohighlight">\(\widehat{\omega}\)</span> such that</p>
+<div class="amsmath math notranslate nohighlight" id="equation-33260a5f-a9de-44fe-9073-4540e25035f0">
+<span class="eqno">(2)<a class="headerlink" href="#equation-33260a5f-a9de-44fe-9073-4540e25035f0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+   \widehat{\omega}^T = -\widehat{\omega}
+\end{equation}\]</div>
+<p>Here, the hat <span class="math notranslate nohighlight">\(\widehat{\cdot}\)</span> will be commonly used to denote skew-symmetry.</p>
+</section>
+</div><div class="proof lemma admonition" id="lemma-4">
+<p class="admonition-title"><span class="caption-number">Lemma 1 </span></p>
+<section class="lemma-content" id="proof-content">
+<div class="amsmath math notranslate nohighlight" id="equation-4b6df2c5-344a-48c0-9849-479553b31687">
+<span class="eqno">(3)<a class="headerlink" href="#equation-4b6df2c5-344a-48c0-9849-479553b31687" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\forall~ t~ \exists~ \widehat{\omega}~ \text{skew-symmetric}:~~ \frac{dO}{dt}(t) = \widehat{\omega}O(t)
+\end{equation}\]</div>
+<p>or alternatively:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d2b51a03-a2e2-43b4-8ec1-bab9df524bfc">
+<span class="eqno">(4)<a class="headerlink" href="#equation-d2b51a03-a2e2-43b4-8ec1-bab9df524bfc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\forall~ t~ \exists~ \widehat{\omega}~ \text{skew-symmetric}:~~ \frac{dO}{dt}(t) = O(t)\widehat{\omega}
+\end{equation}\]</div>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. For the first equation, we prove <span class="math notranslate nohighlight">\(\exists~\widehat{\omega}:~ \widehat{\omega} = \dot{O}O^{-1}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+0 = \dot{I} = (OO^T)~\dot{} = \dot{O}O^T + O\dot{O}^T = \dot{O}O^T + (\dot{O}O^T)^T = \dot{O}O^{-1} + (\dot{O}O^{-1})^T =
+\widehat{\omega} + \widehat{\omega}^T
+\end{equation}\]</div>
+<p><span id="id5">[See <a class="reference internal" href="bibliography.html#id4" title="Darryl D Holm. Geometric mechanics : 2. Rotating, translating and rolling. World Scientific Publ. Imperial College Press, Singapore [u.a.] London, 2008. ISBN 1848161557.">Hol08</a>, proof of lemma 2.1.5]</span>.</p>
+<p>For the second equation, exchange <span class="math notranslate nohighlight">\((OO^T)~\dot{}~\)</span> for <span class="math notranslate nohighlight">\((O^TO)~\dot{}~\)</span></p>
+</div>
+<div class="proof remark admonition" id="remark-5">
+<p class="admonition-title"><span class="caption-number">Remark 1 </span> (Hat map)</p>
+<section class="remark-content" id="proof-content">
+<p>The hat <span class="math notranslate nohighlight">\(\widehat{\cdot}\)</span> can be seen as a function</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fe5ff76f-5fd9-4798-a3fd-e7996b7ececc">
+<span class="eqno">(5)<a class="headerlink" href="#equation-fe5ff76f-5fd9-4798-a3fd-e7996b7ececc" title="Permalink to this equation">#</a></span>\[\begin{align}
+\widehat{\cdot}: \RR^3 &amp; \rightarrow \{ M \in \RR^{3 \times 3} ~|~ M~ \text{skew symmetric}\} \\
+\omega &amp; \mapsto
+   \begin{pmatrix}
+      0 &amp; -\omega_3 &amp; \omega_2 \\
+      \omega_3 &amp; 0 &amp; -\omega_1 \\
+      -\omega_2 &amp; \omega_1 &amp; 0
+   \end{pmatrix}
+\end{align}\]</div>
+<p>This function is linear and bijective.
+<span id="id6">[<a class="reference internal" href="bibliography.html#id4" title="Darryl D Holm. Geometric mechanics : 2. Rotating, translating and rolling. World Scientific Publ. Imperial College Press, Singapore [u.a.] London, 2008. ISBN 1848161557.">Hol08</a>, Thm. 2.1.12]</span></p>
+</section>
+</div><p>The skew-symmetric matrices are even the (topological) tangent space of SO(3) <span id="id7">[<a class="reference internal" href="bibliography.html#id6" title="Ernst Hairer, Christian Lubich, and Gerhard Wanner. Geometric numerical integration : structure-preserving algorithms for ordinary differential equations. Springer series in computational mathematics. Springer, Berlin [u.a.], 2. ed. edition, 2006. ISBN 3540306633.">HLW06</a>, p. 119]</span>.
+From that and the remark above follows that angular velocity can be written as a vector <span class="math notranslate nohighlight">\(\omega \in \RR^3\)</span>.
+The overall velocity of a body can therefore be written as a vector in <span class="math notranslate nohighlight">\(\RR^6\)</span>.</p>
+<div class="admonition-todo admonition">
 <p class="admonition-title">TODO</p>
-<ul class="simple">
-<li><p><strong>citation needed</strong></p></li>
-<li><p><strong>add code example to last point</strong></p></li>
-</ul>
+<p>p. 26 geomech: angular momentum in 6 variables (in another chapter)</p>
 </div>
 </section>
 </section>
@@ -456,7 +545,7 @@ Three different shapes of <span class="math notranslate nohighlight">\(X\)</span
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="interactive.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -491,7 +580,7 @@ Three different shapes of <span class="math notranslate nohighlight">\(X\)</span
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformations-of-space">Transformations of Space</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-frame-and-body-frame">Spatial frame and body frame</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storing-transformations">Storing transformations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motion-in-so-3">Motion in <span class="math notranslate nohighlight">\(SO(3)\)</span></a></li>
 </ul>
   </nav></div>
 

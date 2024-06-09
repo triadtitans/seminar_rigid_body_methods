@@ -1,5 +1,4 @@
-# Title
-
+# Variational integrators on symplectic manifolds?
 ````{card}
 
 **Linus Knoll, Tobias Leichtfried, Norbert Hammer**
@@ -9,10 +8,13 @@ Supervisor: **Professor Dr. Joachim Schöberl**
 [Seminar mit Seminararbeit aus Scientific Computing](https://tiss.tuwien.ac.at/course/courseDetails.xhtml?dswid=7194&dsrid=332&courseNr=101558&semester=2024S)
 ````
 
+<!---
 This seminar paper deals with the simulation of rigid bodies.
 The main part of the corresponding seminar was the development of rigid body simulation framework ASC-ODE.
 The latter implements lagrangian mechanics and an ODE solver as well as a novel algorithm based on the Discontinuous galerkin method.
+--->
 
+This website documents an approach to rigid body simulation based on variational integrators and the Livens principle.
 
 
 ````{card} [ASC-ODE](https://github.com/triadtitans/ASC-ODE)
