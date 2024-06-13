@@ -132,7 +132,7 @@ This reads as follows
 
 $$
     \mathcal{S}(q,v,p) = \int_{t_0}^{T} L(q,v) + p(\dot{q}-v) \,dt.
-$$
+$$(livens)
 
 Note the two additonal indepent variables $v\in T \mathcal{Q}$ and $p \in T^{*} \mathcal{Q}$. Where $T\mathcal{Q}$,
 $T^*\mathcal{Q}$ are the tangent and cotanget bundle.
@@ -141,5 +141,55 @@ This functional can be understood as a Lagrianan with constraint $\dot{q}-v$ and
 These lagrangian multiplies can later be identified as the conjugate momenta of the system.
 
 
-## Variing $\mathcal{S}$
-In this section we show that by variing \mathcal{S} we can obtain the Euler-Lagrange equations.
+## Varying $\mathcal{S}$
+In this section we show that by varying $\mathcal{S}$ we can obtain the Euler-Lagrange equations.
+
+We vary $\mathcal{S}$ we respect to each individual variable seperatly.
+Let $\delta q \in C^\infty$ be a variation of $q$, so that $\delta q(0)=\delta q(T)=0$. We
+define $q^\varepsilon := q+\varepsilon\cdot\delta q $ it follows 
+$\dot{q^\varepsilon}=\dot{q}+\varepsilon \cdot \delta \dot{q}$. We substitute 
+$q^\varepsilon$ for $q$ in  {eq}`livens` and derivate in $\varepsilon$:
+
+\begin{align}
+
+\frac{d}{d\varepsilon = 0}\mathcal{S}({q^\varepsilon},v,p) 
+        =&\; \frac{d}{d\varepsilon = 0}  \int_{t_0}^{T} L(q^\varepsilon,v)\cdot \delta q + p(\dot{q^\varepsilon}-v) \,dt. \\
+        =&\;    \frac{d}{d\varepsilon = 0} \int_{t_0}^{T} L( q+\varepsilon\cdot\delta q,v)\cdot \delta q + p(\dot{q}+\varepsilon \cdot 
+            \delta \dot{q}-v) \,dt. \\
+        =&\;  \int_{t_0}^{T} \frac{\partial L}{\partial q}(q+0\cdot\delta q,v)\cdot \delta q + p\cdot\delta \dot{q} \,dt. \\
+
+\end{align}
+Now we integrate partially using the $\delta q(0)=\delta q(T)=0$ assumption:
+\begin{align}
+
+ \int_{t_0}^{T} \frac{\partial L}{\partial q}(q,v)\cdot \delta q &+ p\cdot\delta \dot{q} \,dt =\\
+        =&\; \int_{t_0}^{T} \frac{\partial L}{\partial q}(q,v)\cdot \delta q \,dt + \int_{t_0}^{T}p\cdot\delta \dot{q}\, dt\\
+        =&\;  \int_{t_0}^{T} \frac{\partial L}{\partial q}(q,v)\cdot \delta q \,dt + p\cdot\delta q\bigg|^T_0
+            -\int_{t_0}^{T} \dot{p} \cdot \delta q \,dt\\
+        =&\; \int_{t_0}^{T} \left(\frac{\partial L}{\partial q}(q,v)
+            -\dot{p}\right) \cdot \delta q \,dt\\
+\end{align}
+
+As we are searching for a local extremum of $q$ the variation has to be zero, so we have:
+
+$$
+\frac{\partial L}{\partial q} = 
+            \dot{p} \\
+$$
+Trough variation of $v$ and $p$ in a similiar fashion we obtain:
+
+$$
+\frac{\partial L}{\partial v} = 
+            p 
+\quad\quad
+            \dot{q}=v \\
+$$
+At this point we c an identify $p$ as the conjugate momentum. Combining this equation we
+receive the Langrage Euler equation.
+
+$$
+\frac{\partial L}{\partial q}(q,v) = \frac{\partial L}{\partial q}(q,\dot{q}) =
+            \dot{p}(q,\dot{q}) =  \frac{d}{dt}\frac{\partial L}{\partial v}(q,\dot{q})\\
+$$
+Now we have shown that the functional {eq}`livens` describes the same system as the Lagrangian. For
+a more in depth investigation of the properties of th livens principle see {cite}`Kinon2023`.klinon
