@@ -85,6 +85,7 @@ $$
         \end{cases}
 $$
 
+This manifold is of course $SE(3)$.
 Now we can speak about the postion of a body (or a whole system of bodies), the next step is to investigate
 how velocities should be treated. Given a path $q : \mathbb{R} \to \mathcal{Q}$
 the velocity is time derivative of the position $ v = \dot{q} $. This means at every time $t$ 
@@ -141,3 +142,4 @@ These lagrangian multiplies can later be identified as the conjugate momenta of 
 
 
 ## Variing $\mathcal{S}$
+In this section we show that by variing \mathcal{S} we can obtain the Euler-Lagrange equations.
