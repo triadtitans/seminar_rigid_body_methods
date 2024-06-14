@@ -8,6 +8,7 @@ chapters:
 - file: objtrans
 - file: lagrange
 - file: livensprinciple
+- file: applylag
 #- file: markdown
 #- file: notebooks
 #- file: markdown-notebooks

@@ -44,10 +44,28 @@ $SO(3)$, $SE(3)$ and $SO(3) \times \RR^3$ are lie groups {cite}`betschstruc{p. 9
 They are even matrix lie groups {cite}`betschstruc{p. 95}`.
 As their subgroup $SO(3)$ (rotations) is not commutative, they are not commutative, either.
 
+In the following example, ASC-ODE also makes use of the following:
+$R \in SO(3)$ if and only if there exists an orthonormal basis $B$ and $\varphi \in [0, \pi]$ such that
+\begin{equation}
+   A = B^{-1}
+   \begin{pmatrix}
+      1 & 0           & 0 \\
+      0 & cos~ \varphi & -sin~ \varphi \\
+      0 & sin~ \varphi & cos~ \varphi
+   \end{pmatrix}
+   B
+\end{equation}
+
+This matrix has a one-dimensional eigenspace, the axis of rotation.
+$\varphi$ is the rotation angle.
+The lower right block of the matrix lies in $SO(2)$, which is commutative. Therefore, rotations around the same axis are commutative.
+{cite}`havl{12.4.14}`
+
 ```{admonition} TODO
  JUPYTERLITE EXAMPLE
 ```
 
+(inertiaframes)=
 ## Spatial frame and body frame
 The motion of a body can now be described by a function $U: \mathbb{R} \rightarrow SO(3) \times \RR^3$ as the following:
 
@@ -106,24 +124,29 @@ Here, the hat $\widehat{\cdot}$ will be commonly used to denote skew-symmetry.
 
 ```{prf:lemma}
 \begin{equation}
-\forall~ t~ \exists~ \widehat{\omega}~ \text{skew-symmetric}:~~ \frac{dO}{dt}(t) = \widehat{\omega}O(t)
+\forall~ t~ \exists~ \widehat{\omega}_{body}~ \text{skew-symmetric}:~~ \frac{dO}{dt}(t) = O(t)\widehat{\omega}_{body}
 \end{equation}
+
 or alternatively:
+
 \begin{equation}
-\forall~ t~ \exists~ \widehat{\omega}~ \text{skew-symmetric}:~~ \frac{dO}{dt}(t) = O(t)\widehat{\omega}
+\forall~ t~ \exists~ \widehat{\omega}_{space}~ \text{skew-symmetric}:~~ \frac{dO}{dt}(t) = \widehat{\omega}_{space}O(t)
 \end{equation}
+
+$\widehat{\omega}_{body}$ and $\widehat{\omega}_{space}$ are called the body and space angular velocities. {cite}`geomech{2.1.24}`
+ASC-ODE uses $\widehat{\omega}_{body}$.
 ```
 ````{prf:proof}
-For the first equation, we prove $\exists~\widehat{\omega}:~ \widehat{\omega} = \dot{O}O^{-1}$:
+For the first equation, we prove $\exists~\widehat{\omega} ~ skew-symmetric:~ \widehat{\omega} = O^{-1}\dot{O}$:
 ```{math}
 \begin{equation}
-0 = \dot{I} = (OO^T)~\dot{} = \dot{O}O^T + O\dot{O}^T = \dot{O}O^T + (\dot{O}O^T)^T = \dot{O}O^{-1} + (\dot{O}O^{-1})^T =
-\widehat{\omega} + \widehat{\omega}^T
+0 = \dot{I} = (O^TO)~\dot{} = \dot{O}^TO + O^T\dot{O} = (O^T \dot{O})^T + O^T\dot{O} =  (O^{-1} \dot{O})^T + O^{-1}\dot{O} =
+\widehat{\omega}^T + \widehat{\omega}
 \end{equation}
 ```
 {cite}`{See}geomech{proof of lemma 2.1.5}`.
 
-For the second equation, exchange $(OO^T)~\dot{}~$ for $(O^TO)~\dot{}~$
+For the second equation, exchange $(O^TO)~\dot{}~$ for $(OO^T)~\dot{}~$
 ````
 
 ````{prf:remark} Hat map
