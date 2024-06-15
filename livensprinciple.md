@@ -127,7 +127,7 @@ In order to apply Variational Integration to the mechanics of this rigid body sy
 Where $L:T\mathcal{Q}\to \mathbb{R}$ ist the Lagrangian given through $L(q,\dot{q})=T(\dot{q})+U(q)$,
 $T$ and $U$ beeing the kinetic and potential energy respectivley. Note that $T$ depends only on $\dot{q}$ and $U$ only on $q$.
 
-Livens orinciple however describes an alternative action functional to be extremized. {cite}`Kinon2023` 
+Livens principle however describes an alternative action functional to be extremized. {cite}`Kinon2023` 
 This reads as follows
 
 $$
@@ -192,4 +192,4 @@ $$
             \dot{p}(q,\dot{q}) =  \frac{d}{dt}\frac{\partial L}{\partial v}(q,\dot{q})\\
 $$
 Now we have shown that the functional {eq}`livens` describes the same system as the Lagrangian. For
-a more in depth investigation of the properties of th livens principle see {cite}`Kinon2023`.klinon
+a more in depth investigation of the properties of  livens principle see {cite}`Kinon2023`.

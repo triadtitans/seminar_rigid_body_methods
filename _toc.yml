@@ -6,7 +6,7 @@ root: intro
 chapters:
 - file: interactive
 - file: objtrans
-- file: lagrange
+- file: lagrangian
 - file: livensprinciple
 - file: applylag
 #- file: markdown
