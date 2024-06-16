@@ -15,19 +15,19 @@ $$
 $$
 
 ## Conservation of Energy
-The first important Property is the Conservation of Energy in the system.
-We now the Energyfunction of a mechanical sytsem is given as
+The first important property is the conservation of energy in the system.
+We know the energy function of a mechanical sytsem is given as
 
 $$
 E(q,v,p) = p\cdot{v} - L(q,v)
 $$
 
-To asses the change of Energy in the System we take the derivative with respect to time
+To asses the change of energy in the system we take the derivative with respect to time
 
 $$
 \frac{\partial E}{\partial t} = \dot{p}\cdot{v} - \frac{\partial L}{\partial q}\cdot{\dot{q}} + (p - \frac{\partial L}{\partial v})\cdot{\dot{v}}
 $$
 
-When taking into account the Euler-Lagrange Equations we get $\frac{\partial E}{\partial t} = 0$, which means the Energy in the Systems is conserved.
+and when taking into account the Euler-Lagrange equations we get $\frac{\partial E}{\partial t} = 0$, which means that the energy in the system is conserved.
 
 ## Symplecticness of Flow
