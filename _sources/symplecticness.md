@@ -18,11 +18,12 @@ $$
 \varphi'(p,g)^{T}J\varphi'(p,g)
 $$
 
-On our phase space $\mathbb{R}^{2d}$ a symplectic two form is induced by the matirx
+On our phase space $\mathbb{R}^{2d}$ a symplectic two form $\omega$ is induced by the matirx
+
 $
 J = \begin{pmatrix}
-              0 & I\\
-              -I & 0\\
+              0 & I_{d}\\
+              -I_{d} & 0\\
           \end{pmatrix} \in \mathbb{R}^{2dx2d}
 $
 
