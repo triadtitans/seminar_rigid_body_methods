@@ -27,6 +27,7 @@ J = \begin{pmatrix}
           \end{pmatrix} \in \mathbb{R}^{2d \times 2d}
 $$
 
+For $d = 1, \Omega(\xi, \eta) = \xi_p \eta_q - \xi_q\eta_p$
 
 
 
