@@ -4,6 +4,7 @@
 title: Title
 author: Linus Knoll, Tobias Leichtfried, Norbert Hammer
 logo: cubes.png
+copyright: "2024"
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -30,6 +31,7 @@ repository:
 html:
   use_issues_button: false
   use_repository_button: true
+  favicon: favicon.ico
 
 parse:
   myst_enable_extensions:

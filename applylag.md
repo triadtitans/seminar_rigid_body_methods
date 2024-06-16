@@ -1,6 +1,7 @@
 # Applying lagrangian mechanics
 
 ## Describing position and rotation
+$\require{mathtools}$
 The generalised coordinates of a mass-point with rotation consist of the components of the translation vector and rotation matrix.
 A solver like ASC-ODE solves for a matrix that forms the rotation matrix of the body.
 Therefore, it needs to ensure that the resulting matrix $B$ actually lies in $SO(3)$.
@@ -25,58 +26,119 @@ These generalised coordinates and constraints describe the configuration space o
 
 ## Kinetic energy
 
-In order to use the laws of langrangian mechanics, the langrangian function $L = T - V$ of a rigid-body needs to be set up.
-Let $ U(t)(x) = (t) + R(t) \cdot x \in SE(3) $. (See [](inertiaframes).)
+In order to use the laws of langrangian mechanics, the langrangian function $L = T - V$ of a rigid-body may be set up.
+<!-- Let $ U(t)(x) = (t) + R(t) \cdot x \in SE(3) $. (See [](inertiaframes).) -->
+```{admonition} TODO
+adapt to section on Schöberl's equations
+```
 
-Let $X \in \mathbb{R}^{12}$ be a vector that stores the components of $p(t)$ and $R(t)$.
-Let $B$ be the body that is supposed to be moved and $\rho$ its density.
-Let $U$ be the function that moves the body's inertia frame.
-Then there exists a matrix $ M \in \mathbb{R}^{12 \times 12} $ such that:
+### Translation
 
+The translational part of the kinetic energy is given by:
 \begin{equation}
-    T(\dot{U}) = \frac{1}{2} \int_B \rho \| \dot{U} \|^2 dx = \frac{1}{2} \dot{X}^T M \dot{X}
+    T(v_{trans}) = \frac{1}{2} m v_{trans}^2
+\end{equation}
+where $v_{trans}$ is the translational part of the velocity and m the mass of the body.
+{cite}`theorph{p. 131}`
+There also holds $ p_{trans} = m \cdot v_{trans} $, where $p_{trans}$ is the (translational) momentum of the body.
+
+### Rotation
+
+This section covers the calculation of rotational kinetic energy for objects spinning *around their center of mass*,
+without translation.
+
+Let $V \subseteq \mathbb{R}^3$ be a set representing a body and $\rho(x)$ the density of the body at a point $x \in V$.
+Let the angular velocity of the body be given by $v_{rot} \in \mathbb{R}^3$.
+Assume that the body only rotates around it's center of mass (no translation) and that $V$ and $v_{rot}$ are in the body's system of inertia.
+Then the kinetic energy of this motion fulfills
+\begin{equation}
+    T(v_{rot}) = \frac{1}{2} \int_V \rho(x)~ | v_{rot} \times x |^2 dx
+               = \frac{1}{2} \int_V \rho(x)~ | \widehat{v_{rot}} x |^2 dx
 \end{equation}
 
-The first equation above is essentially a continuous version of $ T = \frac{1}{2} \sum_i m_i \dot{x}_i$ {cite}`theorph`.
-$\dot{x}_i $ denotes a generalised coordinate.
-
-As for the second equation, $\left( f, g \right) := \frac{1}{2} \int_B \rho \left( f \cdot g \right) dx $ is a scalar product, which is easy to prove.
-$M$ is a version of the scalar product's gram matrix. A version in the sense that is compatible with a vector representation of functions in $SE(3)$.
-
-````{dropdown} The gram matrix
-Consider $ S := \{ U(x) = p + R \cdot x ~|~ p(t) \in \mathbb{R}^3, R(t) \in \mathbb{R}^{3 \times 3} \} $.
-$S$ is isomorphic to $\mathbb{R}^{12}$ (via "storing" the entries of $p$ and $R$ into $X \in \mathbb{R}^{12}$).
-Let $\varphi: \mathbb{R}^{12} \to S$ be an isomorphism between the two spaces.
-$S$ is thus finite-dimensional and a gram matrix of the scalar product $(\cdot, \cdot)$ on $S$ can be calculated.
-As $S$ and $\mathbb{R}^{12}$ are isomorphic, $M$ can be defined: $M_{ij} := (\varphi(e_i), \varphi(e_j))$.
-$ SE(3) $ is a subset of $S$, which makes the above applicable.
-````
-
-For an arbitrary object, netgen's occ bindings provide enough information to assemble $M$, namely:
-The mass of the object, it's center of mass and it's inertia tensor $\Theta = (\int_B \rho ~ x \cdot x - x_i x_j)_{i,j=1}^3$ {cite}`theorph`.
-The components of the inertia tensor are called moments of inertia.
-Using the right ordering of $X$, one obtains:
-
+If we define $(\cdot, \cdot)$ as
 \begin{equation}
-    M = \begin{pmatrix}
-            m & m \cdot c \\
-            m \cdot c & I \\
-            & & m & m \cdot c \\
-            & & m \cdot c & I \\
-            & & & & m & m \cdot c \\
-            & & & & m \cdot c & I \\
-        \end{pmatrix}
+    (a, b) \coloneqq \frac{1}{2} \int_V \rho(x)~ a \cdot b ~ dx
+\end{equation}
+then one obtains $T(v_{rot}) = (v_{rot}, v_{rot})$.
+
+For an efficient implementation of this scalar product, it's gram matrix is used.
+This matrix is called the **inertia tensor** (or moment of inertia tensor):
+$\newcommand{\II}[0]{{\mathbb{I}}}$
+\begin{equation}
+    \II = \begin{pmatrix}
+              I_{xx} & I_{xy} & I_{xz} \\
+              I_{yx} & I_{yy} & I_{yz} \\
+              I_{zx} & I_{zy} & I_{zz}
+          \end{pmatrix} \in \mathbb{R}^{3 \times 3}
+\end{equation}
+It's components $I_{ij}$ are called the *moments of inertia*.
+The inertia tensor is not time-dependent.
+From the definition of the (symmetric) bilinear form above follows that $\II$ is symmetric.
+
+{cite}`geomech{chapter 2.1}`
+
+This tensor can be obtained from a library like `netgen.occ` .
+
+### Angular momentum
+
+In a body's system of inertia, the angular momentum is the derivative of the kinetic energy with respect to the angular velocity:
+\begin{align}
+    \Pi = \frac{\partial T}{\partial v_{rot}}
+        &= \frac{\partial}{\partial v_{rot}} \frac{1}{2} \int_V \rho(x)~ | v_{rot} \times x |^2 dx \\
+        &= \int_V \rho(x)~ x \times ( v_{rot} \times x ) dx \\
+        &= \left( \int_V \rho(x)~ (|x|I - xx^T) dx \right) \cdot v_{rot} \\
+        &= \II \cdot v_{rot}
+\end{align}
+{cite}`{See}geomech{2.1.30}`
+
+Both the kinetic energy of the rotation and $\| \Pi \|$ are conserved. {cite}`geomech{2.1.33}`
+
+### The mass matrix
+
+From the above, two equations on the momentum of a body can be gathered:
+\begin{equation}
+    p_{trans} = m \cdot v_{trans}
+\end{equation}
+and
+\begin{equation}
+    p_{rot} = \II \cdot v_{rot}.
 \end{equation}
 
-where $I$ can be calculated from the inertia tensor:
-
+These can be combined into one matrix equation
 \begin{equation}
-    I_{ij} = \begin{cases}
-                \Theta_{ij} & i \neq j \\
-                \frac{1}{2} (\Theta_{22} + \Theta_{33} - \Theta_{11}) & i = j = 1 \\
-                \vdots & \vdots
-            \end{cases}
+    \begin{pmatrix}
+        p_{trans} \\
+        p_{rot}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        m \\
+         & m \\
+         &   & m \\
+         &   &   & \Large\II
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+        v_{trans} \\
+        v_{rot}
+    \end{pmatrix}
 \end{equation}
+The above block matrix is called the **mass matrix** of the body.
+
+If the mass matrix is denoted by $\bf M$ and $p \coloneqq \begin{pmatrix} p_{trans} \\ p_{rot} \end{pmatrix} $ as well as
+$v \coloneqq \begin{pmatrix} v_{trans} \\ v_{rot} \end{pmatrix} $, the equation can be written as $\bf p = M \cdot v$.
+The mass matrix is not time-dependent as the inertia tensor and mass do not depent on time.
+
+
+### The center of mass and the origin of the inertia system
+
+In all of the above, only rotations around the center of mass were considered.
+That is, the center of mass was always assumed to lie in the origin of the body's inertia frame.
+This can be easily achieved during the setup of the system.
+
+Steiner's theorem states that ?
+
 
 ```{admonition} TODO
 jupyter(lite) example
@@ -97,7 +159,7 @@ $V$ is then differenciated with respect to all components of all $q_i$.
 As the derivative of the potential is the force, the values of resulting gradient are forces.
 These forces act on the component values of the $q_i$ and thus on the transformations of the objects.
 
-ASC-ODE implements the following types of forces using the global potential:
+ASC-ODE implements simple gravity and spring.
 
 ### "Gravity"
 
@@ -106,14 +168,29 @@ A force that acts homogenously on the body does not influence it's rotation.
 Therefore, the body can be seen as a point mass. The bodies can also be treated individually.
 
 Using $F = m \cdot a$, the force on a point mass can be specified as an acceleration vector $a \in \mathbb{R}^3$ and the body mass $m$.
-For any given translation vector $x$, the antiderivative or potential of that force is $ m \cdot (a \cdot x)$.
+For any given translation vector $x$, the antiderivative or potential of that force is
+\begin{equation}
+    m \cdot (a \cdot x).
+\end{equation}
 
-In ASC-ODE, the mass is automatically calculated and the *negative* acceleration vector can be specified: rbs.gravity = (0, 9.81, 0) for downward force.
+In ASC-ODE, the mass is automatically calculated and the *negative* acceleration vector can be specified:
+`rbs.gravity = (0, 9.81, 0)` for downward force.
 
+```{admonition} TODO
+jupyter(lite) example
+```
 
-## Other constraints TODO: move to seperate chapter
-In addition to $B^TB = I$, other constraints can be formulated to describe beams connecting two bodies (or a body and a point in space).
-Anchorpoints can also be implemented that way (as beams of length zero).
+### Springs
 
+Let $x_1$, $x_2$ be vectors in the systems of inertia of two different bodies. Their conversion to global coordinates is $U(x_1)$ and $U(x_1)$, respectively.
+Consider these points to be connected by a spring with stiffness $k$, length at rest $l$ and elongation $e = \| U(x_1) - U(x_2) \| - l$.
 
-## Putting it together
+Then Hooke's law states that the resulting force is given by $F = k \cdot e$ {cite}`theorph{p. 312}`.
+Then the resulting potential is
+\begin{equation}
+    \frac{k}{2} e^2.
+\end{equation}
+
+```{admonition} TODO
+jupyter(lite) example
+```

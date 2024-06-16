@@ -1,4 +1,4 @@
-# Variational integrators on symplectic manifolds?
+# Symplectic integration on lie groups?
 ````{card}
 
 **Linus Knoll, Tobias Leichtfried, Norbert Hammer**
