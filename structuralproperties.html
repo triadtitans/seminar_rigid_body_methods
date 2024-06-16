@@ -187,7 +187,6 @@
 <li class="toctree-l1"><a class="reference internal" href="lagrangian.html">A Brief Overview of Lagrangian Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="livensprinciple.html">Livens principle</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Structural Properties</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="applylag.html">Applying Lagrangian Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="integrator.html">The Integrator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="constraints.html">Constraints</a></li>
@@ -355,13 +354,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Structural Properties</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-energy">Conservation of Energy</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-energy">Conservation of Energy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symplecticness-of-flow">Symplecticness of Flow</a></li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -388,9 +383,8 @@ document.write(`
 \[
 \frac{\partial L}{\partial v} = p
 \]</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="conservation-of-energy">
-<h1>Conservation of Energy<a class="headerlink" href="#conservation-of-energy" title="Link to this heading">#</a></h1>
+<section id="conservation-of-energy">
+<h2>Conservation of Energy<a class="headerlink" href="#conservation-of-energy" title="Link to this heading">#</a></h2>
 <p>The first important Property is the Conservation of Energy in the system.
 We now the Energyfunction of a mechanical sytsem is given as</p>
 <div class="math notranslate nohighlight">
@@ -403,6 +397,7 @@ E(q,v,p) = p\cdot{v} - L(q,v)
 \frac{\partial E}{\partial t} = \dot{p}\cdot{v} - \frac{\partial L}{\partial q}\cdot{\dot{q}} + (p - \frac{\partial L}{\partial v})\cdot{\dot{v}}
 \]</div>
 <p>When taking into account the Euler-Lagrange Equations we get <span class="math notranslate nohighlight">\(\frac{\partial E}{\partial t} = 0\)</span>, which means the Energy in the Systems is conserved.</p>
+</section>
 <section id="symplecticness-of-flow">
 <h2>Symplecticness of Flow<a class="headerlink" href="#symplecticness-of-flow" title="Link to this heading">#</a></h2>
 </section>
@@ -472,13 +467,9 @@ E(q,v,p) = p\cdot{v} - L(q,v)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Structural Properties</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-energy">Conservation of Energy</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-energy">Conservation of Energy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symplecticness-of-flow">Symplecticness of Flow</a></li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
