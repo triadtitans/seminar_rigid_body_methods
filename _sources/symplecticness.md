@@ -34,6 +34,7 @@ For $d = 1, \Omega(\xi, \eta) = \xi^p \eta^q - \xi^q\eta^p$ as the oriented area
 \eta^q \\
 \eta^p
 \end{pmatrix}$. In higher dimensions we get the sum of the oriented Areas of the Projections onto the coordinate planes $(q_i, p_i)$, by
+
 $$
 \Omega(\xi, \eta) = \sum_{i=1}^{d} 2^{-n}
 \xi^{p}_i \eta^{p}_i - \xi^{q}_i\eta^{p}_i
