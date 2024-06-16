@@ -27,13 +27,18 @@ J = \begin{pmatrix}
           \end{pmatrix} \in \mathbb{R}^{2d \times 2d}
 $$
 
-For $d = 1, \Omega(\xi, \eta) = \xi_p \eta_q - \xi_q\eta_p$ as the oriented area of the parallogram spanned by $\xi = \begin{pmatrix}
-\xi_q \\
-\xi_p
+For $d = 1, \Omega(\xi, \eta) = \xi^p \eta^q - \xi^q\eta^p$ as the oriented area of the parallogram spanned by $\xi = \begin{pmatrix}
+\xi^q \\
+\xi^p
 \end{pmatrix}$ and $\eta = \begin{pmatrix}
-\eta_q \\
-\eta_p
-\end{pmatrix}$
+\eta^q \\
+\eta^p
+\end{pmatrix}$. In higher dimensions we get the sum of the oriented Areas of the Projections onto the coordinate planes $(q_i, p_i)$, by
+$$
+\Omega(\xi, \eta) = \sum_{i=1}^{d} 2^{-n}
+\xi^{p}_i \eta^{p}_i - \xi^{q}_i\eta^{p}_i
+$$
+
 
 
 
