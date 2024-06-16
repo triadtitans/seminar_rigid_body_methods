@@ -4,7 +4,7 @@ At first a general definition of symplecticness of smooth maps is given, followe
 
 ## Symplecticness of smooth mappings
 Symplecticness deals with bilinear, skew-symmetric maps acting on vectorspaces
-A linear map $\L: \mathbb{R}^{2d} \rightarrow \mathbb{R}^{2d}$ is called symplectic with regard to the structure matrix $J$ if 
+A linear map $L: \mathbb{R}^{2d} \rightarrow \mathbb{R}^{2d}$ is called symplectic with regard to the structure matrix $J$ if 
 
 $$
 L^{T}JL = J 
