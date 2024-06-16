@@ -24,7 +24,7 @@ $$
 J = \begin{pmatrix}
               0 & I_{d}\\
               -I_{d} & 0\\
-          \end{pmatrix} \in \mathbb{R}^{2dx2d}
+          \end{pmatrix} \in \mathbb{R}^{2d \times 2d}
 $$
 
 
