@@ -10,10 +10,10 @@ $$
 L^{T}JL = J 
 $$
 
-A differential map $\varphi: \mathbb{R}^{2d} \rightarrow \mathbb{R}^{2d}$ is called symplectic with regard to the structure matrix $J$ if the jacobian Matrix $g'(p,g)$ is symplectic
+A differential map $\varphi: \mathbb{R}^{2d} \rightarrow \mathbb{R}^{2d}$ is called symplectic with regard to the structure matrix $J$ if the jacobian Matrix $\varphi'(p,g)$ is symplectic
 
 $$
-g'(p,g)^{T}Jg'(p,g)
+\varphi'(p,g)^{T}J\varphi'(p,g)
 $$
 
 
