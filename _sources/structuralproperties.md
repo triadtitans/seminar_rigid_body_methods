@@ -28,4 +28,4 @@ $$
 \frac{\partial E}{\partial t} = \dot{p}\cdot{v} - \frac{\partial L}{\partial q}\cdot{\dot{q}} + (p - \frac{\partial L}{\partial v})\cdot{\dot{v}}
 $$
 
-When taking into account the Euler-Lagrange Equations we get $$\frac{\partial R}{\partial t} = 0$$
+When taking into account the Euler-Lagrange Equations we get $\frac{\partial R}{\partial t} = 0$
