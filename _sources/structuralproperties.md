@@ -21,3 +21,9 @@ We now the Energyfunction of a mechanical sytsem is given as
 $$
 E(q,v,p) = p\cdot{v} - L(q,v)
 $$
+
+To asses the change of Energy in the System we take the derivative with respect to time
+
+$$
+\frac{\partial R}{\partial t} = \dot{p}\cdot{v} - frac{\partial L}{\partial q}\cdot{\dot{q}} + (p - frac{\partial L}{\partial v})\cdot{\dot{v}}
+$$
