@@ -1,6 +1,6 @@
-# Applying lagrangian mechanics
+# Applying Lagrangian Mechanics
 
-## Describing position and rotation
+## Describing Position and Rotation
 $\require{mathtools}$
 The generalised coordinates of a mass-point with rotation consist of the components of the translation vector and rotation matrix.
 A solver like ASC-ODE solves for a matrix that forms the rotation matrix of the body.
@@ -24,7 +24,7 @@ However, as $B^TB$ is symmetric {cite}`havl`, the program only needs to check si
 These generalised coordinates and constraints describe the configuration space of one mass-point with added rotation.
 
 
-## Kinetic energy
+## Kinetic Energy
 
 In order to use the laws of langrangian mechanics, the langrangian function $L = T - V$ of a rigid-body may be set up.
 <!-- Let $ U(t)(x) = (t) + R(t) \cdot x \in SE(3) $. (See [](inertiaframes).) -->
@@ -80,7 +80,7 @@ From the definition of the (symmetric) bilinear form above follows that $\II$ is
 
 This tensor can be obtained from a library like `netgen.occ` .
 
-### Angular momentum
+### Angular Momentum
 
 In a body's system of inertia, the angular momentum is the derivative of the kinetic energy with respect to the angular velocity:
 \begin{align}
@@ -94,7 +94,7 @@ In a body's system of inertia, the angular momentum is the derivative of the kin
 
 Both the kinetic energy of the rotation and $\| \Pi \|$ are conserved. {cite}`geomech{2.1.33}`
 
-### The mass matrix
+### The Mass Matrix
 
 From the above, two equations on the momentum of a body can be gathered:
 \begin{equation}
@@ -131,7 +131,7 @@ $v \coloneqq \begin{pmatrix} v_{trans} \\ v_{rot} \end{pmatrix} $, the equation 
 The mass matrix is not time-dependent as the inertia tensor and mass do not depent on time.
 
 
-### The center of mass and the origin of the inertia system
+### The Center of Mass and the Origin of the Inertia System
 
 In all of the above, only rotations around the center of mass were considered.
 That is, the center of mass was always assumed to lie in the origin of the body's inertia frame.
@@ -144,7 +144,7 @@ Steiner's theorem states that ?
 jupyter(lite) example
 ```
 
-## Potential energy
+## Potential Energy
 
 ASC-ODE also implements potential energy.
 To account for interactions between bodies, the potential is calculated **globally**.
