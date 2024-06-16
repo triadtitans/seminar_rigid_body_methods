@@ -13,3 +13,11 @@ $$
 $$
 \frac{\partial L}{\partial v} = q \\
 $$
+
+# Conservation of Energy
+The first important Property is the Conservation of Energy in the system.
+We now the Energyfunction of a mechanical sytsem is given as
+
+$$
+E(q,v,p) = p*v - L(q,v)
+$$
