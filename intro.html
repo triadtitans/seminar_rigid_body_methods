@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Variational integrators on symplectic manifolds? &#8212; Title</title>
+    <title>Symplectic integration on lie groups? &#8212; Title</title>
   
   
   
@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -61,6 +61,7 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Interactive demonstration" href="interactive.html" />
@@ -176,14 +177,18 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Variational integrators on symplectic manifolds?
+                    Symplectic integration on lie groups?
                 </a>
             </li>
         </ul>
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive demonstration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="objtrans.html">Object transformation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lagrange.html">Lagrangian mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lagrangian.html">A Brief Overview of Lagrangian Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="livensprinciple.html">Livens principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applylag.html">Applying lagrangian mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integrator.html">The Integrator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constraints.html">Constraints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
 
@@ -338,7 +343,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Variational integrators on symplectic manifolds?</h1>
+    <h1>Symplectic integration on lie groups?</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -360,8 +365,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="variational-integrators-on-symplectic-manifolds">
-<h1>Variational integrators on symplectic manifolds?<a class="headerlink" href="#variational-integrators-on-symplectic-manifolds" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="symplectic-integration-on-lie-groups">
+<h1>Symplectic integration on lie groups?<a class="headerlink" href="#symplectic-integration-on-lie-groups" title="Link to this heading">#</a></h1>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <p class="sd-card-text"><strong>Linus Knoll, Tobias Leichtfried, Norbert Hammer</strong></p>
@@ -391,7 +396,11 @@ The latter implements lagrangian mechanics and an ODE solver as well as a novel 
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive demonstration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="objtrans.html">Object transformation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lagrange.html">Lagrangian mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lagrangian.html">A Brief Overview of Lagrangian Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="livensprinciple.html">Livens principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applylag.html">Applying lagrangian mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integrator.html">The Integrator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constraints.html">Constraints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
 </div>
@@ -478,7 +487,7 @@ By Linus Knoll, Tobias Leichtfried, Norbert Hammer
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>

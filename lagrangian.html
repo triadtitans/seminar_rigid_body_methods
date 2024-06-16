@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lagrangian mechanics &#8212; Title</title>
+    <title>A Brief Overview of Lagrangian Mechanics &#8212; Title</title>
   
   
   
@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -60,10 +60,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'lagrange';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lagrangian';</script>
+    <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Bibliography" href="bibliography.html" />
+    <link rel="next" title="Livens principle" href="livensprinciple.html" />
     <link rel="prev" title="Object transformation" href="objtrans.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -175,14 +176,18 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Variational integrators on symplectic manifolds?
+                    Symplectic integration on lie groups?
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive demonstration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="objtrans.html">Object transformation</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lagrangian mechanics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">A Brief Overview of Lagrangian Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="livensprinciple.html">Livens principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applylag.html">Applying lagrangian mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integrator.html">The Integrator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constraints.html">Constraints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
 
@@ -253,7 +258,7 @@
       
       
       
-      <li><a href="_sources/lagrange.md" target="_blank"
+      <li><a href="_sources/lagrangian.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -337,7 +342,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lagrangian mechanics</h1>
+    <h1>A Brief Overview of Lagrangian Mechanics</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -347,15 +352,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-introduction-to-langrangian-mechanics">An introduction to langrangian mechanics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-lagrangian-mechanics-to-the-project">Applying lagrangian mechanics to the project</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#describing-position-and-rotation">Describing position and rotation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kinetic-energy">Kinetic energy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-constraints">Other constraints</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Kinetic energy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-together">Putting it together</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-euler-lagrange-equation">The Euler-Lagrange Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-principle-of-stationary-action">The Principle Of Stationary Action</a></li>
 </ul>
             </nav>
         </div>
@@ -367,96 +365,69 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lagrangian-mechanics">
-<h1>Lagrangian mechanics<a class="headerlink" href="#lagrangian-mechanics" title="Link to this heading">#</a></h1>
-<section id="an-introduction-to-langrangian-mechanics">
-<h2>An introduction to langrangian mechanics<a class="headerlink" href="#an-introduction-to-langrangian-mechanics" title="Link to this heading">#</a></h2>
-<p>There is now a way to move a body. However, this motion shall follow the laws of physics.
-The approach of this project was to use langrangian mechanics.</p>
-<p>As opposed to newtonian mechanics, lagrangian mechanics allow for so-called generalized coordinates.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="a-brief-overview-of-lagrangian-mechanics">
+<h1>A Brief Overview of Lagrangian Mechanics<a class="headerlink" href="#a-brief-overview-of-lagrangian-mechanics" title="Link to this heading">#</a></h1>
+<p>In this section we give a brief overview of lagrangian approach to mechanics, as later chapter require some of its
+concepts or terminology. For a more in depth explaination with lively examples see e.g. <span id="id1">[<a class="reference internal" href="bibliography.html#id8" title="David Morin. Introduction to Classical Mechanics: With Problems and Solutions. Cambridge University Press, 2008. ISBN 9780511808951.">Mor08</a>]</span>.
+In order to model mechanical system, like a mass on spring, one possibilty
+would be, to determine all forces action on the system and then use Newton’s Laws of Motion
+to determine the equation(s) of motion. That is the (system of) differential equation(s) which
+the motion of the system fullfills. As motion of the system we understand a function <span class="math notranslate nohighlight">\(q: [t_0,\infty)\to\mathcal{Q}\)</span>
+which maps each point in time to a state <span class="math notranslate nohighlight">\(q\in\mathcal{Q}\)</span> of the system. This process is however
+ardous and difficult to automize. Luckily there is a better way…</p>
+<section id="the-euler-lagrange-equation">
+<h2>The Euler-Lagrange Equation<a class="headerlink" href="#the-euler-lagrange-equation" title="Link to this heading">#</a></h2>
+<p>Given a mechanical system in some minimal coordinates <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span>, this means each <span class="math notranslate nohighlight">\(q\in\mathcal{Q}\)</span>
+correspond to one possible state of the system. For a example a pendulum on a rod could be
+modeled with <span class="math notranslate nohighlight">\(\mathcal{Q} = [0,2\pi)\)</span> or a mass in space with <span class="math notranslate nohighlight">\(\mathcal{Q} = \mathbb{R}^3\)</span>.
+We search for a method to
+generate the equations of motions, which are then integrated numerically, resulting
+in a function <span class="math notranslate nohighlight">\(q: [t_0,\infty)\to\mathcal{Q}\)</span>. This function predicts the behaivour of a system at times
+after <span class="math notranslate nohighlight">\(t_0\)</span>. While it is difficult to analyze all acting forces it is generally easy, given
+a positon <span class="math notranslate nohighlight">\(q\in\mathcal{Q}\)</span> and a velocity <span class="math notranslate nohighlight">\(\dot{q}\in\mathcal{Q}\)</span> at a point <span class="math notranslate nohighlight">\(t\in\mathbb{R}\)</span> in time to calculate
+the kinetic energy <span class="math notranslate nohighlight">\(K: \mathcal{Q} \to \mathbb{R}\)</span> and the potential energy <span class="math notranslate nohighlight">\(U: \mathcal{Q} \to \mathbb{R}\)</span>.</p>
+<p>So we define the Lagrangian as follow:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    L: 
+        \begin{cases} 
+            \mathcal{Q}\times \mathcal{Q} \to \mathbb{R}\\ 
+            (q,v) \mapsto T(v)-U(q)
+        \end{cases}
+\end{split}\]</div>
+<p>The Lagrangian depends on two values the position and the velocity. Having a Lagrangian we can
+formulate the Euler-Lagrange equations: Let <span class="math notranslate nohighlight">\(q: [t_0,\infty)\to\mathcal{Q}\)</span> q describes the motion
+of the system with Lagrangian <span class="math notranslate nohighlight">\(L\)</span> iff following differential equations holds:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{\partial L}{\partial q}(q(t),\dot{q}(t)) =  \frac{d}{dt}\frac{\partial L}{\partial v}(q(t),\dot{q}(t))\\
+\end{split}\]</div>
+<p>Now the usefullnes of the Lagrangian approach becomes clear. Given a mechanical system it is easy to calculate
+the Lagrangian, the resulting Euler-Lagrange Equation can than be numerically solved.</p>
 </section>
-<section id="applying-lagrangian-mechanics-to-the-project">
-<h2>Applying lagrangian mechanics to the project<a class="headerlink" href="#applying-lagrangian-mechanics-to-the-project" title="Link to this heading">#</a></h2>
-<section id="describing-position-and-rotation">
-<h3>Describing position and rotation<a class="headerlink" href="#describing-position-and-rotation" title="Link to this heading">#</a></h3>
-<p>The generalised coordinates of a mass-point with rotation consist of the components of the translation vector and rotation matrix.
-However, not all matrices are allowed; the rotation matrix needs to describe a valid rotation.
-That is, it needs to be orthonormal.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-02cbaa9e-64f5-4058-9fc6-634eaee2cfe2">
-<span class="eqno">(6)<a class="headerlink" href="#equation-02cbaa9e-64f5-4058-9fc6-634eaee2cfe2" title="Permalink to this equation">#</a></span>\[\begin{align}
-    B ~ \text{orthonormal} \\
-    \Leftrightarrow \forall x \in \mathbb{R}^3:~ \| Bx \| &amp; = \| x \| \\
-    \Leftrightarrow \forall x \in \mathbb{R}^3:~ \| Bx \|^2 &amp; = \| x \|^2 \\
-    \Leftrightarrow \forall x \in \mathbb{R}^3:~ xB^TBx &amp; = x^Tx \\
-    \Leftrightarrow B^TB &amp; = I
-\end{align}\]</div>
-<p>Therefore, the program only needs to check whether or not <span class="math notranslate nohighlight">\(B^TB = I\)</span>.
-This can be broken down into 9 scalar equations, one for each compontent of <span class="math notranslate nohighlight">\(I\)</span>.
-However, as <span class="math notranslate nohighlight">\(B^TB\)</span> is symmetric <span id="id1">[<a class="reference internal" href="bibliography.html#id3" title="Hans Havlicek. Lineare Algebra für technische Mathematik. Berliner Studienreihe zur Mathematik. Heldermann Verlag, Lemgo, vierte, korrigierte und erweiterte auflage edition, 2022. ISBN 3885381168.">Hav22</a>]</span>, the program only needs to check six of these equations.</p>
-<p>These generalised coordinates and constraints describe the configuration space of one mass-point with added rotation.</p>
-</section>
-<section id="kinetic-energy">
-<h3>Kinetic energy<a class="headerlink" href="#kinetic-energy" title="Link to this heading">#</a></h3>
-<p>In order to use the laws of langrangian mechanics, the langrangian function <span class="math notranslate nohighlight">\(L = T - V\)</span> of the rigid-body system needs to be set up.
-Let <span class="math notranslate nohighlight">\( u(t)(x) = p(t) + R(t) \cdot x \in SE(3) \)</span>.
-Let <span class="math notranslate nohighlight">\(X \in \mathbb{R}^{12}\)</span> be a vector that stores the components of <span class="math notranslate nohighlight">\(p(t)\)</span> and <span class="math notranslate nohighlight">\(R(t)\)</span>.
-Let <span class="math notranslate nohighlight">\(B\)</span> be the body that is supposed to be moved by <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(\rho\)</span> its density.
-Then there exists a matrix <span class="math notranslate nohighlight">\( M \in \mathbb{R}^{12 \times 12} \)</span> such that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8bed8a4f-c003-4b28-aac8-cd44e31eb508">
-<span class="eqno">(7)<a class="headerlink" href="#equation-8bed8a4f-c003-4b28-aac8-cd44e31eb508" title="Permalink to this equation">#</a></span>\[\begin{equation}
-    T(\dot{u}) = \frac{1}{2} \int_B \rho \| \dot{u} \|^2 dx = \frac{1}{2} \dot{X}^T M \dot{X}
-\end{equation}\]</div>
-<p>The dot denotes the time derivative.</p>
-<p>The first equation above is essentially a continuous version of <span class="math notranslate nohighlight">\( T = \frac{1}{2} \sum_i m_i \dot{x}_i\)</span> <span id="id2">[<a class="reference internal" href="bibliography.html#id2" title="Matthias Bartelmann, Björn Feuerbacher, Timm Krüger, Dieter Lüst, Anton Rebhan, and Andreas Wipf. Theoretische Physik. Springer Berlin Heidelberg, Berlin, Heidelberg, 2015. ISBN 3642546188. URL: 10.1007/978-3-642-54618-1.">BFK+15</a>]</span>.
-<span class="math notranslate nohighlight">\(\dot{x}_i \)</span> denotes a generalised coordinate.</p>
-<p>As for the second equation, <span class="math notranslate nohighlight">\(\left( f, g \right) := \frac{1}{2} \int_B \rho \| f \cdot g \| dx \)</span> is a scalar product, which is easy to prove.
-<span class="math notranslate nohighlight">\(M\)</span> is a version of the scalar product’s gram matrix. A version in the sense that is compatible with a vector representation of functions in <span class="math notranslate nohighlight">\(SE(3)\)</span>.</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">The gram matrix</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Consider <span class="math notranslate nohighlight">\( S := \{ u(x) = p + R \cdot x ~|~ p(t) \in \mathbb{R}^3, R(t) \in \mathbb{R}^{3 \times 3} \} \)</span>.
-<span class="math notranslate nohighlight">\(S\)</span> is isomorphic to <span class="math notranslate nohighlight">\(\mathbb{R}^{12}\)</span> (via “storing” the entries of <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(R\)</span> into <span class="math notranslate nohighlight">\(X \in \mathbb{R}^{12}\)</span>).
-Let <span class="math notranslate nohighlight">\(\varphi: \mathbb{R}^{12} \to S\)</span> be an isomorphism between the two spaces.
-<span class="math notranslate nohighlight">\(S\)</span> is thus finite-dimensional and a gram matrix of the scalar product <span class="math notranslate nohighlight">\((\cdot, \cdot)\)</span> on <span class="math notranslate nohighlight">\(S\)</span> can be calculated.
-As <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(\mathbb{R}^{12}\)</span> are isomorphic, <span class="math notranslate nohighlight">\(M\)</span> can be defined: <span class="math notranslate nohighlight">\(M_{ij} := (\varphi(e_i), \varphi(e_j))\)</span>.
-<span class="math notranslate nohighlight">\( SE(3) \)</span> is a subset of <span class="math notranslate nohighlight">\(S\)</span>, which makes the above applicable.</p>
-</div>
-</details><p>For an arbitrary object, netgen’s occ bindings provide enough information to assemble <span class="math notranslate nohighlight">\(M\)</span>, namely:
-The mass of the object, it’s center of mass and it’s inertia tensor <span class="math notranslate nohighlight">\(\Theta = (\int_B \rho ~ x \cdot x - x_i x_j)_{i,j=1}^3\)</span> <span id="id3">[<a class="reference internal" href="bibliography.html#id2" title="Matthias Bartelmann, Björn Feuerbacher, Timm Krüger, Dieter Lüst, Anton Rebhan, and Andreas Wipf. Theoretische Physik. Springer Berlin Heidelberg, Berlin, Heidelberg, 2015. ISBN 3642546188. URL: 10.1007/978-3-642-54618-1.">BFK+15</a>]</span>.
-The components of the inertia tensor are called moments of inertia.
-Using the right ordering of <span class="math notranslate nohighlight">\(X\)</span>, one obtains:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-399efa73-de05-4ac2-b63a-ff9ad837d6e7">
-<span class="eqno">(8)<a class="headerlink" href="#equation-399efa73-de05-4ac2-b63a-ff9ad837d6e7" title="Permalink to this equation">#</a></span>\[\begin{equation}
-    M = \begin{pmatrix}
-            m &amp; m \cdot c \\
-            m \cdot c &amp; I \\
-            &amp; &amp; m &amp; m \cdot c \\
-            &amp; &amp; m \cdot c &amp; I \\
-            &amp; &amp; &amp; &amp; m &amp; m \cdot c \\
-            &amp; &amp; &amp; &amp; m \cdot c &amp; I \\
-        \end{pmatrix}
-\end{equation}\]</div>
-<p>where <span class="math notranslate nohighlight">\(I\)</span> can be calculated from the inertia tensor:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c77ee56c-fb3f-4e0d-8540-0fdca1c7e282">
-<span class="eqno">(9)<a class="headerlink" href="#equation-c77ee56c-fb3f-4e0d-8540-0fdca1c7e282" title="Permalink to this equation">#</a></span>\[\begin{equation}
-    I_{ij} = \begin{cases}
-                \Theta_{ij} &amp; i \neq j \\
-                \frac{1}{2} (\Theta_{22} + \Theta_{33} - \Theta_{11}) &amp; i = j = 1 \\
-                \vdots &amp; \vdots
-            \end{cases}
-\end{equation}\]</div>
-</section>
-<section id="other-constraints">
-<h3>Other constraints<a class="headerlink" href="#other-constraints" title="Link to this heading">#</a></h3>
-<p>In addition to <span class="math notranslate nohighlight">\(B^TB = I\)</span>, other constraints can be formulated to describe beams connecting two bodies (or a body and a point in space).
-Anchorpoints can also be implemented that way (as beams of length zero).</p>
-</section>
-<section id="id4">
-<h3>Kinetic energy<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-</section>
-<section id="putting-it-together">
-<h3>Putting it together<a class="headerlink" href="#putting-it-together" title="Link to this heading">#</a></h3>
-</section>
+<section id="the-principle-of-stationary-action">
+<h2>The Principle Of Stationary Action<a class="headerlink" href="#the-principle-of-stationary-action" title="Link to this heading">#</a></h2>
+<p>Although the Euler-Lagrange equations are sufficent to calculate the motion of the system, they seem
+a bit arbitrary. Therefore we want add a little bit of background and expand on a larger principle,
+as a bonus we gain a new approach for integration the Euler-Lagrange Equation numerically.</p>
+<p>Consider following functional:</p>
+<div class="math notranslate nohighlight" id="equation-action">
+<span class="eqno">(8)<a class="headerlink" href="#equation-action" title="Link to this equation">#</a></span>\[    \mathcal{S}(q) = \int_{t_0}^{T} L(q(t),\dot{q}(t)) \,dt.\]</div>
+<p>This is called the action of the mechanical system we are modeling. The Principle of Stationary Action
+states, that the motion <span class="math notranslate nohighlight">\(q: [t_0,\infty)\to\mathcal{Q}\)</span> of the system is a stationary point of this
+functional. This means that for small variations <span class="math notranslate nohighlight">\(q+\varepsilon\cdot\delta q\)</span> where
+<span class="math notranslate nohighlight">\(\delta q : [t_0,\infty)\to\mathcal{Q}\)</span> with <span class="math notranslate nohighlight">\(\delta q(t_0)=\delta q(T)=0\)</span>, the
+action fullfills <span class="math notranslate nohighlight">\(\mathcal{S}(q+\delta q) &gt;= \mathcal{S}(q)\)</span>. (Or the reverse equation).</p>
+<p>With mathematical tools from the calculus of variations it can be shown, that such stationary points
+are exactly given by the Euler-Lagrange equation. A similar calculation is shown in the chapter
+on Livens Principle. On a side note, while we focus in this project
+only on simple mechanical systems this Stationary Action Principle plays a much larger and wider
+role in physics.</p>
+<p>Now instead of deriving the (differntial) equations of motion from the stationary action principle
+and solving them numerically, one could try to replace the integral in <a class="reference internal" href="#equation-action">(8)</a> trough a
+finite sum. When performing similar calculations as in derivation of the Euler-Lagrange equation
+but in a discrete manner, one obtains a discrete analogon to the Euler-Lagrange. This approach
+is followed by variational integrators. <span id="id2">[<a class="reference internal" href="bibliography.html#id7" title="Ernst Hairer, Christian Lubich, and Gerhard Wanner. Geometric numerical integration : structure-preserving algorithms for ordinary differential equations. Springer series in computational mathematics. Springer, Berlin [u.a.], 2. ed. edition, 2006. ISBN 3540306633.">HLW06</a>]</span></p>
 </section>
 </section>
 
@@ -500,11 +471,11 @@ Anchorpoints can also be implemented that way (as beams of length zero).</p>
       </div>
     </a>
     <a class="right-next"
-       href="bibliography.html"
+       href="livensprinciple.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Bibliography</p>
+        <p class="prev-next-title">Livens principle</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -524,15 +495,8 @@ Anchorpoints can also be implemented that way (as beams of length zero).</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-introduction-to-langrangian-mechanics">An introduction to langrangian mechanics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-lagrangian-mechanics-to-the-project">Applying lagrangian mechanics to the project</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#describing-position-and-rotation">Describing position and rotation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kinetic-energy">Kinetic energy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-constraints">Other constraints</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Kinetic energy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-together">Putting it together</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-euler-lagrange-equation">The Euler-Lagrange Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-principle-of-stationary-action">The Principle Of Stationary Action</a></li>
 </ul>
   </nav></div>
 
@@ -557,7 +521,7 @@ By Linus Knoll, Tobias Leichtfried, Norbert Hammer
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>

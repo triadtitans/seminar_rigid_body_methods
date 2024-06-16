@@ -35,19 +35,45 @@ The group operation on SE(3) is defined as $(O_1, t_1) \cdot (O_2, t_2) = (O_1 O
 {cite}`betschstruc{Chapter 2.1}`
 
 The implementation in ASC-ODE also uses $SE(3)$.
-The group operation can be reproduced using Transformation.applyTranslation and Transformation.applyRotation.
-(See python API.)
-Mostly, however, ASC-ODE actually makes use of the product group $SO(3) \times \RR^3$.
+The group operation can be reproduced using `Transformation.applyTranslation` and `Transformation.applyRotation`.
+ASC-ODE also makes use of the product group $SO(3) \times \RR^3$.
+The group operations of these groups are implemented as + for $SO(3) \times \RR^3$ and * for $SE(3)$. (See python API.)
 
 
 $SO(3)$, $SE(3)$ and $SO(3) \times \RR^3$ are lie groups {cite}`betschstruc{p. 96}`.
 They are even matrix lie groups {cite}`betschstruc{p. 95}`.
 As their subgroup $SO(3)$ (rotations) is not commutative, they are not commutative, either.
 
+In the following example, ASC-ODE also makes use of the following:
+$R \in SO(3)$ if and only if there exists an orthonormal basis $B$ and $\varphi \in [0, \pi]$ such that
+\begin{equation}
+   A = B^{-1}
+   \begin{pmatrix}
+      1 & 0           & 0 \\
+      0 & cos~ \varphi & -sin~ \varphi \\
+      0 & sin~ \varphi & cos~ \varphi
+   \end{pmatrix}
+   B
+\end{equation}
+
+This matrix has a one-dimensional eigenspace, the axis of rotation.
+$\varphi$ is the rotation angle.
+The lower right block of the matrix lies in $SO(2)$, which is commutative. Therefore, rotations around the same axis are commutative.
+
+For any given matrix $R \in SO(3)$, the axis of rotation can be calculated as it's eigenvector with eigenvalue 1.
+(Although there might be more than one eigenvector, for example if $R = I$.)
+The angle can be calculated due to the fact that the trace of a matrix is similarity-invariant:
+\begin{equation}
+   \varphi = arccos \left( \frac{tr(R) - 1}{2} \right)
+\end{equation}
+
+{cite}`havl{12.4.14}`
+
 ```{admonition} TODO
  JUPYTERLITE EXAMPLE
 ```
 
+(inertiaframes)=
 ## Spatial frame and body frame
 The motion of a body can now be described by a function $U: \mathbb{R} \rightarrow SO(3) \times \RR^3$ as the following:
 
@@ -106,24 +132,29 @@ Here, the hat $\widehat{\cdot}$ will be commonly used to denote skew-symmetry.
 
 ```{prf:lemma}
 \begin{equation}
-\forall~ t~ \exists~ \widehat{\omega}~ \text{skew-symmetric}:~~ \frac{dO}{dt}(t) = \widehat{\omega}O(t)
+\forall~ t~ \exists~ \widehat{\omega}_{body}~ \text{skew-symmetric}:~~ \frac{dO}{dt}(t) = O(t)\widehat{\omega}_{body}
 \end{equation}
+
 or alternatively:
+
 \begin{equation}
-\forall~ t~ \exists~ \widehat{\omega}~ \text{skew-symmetric}:~~ \frac{dO}{dt}(t) = O(t)\widehat{\omega}
+\forall~ t~ \exists~ \widehat{\omega}_{space}~ \text{skew-symmetric}:~~ \frac{dO}{dt}(t) = \widehat{\omega}_{space}O(t)
 \end{equation}
+
+$\widehat{\omega}_{body}$ and $\widehat{\omega}_{space}$ are called the body and space angular velocities. {cite}`geomech{2.1.24}`
+ASC-ODE uses $\widehat{\omega}_{body}$.
 ```
 ````{prf:proof}
-For the first equation, we prove $\exists~\widehat{\omega}:~ \widehat{\omega} = \dot{O}O^{-1}$:
+For the first equation, we prove $\exists~\widehat{\omega} ~ skew-symmetric:~ \widehat{\omega} = O^{-1}\dot{O}$:
 ```{math}
 \begin{equation}
-0 = \dot{I} = (OO^T)~\dot{} = \dot{O}O^T + O\dot{O}^T = \dot{O}O^T + (\dot{O}O^T)^T = \dot{O}O^{-1} + (\dot{O}O^{-1})^T =
-\widehat{\omega} + \widehat{\omega}^T
+0 = \dot{I} = (O^TO)~\dot{} = \dot{O}^TO + O^T\dot{O} = (O^T \dot{O})^T + O^T\dot{O} =  (O^{-1} \dot{O})^T + O^{-1}\dot{O} =
+\widehat{\omega}^T + \widehat{\omega}
 \end{equation}
 ```
 {cite}`{See}geomech{proof of lemma 2.1.5}`.
 
-For the second equation, exchange $(OO^T)~\dot{}~$ for $(O^TO)~\dot{}~$
+For the second equation, exchange $(O^TO)~\dot{}~$ for $(OO^T)~\dot{}~$
 ````
 
 ````{prf:remark} Hat map
@@ -139,14 +170,9 @@ The hat $\widehat{\cdot}$ can be seen as a function
 \end{align}
 
 This function is linear and bijective.
-{cite}`geomech{Thm. 2.1.12}`
+Note that for $a, b \in \RR^3$, the following holds true: $a \times b = \widehat{a}b$.
+{cite}`geomech{Thm. 2.1.12; 2.1.16}`
 ````
 The skew-symmetric matrices are even the (topological) tangent space of SO(3) {cite}`hairer{p. 119}`.
 From that and the remark above follows that angular velocity can be written as a vector $\omega \in \RR^3$.
 The overall velocity of a body can therefore be written as a vector in $\RR^6$.
-
-
-```{admonition} TODO
-p. 26 geomech: angular momentum in 6 variables (in another chapter)
-```
-

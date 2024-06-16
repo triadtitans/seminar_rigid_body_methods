@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -59,9 +59,10 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'bibliography';</script>
+    <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Lagrangian mechanics" href="lagrange.html" />
+    <link rel="prev" title="Constraints" href="constraints.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -172,14 +173,18 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Variational integrators on symplectic manifolds?
+                    Symplectic integration on lie groups?
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive demonstration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="objtrans.html">Object transformation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lagrange.html">Lagrangian mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lagrangian.html">A Brief Overview of Lagrangian Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="livensprinciple.html">Livens principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applylag.html">Applying lagrangian mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integrator.html">The Integrator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constraints.html">Constraints</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Bibliography</a></li>
 </ul>
 
@@ -358,7 +363,7 @@ document.write(`
 <span class="label"><span class="fn-bracket">[</span>Bet16<span class="fn-bracket">]</span></span>
 <p>Peter Betsch, editor. <em>Structure-preserving integrators in nonlinear structural dynamics and flexible multibody dynamics</em>. Volume 565 of CISM International Centre for Mechanical Sciences. Courses and Lectures. Springer, [Cham], 2016. ISBN 978-3-319-31877-6; 978-3-319-31879-0. Lecture notes from the course held at the International Centre for Mechanical Sciences (CISM), Udine, October 7–11, 2013.</p>
 </div>
-<div class="citation" id="id6" role="doc-biblioentry">
+<div class="citation" id="id7" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>HLW06<span class="fn-bracket">]</span></span>
 <p>Ernst Hairer, Christian Lubich, and Gerhard Wanner. <em>Geometric numerical integration : structure-preserving algorithms for ordinary differential equations</em>. Springer series in computational mathematics. Springer, Berlin [u.a.], 2. ed. edition, 2006. ISBN 3540306633.</p>
 </div>
@@ -369,6 +374,14 @@ document.write(`
 <div class="citation" id="id4" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>Hol08<span class="fn-bracket">]</span></span>
 <p>Darryl D Holm. <em>Geometric mechanics : 2. Rotating, translating and rolling</em>. World Scientific Publ. Imperial College Press, Singapore [u.a.] London, 2008. ISBN 1848161557.</p>
+</div>
+<div class="citation" id="id6" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>KBS23<span class="fn-bracket">]</span></span>
+<p>Philipp L. Kinon, Peter Betsch, and Simeon Schneider. Structure-preserving integrators based on a new variational principle for constrained mechanical systems. <em>Nonlinear Dynamics</em>, 111(15):14231–14261, June 2023. URL: <a class="reference external" href="http://dx.doi.org/10.1007/s11071-023-08522-7">http://dx.doi.org/10.1007/s11071-023-08522-7</a>, <a class="reference external" href="https://doi.org/10.1007/s11071-023-08522-7">doi:10.1007/s11071-023-08522-7</a>.</p>
+</div>
+<div class="citation" id="id8" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Mor08<span class="fn-bracket">]</span></span>
+<p>David Morin. <em>Introduction to Classical Mechanics: With Problems and Solutions</em>. Cambridge University Press, 2008. ISBN 9780511808951.</p>
 </div>
 </div>
 </div>
@@ -405,12 +418,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="lagrange.html"
+       href="constraints.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Lagrangian mechanics</p>
+        <p class="prev-next-title">Constraints</p>
       </div>
     </a>
 </div>
@@ -441,7 +454,7 @@ By Linus Knoll, Tobias Leichtfried, Norbert Hammer
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>
