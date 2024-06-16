@@ -355,7 +355,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symplecticness-of-smooth-mappings">Symplecticness of smooth mappings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symplecticnes-of-smooth-mappings">Symplecticnes of smooth mappings</a></li>
 </ul>
             </nav>
         </div>
@@ -370,11 +370,12 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="symplecticness">
 <h1>Symplecticness<a class="headerlink" href="#symplecticness" title="Link to this heading">#</a></h1>
 <p>In this chapter we focus on the important property of symplecticness of maps.
-At first a general definition of symplecticness of smooth maps is given, followed by a geometric interpretation and a description of its importance to mechanical systems.</p>
-<section id="symplecticness-of-smooth-mappings">
-<h2>Symplecticness of smooth mappings<a class="headerlink" href="#symplecticness-of-smooth-mappings" title="Link to this heading">#</a></h2>
-<p>Symplecticness deals with bilinear, skew-symmetric maps acting on vectorspaces
-A linear map <span class="math notranslate nohighlight">\(L: \mathbb{R}^{2d} \rightarrow \mathbb{R}^{2d}\)</span> is called symplectic with regard to the structure matrix <span class="math notranslate nohighlight">\(J\)</span> if</p>
+At first a general definition of symplecticness of smooth maps is given, its importance to mechanical systems and a geometric interpretation and.</p>
+<section id="symplecticnes-of-smooth-mappings">
+<h2>Symplecticnes of smooth mappings<a class="headerlink" href="#symplecticnes-of-smooth-mappings" title="Link to this heading">#</a></h2>
+<p>Symplecticness is defined by so called two-forms on \mathbb{R}^{2d}, which is a skew-smmetric, bilinear form.
+Such a form can be described by a Matrix <span class="math notranslate nohighlight">\(J\)</span> and gives the following definition.</p>
+<p>A linear map <span class="math notranslate nohighlight">\(L: \mathbb{R}^{2d} \rightarrow \mathbb{R}^{2d}\)</span> is called symplectic with regard to the structure matrix <span class="math notranslate nohighlight">\(J\)</span> if</p>
 <div class="math notranslate nohighlight">
 \[
 L^{T}JL = J 
@@ -384,6 +385,13 @@ L^{T}JL = J
 \[
 \varphi'(p,g)^{T}J\varphi'(p,g)
 \]</div>
+<p>On our phase space <span class="math notranslate nohighlight">\(\mathbb{R}^{2d}\)</span> a symplectic two form is induced by the matirx
+<span class="math notranslate nohighlight">\(
+J = \begin{pmatrix}
+              0 &amp; I\\
+              -I &amp; 0\\
+          \end{pmatrix} \in \mathbb{R}^{2dx2d}
+\)</span></p>
 </section>
 </section>
 
@@ -451,7 +459,7 @@ L^{T}JL = J
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symplecticness-of-smooth-mappings">Symplecticness of smooth mappings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symplecticnes-of-smooth-mappings">Symplecticnes of smooth mappings</a></li>
 </ul>
   </nav></div>
 
