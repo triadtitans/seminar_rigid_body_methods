@@ -1,4 +1,4 @@
-# Object transformation
+# Object Transformation
 We first have to define how we treat the motion of bodies in general.
 $\newcommand{\RR}[0]{{\mathbb{R}}}$
 
@@ -74,7 +74,7 @@ The angle can be calculated due to the fact that the trace of a matrix is simila
 ```
 
 (inertiaframes)=
-## Spatial frame and body frame
+## Spatial Frame and Body Frame
 The motion of a body can now be described by a function $U: \mathbb{R} \rightarrow SO(3) \times \RR^3$ as the following:
 
 $$ U(t)(x) = a(t) + O(t) \cdot x $$

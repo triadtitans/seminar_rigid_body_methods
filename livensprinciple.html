@@ -14,22 +14,22 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -38,16 +38,16 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -64,7 +64,7 @@
     <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Applying lagrangian mechanics" href="applylag.html" />
+    <link rel="next" title="Applying Lagrangian Mechanics" href="applylag.html" />
     <link rel="prev" title="A Brief Overview of Lagrangian Mechanics" href="lagrangian.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -75,27 +75,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -117,8 +113,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -182,10 +183,10 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive demonstration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="objtrans.html">Object transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objtrans.html">Object Transformation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lagrangian.html">A Brief Overview of Lagrangian Mechanics</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Livens principle</a></li>
-<li class="toctree-l1"><a class="reference internal" href="applylag.html">Applying lagrangian mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applylag.html">Applying Lagrangian Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="integrator.html">The Integrator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="constraints.html">Constraints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
@@ -204,7 +205,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -213,14 +214,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -329,9 +330,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -369,12 +370,12 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="livens-principle">
 <h1>Livens principle<a class="headerlink" href="#livens-principle" title="Link to this heading">#</a></h1>
-<p>This section will introduce livens principle, show that it is equivalent to the Lagrangian approach of mechanics
-and explain how it is used in our integrator. First however we need some background on conjugate momenta and the configuration manifold.</p>
+<p>This section will introduce the Livens principle, show that it is equivalent to the Lagrangian approach of mechanics
+and explain how it is used in our integrator. First, however, we need some background on conjugate momenta and the configuration manifold.</p>
 <section id="conjugate-moment-p">
 <h2>Conjugate Moment <span class="math notranslate nohighlight">\(p\)</span><a class="headerlink" href="#conjugate-moment-p" title="Link to this heading">#</a></h2>
 <p>If we consider a mechanical system described in some minimal coordinates <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span>, we
-know the lagrangian takes the form</p>
+know that the Lagrangian takes the form</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
     L: 
@@ -383,8 +384,8 @@ know the lagrangian takes the form</p>
             (q,v) \mapsto T(v)-U(q)
         \end{cases}
 \end{split}\]</div>
-<p>And it has already been established that the path <span class="math notranslate nohighlight">\(q: \mathbb{R} \to \mathcal{Q}\)</span> taken by the system
-follows the euler lagrange equation. In order to move from lagrangian to hamiltonian mechanics
+<p>In addition, it has already been established that the path <span class="math notranslate nohighlight">\(q: \mathbb{R} \to \mathcal{Q}\)</span> taken by the system
+follows the euler lagrange equation. In order to move from Lagrangian to hamiltonian mechanics
 one defines the conjugate momenta as follows:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -400,22 +401,22 @@ one defines the conjugate momenta as follows:</p>
             (p,q) \mapsto p^T\dot{q} - L(q,\dot{q})
         \end{cases}
 \end{split}\]</div>
-<p>This definition obviously requires that the map <span class="math notranslate nohighlight">\(v \mapsto p(q,v)\)</span> is invertibly for every <span class="math notranslate nohighlight">\(q\in\mathcal{Q}\)</span>.
-Such an inverse assigns a velocity <span class="math notranslate nohighlight">\(v\)</span> to a pair of position and conjugate moment and is called Legendre Transform.
-<span id="id1">[<a class="reference internal" href="bibliography.html#id7" title="Ernst Hairer, Christian Lubich, and Gerhard Wanner. Geometric numerical integration : structure-preserving algorithms for ordinary differential equations. Springer series in computational mathematics. Springer, Berlin [u.a.], 2. ed. edition, 2006. ISBN 3540306633.">HLW06</a>, p.p. 181, 182]</span>. Having conjugate momenta to our disposal we can formulate hamiltions
-canoncial equation of motion:</p>
+<p>This definition obviously requires that the map <span class="math notranslate nohighlight">\(v \mapsto p(q,v)\)</span> is invertible for every <span class="math notranslate nohighlight">\(q\in\mathcal{Q}\)</span>.
+Such an inverse assigns a velocity <span class="math notranslate nohighlight">\(v\)</span> to a pair of position and conjugate moment and is called Legendre transform.
+<span id="id1">[<a class="reference internal" href="bibliography.html#id7" title="Ernst Hairer, Christian Lubich, and Gerhard Wanner. Geometric numerical integration : structure-preserving algorithms for ordinary differential equations. Springer series in computational mathematics. Springer, Berlin [u.a.], 2. ed. edition, 2006. ISBN 3540306633.">HLW06</a>, p.p. 181, 182]</span>. Having conjugate momenta to our disposal we can formulate Hamilton’s
+canonical equation of motion:</p>
 <div class="math notranslate nohighlight">
 \[
     \dot{p} = -\frac{\partial H}{\partial q}(p,q) \quad
     \dot{q} = \frac{\partial H}{\partial p}(p,q)
 \]</div>
-<p>It can be shown (and is in <span id="id2">[<a class="reference internal" href="bibliography.html#id7" title="Ernst Hairer, Christian Lubich, and Gerhard Wanner. Geometric numerical integration : structure-preserving algorithms for ordinary differential equations. Springer series in computational mathematics. Springer, Berlin [u.a.], 2. ed. edition, 2006. ISBN 3540306633.">HLW06</a>]</span>) that these equations are equivalent to the now already
-familiar euler lagrangian equation.</p>
-<p>As we discuss the livens principle these conjugate momenta will resurface. But before that we have
+<p>It can be shown <span id="id2">[and is in <a class="reference internal" href="bibliography.html#id7" title="Ernst Hairer, Christian Lubich, and Gerhard Wanner. Geometric numerical integration : structure-preserving algorithms for ordinary differential equations. Springer series in computational mathematics. Springer, Berlin [u.a.], 2. ed. edition, 2006. ISBN 3540306633.">HLW06</a>]</span> that these equations are equivalent to the now already
+familiar Euler-lagrange equation.</p>
+<p>As we discuss the Livens principle these conjugate momenta will resurface. But before that we have
 to adjust our theory a little bit in order to accommodate constrained systems. Untial now
 the configuration space <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span> was always choosen minimally, this means that
-postion, velocity and conjugate moment all live in the same space <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span>. If the
-coordinates however are not choosen minimally this generally has not to be the case.</p>
+postion, velocity and conjugate moment all live in the same space <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span>. However, if the
+coordinates are not minimal, this is generally not the case.</p>
 </section>
 <section id="configuration-manifold-mathcal-q">
 <h2>Configuration Manifold <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span><a class="headerlink" href="#configuration-manifold-mathcal-q" title="Link to this heading">#</a></h2>
@@ -426,20 +427,20 @@ minimal  configuration space</p>
 \[
     \mathcal{Q_{\text{min}}} = \mathbb{R}^{6N}.
 \]</div>
-<p>But in this minimal coordinates, the rotation of a body is rather hard to work with. It would be preferable if
-the rotation was represented as matrix <span class="math notranslate nohighlight">\(B\in\mathbb{R}^{3\times3}\)</span>. As in</p>
+<p>But in these minimal coordinates, the rotation of a body is rather hard to work with. It would be preferable if
+the rotation was represented as a matrix <span class="math notranslate nohighlight">\(B\in\mathbb{R}^{3\times3}\)</span>. As in</p>
 <div class="math notranslate nohighlight">
 \[
     \tilde{\mathcal{Q}} = (\mathbb{R}^{3}\times\mathbb{R}^{3\times3})^N.
 \]</div>
-<p>The position of body at a Time <span class="math notranslate nohighlight">\(t\)</span> should be given as a translation vector <span class="math notranslate nohighlight">\(a\in\mathbb{R}^3\)</span> and
+<p>The position of a body at a time <span class="math notranslate nohighlight">\(t\)</span> should be given as a translation vector <span class="math notranslate nohighlight">\(a\in\mathbb{R}^3\)</span> and
 a rotation matrix <span class="math notranslate nohighlight">\(B\in\mathbb{R}^{3\times3}\)</span>. This means that we have to restrict <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span> to only allow
 such matrices:</p>
 <div class="math notranslate nohighlight">
 \[
     \mathcal{Q} = \{(a,B) \in \mathbb{R}^{3}\times\mathbb{R}^{3\times3} \mid B^TB=I \}^N
 \]</div>
-<p>Finally <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span> is a (sub)manifold  (of <span class="math notranslate nohighlight">\(\tilde{\mathcal{Q}}\)</span>) given trough the condition <span class="math notranslate nohighlight">\(g(q)=0\)</span>, where</p>
+<p>Finally, <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span> is a (sub)manifold  (of <span class="math notranslate nohighlight">\(\tilde{\mathcal{Q}}\)</span>) given trough the condition <span class="math notranslate nohighlight">\(g(q)=0\)</span>, where</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
     g: 
@@ -449,27 +450,27 @@ such matrices:</p>
         \end{cases}
 \end{split}\]</div>
 <p>This manifold is of course <span class="math notranslate nohighlight">\(SE(3)\)</span>.
-Now we can speak about the postion of a body (or a whole system of bodies), the next step is to investigate
+Now that we have a representation of the postion of a body (or a whole system of bodies), the next step is to investigate
 how velocities should be treated. Given a path <span class="math notranslate nohighlight">\(q : \mathbb{R} \to \mathcal{Q}\)</span>
-the velocity is time derivative of the position <span class="math notranslate nohighlight">\( v = \dot{q} \)</span>. This means at every time <span class="math notranslate nohighlight">\(t\)</span></p>
+the velocity is the time derivative of the position <span class="math notranslate nohighlight">\( v = \dot{q} \)</span>. This means that at every point in time <span class="math notranslate nohighlight">\(t\)</span></p>
 <div class="math notranslate nohighlight">
 \[    v(t) \in T_{q(t)}\mathcal{Q}\]</div>
-<p>Here <span class="math notranslate nohighlight">\(T_q\mathcal{Q}\)</span> is the tangential space of <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span> in point <span class="math notranslate nohighlight">\(q\)</span>. Now we can define the tangent bundle
+<p>Here <span class="math notranslate nohighlight">\(T_q\mathcal{Q}\)</span> is the tangent space of <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span> in point <span class="math notranslate nohighlight">\(q\)</span>. Now we can define the tangent bundle
 <span class="math notranslate nohighlight">\(T\mathcal{Q} = \{(q,v) \mid q\in\mathcal{Q},\; v \in  T_q\mathcal{Q} \} \)</span>
-and the lagrangian of our system as a function of the following form.</p>
+and the Lagrangian of our system as a function of the following form.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}    L: 
         \begin{cases} 
             {T\mathcal{Q}} \to \mathbb{R} \\
             (q,v) \mapsto T(v)-U(q)
         \end{cases}\end{split}\]</div>
-<p>Note the different domain as compared to the lagrangian for minimal coordinates.</p>
-<p>The conjugate momenta are given trough the legendre transform via <span class="math notranslate nohighlight">\(p=\frac{\partial}{\partial v}L(q,v)\)</span>.
+<p>Note the difference in the domain compared to the Lagrangian for minimal coordinates.</p>
+<p>The conjugate momenta are given through the legendre transform via <span class="math notranslate nohighlight">\(p=\frac{\partial}{\partial v}L(q,v)\)</span>.
 For every <span class="math notranslate nohighlight">\(v\in T_q\mathcal{Q}\)</span> this derivative can be understood as linear map <span class="math notranslate nohighlight">\(T_q \to \mathbb{R}\)</span>
-and therefore as a functional in the dual space of the tangent space <span class="math notranslate nohighlight">\(p=\in T^*_q\)</span>. Analgous
+and therefore as a functional in the dual space of the tangent space <span class="math notranslate nohighlight">\(p=\in T^*_q\)</span>. As an analogon
 to the tanget bundle we also introduce the cotangent bundle
 <span class="math notranslate nohighlight">\(T^*\mathcal{Q} = \{(p,q) \mid q\in\mathcal{Q},\; p \in  T^*_q\mathcal{Q} \}\)</span>. Both the
-tangent and cotanget bundle can also be described via a constraint analogous to <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span>.</p>
+tangent and cotangent bundle can also be described via a constraint analogous to <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span>.</p>
 </section>
 <section id="action-integral-mathcal-s">
 <h2>Action Integral <span class="math notranslate nohighlight">\(\mathcal{S}\)</span><a class="headerlink" href="#action-integral-mathcal-s" title="Link to this heading">#</a></h2>
@@ -479,27 +480,27 @@ tangent and cotanget bundle can also be described via a constraint analogous to 
     \mathcal{S}(q) = \int_{t_0}^{T} L(q,\dot{q}) \,dt.\]</div>
 <p>Where <span class="math notranslate nohighlight">\(L:T\mathcal{Q}\to \mathbb{R}\)</span> ist the Lagrangian given through <span class="math notranslate nohighlight">\(L(q,\dot{q})=T(\dot{q})+U(q)\)</span>,
 <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(U\)</span> beeing the kinetic and potential energy respectivley. Note that <span class="math notranslate nohighlight">\(T\)</span> depends only on <span class="math notranslate nohighlight">\(\dot{q}\)</span> and <span class="math notranslate nohighlight">\(U\)</span> only on <span class="math notranslate nohighlight">\(q\)</span>.</p>
-<p>Livens principle however describes an alternative action functional to be extremized. <span id="id3">[<a class="reference internal" href="bibliography.html#id6" title="Philipp L. Kinon, Peter Betsch, and Simeon Schneider. Structure-preserving integrators based on a new variational principle for constrained mechanical systems. Nonlinear Dynamics, 111(15):14231–14261, June 2023. URL: http://dx.doi.org/10.1007/s11071-023-08522-7, doi:10.1007/s11071-023-08522-7.">KBS23</a>]</span>
+<p>The Livens principle, on the other hand, describes an alternative action functional to be extremized. <span id="id3">[<a class="reference internal" href="bibliography.html#id6" title="Philipp L. Kinon, Peter Betsch, and Simeon Schneider. Structure-preserving integrators based on a new variational principle for constrained mechanical systems. Nonlinear Dynamics, 111(15):14231–14261, June 2023. URL: http://dx.doi.org/10.1007/s11071-023-08522-7, doi:10.1007/s11071-023-08522-7.">KBS23</a>]</span>
 This reads as follows</p>
 <div class="math notranslate nohighlight" id="equation-livens">
 <span class="eqno">(10)<a class="headerlink" href="#equation-livens" title="Link to this equation">#</a></span>\[
     \mathcal{S}(q,v,p) = \int_{t_0}^{T} L(q,v) + p(\dot{q}-v) \,dt.
 \]</div>
-<p>Note the two additonal indepent variables <span class="math notranslate nohighlight">\(v\in T \mathcal{Q}\)</span> and <span class="math notranslate nohighlight">\(p \in T^{*} \mathcal{Q}\)</span>. Where <span class="math notranslate nohighlight">\(T\mathcal{Q}\)</span>,
+<p>Note the two additonal independent variables <span class="math notranslate nohighlight">\(v\in T \mathcal{Q}\)</span> and <span class="math notranslate nohighlight">\(p \in T^{*} \mathcal{Q}\)</span>. Where <span class="math notranslate nohighlight">\(T\mathcal{Q}\)</span>,
 <span class="math notranslate nohighlight">\(T^*\mathcal{Q}\)</span> are the tangent and cotanget bundle.</p>
-<p>This functional can be understood as a Lagrianan with constraint <span class="math notranslate nohighlight">\(\dot{q}-v\)</span> and corresponding lagrangian multipliers <span class="math notranslate nohighlight">\(p\)</span>.
-These lagrangian multiplies can later be identified as the conjugate momenta of the system.</p>
+<p>This functional can be understood as a Lagrangian with constraint <span class="math notranslate nohighlight">\(\dot{q}-v\)</span> and corresponding Lagrangian multipliers <span class="math notranslate nohighlight">\(p\)</span>.
+These Lagrangian multiplies can later be identified as the conjugate momenta of the system.</p>
 </section>
 <section id="varying-mathcal-s">
 <h2>Varying <span class="math notranslate nohighlight">\(\mathcal{S}\)</span><a class="headerlink" href="#varying-mathcal-s" title="Link to this heading">#</a></h2>
 <p>In this section we show that by varying <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> we can obtain the Euler-Lagrange equations.</p>
-<p>We vary <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> we respect to each individual variable seperatly.
+<p>We vary <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> we respect to each individual variable separatly.
 Let <span class="math notranslate nohighlight">\(\delta q \in C^\infty\)</span> be a variation of <span class="math notranslate nohighlight">\(q\)</span>, so that <span class="math notranslate nohighlight">\(\delta q(0)=\delta q(T)=0\)</span>. We
 define <span class="math notranslate nohighlight">\(q^\varepsilon := q+\varepsilon\cdot\delta q \)</span> it follows
 <span class="math notranslate nohighlight">\(\dot{q^\varepsilon}=\dot{q}+\varepsilon \cdot \delta \dot{q}\)</span>. We substitute
 <span class="math notranslate nohighlight">\(q^\varepsilon\)</span> for <span class="math notranslate nohighlight">\(q\)</span> in  <a class="reference internal" href="#equation-livens">(10)</a> and derivate in <span class="math notranslate nohighlight">\(\varepsilon\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e3d10e71-1844-4cea-b1b6-8d986c0e5cd2">
-<span class="eqno">(11)<a class="headerlink" href="#equation-e3d10e71-1844-4cea-b1b6-8d986c0e5cd2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5254baf8-b74b-47b1-9e40-96bcba0bd495">
+<span class="eqno">(11)<a class="headerlink" href="#equation-5254baf8-b74b-47b1-9e40-96bcba0bd495" title="Permalink to this equation">#</a></span>\[\begin{align}
 
 \frac{d}{d\varepsilon = 0}\mathcal{S}({q^\varepsilon},v,p) 
         =&amp;\; \frac{d}{d\varepsilon = 0}  \int_{t_0}^{T} L(q^\varepsilon,v)\cdot \delta q + p(\dot{q^\varepsilon}-v) \,dt. \\
@@ -508,9 +509,9 @@ define <span class="math notranslate nohighlight">\(q^\varepsilon := q+\varepsil
         =&amp;\;  \int_{t_0}^{T} \frac{\partial L}{\partial q}(q+0\cdot\delta q,v)\cdot \delta q + p\cdot\delta \dot{q} \,dt. \\
 
 \end{align}\]</div>
-<p>Now we integrate partially using the <span class="math notranslate nohighlight">\(\delta q(0)=\delta q(T)=0\)</span> assumption:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a4e80f5f-bc9c-48b5-af65-39361253d587">
-<span class="eqno">(12)<a class="headerlink" href="#equation-a4e80f5f-bc9c-48b5-af65-39361253d587" title="Permalink to this equation">#</a></span>\[\begin{align}
+<p>Now we integrate partially under the assumption that <span class="math notranslate nohighlight">\(\delta q(0)=\delta q(T)=0\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-df5c8fca-2e42-43e2-a44a-0f03392c62e8">
+<span class="eqno">(12)<a class="headerlink" href="#equation-df5c8fca-2e42-43e2-a44a-0f03392c62e8" title="Permalink to this equation">#</a></span>\[\begin{align}
 
  \int_{t_0}^{T} \frac{\partial L}{\partial q}(q,v)\cdot \delta q &amp;+ p\cdot\delta \dot{q} \,dt =\\
         =&amp;\; \int_{t_0}^{T} \frac{\partial L}{\partial q}(q,v)\cdot \delta q \,dt + \int_{t_0}^{T}p\cdot\delta \dot{q}\, dt\\
@@ -525,7 +526,7 @@ define <span class="math notranslate nohighlight">\(q^\varepsilon := q+\varepsil
 \frac{\partial L}{\partial q} = 
             \dot{p} \\
 \end{split}\]</div>
-<p>Trough variation of <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(p\)</span> in a similiar fashion we obtain:</p>
+<p>Through variation of <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(p\)</span> in a similiar fashion we obtain:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \frac{\partial L}{\partial v} = 
@@ -533,15 +534,15 @@ define <span class="math notranslate nohighlight">\(q^\varepsilon := q+\varepsil
 \quad\quad
             \dot{q}=v \\
 \end{split}\]</div>
-<p>At this point we c an identify <span class="math notranslate nohighlight">\(p\)</span> as the conjugate momentum. Combining this equation we
-receive the Langrage Euler equation.</p>
+<p>At this point we can identify <span class="math notranslate nohighlight">\(p\)</span> as the conjugate momentum. Combining these equations we
+receive the Euler-Langrage equation.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \frac{\partial L}{\partial q}(q,v) = \frac{\partial L}{\partial q}(q,\dot{q}) =
             \dot{p}(q,\dot{q}) =  \frac{d}{dt}\frac{\partial L}{\partial v}(q,\dot{q})\\
 \end{split}\]</div>
 <p>Now we have shown that the functional <a class="reference internal" href="#equation-livens">(10)</a> describes the same system as the Lagrangian. For
-a more in depth investigation of the properties of  livens principle see <span id="id4">[<a class="reference internal" href="bibliography.html#id6" title="Philipp L. Kinon, Peter Betsch, and Simeon Schneider. Structure-preserving integrators based on a new variational principle for constrained mechanical systems. Nonlinear Dynamics, 111(15):14231–14261, June 2023. URL: http://dx.doi.org/10.1007/s11071-023-08522-7, doi:10.1007/s11071-023-08522-7.">KBS23</a>]</span>.</p>
+a more in depth investigation of the properties of the Livens principle see <span id="id4">[<a class="reference internal" href="bibliography.html#id6" title="Philipp L. Kinon, Peter Betsch, and Simeon Schneider. Structure-preserving integrators based on a new variational principle for constrained mechanical systems. Nonlinear Dynamics, 111(15):14231–14261, June 2023. URL: http://dx.doi.org/10.1007/s11071-023-08522-7, doi:10.1007/s11071-023-08522-7.">KBS23</a>]</span>.</p>
 </section>
 </section>
 
@@ -572,7 +573,7 @@ a more in depth investigation of the properties of  livens principle see <span i
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -589,7 +590,7 @@ a more in depth investigation of the properties of  livens principle see <span i
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Applying lagrangian mechanics</p>
+        <p class="prev-next-title">Applying Lagrangian Mechanics</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -661,8 +662,8 @@ By Linus Knoll, Tobias Leichtfried, Norbert Hammer
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

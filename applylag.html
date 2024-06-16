@@ -8,28 +8,28 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Applying lagrangian mechanics &#8212; Title</title>
+    <title>Applying Lagrangian Mechanics &#8212; Title</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -38,16 +38,16 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -75,27 +75,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -117,8 +113,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -182,10 +183,10 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive demonstration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="objtrans.html">Object transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objtrans.html">Object Transformation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lagrangian.html">A Brief Overview of Lagrangian Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="livensprinciple.html">Livens principle</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Applying lagrangian mechanics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Applying Lagrangian Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="integrator.html">The Integrator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="constraints.html">Constraints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
@@ -204,7 +205,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -213,14 +214,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -329,9 +330,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -342,7 +343,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Applying lagrangian mechanics</h1>
+    <h1>Applying Lagrangian Mechanics</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -352,16 +353,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#describing-position-and-rotation">Describing position and rotation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinetic-energy">Kinetic energy</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#describing-position-and-rotation">Describing Position and Rotation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinetic-energy">Kinetic Energy</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translation">Translation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation">Rotation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angular-momentum">Angular momentum</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-mass-matrix">The mass matrix</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-center-of-mass-and-the-origin-of-the-inertia-system">The center of mass and the origin of the inertia system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angular-momentum">Angular Momentum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-mass-matrix">The Mass Matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-center-of-mass-and-the-origin-of-the-inertia-system">The Center of Mass and the Origin of the Inertia System</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-energy">Potential energy</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-energy">Potential Energy</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gravity">“Gravity”</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#springs">Springs</a></li>
 </ul>
@@ -378,9 +379,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="applying-lagrangian-mechanics">
-<h1>Applying lagrangian mechanics<a class="headerlink" href="#applying-lagrangian-mechanics" title="Link to this heading">#</a></h1>
+<h1>Applying Lagrangian Mechanics<a class="headerlink" href="#applying-lagrangian-mechanics" title="Link to this heading">#</a></h1>
 <section id="describing-position-and-rotation">
-<h2>Describing position and rotation<a class="headerlink" href="#describing-position-and-rotation" title="Link to this heading">#</a></h2>
+<h2>Describing Position and Rotation<a class="headerlink" href="#describing-position-and-rotation" title="Link to this heading">#</a></h2>
 <p><span class="math notranslate nohighlight">\(\require{mathtools}\)</span>
 The generalised coordinates of a mass-point with rotation consist of the components of the translation vector and rotation matrix.
 A solver like ASC-ODE solves for a matrix that forms the rotation matrix of the body.
@@ -389,8 +390,8 @@ Therefore, it needs to ensure that the resulting matrix <span class="math notran
 <li><p><span class="math notranslate nohighlight">\(\bf{det B = 1}\)</span> This has proven to be negligable.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\bf{B}\)</span> <strong>orthonormal</strong> needs to be reformulated into an equation that is easy to check.</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-44c6740d-1c82-4a39-bdb0-7c9371f5802f">
-<span class="eqno">(13)<a class="headerlink" href="#equation-44c6740d-1c82-4a39-bdb0-7c9371f5802f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fcc77287-dba2-4d8f-ac8d-f409224086f7">
+<span class="eqno">(13)<a class="headerlink" href="#equation-fcc77287-dba2-4d8f-ac8d-f409224086f7" title="Permalink to this equation">#</a></span>\[\begin{align}
     B ~ \text{orthonormal} \\
     \Leftrightarrow \forall x \in \mathbb{R}^3:~ \| Bx \| &amp; = \| x \| \\
     \Leftrightarrow \forall x \in \mathbb{R}^3:~ \| Bx \|^2 &amp; = \| x \|^2 \\
@@ -403,7 +404,7 @@ However, as <span class="math notranslate nohighlight">\(B^TB\)</span> is symmet
 <p>These generalised coordinates and constraints describe the configuration space of one mass-point with added rotation.</p>
 </section>
 <section id="kinetic-energy">
-<h2>Kinetic energy<a class="headerlink" href="#kinetic-energy" title="Link to this heading">#</a></h2>
+<h2>Kinetic Energy<a class="headerlink" href="#kinetic-energy" title="Link to this heading">#</a></h2>
 <p>In order to use the laws of langrangian mechanics, the langrangian function <span class="math notranslate nohighlight">\(L = T - V\)</span> of a rigid-body may be set up.</p>
 <!-- Let $ U(t)(x) = (t) + R(t) \cdot x \in SE(3) $. (See [](inertiaframes).) -->
 <div class="admonition-todo admonition">
@@ -413,8 +414,8 @@ However, as <span class="math notranslate nohighlight">\(B^TB\)</span> is symmet
 <section id="translation">
 <h3>Translation<a class="headerlink" href="#translation" title="Link to this heading">#</a></h3>
 <p>The translational part of the kinetic energy is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4df51f9a-6713-4733-9ca5-cd1e50549cb1">
-<span class="eqno">(14)<a class="headerlink" href="#equation-4df51f9a-6713-4733-9ca5-cd1e50549cb1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e01a92b6-c2b7-4d51-a2f1-bb4c211df470">
+<span class="eqno">(14)<a class="headerlink" href="#equation-e01a92b6-c2b7-4d51-a2f1-bb4c211df470" title="Permalink to this equation">#</a></span>\[\begin{equation}
     T(v_{trans}) = \frac{1}{2} m v_{trans}^2
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(v_{trans}\)</span> is the translational part of the velocity and m the mass of the body.
@@ -429,22 +430,22 @@ without translation.</p>
 Let the angular velocity of the body be given by <span class="math notranslate nohighlight">\(v_{rot} \in \mathbb{R}^3\)</span>.
 Assume that the body only rotates around it’s center of mass (no translation) and that <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(v_{rot}\)</span> are in the body’s system of inertia.
 Then the kinetic energy of this motion fulfills</p>
-<div class="amsmath math notranslate nohighlight" id="equation-79a8d29d-29a3-4d93-bf98-f0600461ed48">
-<span class="eqno">(15)<a class="headerlink" href="#equation-79a8d29d-29a3-4d93-bf98-f0600461ed48" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b38f62f1-44d7-4041-b0f4-75e13fbdf48c">
+<span class="eqno">(15)<a class="headerlink" href="#equation-b38f62f1-44d7-4041-b0f4-75e13fbdf48c" title="Permalink to this equation">#</a></span>\[\begin{equation}
     T(v_{rot}) = \frac{1}{2} \int_V \rho(x)~ | v_{rot} \times x |^2 dx
                = \frac{1}{2} \int_V \rho(x)~ | \widehat{v_{rot}} x |^2 dx
 \end{equation}\]</div>
 <p>If we define <span class="math notranslate nohighlight">\((\cdot, \cdot)\)</span> as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1d62e790-61c2-42c2-9cef-00f0eb0bc519">
-<span class="eqno">(16)<a class="headerlink" href="#equation-1d62e790-61c2-42c2-9cef-00f0eb0bc519" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8d37cca8-5953-4eed-9c1f-dec3effc2935">
+<span class="eqno">(16)<a class="headerlink" href="#equation-8d37cca8-5953-4eed-9c1f-dec3effc2935" title="Permalink to this equation">#</a></span>\[\begin{equation}
     (a, b) \coloneqq \frac{1}{2} \int_V \rho(x)~ a \cdot b ~ dx
 \end{equation}\]</div>
 <p>then one obtains <span class="math notranslate nohighlight">\(T(v_{rot}) = (v_{rot}, v_{rot})\)</span>.</p>
 <p>For an efficient implementation of this scalar product, it’s gram matrix is used.
 This matrix is called the <strong>inertia tensor</strong> (or moment of inertia tensor):
 <span class="math notranslate nohighlight">\(\newcommand{\II}[0]{{\mathbb{I}}}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-b2ef4112-54ea-46f2-a026-d9b2a3f58b8f">
-<span class="eqno">(17)<a class="headerlink" href="#equation-b2ef4112-54ea-46f2-a026-d9b2a3f58b8f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8e8efac3-cf68-4258-a1bd-d4059125e87d">
+<span class="eqno">(17)<a class="headerlink" href="#equation-8e8efac3-cf68-4258-a1bd-d4059125e87d" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \II = \begin{pmatrix}
               I_{xx} &amp; I_{xy} &amp; I_{xz} \\
               I_{yx} &amp; I_{yy} &amp; I_{yz} \\
@@ -458,10 +459,10 @@ From the definition of the (symmetric) bilinear form above follows that <span cl
 <p>This tensor can be obtained from a library like <code class="docutils literal notranslate"><span class="pre">netgen.occ</span></code> .</p>
 </section>
 <section id="angular-momentum">
-<h3>Angular momentum<a class="headerlink" href="#angular-momentum" title="Link to this heading">#</a></h3>
+<h3>Angular Momentum<a class="headerlink" href="#angular-momentum" title="Link to this heading">#</a></h3>
 <p>In a body’s system of inertia, the angular momentum is the derivative of the kinetic energy with respect to the angular velocity:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-820567c8-1b49-4b46-9794-0a2df6f91893">
-<span class="eqno">(18)<a class="headerlink" href="#equation-820567c8-1b49-4b46-9794-0a2df6f91893" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7cf03815-4b7a-419a-ab69-d97f13c89e15">
+<span class="eqno">(18)<a class="headerlink" href="#equation-7cf03815-4b7a-419a-ab69-d97f13c89e15" title="Permalink to this equation">#</a></span>\[\begin{align}
     \Pi = \frac{\partial T}{\partial v_{rot}}
         &amp;= \frac{\partial}{\partial v_{rot}} \frac{1}{2} \int_V \rho(x)~ | v_{rot} \times x |^2 dx \\
         &amp;= \int_V \rho(x)~ x \times ( v_{rot} \times x ) dx \\
@@ -472,20 +473,20 @@ From the definition of the (symmetric) bilinear form above follows that <span cl
 <p>Both the kinetic energy of the rotation and <span class="math notranslate nohighlight">\(\| \Pi \|\)</span> are conserved. <span id="id5">[<a class="reference internal" href="bibliography.html#id4" title="Darryl D Holm. Geometric mechanics : 2. Rotating, translating and rolling. World Scientific Publ. Imperial College Press, Singapore [u.a.] London, 2008. ISBN 1848161557.">Hol08</a>, 2.1.33]</span></p>
 </section>
 <section id="the-mass-matrix">
-<h3>The mass matrix<a class="headerlink" href="#the-mass-matrix" title="Link to this heading">#</a></h3>
+<h3>The Mass Matrix<a class="headerlink" href="#the-mass-matrix" title="Link to this heading">#</a></h3>
 <p>From the above, two equations on the momentum of a body can be gathered:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5c972bec-db2b-4605-9fdc-97832f516f0d">
-<span class="eqno">(19)<a class="headerlink" href="#equation-5c972bec-db2b-4605-9fdc-97832f516f0d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ca3dd63c-762f-4edc-9b79-e177b48df35a">
+<span class="eqno">(19)<a class="headerlink" href="#equation-ca3dd63c-762f-4edc-9b79-e177b48df35a" title="Permalink to this equation">#</a></span>\[\begin{equation}
     p_{trans} = m \cdot v_{trans}
 \end{equation}\]</div>
 <p>and</p>
-<div class="amsmath math notranslate nohighlight" id="equation-15bead4a-8d43-436a-85af-953f1a610f5e">
-<span class="eqno">(20)<a class="headerlink" href="#equation-15bead4a-8d43-436a-85af-953f1a610f5e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5003d44f-67a4-411e-b43f-3249fc5abd53">
+<span class="eqno">(20)<a class="headerlink" href="#equation-5003d44f-67a4-411e-b43f-3249fc5abd53" title="Permalink to this equation">#</a></span>\[\begin{equation}
     p_{rot} = \II \cdot v_{rot}.
 \end{equation}\]</div>
 <p>These can be combined into one matrix equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-45e757d9-386d-41f6-8bf1-337239ce3494">
-<span class="eqno">(21)<a class="headerlink" href="#equation-45e757d9-386d-41f6-8bf1-337239ce3494" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-823da254-66a8-4cb8-a974-cd4de16130e5">
+<span class="eqno">(21)<a class="headerlink" href="#equation-823da254-66a8-4cb8-a974-cd4de16130e5" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \begin{pmatrix}
         p_{trans} \\
         p_{rot}
@@ -509,7 +510,7 @@ From the definition of the (symmetric) bilinear form above follows that <span cl
 The mass matrix is not time-dependent as the inertia tensor and mass do not depent on time.</p>
 </section>
 <section id="the-center-of-mass-and-the-origin-of-the-inertia-system">
-<h3>The center of mass and the origin of the inertia system<a class="headerlink" href="#the-center-of-mass-and-the-origin-of-the-inertia-system" title="Link to this heading">#</a></h3>
+<h3>The Center of Mass and the Origin of the Inertia System<a class="headerlink" href="#the-center-of-mass-and-the-origin-of-the-inertia-system" title="Link to this heading">#</a></h3>
 <p>In all of the above, only rotations around the center of mass were considered.
 That is, the center of mass was always assumed to lie in the origin of the body’s inertia frame.
 This can be easily achieved during the setup of the system.</p>
@@ -521,14 +522,14 @@ This can be easily achieved during the setup of the system.</p>
 </section>
 </section>
 <section id="potential-energy">
-<h2>Potential energy<a class="headerlink" href="#potential-energy" title="Link to this heading">#</a></h2>
+<h2>Potential Energy<a class="headerlink" href="#potential-energy" title="Link to this heading">#</a></h2>
 <p>ASC-ODE also implements potential energy.
 To account for interactions between bodies, the potential is calculated <strong>globally</strong>.
 That is, all potential energies of all bodies are summed up.
 Let <span class="math notranslate nohighlight">\(q_i \in SE(3)\)</span> represent the transformations of the individual bodies.
 Then the result is a scalar-valued potential function</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8b97ae36-7cd7-4ee1-8643-c08c458fb61a">
-<span class="eqno">(22)<a class="headerlink" href="#equation-8b97ae36-7cd7-4ee1-8643-c08c458fb61a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e90b6d1d-a58e-4d0d-8583-0535c88cce5b">
+<span class="eqno">(22)<a class="headerlink" href="#equation-e90b6d1d-a58e-4d0d-8583-0535c88cce5b" title="Permalink to this equation">#</a></span>\[\begin{equation}
     V( q_1, q_2, q_3, ...).
 \end{equation}\]</div>
 <p><span class="math notranslate nohighlight">\(V\)</span> is then differenciated with respect to all components of all <span class="math notranslate nohighlight">\(q_i\)</span>.
@@ -542,8 +543,8 @@ A force that acts homogenously on the body does not influence it’s rotation.
 Therefore, the body can be seen as a point mass. The bodies can also be treated individually.</p>
 <p>Using <span class="math notranslate nohighlight">\(F = m \cdot a\)</span>, the force on a point mass can be specified as an acceleration vector <span class="math notranslate nohighlight">\(a \in \mathbb{R}^3\)</span> and the body mass <span class="math notranslate nohighlight">\(m\)</span>.
 For any given translation vector <span class="math notranslate nohighlight">\(x\)</span>, the antiderivative or potential of that force is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a7c76402-c01f-4b34-858f-49cef24d8e67">
-<span class="eqno">(23)<a class="headerlink" href="#equation-a7c76402-c01f-4b34-858f-49cef24d8e67" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a2dad7b0-1ba6-430b-b29b-9e5306f11edc">
+<span class="eqno">(23)<a class="headerlink" href="#equation-a2dad7b0-1ba6-430b-b29b-9e5306f11edc" title="Permalink to this equation">#</a></span>\[\begin{equation}
     m \cdot (a \cdot x).
 \end{equation}\]</div>
 <p>In ASC-ODE, the mass is automatically calculated and the <em>negative</em> acceleration vector can be specified:
@@ -559,8 +560,8 @@ For any given translation vector <span class="math notranslate nohighlight">\(x\
 Consider these points to be connected by a spring with stiffness <span class="math notranslate nohighlight">\(k\)</span>, length at rest <span class="math notranslate nohighlight">\(l\)</span> and elongation <span class="math notranslate nohighlight">\(e = \| U(x_1) - U(x_2) \| - l\)</span>.</p>
 <p>Then Hooke’s law states that the resulting force is given by <span class="math notranslate nohighlight">\(F = k \cdot e\)</span> <span id="id6">[<a class="reference internal" href="bibliography.html#id2" title="Matthias Bartelmann, Björn Feuerbacher, Timm Krüger, Dieter Lüst, Anton Rebhan, and Andreas Wipf. Theoretische Physik. Springer Berlin Heidelberg, Berlin, Heidelberg, 2015. ISBN 3642546188. URL: 10.1007/978-3-642-54618-1.">BFK+15</a>, p. 312]</span>.
 Then the resulting potential is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-edbc2c9b-68de-455d-9e0e-a5a642ebc71d">
-<span class="eqno">(24)<a class="headerlink" href="#equation-edbc2c9b-68de-455d-9e0e-a5a642ebc71d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-466d0bcc-0560-44a9-9506-11ea51e27f44">
+<span class="eqno">(24)<a class="headerlink" href="#equation-466d0bcc-0560-44a9-9506-11ea51e27f44" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{k}{2} e^2.
 \end{equation}\]</div>
 <div class="admonition-todo admonition">
@@ -598,7 +599,7 @@ Then the resulting potential is</p>
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -635,16 +636,16 @@ Then the resulting potential is</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#describing-position-and-rotation">Describing position and rotation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinetic-energy">Kinetic energy</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#describing-position-and-rotation">Describing Position and Rotation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinetic-energy">Kinetic Energy</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translation">Translation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation">Rotation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angular-momentum">Angular momentum</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-mass-matrix">The mass matrix</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-center-of-mass-and-the-origin-of-the-inertia-system">The center of mass and the origin of the inertia system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angular-momentum">Angular Momentum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-mass-matrix">The Mass Matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-center-of-mass-and-the-origin-of-the-inertia-system">The Center of Mass and the Origin of the Inertia System</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-energy">Potential energy</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-energy">Potential Energy</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gravity">“Gravity”</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#springs">Springs</a></li>
 </ul>
@@ -697,8 +698,8 @@ By Linus Knoll, Tobias Leichtfried, Norbert Hammer
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>
