@@ -28,10 +28,10 @@ J = \begin{pmatrix}
 $$
 
 For $d = 1, \Omega(\xi, \eta) = \xi_p \eta_q - \xi_q\eta_p$ as the oriented area of the parallogram spanned by $\xi = \begin{pmatrix}
-\xi_q
+\xi_q \\
 \xi_p
 \end{pmatrix}$ and $\eta = \begin{pmatrix}
-\eta_q
+\eta_q \\
 \eta_p
 \end{pmatrix}$
 
