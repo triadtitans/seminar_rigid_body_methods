@@ -11,7 +11,6 @@ $$
 $$
 
 $$
-$$
 \frac{\partial L}{\partial v} = q \\
 $$
 
