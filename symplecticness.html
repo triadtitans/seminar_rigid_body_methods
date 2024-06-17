@@ -356,6 +356,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symplecticnes-of-smooth-mappings">Symplecticnes of smooth mappings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-wedge-product">The wedge product</a></li>
 </ul>
             </nav>
         </div>
@@ -380,12 +381,12 @@ Such a form can be described by a Matrix <span class="math notranslate nohighlig
 \[
 L^{T}JL = J 
 \]</div>
-<p>A differential map <span class="math notranslate nohighlight">\(\varphi: \mathbb{R}^{2d} \rightarrow \mathbb{R}^{2d}\)</span> is called symplectic with regard to the structure matrix <span class="math notranslate nohighlight">\(J\)</span> if the jacobian Matrix <span class="math notranslate nohighlight">\(\varphi'(p,g)\)</span> is symplectic</p>
+<p>A differential map <span class="math notranslate nohighlight">\(\varphi: \mathbb{R}^{2d} \rightarrow \mathbb{R}^{2d}\)</span> is called symplectic with regard to the structure matrix <span class="math notranslate nohighlight">\(J\)</span> if the jacobian Matrix <span class="math notranslate nohighlight">\(\varphi'(p,q)\)</span> is symplectic</p>
 <div class="math notranslate nohighlight">
 \[
-\varphi'(p,g)^{T}J\varphi'(p,g)
+\varphi'(p,q)^{T}J\varphi'(p,q)
 \]</div>
-<p>On our phase space <span class="math notranslate nohighlight">\(\mathbb{R}^{2d}\)</span> a symplectic two form <span class="math notranslate nohighlight">\(\Omega\)</span> is induced by the matrix</p>
+<p>On our phase space <span class="math notranslate nohighlight">\(\mathbb{R}^{2d}\)</span> a skew-symmetric, bilinear form <span class="math notranslate nohighlight">\(\Omega\)</span> is induced by the matrix</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 J = \begin{pmatrix}
@@ -393,7 +394,7 @@ J = \begin{pmatrix}
               -I_{d} &amp; 0\\
           \end{pmatrix} \in \mathbb{R}^{2d \times 2d}
 \end{split}\]</div>
-<p>For <span class="math notranslate nohighlight">\(d = 1, \Omega(\xi, \eta) = \xi^p \eta^q - \xi^q\eta^p\)</span> as the oriented area of the parallogram spanned by <span class="math notranslate nohighlight">\(\xi = \begin{pmatrix}
+<p>For <span class="math notranslate nohighlight">\(d = 1, \omega(\xi, \eta) = \xi^p \eta^q - \xi^q\eta^p\)</span> as the area of the oriented area of the parallogram spanned by <span class="math notranslate nohighlight">\(\xi = \begin{pmatrix}
 \xi^q \\
 \xi^p
 \end{pmatrix}\)</span> and <span class="math notranslate nohighlight">\(\eta = \begin{pmatrix}
@@ -402,9 +403,80 @@ J = \begin{pmatrix}
 \end{pmatrix}\)</span>. In higher dimensions we get the sum of the oriented Areas of the Projections onto the coordinate planes <span class="math notranslate nohighlight">\((q_i, p_i)\)</span>, by</p>
 <div class="math notranslate nohighlight">
 \[
-\Omega(\xi, \eta) = \sum_{i=1}^{d} 2^{-n}
-\xi^{p}_i \eta^{p}_i - \xi^{q}_i\eta^{p}_i
+\omega(\xi, \eta) = \sum_{i=1}^{d} \xi^{p}_i \eta^{q}_i - \xi^{q}_i\eta^{p}_i
 \]</div>
+<p>If we now look at a 2-dimensional sub manifold <span class="math notranslate nohighlight">\(M\)</span> of <span class="math notranslate nohighlight">\(\mathbb{R}^{2d}\)</span> given by a parameterization as <span class="math notranslate nohighlight">\(M = \psi(K), K \subset \mathbb{R}^{2}\)</span> with <span class="math notranslate nohighlight">\(\psi(s, t)\)</span> being a continously differentiable function.
+We can then consider M as the limit of a union of small parallelograms spanned by</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \psi}{\partial s}(s, t)ds\ \text{and}\ \frac{\partial \psi}{\partial t}(s, t)dt
+\]</div>
+<p>For one such parallelogram we consider now the sum over the Projections as given above and get as the limit</p>
+<div class="math notranslate nohighlight">
+\[ 
+\int_M \Omega = \iint_K \Omega(\frac{\partial \psi}{\partial s}(s, t), \frac{\partial \psi}{\partial t}(s, t)) \,ds\,dt
+\]</div>
+<p>If we now take a symplectic mapping <span class="math notranslate nohighlight">\(\varphi: \mathbb{R}^{2d} \rightarrow \mathbb{R}^{2d}\)</span> we get that</p>
+<div class="math notranslate nohighlight">
+\[
+\varphi^*\Omega(\xi, \eta) := \Omega(\varphi'(p,q)\xi, \varphi'(p,g)\eta) = \Omega(\xi, \eta) 
+\]</div>
+<p>accordingly to the definition before. And therfore also</p>
+<div class="math notranslate nohighlight">
+\[
+\int_M \Omega = \iint_K \Omega(\varphi'(p,q)\frac{\partial \psi}{\partial s}(s, t), \varphi'(p,q)\frac{\partial \psi}{\partial t}(s, t)) \,ds\,dt
+\]</div>
+<p>For <span class="math notranslate nohighlight">\(d = 1\)</span> this implies the conservation of area under a symplectic map and for <span class="math notranslate nohighlight">\(d &gt; 1\)</span> the conservation of a sum of oriented areas of projections of <span class="math notranslate nohighlight">\(M\)</span> on to the <span class="math notranslate nohighlight">\((q_i , p_i)\)</span>-coordinate planes.</p>
+</section>
+<section id="the-wedge-product">
+<h2>The wedge product<a class="headerlink" href="#the-wedge-product" title="Link to this heading">#</a></h2>
+<p>The above definitions for symplecticness of a given map is not very convenient which is why we will derive now a different approach with the wedge product.
+We consider the parial derivative of a function f as</p>
+<div class="math notranslate nohighlight">
+\[
+df(\xi) = \sum_{i=1}^{n} \frac{\partial f}{\partial z_1}dz_i(\xi)
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(dz_i(\xi) = \xi_i\)</span>. If we now appy a map <span class="math notranslate nohighlight">\(\varphi: \mathbb{R}^{n} \rightarrow \mathbb{R}^{n}\)</span> we can define</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{z} = \varphi(z)\ and \ \hat{f(z)} = f(\hat{z}) = f(\varphi(z))
+\]</div>
+<p>and get</p>
+<div class="math notranslate nohighlight">
+\[
+d\hat{f} = \sum_{i=1}^{n} \sum_{j=1}^{n} \frac{\partial f}{\partial \hat{z}_j}\frac{\partial \varphi}{\partial z_i}dz_i
+= \sum_{i=1}^{n} \frac{\partial f}{\partial \hat{z}_j}d\hat{z}_j
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(d\hat{z}_j = \sum_{i=1}^{n}{\frac{\partial \varphi}{\partial z_i}dz_i}\)</span> and <span class="math notranslate nohighlight">\(d\hat{z} = \varphi_z(z)\cdot{d_z}\)</span></p>
+<p>We can rewrite the bilinear from from above as</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega(\xi, \eta) = \sum_{i=1}^{d}[dp_i(\xi)dq_i(\eta) - dq_i(\xi)dp_i(\eta)] = \sum_{i=1}^{d} dq_i \land dp_i = dq \land dp
+\]</div>
+<p>The symplecticnes of <span class="math notranslate nohighlight">\(\varphi\)</span> now reduces to the statement</p>
+<div class="math notranslate nohighlight">
+\[
+dq \land dp = d\hat{q} \land d\hat{p},\ \ (\hat{q}, \hat{p}) = \varphi(q,p) 
+\]</div>
+<p>For the wedge product some useful prperties are known which make claculations easier</p>
+<ol class="arabic simple">
+<li><p>Skew-symmetry</p></li>
+<li><p>Bilinearity</p></li>
+<li><p>Rule of Matrix multiplication:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+dq \land (Adp) = (A^{T}dq) \land dp
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p>Followed by 1. and 3.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+dq \land (Adq) = 0
+\]</div>
+<p>if A is a symmetric matrix.</p>
+<p>We now have a bunch of tools to check if maps are symplectic</p>
 </section>
 </section>
 
@@ -473,6 +545,7 @@ J = \begin{pmatrix}
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symplecticnes-of-smooth-mappings">Symplecticnes of smooth mappings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-wedge-product">The wedge product</a></li>
 </ul>
   </nav></div>
 
