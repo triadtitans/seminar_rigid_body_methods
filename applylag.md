@@ -45,7 +45,7 @@ There also holds $ p_{trans} = m \cdot v_{trans} $, where $p_{trans}$ is the (tr
 ### Rotation
 
 This section covers the calculation of rotational kinetic energy for objects spinning *around their center of mass*,
-without translation.
+without translation. It also assumes that the center of mass lies in the center of the body's inertia frame.
 
 Let $V \subseteq \mathbb{R}^3$ be a set representing a body and $\rho(x)$ the density of the body at a point $x \in V$.
 Let the angular velocity of the body be given by $v_{rot} \in \mathbb{R}^3$.
@@ -58,7 +58,7 @@ Then the kinetic energy of this motion fulfills
 
 If we define $(\cdot, \cdot)$ as
 \begin{equation}
-    (a, b) \coloneqq \frac{1}{2} \int_V \rho(x)~ a \cdot b ~ dx
+    (a, b) \coloneqq \frac{1}{2} \int_V \rho(x)~ (a \times x) \cdot (b \times x) ~ dx
 \end{equation}
 then one obtains $T(v_{rot}) = (v_{rot}, v_{rot})$.
 
@@ -74,9 +74,16 @@ $\newcommand{\II}[0]{{\mathbb{I}}}$
 \end{equation}
 It's components $I_{ij}$ are called the *moments of inertia*.
 The inertia tensor is not time-dependent.
+
 From the definition of the (symmetric) bilinear form above follows that $\II$ is symmetric.
+There also exists a orthonormal basis with respect to which $\II$ is diagonal.
+The inertia frame described by this basis is called *principle axis frame*.
 
 {cite}`geomech{chapter 2.1}`
+
+The inertia matrix can be considered invertible:
+Assume that it is not invertible. Let $a \neq 0, a \in ker \II$. Then $a$ represents a rotation speed.
+Increasing that rotation speed will however not affect the kinetic energy $T = \II \cdot \vrot.
 
 This tensor can be obtained from a library like `netgen.occ` .
 
@@ -129,20 +136,47 @@ The above block matrix is called the **mass matrix** of the body.
 If the mass matrix is denoted by $\bf M$ and $p \coloneqq \begin{pmatrix} p_{trans} \\ p_{rot} \end{pmatrix} $ as well as
 $v \coloneqq \begin{pmatrix} v_{trans} \\ v_{rot} \end{pmatrix} $, the equation can be written as $\bf p = M \cdot v$.
 The mass matrix is not time-dependent as the inertia tensor and mass do not depent on time.
+As the left upper diagonal and $\II$ are invertible, the mass matrix is also invertible.
 
+An object:
+!["hammer"](hammer.png "hammer")
 
+and its mass matrix from `netgen.occ`:
+\begin{equation}
+\begin{pmatrix}
+    2.06283 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 2.06283 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 2.06283 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0.4915 & 1.42185e-19 & 3.65922e-18 \\
+    0 & 0 & 0 & 1.42185e-19 & 0.833647 & -1.58022e-17 \\
+    0 & 0 & 0 & 3.65922e-18 & -1.58022e-17 & 0.9915
+\end{pmatrix}
+\end{equation}
+
+Note that the the absolute values of all off-diagonal values lie below the double precision epsilon.
+
+<!--
 ### The Center of Mass and the Origin of the Inertia System
 
 In all of the above, only rotations around the center of mass were considered.
 That is, the center of mass was always assumed to lie in the origin of the body's inertia frame.
 This can be easily achieved during the setup of the system.
 
-Steiner's theorem states that ?
+Otherwise, a rotation around the
 
 
 ```{admonition} TODO
 jupyter(lite) example
 ```
+-->
+
+The following is already possible just with kinetic energy:
+````{div} full-width
+```{dropdown} Jupyterlite
+<iframe src="https://triadtitans.github.io/rigid_body_interactive/lab/index.html?path=single_body.ipynb" width=100% height="700"></iframe>
+```
+````
+
 
 ## Potential Energy
 
@@ -176,14 +210,16 @@ For any given translation vector $x$, the antiderivative or potential of that fo
 In ASC-ODE, the mass is automatically calculated and the *negative* acceleration vector can be specified:
 `rbs.gravity = (0, 9.81, 0)` for downward force.
 
-```{admonition} TODO
-jupyter(lite) example
+````{div} full-width
+```{dropdown} Jupyterlite
+<iframe src="https://triadtitans.github.io/rigid_body_interactive/lab/index.html?path=hammer.ipynb" width=100% height="700"></iframe>
 ```
+````
 
 ### Springs
 
-Let $x_1$, $x_2$ be vectors in the systems of inertia of two different bodies. Their conversion to global coordinates is $U(x_1)$ and $U(x_1)$, respectively.
-Consider these points to be connected by a spring with stiffness $k$, length at rest $l$ and elongation $e = \| U(x_1) - U(x_2) \| - l$.
+Let $x_1$, $x_2$ be vectors in the systems of inertia of two different bodies. Their conversion to global coordinates is $U_1(x_1)$ and $U_2(x_1)$, respectively.
+Consider these points to be connected by a spring with stiffness $k$, length at rest $l$ and elongation $e = \| U_1(x_1) - U_2(x_2) \| - l$.
 
 Then Hooke's law states that the resulting force is given by $F = k \cdot e$ {cite}`theorph{p. 312}`.
 Then the resulting potential is
@@ -191,6 +227,8 @@ Then the resulting potential is
     \frac{k}{2} e^2.
 \end{equation}
 
-```{admonition} TODO
-jupyter(lite) example
+````{div} full-width
+```{dropdown} Jupyterlite
+<iframe src="https://triadtitans.github.io/rigid_body_interactive/lab/index.html?path=rbs_fem.ipynb" width=100% height="700"></iframe>
 ```
+````
