@@ -371,10 +371,10 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="symplecticness">
 <h1>Symplecticness<a class="headerlink" href="#symplecticness" title="Link to this heading">#</a></h1>
 <p>In this chapter we focus on the important property of symplecticness of maps.
-At first a general definition of symplecticness of smooth maps is given, its importance to mechanical systems and a geometric interpretation and.</p>
+At first a general definition of symplecticness of smooth maps is given, its importance to mechanical systems and a geometric interpretation and. <span id="id1">[<a class="reference internal" href="bibliography.html#id9">Rei05</a>]</span> <span id="id2">[<a class="reference internal" href="bibliography.html#id7" title="Ernst Hairer, Christian Lubich, and Gerhard Wanner. Geometric numerical integration : structure-preserving algorithms for ordinary differential equations. Springer series in computational mathematics. Springer, Berlin [u.a.], 2. ed. edition, 2006. ISBN 3540306633.">HLW06</a>]</span></p>
 <section id="symplecticnes-of-smooth-mappings">
 <h2>Symplecticnes of smooth mappings<a class="headerlink" href="#symplecticnes-of-smooth-mappings" title="Link to this heading">#</a></h2>
-<p>Symplecticness is defined by so called two-forms on \mathbb{R}^{2d}, which is a skew-smmetric, bilinear form.
+<p>Symplecticness is defined by so called Structure Matrices in <span class="math notranslate nohighlight">\(\mathbb{R}^{2d \times 2d}\)</span>, which can and will be in our case, a skew-smmetric, bilinear form.
 Such a form can be described by a Matrix <span class="math notranslate nohighlight">\(J\)</span> and gives the following definition.</p>
 <p>A linear map <span class="math notranslate nohighlight">\(L: \mathbb{R}^{2d} \rightarrow \mathbb{R}^{2d}\)</span> is called symplectic with regard to the structure matrix <span class="math notranslate nohighlight">\(J\)</span> if</p>
 <div class="math notranslate nohighlight">
@@ -394,7 +394,7 @@ J = \begin{pmatrix}
               -I_{d} &amp; 0\\
           \end{pmatrix} \in \mathbb{R}^{2d \times 2d}
 \end{split}\]</div>
-<p>For <span class="math notranslate nohighlight">\(d = 1, \omega(\xi, \eta) = \xi^p \eta^q - \xi^q\eta^p\)</span> as the area of the oriented area of the parallogram spanned by <span class="math notranslate nohighlight">\(\xi = \begin{pmatrix}
+<p>For <span class="math notranslate nohighlight">\(d = 1, \Omega(\xi, \eta) = \xi^p \eta^q - \xi^q\eta^p\)</span> as the area of the oriented area of the parallogram spanned by <span class="math notranslate nohighlight">\(\xi = \begin{pmatrix}
 \xi^q \\
 \xi^p
 \end{pmatrix}\)</span> and <span class="math notranslate nohighlight">\(\eta = \begin{pmatrix}
@@ -403,7 +403,7 @@ J = \begin{pmatrix}
 \end{pmatrix}\)</span>. In higher dimensions we get the sum of the oriented Areas of the Projections onto the coordinate planes <span class="math notranslate nohighlight">\((q_i, p_i)\)</span>, by</p>
 <div class="math notranslate nohighlight">
 \[
-\omega(\xi, \eta) = \sum_{i=1}^{d} \xi^{p}_i \eta^{q}_i - \xi^{q}_i\eta^{p}_i
+\Omega(\xi, \eta) = \sum_{i=1}^{d} \xi^{p}_i \eta^{q}_i - \xi^{q}_i\eta^{p}_i
 \]</div>
 <p>If we now look at a 2-dimensional sub manifold <span class="math notranslate nohighlight">\(M\)</span> of <span class="math notranslate nohighlight">\(\mathbb{R}^{2d}\)</span> given by a parameterization as <span class="math notranslate nohighlight">\(M = \psi(K), K \subset \mathbb{R}^{2}\)</span> with <span class="math notranslate nohighlight">\(\psi(s, t)\)</span> being a continously differentiable function.
 We can then consider M as the limit of a union of small parallelograms spanned by</p>
@@ -476,7 +476,8 @@ dq \land (Adp) = (A^{T}dq) \land dp
 dq \land (Adq) = 0
 \]</div>
 <p>if A is a symmetric matrix.</p>
-<p>We now have a bunch of tools to check if maps are symplectic</p>
+<p>We now have a bunch of tools to check if maps are symplectic.
+For more details on the wedge-product, differential 1-forms and symplecticness, see <span id="id3">[<a class="reference internal" href="bibliography.html#id9">Rei05</a>]</span>.</p>
 </section>
 </section>
 

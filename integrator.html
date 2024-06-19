@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -58,6 +58,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'integrator';</script>
     <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -183,7 +185,9 @@
 <li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive demonstration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="objtrans.html">Object Transformation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lagrangian.html">A Brief Overview of Lagrangian Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="symplecticness.html">Symplecticness</a></li>
 <li class="toctree-l1"><a class="reference internal" href="livensprinciple.html">Livens principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structuralproperties.html">Structural Properties and Variational Integrators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="applylag.html">Applying Lagrangian Mechanics</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">The Integrator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="constraints.html">Constraints</a></li>
@@ -328,7 +332,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -344,6 +350,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-method">Numerical Method</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -355,9 +369,59 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-integrator">
 <h1>The Integrator<a class="headerlink" href="#the-integrator" title="Link to this heading">#</a></h1>
-<p>With Livings Principle and the Lagrangian at our disposal we are now ready to examine the integrator
+<p>With Livens Principle and the Lagrangian at our disposal we are now ready to examine the integrator
 employed in our project. Trough variation of the livings principle we obtain equations as in <a class="reference internal" href="livensprinciple.html"><span class="doc std std-doc">Livens principle</span></a>
-which we discretize in time. This result in a nonlinear syststem of equations</p>
+which we discretize in time. This result in a nonlinear syststem of equations.</p>
+<p>We start again with the Livens principle which states that the variation of the action functional <a class="reference internal" href="livensprinciple.html#equation-livens">(10)</a> vanishes and take again the variation with respect to each variable. As shown in the chapter about the livens principle we get</p>
+<div class="math notranslate nohighlight">
+\[ v=\dot{q}\]</div>
+<div class="math notranslate nohighlight">
+\[ p=\frac{\partial T}{\partial v}(v) \]</div>
+<p>For the third equation we have used that the boundary terms from the equation by parts vanished because we hav chosen test function which vanish at <span class="math notranslate nohighlight">\(t=0\)</span> and <span class="math notranslate nohighlight">\(t=T\)</span>. We have then obtained a system of ODEs but now still require initial conditions <span class="math notranslate nohighlight">\(q(0)\)</span> and <span class="math notranslate nohighlight">\(p(0)\)</span>.
+Therefore for the variation with respect to <span class="math notranslate nohighlight">\(q\)</span> we modify the action integral by adding boundary terms</p>
+<div class="math notranslate nohighlight">
+\[
+\int_{0}^{T} T(v) - V(q) + p(\dot{q} - v) \,dt + \hat{p}(0)q(0) - \hat{p}(T)q(T)
+\]</div>
+<p>We introduce new variables <span class="math notranslate nohighlight">\(\hat{p}\)</span> which independent but approximate the same function <span class="math notranslate nohighlight">\(p\)</span>. If we now take again the variation with respect to <span class="math notranslate nohighlight">\(q\)</span> and integration py parts we get</p>
+<div class="math notranslate nohighlight">
+\[
+\int_{0}^{T} (\frac{\partial V}{\partial q}(q)-\dot{q})\delta q \,dt + (p-\hat{p})q\Biggr|_{0}^{T}=0 \ \ \forall \delta q
+\]</div>
+<p>This equation contains the differential equation in <span class="math notranslate nohighlight">\((0, T)\)</span>, and boundary conditions <span class="math notranslate nohighlight">\(p(0)=\hat{p}(0)\)</span> and <span class="math notranslate nohighlight">\(p(T)=\hat{p}(T)\)</span>.</p>
+<section id="numerical-method">
+<h2>Numerical Method<a class="headerlink" href="#numerical-method" title="Link to this heading">#</a></h2>
+<p>We now derive the nurmecial method behind our variational Integrator.
+The Liven’s principle including boundary terms can be interpreted as follows:
+Given starting values <span class="math notranslate nohighlight">\(q(0)\)</span> and <span class="math notranslate nohighlight">\(\hat{p}(0)\)</span>, we can solve for functions <span class="math notranslate nohighlight">\(q, v, p\)</span> on <span class="math notranslate nohighlight">\([0, T]\)</span>, and the value <span class="math notranslate nohighlight">\(\hat{p}(T)\)</span>. At the end-point we take <span class="math notranslate nohighlight">\(q(T)\)</span> and th momentum <span class="math notranslate nohighlight">\(\hat{p}\)</span>. If we now continou on a time intervall <span class="math notranslate nohighlight">\([T, T_2]\)</span> with the initial values <span class="math notranslate nohighlight">\(q(T)\)</span> and <span class="math notranslate nohighlight">\(\hat{p}(T)\)</span>.
+Given a time interval <span class="math notranslate nohighlight">\([t_i, t_{i+1}]\)</span> we approximate q\biggr|<em>{[t_i, t</em>{i+1}]} by a linear polynomial and the variables <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(p\)</span> by costant functions on <span class="math notranslate nohighlight">\([t_i, t_{i+1}]\)</span>. The moments <span class="math notranslate nohighlight">\(\hat{p}(t_i)\)</span> are only existing in the point <span class="math notranslate nohighlight">\(t_i\)</span>.</p>
+<p>We now get a time-stepping method propagating <span class="math notranslate nohighlight">\((q(t_i), p(t_i))\)</span> to <span class="math notranslate nohighlight">\((q(t_{i+1}), p(t_{i+1}))\)</span>, which we will now specify.</p>
+<p>We start with a fixed time interval <span class="math notranslate nohighlight">\([t_i, t_i +h]\)</span> the first Euler-Lagrange equation</p>
+<div class="math notranslate nohighlight">
+\[
+\int_{t_i}^{t_i+h} (\dot{q} - v) \delta q \,dt = h(\frac{q_{i+1} - q_i}{h} -v_i) \delta q = 0 \iff \frac{q_{i+1} - q_i}{h} = v_i
+\]</div>
+<p>In our case we have <span class="math notranslate nohighlight">\(q_i = (a_i, B_i), \ q_{i+1} = (a_{i+1}, B_{i+1})\)</span> and we remember that the derivative of the position <span class="math notranslate nohighlight">\(\dot{q} = v_i = (v_{a_i}, B_{i+1/2}\hat{v}_i)\)</span> with <span class="math notranslate nohighlight">\(B_{i+1/2} \in SO(3)\)</span> and <span class="math notranslate nohighlight">\(\hat{v}_i\)</span> being a skew-symmetric matrix. We then get</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{h}(a_{i+1}-a_i, B_{i+1} - B_i) = (v_{a_i}, B_{i+1/2}\hat{\omega}_i)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{h}(a_{i+1}-a_i) = v_{a_i}, \ \ \ 3 \ equations
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{h}Skew(B_{i+1/2}^{-1}(B_{i+1} - B_i)) = \hat{v}_i, \ \ \ 3 \ equations
+\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\hat{v}_i\)</span> is now the matix <span class="math notranslate nohighlight">\(\hat{\omega}\)</span> transformd by the hat-map.</p>
+<p>Through the second equation we get</p>
+<div class="math notranslate nohighlight">
+\[
+\int_{t_i}^{t_i+h} (\frac{\partial T}{\partial v}(v) - p) \delta v \,dt = \int_{t_i}^{t_i+h} (Mv - p) \delta v \,dt = h(Mv_i -p_i) \delta v = 0 \iff Mv_i = p_i
+\]</div>
+<p>where the second equality holds because we assume <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(p\)</span> to be constant on <span class="math notranslate nohighlight">\([t_i, t_i +h]\)</span>.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -414,6 +478,21 @@ which we discretize in time. This result in a nonlinear syststem of equations</p
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-method">Numerical Method</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
