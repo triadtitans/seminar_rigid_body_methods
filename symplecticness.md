@@ -1,9 +1,10 @@
 # Symplecticness
 In this chapter we focus on the important property of symplecticness of maps.
-At first a general definition of symplecticness of smooth maps is given, its importance to mechanical systems and a geometric interpretation and.
+At first a general definition of symplecticness of smooth maps is given, its importance to mechanical systems and a geometric interpretation and. {cite}`Reich` {cite}`hairer`
 
 ## Symplecticnes of smooth mappings
-Symplecticness is defined by so called two-forms on $\mathbb{R}^{2d}$, which is a skew-smmetric, bilinear form.
+
+Symplecticness is defined by so called Structure Matrices in $\mathbb{R}^{2d \times 2d}$, which can and will be in our case, a skew-smmetric, bilinear form.
 Such a form can be described by a Matrix $J$ and gives the following definition.
 
 A linear map $L: \mathbb{R}^{2d} \rightarrow \mathbb{R}^{2d}$ is called symplectic with regard to the structure matrix $J$ if 
@@ -27,7 +28,7 @@ J = \begin{pmatrix}
           \end{pmatrix} \in \mathbb{R}^{2d \times 2d}
 $$
 
-For $d = 1, \omega(\xi, \eta) = \xi^p \eta^q - \xi^q\eta^p$ as the area of the oriented area of the parallogram spanned by $\xi = \begin{pmatrix}
+For $d = 1, \Omega(\xi, \eta) = \xi^p \eta^q - \xi^q\eta^p$ as the area of the oriented area of the parallogram spanned by $\xi = \begin{pmatrix}
 \xi^q \\
 \xi^p
 \end{pmatrix}$ and $\eta = \begin{pmatrix}
@@ -36,7 +37,7 @@ For $d = 1, \omega(\xi, \eta) = \xi^p \eta^q - \xi^q\eta^p$ as the area of the o
 \end{pmatrix}$. In higher dimensions we get the sum of the oriented Areas of the Projections onto the coordinate planes $(q_i, p_i)$, by
 
 $$
-\omega(\xi, \eta) = \sum_{i=1}^{d} \xi^{p}_i \eta^{q}_i - \xi^{q}_i\eta^{p}_i
+\Omega(\xi, \eta) = \sum_{i=1}^{d} \xi^{p}_i \eta^{q}_i - \xi^{q}_i\eta^{p}_i
 $$
 
 If we now look at a 2-dimensional sub manifold $M$ of $\mathbb{R}^{2d}$ given by a parameterization as $M = \psi(K), K \subset \mathbb{R}^{2}$ with $\psi(s, t)$ being a continously differentiable function.
@@ -119,4 +120,5 @@ dq \land (Adq) = 0
 $$
 if A is a symmetric matrix.
 
-We now have a bunch of tools to check if maps are symplectic
+We now have a bunch of tools to check if maps are symplectic.
+For more details on the wedge-product, differential 1-forms and symplecticness, see {cite}`Reich`.
