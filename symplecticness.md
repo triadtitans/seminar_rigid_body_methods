@@ -3,7 +3,7 @@ In this chapter we focus on the important property of symplecticness of maps.
 At first a general definition of symplecticness of smooth maps is given, its importance to mechanical systems and a geometric interpretation and.
 
 ## Symplecticnes of smooth mappings
-Symplecticness is defined by so called two-forms on \mathbb{R}^{2d}, which is a skew-smmetric, bilinear form.
+Symplecticness is defined by so called two-forms on $\mathbb{R}^{2d}$, which is a skew-smmetric, bilinear form.
 Such a form can be described by a Matrix $J$ and gives the following definition.
 
 A linear map $L: \mathbb{R}^{2d} \rightarrow \mathbb{R}^{2d}$ is called symplectic with regard to the structure matrix $J$ if 

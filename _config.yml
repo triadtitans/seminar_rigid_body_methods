@@ -55,3 +55,7 @@ parse:
 sphinx:
   extra_extensions:
     - sphinx_proof
+  config:
+    language: en
+    exclude_patterns:
+      "README.md"

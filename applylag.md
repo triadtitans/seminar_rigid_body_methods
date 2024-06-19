@@ -138,6 +138,8 @@ $v \coloneqq \begin{pmatrix} v_{trans} \\ v_{rot} \end{pmatrix} $, the equation 
 The mass matrix is not time-dependent as the inertia tensor and mass do not depent on time.
 As the left upper diagonal and $\II$ are invertible, the mass matrix is also invertible.
 
+Note that the mass matrix represents the Legendre transform.
+
 An object:
 !["hammer"](hammer.png "hammer")
 
