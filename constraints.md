@@ -1,4 +1,4 @@
-# Constraints
+# An Extension: Constraints
 
 In addition to $B^TB = I$, other constraints can be formulated, e.g. to describe beams connecting two bodies (or a body and a point in space).
 
@@ -115,3 +115,5 @@ This makes for a total cost of $O((b+c)^6)$ for every step.
 
 However, already the most minimal setup including a beam has proven to be rather computationally expensive.
 Apart from that, further tests will have to be made on whether or not more than one beam or beams of length zero are feasible.
+
+Adding to that, it can be

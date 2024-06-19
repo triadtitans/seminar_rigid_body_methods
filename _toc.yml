@@ -7,10 +7,10 @@ chapters:
 - file: interactive
 - file: objtrans
 - file: lagrangian
-- file: symplecticness
-- file: livensprinciple
-- file: structuralproperties
 - file: applylag
+- file: livensprinciple
+- file: symplecticness
+- file: structuralproperties
 - file: integrator
 - file: constraints
 - file: bibliography

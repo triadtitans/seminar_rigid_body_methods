@@ -1,4 +1,11 @@
-# Symplectic integration on lie groups?
+# Simulating rigid body mechanics
+### An approach using variational integration and the Livens principle
+
+
+Variational integration based on the Livens principle
+Rigid body motion
+Livens principle
+
 ````{card}
 
 **Linus Knoll, Tobias Leichtfried, Norbert Hammer**
@@ -14,7 +21,10 @@ The main part of the corresponding seminar was the development of rigid body sim
 The latter implements lagrangian mechanics and an ODE solver as well as a novel algorithm based on the Discontinuous galerkin method.
 --->
 
-This website documents a seminar project. The aim was to simulate rigid bodies using a method based on variational integrators and the Livens principle.
+In computational chemistry and other domains of science, so-called rigid-body simulations are used.
+These permit the physically accurate prediction of body motions.
+The aim of this seminar project was to implement a simulation algorithm and analyse it.
+This website documents the process.
 
 
 ````{card} [ASC-ODE](https://github.com/triadtitans/ASC-ODE)
