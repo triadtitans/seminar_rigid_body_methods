@@ -17,7 +17,7 @@ modelled with $\mathcal{Q} = [0,2\pi)$ or a mass in space with $\mathcal{Q} = \m
 We search for a method to 
  generate the equations of motions, which are then integrated numerically, resulting
 in a function $q: [t_0,\infty)\to\mathcal{Q}$. This function predicts the behaviour of a system at times
-after $t_0$. While it is difficult to analyze all acting forces it is generally easy, given
+after $t_0$. While it is difficult to analyze all acting forces, it is generally easy, given
 a positon $q\in\mathcal{Q}$ and a velocity $\dot{q}\in\mathcal{Q}$ at a point $t\in\mathbb{R}$ in time to calculate 
 the kinetic energy $K: \mathcal{Q} \to \mathbb{R}$ and the potential energy $U: \mathcal{Q} \to \mathbb{R}$.
 
@@ -32,7 +32,7 @@ $$
 $$
 
 The Lagrangian depends on two values: the position and the velocity. Having a Lagrangian we can
-formulate the Euler-Lagrange equations: Let $q: [t_0,\infty)\to\mathcal{Q}$ q describe the motion
+formulate the Euler-Lagrange equations: Let $q: [t_0,\infty)\to\mathcal{Q}$ describe the motion
 of the system with Lagrangian $L$. Then the following differential equation holds:
 
 $$
@@ -58,7 +58,7 @@ This is called the action of the mechanical system we are modelling. The princip
 states that the motion $q: [t_0,\infty)\to\mathcal{Q}$ of the system is a stationary point of this
 functional. This means that for small variations $q+\varepsilon\cdot\delta q$ where 
 $\delta q : [t_0,\infty)\to\mathcal{Q}$ with $\delta q(t_0)=\delta q(T)=0$, the
-action fulfills $\mathcal{S}(q+\delta q) >= \mathcal{S}(q)$. (Or the reverse equation).
+action fulfills $\mathcal{S}(q+\delta q) \geq \mathcal{S}(q)$. (Or the reverse equation).
 
 With mathematical tools from the calculus of variations it can be shown that such stationary points
 are exactly given by the Euler-Lagrange equation. A similar calculation is shown in the chapter

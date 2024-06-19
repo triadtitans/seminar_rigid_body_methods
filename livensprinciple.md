@@ -34,7 +34,7 @@ $$
 $$
 This definition obviously requires that the map $v \mapsto p(q,v)$ is invertible for every $q\in\mathcal{Q}$.
 Such an inverse assigns a velocity $v$ to a pair of position and conjugate moment and is called Legendre transform.
-{cite}`hairer{p.p. 181, 182}`. Having conjugate momenta to our disposal we can formulate Hamilton's
+{cite}`hairer{p.p. 181, 182}`. Having conjugate momenta to our disposal, we can formulate Hamilton's
 canonical equation of motion:
 
 $$
