@@ -14,22 +14,22 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
@@ -38,16 +38,16 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -75,27 +75,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -117,8 +113,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -206,7 +207,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -215,14 +216,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -331,9 +332,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -390,8 +391,8 @@ Therefore, it needs to ensure that the resulting matrix <span class="math notran
 <li><p><span class="math notranslate nohighlight">\(\bf{det B = 1}\)</span> This has proven to be negligable.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\bf{B}\)</span> <strong>orthonormal</strong> needs to be reformulated into an equation that is easy to check.</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-773d2fd7-b200-488d-9c42-baf519bee608">
-<span class="eqno">(13)<a class="headerlink" href="#equation-773d2fd7-b200-488d-9c42-baf519bee608" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-dd5cccfc-eb46-4f30-b4e8-2b158f8b9dbb">
+<span class="eqno">(13)<a class="headerlink" href="#equation-dd5cccfc-eb46-4f30-b4e8-2b158f8b9dbb" title="Permalink to this equation">#</a></span>\[\begin{align}
     B ~ \text{orthonormal} \\
     \Leftrightarrow \forall x \in \mathbb{R}^3:~ \| Bx \| &amp; = \| x \| \\
     \Leftrightarrow \forall x \in \mathbb{R}^3:~ \| Bx \|^2 &amp; = \| x \|^2 \\
@@ -414,8 +415,8 @@ However, as <span class="math notranslate nohighlight">\(B^TB\)</span> is symmet
 <section id="translation">
 <h3>Translation<a class="headerlink" href="#translation" title="Link to this heading">#</a></h3>
 <p>The translational part of the kinetic energy is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1a82dbd1-6636-42b4-ae8e-b3046fe4ca6c">
-<span class="eqno">(14)<a class="headerlink" href="#equation-1a82dbd1-6636-42b4-ae8e-b3046fe4ca6c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b658d319-efb8-4054-a46f-5e167bd5421b">
+<span class="eqno">(14)<a class="headerlink" href="#equation-b658d319-efb8-4054-a46f-5e167bd5421b" title="Permalink to this equation">#</a></span>\[\begin{equation}
     T(v_{trans}) = \frac{1}{2} m v_{trans}^2
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(v_{trans}\)</span> is the translational part of the velocity and m the mass of the body.
@@ -430,22 +431,22 @@ without translation. It also assumes that the center of mass lies in the center 
 Let the angular velocity of the body be given by <span class="math notranslate nohighlight">\(v_{rot} \in \mathbb{R}^3\)</span>.
 Assume that the body only rotates around it’s center of mass (no translation) and that <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(v_{rot}\)</span> are in the body’s system of inertia.
 Then the kinetic energy of this motion fulfills</p>
-<div class="amsmath math notranslate nohighlight" id="equation-02d94fce-85fb-4086-a74c-1889635dba9e">
-<span class="eqno">(15)<a class="headerlink" href="#equation-02d94fce-85fb-4086-a74c-1889635dba9e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-36161b5f-ce7a-4ca6-988f-8eaece9f2d69">
+<span class="eqno">(15)<a class="headerlink" href="#equation-36161b5f-ce7a-4ca6-988f-8eaece9f2d69" title="Permalink to this equation">#</a></span>\[\begin{equation}
     T(v_{rot}) = \frac{1}{2} \int_V \rho(x)~ | v_{rot} \times x |^2 dx
                = \frac{1}{2} \int_V \rho(x)~ | \widehat{v_{rot}} x |^2 dx
 \end{equation}\]</div>
 <p>If we define <span class="math notranslate nohighlight">\((\cdot, \cdot)\)</span> as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8820afda-4953-4f8d-b976-f2c9d25b5c99">
-<span class="eqno">(16)<a class="headerlink" href="#equation-8820afda-4953-4f8d-b976-f2c9d25b5c99" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ddd5915f-87b5-4c40-9006-37e62d4e3434">
+<span class="eqno">(16)<a class="headerlink" href="#equation-ddd5915f-87b5-4c40-9006-37e62d4e3434" title="Permalink to this equation">#</a></span>\[\begin{equation}
     (a, b) \coloneqq \frac{1}{2} \int_V \rho(x)~ (a \times x) \cdot (b \times x) ~ dx
 \end{equation}\]</div>
 <p>then one obtains <span class="math notranslate nohighlight">\(T(v_{rot}) = (v_{rot}, v_{rot})\)</span>.</p>
 <p>For an efficient implementation of this scalar product, it’s gram matrix is used.
 This matrix is called the <strong>inertia tensor</strong> (or moment of inertia tensor):
 <span class="math notranslate nohighlight">\(\newcommand{\II}[0]{{\mathbb{I}}}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-3f20cfb8-0270-496c-ad3b-c0a5577f6a14">
-<span class="eqno">(17)<a class="headerlink" href="#equation-3f20cfb8-0270-496c-ad3b-c0a5577f6a14" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f89d8dc7-0e08-46a9-9b75-6208a338a276">
+<span class="eqno">(17)<a class="headerlink" href="#equation-f89d8dc7-0e08-46a9-9b75-6208a338a276" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \II = \begin{pmatrix}
               I_{xx} &amp; I_{xy} &amp; I_{xz} \\
               I_{yx} &amp; I_{yy} &amp; I_{yz} \\
@@ -466,8 +467,8 @@ Increasing that rotation speed will however not affect the kinetic energy $T = \
 <section id="angular-momentum">
 <h3>Angular Momentum<a class="headerlink" href="#angular-momentum" title="Link to this heading">#</a></h3>
 <p>In a body’s system of inertia, the angular momentum is the derivative of the kinetic energy with respect to the angular velocity:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2864e589-960d-4093-bdb6-d4f0685e522a">
-<span class="eqno">(18)<a class="headerlink" href="#equation-2864e589-960d-4093-bdb6-d4f0685e522a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-45bf71aa-a47f-4cc9-ba45-c556f753f1f8">
+<span class="eqno">(18)<a class="headerlink" href="#equation-45bf71aa-a47f-4cc9-ba45-c556f753f1f8" title="Permalink to this equation">#</a></span>\[\begin{align}
     \Pi = \frac{\partial T}{\partial v_{rot}}
         &amp;= \frac{\partial}{\partial v_{rot}} \frac{1}{2} \int_V \rho(x)~ | v_{rot} \times x |^2 dx \\
         &amp;= \int_V \rho(x)~ x \times ( v_{rot} \times x ) dx \\
@@ -480,18 +481,18 @@ Increasing that rotation speed will however not affect the kinetic energy $T = \
 <section id="the-mass-matrix">
 <h3>The Mass Matrix<a class="headerlink" href="#the-mass-matrix" title="Link to this heading">#</a></h3>
 <p>From the above, two equations on the momentum of a body can be gathered:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9656696c-db33-4bce-894a-84d2e9942c18">
-<span class="eqno">(19)<a class="headerlink" href="#equation-9656696c-db33-4bce-894a-84d2e9942c18" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-215c3570-816b-48f2-bdc2-889c6cc9df2f">
+<span class="eqno">(19)<a class="headerlink" href="#equation-215c3570-816b-48f2-bdc2-889c6cc9df2f" title="Permalink to this equation">#</a></span>\[\begin{equation}
     p_{trans} = m \cdot v_{trans}
 \end{equation}\]</div>
 <p>and</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d8914bdf-c009-4de9-b48b-579f6149fa46">
-<span class="eqno">(20)<a class="headerlink" href="#equation-d8914bdf-c009-4de9-b48b-579f6149fa46" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-18112536-15af-4e8b-879f-fe1710517b49">
+<span class="eqno">(20)<a class="headerlink" href="#equation-18112536-15af-4e8b-879f-fe1710517b49" title="Permalink to this equation">#</a></span>\[\begin{equation}
     p_{rot} = \II \cdot v_{rot}.
 \end{equation}\]</div>
 <p>These can be combined into one matrix equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7c533e39-ecb7-48af-8962-4a2dcb345ba1">
-<span class="eqno">(21)<a class="headerlink" href="#equation-7c533e39-ecb7-48af-8962-4a2dcb345ba1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d2b12449-2c75-4168-afe9-1a4031253b0d">
+<span class="eqno">(21)<a class="headerlink" href="#equation-d2b12449-2c75-4168-afe9-1a4031253b0d" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \begin{pmatrix}
         p_{trans} \\
         p_{rot}
@@ -518,8 +519,8 @@ As the left upper diagonal and <span class="math notranslate nohighlight">\(\II\
 <p>An object:
 <img alt="&quot;hammer&quot;" src="_images/hammer.png" /></p>
 <p>and its mass matrix from <code class="docutils literal notranslate"><span class="pre">netgen.occ</span></code>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-043f1505-c0f1-4d1d-aef6-89682450e350">
-<span class="eqno">(22)<a class="headerlink" href="#equation-043f1505-c0f1-4d1d-aef6-89682450e350" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cce5c608-33ce-48c5-b750-b7c827444378">
+<span class="eqno">(22)<a class="headerlink" href="#equation-cce5c608-33ce-48c5-b750-b7c827444378" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{pmatrix}
     2.06283 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
     0 &amp; 2.06283 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
@@ -561,8 +562,8 @@ To account for interactions between bodies, the potential is calculated <strong>
 That is, all potential energies of all bodies are summed up.
 Let <span class="math notranslate nohighlight">\(q_i \in SE(3)\)</span> represent the transformations of the individual bodies.
 Then the result is a scalar-valued potential function</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cb3634be-4fd3-4688-8786-037a464f10ba">
-<span class="eqno">(23)<a class="headerlink" href="#equation-cb3634be-4fd3-4688-8786-037a464f10ba" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-01f675ea-59df-46a4-a4b8-23157652da14">
+<span class="eqno">(23)<a class="headerlink" href="#equation-01f675ea-59df-46a4-a4b8-23157652da14" title="Permalink to this equation">#</a></span>\[\begin{equation}
     V( q_1, q_2, q_3, ...).
 \end{equation}\]</div>
 <p><span class="math notranslate nohighlight">\(V\)</span> is then differenciated with respect to all components of all <span class="math notranslate nohighlight">\(q_i\)</span>.
@@ -576,8 +577,8 @@ A force that acts homogenously on the body does not influence it’s rotation.
 Therefore, the body can be seen as a point mass. The bodies can also be treated individually.</p>
 <p>Using <span class="math notranslate nohighlight">\(F = m \cdot a\)</span>, the force on a point mass can be specified as an acceleration vector <span class="math notranslate nohighlight">\(a \in \mathbb{R}^3\)</span> and the body mass <span class="math notranslate nohighlight">\(m\)</span>.
 For any given translation vector <span class="math notranslate nohighlight">\(x\)</span>, the antiderivative or potential of that force is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-96af161c-9741-404a-8fc4-e92a675d059e">
-<span class="eqno">(24)<a class="headerlink" href="#equation-96af161c-9741-404a-8fc4-e92a675d059e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a4aa7768-7f3f-4158-a721-f26b5d1c6878">
+<span class="eqno">(24)<a class="headerlink" href="#equation-a4aa7768-7f3f-4158-a721-f26b5d1c6878" title="Permalink to this equation">#</a></span>\[\begin{equation}
     m \cdot (a \cdot x).
 \end{equation}\]</div>
 <p>In ASC-ODE, the mass is automatically calculated and the <em>negative</em> acceleration vector can be specified:
@@ -596,8 +597,8 @@ For any given translation vector <span class="math notranslate nohighlight">\(x\
 Consider these points to be connected by a spring with stiffness <span class="math notranslate nohighlight">\(k\)</span>, length at rest <span class="math notranslate nohighlight">\(l\)</span> and elongation <span class="math notranslate nohighlight">\(e = \| U_1(x_1) - U_2(x_2) \| - l\)</span>.</p>
 <p>Then Hooke’s law states that the resulting force is given by <span class="math notranslate nohighlight">\(F = k \cdot e\)</span> <span id="id6">[<a class="reference internal" href="bibliography.html#id2" title="Matthias Bartelmann, Björn Feuerbacher, Timm Krüger, Dieter Lüst, Anton Rebhan, and Andreas Wipf. Theoretische Physik. Springer Berlin Heidelberg, Berlin, Heidelberg, 2015. ISBN 3642546188. URL: 10.1007/978-3-642-54618-1.">BFK+15</a>, p. 312]</span>.
 Then the resulting potential is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-22d98ded-da17-4131-8c1a-7e058c27b30d">
-<span class="eqno">(25)<a class="headerlink" href="#equation-22d98ded-da17-4131-8c1a-7e058c27b30d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5745c0e2-0dc8-4e28-8e89-9938a8c4b5b8">
+<span class="eqno">(25)<a class="headerlink" href="#equation-5745c0e2-0dc8-4e28-8e89-9938a8c4b5b8" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{k}{2} e^2.
 \end{equation}\]</div>
 <div class="full-width docutils">
@@ -638,7 +639,7 @@ Then the resulting potential is</p>
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -736,8 +737,8 @@ By Linus Knoll, Tobias Leichtfried, Norbert Hammer
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>
