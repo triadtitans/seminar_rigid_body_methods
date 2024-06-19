@@ -1,0 +1,11 @@
+https://triadtitans.github.io/seminar_rigid_body_methods/intro.html
+https://triadtitans.github.io/seminar_rigid_body_methods/interactive.html
+https://triadtitans.github.io/seminar_rigid_body_methods/objtrans.html
+https://triadtitans.github.io/seminar_rigid_body_methods/lagrangian.html
+https://triadtitans.github.io/seminar_rigid_body_methods/symplecticness.html
+https://triadtitans.github.io/seminar_rigid_body_methods/livensprinciple.html
+https://triadtitans.github.io/seminar_rigid_body_methods/structuralproperties.html
+https://triadtitans.github.io/seminar_rigid_body_methods/applylag.html
+https://triadtitans.github.io/seminar_rigid_body_methods/integrator.html
+https://triadtitans.github.io/seminar_rigid_body_methods/constraints.html
+https://triadtitans.github.io/seminar_rigid_body_methods/bibliography.html

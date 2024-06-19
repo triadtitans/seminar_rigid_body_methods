@@ -108,7 +108,7 @@ Note the difference in the domain compared to the Lagrangian for minimal coordin
 
 The conjugate momenta are given through the legendre transform via $p=\frac{\partial}{\partial v}L(q,v)$.
 For every $v\in T_q\mathcal{Q}$ this derivative can be understood as linear map $T_q \to \mathbb{R}$
-and therefore as a functional in the dual space of the tangent space $p=\in T^*_q$. As an analogon
+and therefore as a functional in the dual space of the tangent space $p \in T^*_q$. As an analogon
 to the tanget bundle we also introduce the cotangent bundle
 $T^*\mathcal{Q} = \{(p,q) \mid q\in\mathcal{Q},\; p \in  T^*_q\mathcal{Q} \}$. Both the 
 tangent and cotangent bundle can also be described via a constraint analogous to $\mathcal{Q}$.
@@ -125,7 +125,7 @@ In order to apply Variational Integration to the mechanics of this rigid body sy
 ```
 
 Where $L:T\mathcal{Q}\to \mathbb{R}$ ist the Lagrangian given through $L(q,\dot{q})=T(\dot{q})+U(q)$,
-$T$ and $U$ beeing the kinetic and potential energy respectivley. Note that $T$ depends only on $\dot{q}$ and $U$ only on $q$.
+$T$ and $U$ being the kinetic and potential energy respectivley. Note that $T$ depends only on $\dot{q}$ and $U$ only on $q$.
 
 The Livens principle, on the other hand, describes an alternative action functional to be extremized. {cite}`Kinon2023`
 This reads as follows
@@ -135,7 +135,7 @@ $$
 $$(livens)
 
 Note the two additonal independent variables $v\in T \mathcal{Q}$ and $p \in T^{*} \mathcal{Q}$. Where $T\mathcal{Q}$,
-$T^*\mathcal{Q}$ are the tangent and cotanget bundle.
+$T^*\mathcal{Q}$ are the tangent and cotangent bundle.
 
 This functional can be understood as a Lagrangian with constraint $\dot{q}-v$ and corresponding Lagrangian multipliers $p$.
 These Lagrangian multiplies can later be identified as the conjugate momenta of the system.

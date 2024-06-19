@@ -14,40 +14,40 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -75,23 +75,27 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -113,13 +117,8 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
     </header>
   
 
@@ -185,7 +184,9 @@
 <li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive demonstration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="objtrans.html">Object Transformation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lagrangian.html">A Brief Overview of Lagrangian Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="symplecticness.html">Symplecticness</a></li>
 <li class="toctree-l1"><a class="reference internal" href="livensprinciple.html">Livens principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structuralproperties.html">Structural Properties and Variational Integrators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="applylag.html">Applying Lagrangian Mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="integrator.html">The Integrator</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Constraints</a></li>
@@ -205,7 +206,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -214,14 +215,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -330,7 +331,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -346,6 +349,22 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-constraints">Adding Constraints</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-alternative-point-of-view">An Alternative Point of View</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-drawback">A Drawback</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#secondary-constraints">Secondary constraints</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance">Performance</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -357,12 +376,135 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="constraints">
 <h1>Constraints<a class="headerlink" href="#constraints" title="Link to this heading">#</a></h1>
-<p>In addition to <span class="math notranslate nohighlight">\(B^TB = I\)</span>, other constraints can be formulated to describe beams connecting two bodies (or a body and a point in space).
-Anchorpoints can also be implemented that way (as beams of length zero).</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">TODO</p>
-<p>jupyter(lite) example</p>
+<p>In addition to <span class="math notranslate nohighlight">\(B^TB = I\)</span>, other constraints can be formulated, e.g. to describe beams connecting two bodies (or a body and a point in space).</p>
+<p><strong>Example: Massless Beams</strong> As with springs, the starting point are two points <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span> in different systems of inertia.
+If <span class="math notranslate nohighlight">\(U_1(x_1)\)</span> and <span class="math notranslate nohighlight">\(U_2(x_1)\)</span> denote their position in the global system of inertia, then the aim is to keep
+<span class="math notranslate nohighlight">\(\| U_1(x_1) - U_2(x_2) \|\)</span> constant.
+This makes for a massless beam.</p>
+<section id="adding-constraints">
+<h2>Adding Constraints<a class="headerlink" href="#adding-constraints" title="Link to this heading">#</a></h2>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 5 </span></p>
+<section class="definition-content" id="proof-content">
+<p>An equation is called scleronomic if it does not depend on time.
+It is called holonomic if it has the shape <span class="math notranslate nohighlight">\(f(x) = 0\)</span>.
+<span id="id1">[<a class="reference internal" href="bibliography.html#id2" title="Matthias Bartelmann, Björn Feuerbacher, Timm Krüger, Dieter Lüst, Anton Rebhan, and Andreas Wipf. Theoretische Physik. Springer Berlin Heidelberg, Berlin, Heidelberg, 2015. ISBN 3642546188. URL: 10.1007/978-3-642-54618-1.">BFK+15</a>]</span></p>
+</section>
+</div><p>Consider the scleronomic, holonomic system of constraints</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c1bb50c8-76f2-4b89-bf9d-da48059170f2">
+<span class="eqno">(26)<a class="headerlink" href="#equation-c1bb50c8-76f2-4b89-bf9d-da48059170f2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+g(q) = 0
+\end{equation}\]</div>
+<p>with <span class="math notranslate nohighlight">\(g:\mathbb{R}^d \to \mathbb{R}^m\)</span> as an extra equation that a mechanical system should fulfill.
+Let the individual constraints <span class="math notranslate nohighlight">\(g_i\)</span> be independent.
+Then the Jacobian of <span class="math notranslate nohighlight">\(g\)</span>, namely <span class="math notranslate nohighlight">\(J_g\)</span>, has full rank.</p>
+<p>Mathematically, this constraint can be added into the system by further augmenting the Lagrangian function.
+We obtain</p>
+<div class="math notranslate nohighlight">
+\[
+    \mathcal{S}(q,v,p) = \int_{t_0}^{T} L(q,v) + p(\dot{q}-v) + \lambda \cdot g(q) \,dt.
+\]</div>
+<div class="admonition-todo-adapt-to-section-on-final-equations admonition">
+<p class="admonition-title">TODO: adapt to section on final equations</p>
+<p>This results in a change in the equations of motion:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \dot{p} = J_V(q) - J_g(q)^T \cdot \lambda \\
+    g(q) = 0
+\end{split}\]</div>
 </div>
+<p><span id="id2">[<a class="reference internal" href="bibliography.html#id9" title="P. L. Kinon, P. Betsch, and S. Schneider. The ggl variational principle for constrained mechanical systems. Multibody system dynamics, 57(3-4):211–236, 2023.">KBS23a</a>]</span></p>
+<section id="an-alternative-point-of-view">
+<h3>An Alternative Point of View<a class="headerlink" href="#an-alternative-point-of-view" title="Link to this heading">#</a></h3>
+<p>Such primary constraints can also be dealt with implicitly.
+If <span class="math notranslate nohighlight">\(\lambda\)</span> is considered to belong to <span class="math notranslate nohighlight">\(q\)</span>, the action functional can be rewritten to</p>
+<div class="math notranslate nohighlight">
+\[
+    \mathcal{S}(q,v,p) = \int_{t_0}^{T} T(v) - (V(q) - \lambda \cdot g(q)) + p(\dot{q}-v) \,dt.
+\]</div>
+<p>Therefore, modifying the calculation of <span class="math notranslate nohighlight">\(V\)</span> and adding the equation <span class="math notranslate nohighlight">\(g(q) = 0\)</span> is sufficient.</p>
+</section>
+<section id="a-drawback">
+<h3>A Drawback<a class="headerlink" href="#a-drawback" title="Link to this heading">#</a></h3>
+<p>In ASC-ODE however, this has proven not to work.
+In the implementation, the momentum tried to compensate for the constraint and leaves the cotangent space.
+This lead to the numerical system being so unstable that only a few simulation steps were possible.</p>
+</section>
+</section>
+<section id="secondary-constraints">
+<h2>Secondary constraints<a class="headerlink" href="#secondary-constraints" title="Link to this heading">#</a></h2>
+<p>A partial solution proved to lie in adding an additional constraint to the system, namely:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    0 = \frac{d}{dt} g(q(t)) = J_g(q(t)) \cdot \dot{q}(t) = J_g(q(t)) \cdot R(t) \cdot v(t) \\
+    = J_g(q(t)) \cdot R(t) \cdot M^{-1} \cdot p(t) =: g^v(q(t), p(t))
+\end{split}\]</div>
+<p>Note that these equations need to be viewed on a global scale as g might depend on any body’s transformation!
+Therefore, <span class="math notranslate nohighlight">\(q(t)\)</span> needs to contain all transformations;
+<span class="math notranslate nohighlight">\(M\)</span> and <span class="math notranslate nohighlight">\(R(t)\)</span> are block diagonal matrices containing all mass and rotation matrices of all bodies.</p>
+<p>This constraint is now dependant on both <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(p\)</span> and can therefore not be dealt with by inclusion into <span class="math notranslate nohighlight">\(V(q)\)</span>.</p>
+<div class="admonition-todo-adapt-to-section-on-final-equations admonition">
+<p class="admonition-title">TODO: adapt to section on final equations</p>
+<p>This results in a change in the equations of motion:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \dot{q} = M{-1}p + J_g
+    \dot{p} = J_V(q) - J_{g^v(q, p)}^T \cdot \lambda \\
+    g^v(q, p) = 0
+\end{split}\]</div>
+</div>
+<div class="admonition-todo-symplecticness admonition">
+<p class="admonition-title">TODO: symplecticness</p>
+<p>symplectic? This scheme is symplectic. <span id="id3">[<a class="reference internal" href="bibliography.html#id9" title="P. L. Kinon, P. Betsch, and S. Schneider. The ggl variational principle for constrained mechanical systems. Multibody system dynamics, 57(3-4):211–236, 2023.">KBS23a</a>]</span></p>
+</div>
+<section id="performance">
+<h3>Performance<a class="headerlink" href="#performance" title="Link to this heading">#</a></h3>
+<p>The problem with the resulting algorithm is a lack of performance.
+To be precise, computing <span class="math notranslate nohighlight">\(J_g(q)\)</span> proves to be numerically expensive.</p>
+<p>For every step, the computer <em>recursively</em> needs to:</p>
+<ul class="simple">
+<li><p>solve a system of equations</p>
+<ul>
+<li><p>set up the Jacobian of the system</p>
+<ul>
+<li><p>evaluate the equation function of the system itself</p>
+<ul>
+<li><p>calculate the derivative of <span class="math notranslate nohighlight">\(g^v\)</span></p>
+<ul>
+<li><p>Evaluate <span class="math notranslate nohighlight">\(g^v\)</span></p>
+<ul>
+<li><p>calculate <span class="math notranslate nohighlight">\(J_g\)</span></p>
+<ul>
+<li><p>evaluate <span class="math notranslate nohighlight">\(g\)</span></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>What is the cost of this computation?</strong>
+Taking a system with <span class="math notranslate nohighlight">\(b\)</span> bodies and <span class="math notranslate nohighlight">\(c\)</span> constraints:</p>
+<ul class="simple">
+<li><p>solve a system of equations: <span class="math notranslate nohighlight">\(O(1)\)</span> as the Newton solver converges quickly, in ASC-ODE within 10 steps</p></li>
+<li><p>set up the Jacobian of the system: <span class="math notranslate nohighlight">\(O((b + c)^2)\)</span> evaluations of the equation function (using numerical differentiation)</p></li>
+<li><p>evaluate the equation function of the system itself: <span class="math notranslate nohighlight">\(O(b + c)\)</span>, one system of equations for every body and constraint</p></li>
+<li><p>calculate the derivative of <span class="math notranslate nohighlight">\(g^v\)</span>: <span class="math notranslate nohighlight">\(O((b + c)^2)\)</span></p></li>
+<li><p>Evaluate <span class="math notranslate nohighlight">\(g^v\)</span>: evaluates <span class="math notranslate nohighlight">\(J_g\)</span> once</p></li>
+<li><p>calculate <span class="math notranslate nohighlight">\(J_g\)</span>: <span class="math notranslate nohighlight">\(O(b+c)\)</span></p></li>
+<li><p>evaluate <span class="math notranslate nohighlight">\(g\)</span>: <span class="math notranslate nohighlight">\(O(1)\)</span></p></li>
+</ul>
+<p>This makes for a total cost of <span class="math notranslate nohighlight">\(O((b+c)^6)\)</span> for every step.</p>
+<p>However, already the most minimal setup including a beam has proven to be rather computationally expensive.
+Apart from that, further tests will have to be made on whether or not more than one beam or beams of length zero are feasible.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -392,7 +534,7 @@ Anchorpoints can also be implemented that way (as beams of length zero).</p>
               
               
               
-                <footer class="prev-next-footer d-print-none">
+                <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -419,6 +561,29 @@ Anchorpoints can also be implemented that way (as beams of length zero).</p>
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-constraints">Adding Constraints</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-alternative-point-of-view">An Alternative Point of View</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-drawback">A Drawback</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#secondary-constraints">Secondary constraints</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance">Performance</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
@@ -463,8 +628,8 @@ By Linus Knoll, Tobias Leichtfried, Norbert Hammer
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

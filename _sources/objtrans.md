@@ -69,9 +69,11 @@ The angle can be calculated due to the fact that the trace of a matrix is simila
 
 {cite}`havl{12.4.14}`
 
-```{admonition} TODO
- JUPYTERLITE EXAMPLE
+````{div} full-width
+```{dropdown} Jupyterlite
+<iframe src="https://triadtitans.github.io/rigid_body_interactive/lab/index.html?path=trafo_demo.ipynb" width=100% height="700"></iframe>
 ```
+````
 
 (inertiaframes)=
 ## Spatial Frame and Body Frame

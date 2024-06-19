@@ -14,7 +14,7 @@ The main part of the corresponding seminar was the development of rigid body sim
 The latter implements lagrangian mechanics and an ODE solver as well as a novel algorithm based on the Discontinuous galerkin method.
 --->
 
-This website documents an approach to rigid body simulation based on variational integrators and the Livens principle.
+This website documents a seminar project. The aim was to simulate rigid bodies using a method based on variational integrators and the Livens principle.
 
 
 ````{card} [ASC-ODE](https://github.com/triadtitans/ASC-ODE)
