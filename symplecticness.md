@@ -76,10 +76,10 @@ $$
 df(\xi) = \sum_{i=1}^{n} \frac{\partial f}{\partial z_1}dz_i(\xi)
 $$
 
-with $dz_i(\xi) = \xi_i$. If we now appy a map $\varphi: \mathbb{R}^{n} \rightarrow \mathbb{R}^{n}$ we can define 
+with $dz_i(\xi) = \xi_i$. If we now apply a map $\varphi: \mathbb{R}^{n} \rightarrow \mathbb{R}^{n}$ we can define 
 
 $$
-\hat{z} = \varphi(z)\ and \ \hat{f(z)} = f(\hat{z}) = f(\varphi(z))
+\hat{z} = \varphi(z)\ and \ \hat{f}(z) = f(\hat{z}) = f(\varphi(z))
 $$
 
 and get 
