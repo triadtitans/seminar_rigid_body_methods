@@ -16,7 +16,7 @@ $$
 \int_{0}^{T} T(v) - V(q) + p(\dot{q} - v) \,dt + \bar{p}(0)q(0) - \bar{p}(T)q(T)
 $$
 
-We introduce new variables $\bar{p}$ which independent but approximate the same function $p$. If we now take again the variation with respect to $q$ and integration py parts we get 
+We introduce the new variables $\bar{p}$ which is independent but approximates the same function $p$. If we now take again the variation with respect to $q$ and integration py parts we get 
 
 $$
 \int_{0}^{T} (\frac{\partial V}{\partial q}(q)-\dot{q})\delta q \,dt + (p-\bar{p})q\Biggr|_{0}^{T}=0 \ \ \forall \delta q
@@ -57,7 +57,7 @@ Where $\hat{v}_{rot_i}$ is now the matix $v_{rot_i}$ transformd by the hat-map. 
 Through the second equation we get
 
 $$
-\int_{t_i}^{t_i+h} (\frac{\partial T}{\partial v}(v) - p) \delta v \,dt = \int_{t_i}^{t_i+h} (Mv - p) \delta v \,dt = h(Mv_i -p_i) \delta v = 0 \iff Mv_i = p_i
+\int_{t_i}^{t_i+h} (\frac{\partial T}{\partial v}(v) - p) \delta v \,dt = \int_{t_i}^{t_i+h} (Mv - p) \delta v \,dt = h(Mv_i -p_i) \delta v = 0 \iff \frac{\partial T}{\partial v}(v) = Mv_i = p_i
 $$
 
 where the second equality holds because we assume $v_i$ and $p_i$ to be constant on $[t_i, t_i +h]$. And get with our new notaion
@@ -76,19 +76,19 @@ $$
 We us the trapezoidal-rule for $\frac{\partial V}{\partial q}(q)$ and integrate the rest to get
 
 $$
-h(p_i- \frac{\delta q_{i+1} - \delta q_i}{h}) + \frac{h}{2}(\frac{\partial V}{\partial q}(q_i) \delta q_i + \frac{\partial V}{\partial q}(q_{i+1}) \delta q_{i+1}) - \bar{p}_i \delta q_{i+1} + \bar{p}_i \delta q_i = 0
+p_i(\delta q_{i+1} - \delta q_i) + \frac{h}{2}(\frac{\partial V}{\partial q}(q_i) \delta q_i + \frac{\partial V}{\partial q}(q_{i+1}) \delta q_{i+1}) - \bar{p}_i \delta q_{i+1} + \bar{p}_i \delta q_i = 0
 $$
 
 This equation is then split up into 
 
 $$
-(\frac{h}{2}\frac{\partial V}{\partial q}(q_i) + \bar{p}_i - p_i)\delta q_i) 0 = \iff (\frac{\bar{p}_i - p_i}{h/2}) = -\frac{h}{2}\frac{\partial V}{\partial q}(q_i)
+(\frac{h}{2}\frac{\partial V}{\partial q}(q_i) + \bar{p}_i - p_i)\delta q_i) 0 = \iff (\frac{\bar{p}_i - p_i}{h/2}) = -\frac{\partial V}{\partial q}(q_i)
 $$
 
 and following the same principle
 
 $$
-(\frac{h}{2}\frac{\partial V}{\partial q}(q_{i+1}) + p_i - \bar{p}_{i+1})\delta q_{i+1}) 0 = \iff (\frac{p_i - \bar{p}_{i+1}}{h/2}) = -\frac{h}{2}\frac{\partial V}{\partial q}(q_{i+1})
+(\frac{h}{2}\frac{\partial V}{\partial q}(q_{i+1}) + p_i - \bar{p}_{i+1})\delta q_{i+1}) 0 = \iff (\frac{p_i - \bar{p}_{i+1}}{h/2}) = -\frac{\partial V}{\partial q}(q_{i+1})
 $$
 
 If we now replace erverything with our skew-symmetric notation we derive
@@ -109,7 +109,7 @@ $$
 \ Skew(B_{i+1}^T(\frac{B_{i+1/2}p_{rot_i} - B_{i+1}\bar{p}_{rot_{i+1}}}{h/2} - f_{rot}(q_{i+1}))) = 0\ \ \ 3 \ equations
 $$
 
-And last but not leas we have to make sure that $B_{i+1}$ is a rotation matrix
+And last but not least we have to make sure that $B_{i+1}$ is a rotation matrix
 
 $$
 B_{i+1}^T B_{i+1} = I\ \ \ 6 \ equations

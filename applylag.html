@@ -64,8 +64,8 @@
     <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="The Integrator" href="integrator.html" />
-    <link rel="prev" title="Structural Properties and Variational Integrators" href="structuralproperties.html" />
+    <link rel="next" title="Livens principle" href="livensprinciple.html" />
+    <link rel="prev" title="A Brief Overview of Lagrangian Mechanics" href="lagrangian.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -177,7 +177,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Symplectic integration on lie groups?
+                    Simulating rigid body mechanics
                 </a>
             </li>
         </ul>
@@ -185,12 +185,12 @@
 <li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive demonstration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="objtrans.html">Object Transformation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lagrangian.html">A Brief Overview of Lagrangian Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="symplecticness.html">Symplecticness</a></li>
-<li class="toctree-l1"><a class="reference internal" href="livensprinciple.html">Livens principle</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structuralproperties.html">Structural Properties and Variational Integrators</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Applying Lagrangian Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="livensprinciple.html">Livens principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="symplecticness.html">Symplecticness</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structuralproperties.html">Structural Properties and Variational Integrators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="integrator.html">The Integrator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="constraints.html">Constraints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constraints.html">An Extension: Constraints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
 
@@ -392,7 +392,7 @@ Therefore, it needs to ensure that the resulting matrix <span class="math notran
 <li><p><span class="math notranslate nohighlight">\(\bf{B}\)</span> <strong>orthonormal</strong> needs to be reformulated into an equation that is easy to check.</p></li>
 </ul>
 <div class="amsmath math notranslate nohighlight" id="equation-dd5cccfc-eb46-4f30-b4e8-2b158f8b9dbb">
-<span class="eqno">(13)<a class="headerlink" href="#equation-dd5cccfc-eb46-4f30-b4e8-2b158f8b9dbb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(9)<a class="headerlink" href="#equation-dd5cccfc-eb46-4f30-b4e8-2b158f8b9dbb" title="Permalink to this equation">#</a></span>\[\begin{align}
     B ~ \text{orthonormal} \\
     \Leftrightarrow \forall x \in \mathbb{R}^3:~ \| Bx \| &amp; = \| x \| \\
     \Leftrightarrow \forall x \in \mathbb{R}^3:~ \| Bx \|^2 &amp; = \| x \|^2 \\
@@ -416,7 +416,7 @@ However, as <span class="math notranslate nohighlight">\(B^TB\)</span> is symmet
 <h3>Translation<a class="headerlink" href="#translation" title="Link to this heading">#</a></h3>
 <p>The translational part of the kinetic energy is given by:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-b658d319-efb8-4054-a46f-5e167bd5421b">
-<span class="eqno">(14)<a class="headerlink" href="#equation-b658d319-efb8-4054-a46f-5e167bd5421b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(10)<a class="headerlink" href="#equation-b658d319-efb8-4054-a46f-5e167bd5421b" title="Permalink to this equation">#</a></span>\[\begin{equation}
     T(v_{trans}) = \frac{1}{2} m v_{trans}^2
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(v_{trans}\)</span> is the translational part of the velocity and m the mass of the body.
@@ -432,13 +432,13 @@ Let the angular velocity of the body be given by <span class="math notranslate n
 Assume that the body only rotates around it’s center of mass (no translation) and that <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(v_{rot}\)</span> are in the body’s system of inertia.
 Then the kinetic energy of this motion fulfills</p>
 <div class="amsmath math notranslate nohighlight" id="equation-36161b5f-ce7a-4ca6-988f-8eaece9f2d69">
-<span class="eqno">(15)<a class="headerlink" href="#equation-36161b5f-ce7a-4ca6-988f-8eaece9f2d69" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(11)<a class="headerlink" href="#equation-36161b5f-ce7a-4ca6-988f-8eaece9f2d69" title="Permalink to this equation">#</a></span>\[\begin{equation}
     T(v_{rot}) = \frac{1}{2} \int_V \rho(x)~ | v_{rot} \times x |^2 dx
                = \frac{1}{2} \int_V \rho(x)~ | \widehat{v_{rot}} x |^2 dx
 \end{equation}\]</div>
 <p>If we define <span class="math notranslate nohighlight">\((\cdot, \cdot)\)</span> as</p>
 <div class="amsmath math notranslate nohighlight" id="equation-ddd5915f-87b5-4c40-9006-37e62d4e3434">
-<span class="eqno">(16)<a class="headerlink" href="#equation-ddd5915f-87b5-4c40-9006-37e62d4e3434" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(12)<a class="headerlink" href="#equation-ddd5915f-87b5-4c40-9006-37e62d4e3434" title="Permalink to this equation">#</a></span>\[\begin{equation}
     (a, b) \coloneqq \frac{1}{2} \int_V \rho(x)~ (a \times x) \cdot (b \times x) ~ dx
 \end{equation}\]</div>
 <p>then one obtains <span class="math notranslate nohighlight">\(T(v_{rot}) = (v_{rot}, v_{rot})\)</span>.</p>
@@ -446,7 +446,7 @@ Then the kinetic energy of this motion fulfills</p>
 This matrix is called the <strong>inertia tensor</strong> (or moment of inertia tensor):
 <span class="math notranslate nohighlight">\(\newcommand{\II}[0]{{\mathbb{I}}}\)</span></p>
 <div class="amsmath math notranslate nohighlight" id="equation-f89d8dc7-0e08-46a9-9b75-6208a338a276">
-<span class="eqno">(17)<a class="headerlink" href="#equation-f89d8dc7-0e08-46a9-9b75-6208a338a276" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(13)<a class="headerlink" href="#equation-f89d8dc7-0e08-46a9-9b75-6208a338a276" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \II = \begin{pmatrix}
               I_{xx} &amp; I_{xy} &amp; I_{xz} \\
               I_{yx} &amp; I_{yy} &amp; I_{yz} \\
@@ -468,7 +468,7 @@ Increasing that rotation speed will however not affect the kinetic energy $T = \
 <h3>Angular Momentum<a class="headerlink" href="#angular-momentum" title="Link to this heading">#</a></h3>
 <p>In a body’s system of inertia, the angular momentum is the derivative of the kinetic energy with respect to the angular velocity:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-45bf71aa-a47f-4cc9-ba45-c556f753f1f8">
-<span class="eqno">(18)<a class="headerlink" href="#equation-45bf71aa-a47f-4cc9-ba45-c556f753f1f8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(14)<a class="headerlink" href="#equation-45bf71aa-a47f-4cc9-ba45-c556f753f1f8" title="Permalink to this equation">#</a></span>\[\begin{align}
     \Pi = \frac{\partial T}{\partial v_{rot}}
         &amp;= \frac{\partial}{\partial v_{rot}} \frac{1}{2} \int_V \rho(x)~ | v_{rot} \times x |^2 dx \\
         &amp;= \int_V \rho(x)~ x \times ( v_{rot} \times x ) dx \\
@@ -482,17 +482,17 @@ Increasing that rotation speed will however not affect the kinetic energy $T = \
 <h3>The Mass Matrix<a class="headerlink" href="#the-mass-matrix" title="Link to this heading">#</a></h3>
 <p>From the above, two equations on the momentum of a body can be gathered:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-215c3570-816b-48f2-bdc2-889c6cc9df2f">
-<span class="eqno">(19)<a class="headerlink" href="#equation-215c3570-816b-48f2-bdc2-889c6cc9df2f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(15)<a class="headerlink" href="#equation-215c3570-816b-48f2-bdc2-889c6cc9df2f" title="Permalink to this equation">#</a></span>\[\begin{equation}
     p_{trans} = m \cdot v_{trans}
 \end{equation}\]</div>
 <p>and</p>
 <div class="amsmath math notranslate nohighlight" id="equation-18112536-15af-4e8b-879f-fe1710517b49">
-<span class="eqno">(20)<a class="headerlink" href="#equation-18112536-15af-4e8b-879f-fe1710517b49" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(16)<a class="headerlink" href="#equation-18112536-15af-4e8b-879f-fe1710517b49" title="Permalink to this equation">#</a></span>\[\begin{equation}
     p_{rot} = \II \cdot v_{rot}.
 \end{equation}\]</div>
 <p>These can be combined into one matrix equation</p>
 <div class="amsmath math notranslate nohighlight" id="equation-d2b12449-2c75-4168-afe9-1a4031253b0d">
-<span class="eqno">(21)<a class="headerlink" href="#equation-d2b12449-2c75-4168-afe9-1a4031253b0d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(17)<a class="headerlink" href="#equation-d2b12449-2c75-4168-afe9-1a4031253b0d" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \begin{pmatrix}
         p_{trans} \\
         p_{rot}
@@ -520,7 +520,7 @@ As the left upper diagonal and <span class="math notranslate nohighlight">\(\II\
 <img alt="&quot;hammer&quot;" src="_images/hammer.png" /></p>
 <p>and its mass matrix from <code class="docutils literal notranslate"><span class="pre">netgen.occ</span></code>:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-cce5c608-33ce-48c5-b750-b7c827444378">
-<span class="eqno">(22)<a class="headerlink" href="#equation-cce5c608-33ce-48c5-b750-b7c827444378" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(18)<a class="headerlink" href="#equation-cce5c608-33ce-48c5-b750-b7c827444378" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{pmatrix}
     2.06283 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
     0 &amp; 2.06283 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
@@ -563,7 +563,7 @@ That is, all potential energies of all bodies are summed up.
 Let <span class="math notranslate nohighlight">\(q_i \in SE(3)\)</span> represent the transformations of the individual bodies.
 Then the result is a scalar-valued potential function</p>
 <div class="amsmath math notranslate nohighlight" id="equation-01f675ea-59df-46a4-a4b8-23157652da14">
-<span class="eqno">(23)<a class="headerlink" href="#equation-01f675ea-59df-46a4-a4b8-23157652da14" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(19)<a class="headerlink" href="#equation-01f675ea-59df-46a4-a4b8-23157652da14" title="Permalink to this equation">#</a></span>\[\begin{equation}
     V( q_1, q_2, q_3, ...).
 \end{equation}\]</div>
 <p><span class="math notranslate nohighlight">\(V\)</span> is then differenciated with respect to all components of all <span class="math notranslate nohighlight">\(q_i\)</span>.
@@ -578,7 +578,7 @@ Therefore, the body can be seen as a point mass. The bodies can also be treated 
 <p>Using <span class="math notranslate nohighlight">\(F = m \cdot a\)</span>, the force on a point mass can be specified as an acceleration vector <span class="math notranslate nohighlight">\(a \in \mathbb{R}^3\)</span> and the body mass <span class="math notranslate nohighlight">\(m\)</span>.
 For any given translation vector <span class="math notranslate nohighlight">\(x\)</span>, the antiderivative or potential of that force is</p>
 <div class="amsmath math notranslate nohighlight" id="equation-a4aa7768-7f3f-4158-a721-f26b5d1c6878">
-<span class="eqno">(24)<a class="headerlink" href="#equation-a4aa7768-7f3f-4158-a721-f26b5d1c6878" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(20)<a class="headerlink" href="#equation-a4aa7768-7f3f-4158-a721-f26b5d1c6878" title="Permalink to this equation">#</a></span>\[\begin{equation}
     m \cdot (a \cdot x).
 \end{equation}\]</div>
 <p>In ASC-ODE, the mass is automatically calculated and the <em>negative</em> acceleration vector can be specified:
@@ -598,7 +598,7 @@ Consider these points to be connected by a spring with stiffness <span class="ma
 <p>Then Hooke’s law states that the resulting force is given by <span class="math notranslate nohighlight">\(F = k \cdot e\)</span> <span id="id6">[<a class="reference internal" href="bibliography.html#id2" title="Matthias Bartelmann, Björn Feuerbacher, Timm Krüger, Dieter Lüst, Anton Rebhan, and Andreas Wipf. Theoretische Physik. Springer Berlin Heidelberg, Berlin, Heidelberg, 2015. ISBN 3642546188. URL: 10.1007/978-3-642-54618-1.">BFK+15</a>, p. 312]</span>.
 Then the resulting potential is</p>
 <div class="amsmath math notranslate nohighlight" id="equation-5745c0e2-0dc8-4e28-8e89-9938a8c4b5b8">
-<span class="eqno">(25)<a class="headerlink" href="#equation-5745c0e2-0dc8-4e28-8e89-9938a8c4b5b8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(21)<a class="headerlink" href="#equation-5745c0e2-0dc8-4e28-8e89-9938a8c4b5b8" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{k}{2} e^2.
 \end{equation}\]</div>
 <div class="full-width docutils">
@@ -643,20 +643,20 @@ Then the resulting potential is</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="structuralproperties.html"
+       href="lagrangian.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Structural Properties and Variational Integrators</p>
+        <p class="prev-next-title">A Brief Overview of Lagrangian Mechanics</p>
       </div>
     </a>
     <a class="right-next"
-       href="integrator.html"
+       href="livensprinciple.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">The Integrator</p>
+        <p class="prev-next-title">Livens principle</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

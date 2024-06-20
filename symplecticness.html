@@ -64,8 +64,8 @@
     <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Livens principle" href="livensprinciple.html" />
-    <link rel="prev" title="A Brief Overview of Lagrangian Mechanics" href="lagrangian.html" />
+    <link rel="next" title="Structural Properties and Variational Integrators" href="structuralproperties.html" />
+    <link rel="prev" title="Livens principle" href="livensprinciple.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -177,7 +177,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Symplectic integration on lie groups?
+                    Simulating rigid body mechanics
                 </a>
             </li>
         </ul>
@@ -185,12 +185,12 @@
 <li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive demonstration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="objtrans.html">Object Transformation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lagrangian.html">A Brief Overview of Lagrangian Mechanics</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Symplecticness</a></li>
-<li class="toctree-l1"><a class="reference internal" href="livensprinciple.html">Livens principle</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structuralproperties.html">Structural Properties and Variational Integrators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="applylag.html">Applying Lagrangian Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="livensprinciple.html">Livens principle</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Symplecticness</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structuralproperties.html">Structural Properties and Variational Integrators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="integrator.html">The Integrator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="constraints.html">Constraints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constraints.html">An Extension: Constraints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
 
@@ -371,7 +371,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="symplecticness">
 <h1>Symplecticness<a class="headerlink" href="#symplecticness" title="Link to this heading">#</a></h1>
 <p>In this chapter we focus on the important property of symplecticness of maps.
-At first a general definition of symplecticness of smooth maps is given, its importance to mechanical systems and a geometric interpretation and. <span id="id1">[<a class="reference internal" href="bibliography.html#id10" title="Leimkuhler Reich. Simulating Hamiltonian Dynamics. Cambridge University Press, 2005. ISBN 978052177290.">Rei05</a>]</span> <span id="id2">[<a class="reference internal" href="bibliography.html#id7" title="Ernst Hairer, Christian Lubich, and Gerhard Wanner. Geometric numerical integration : structure-preserving algorithms for ordinary differential equations. Springer series in computational mathematics. Springer, Berlin [u.a.], 2. ed. edition, 2006. ISBN 3540306633.">HLW06</a>]</span></p>
+At first a general definition of symplecticness of smooth maps is given, then its importance to mechanical systems and a geometric interpretation follow. <span id="id1">[<a class="reference internal" href="bibliography.html#id10" title="Leimkuhler Reich. Simulating Hamiltonian Dynamics. Cambridge University Press, 2005. ISBN 978052177290.">Rei05</a>]</span> <span id="id2">[<a class="reference internal" href="bibliography.html#id7" title="Ernst Hairer, Christian Lubich, and Gerhard Wanner. Geometric numerical integration : structure-preserving algorithms for ordinary differential equations. Springer series in computational mathematics. Springer, Berlin [u.a.], 2. ed. edition, 2006. ISBN 3540306633.">HLW06</a>]</span></p>
 <section id="symplecticnes-of-smooth-mappings">
 <h2>Symplecticnes of smooth mappings<a class="headerlink" href="#symplecticnes-of-smooth-mappings" title="Link to this heading">#</a></h2>
 <p>Symplecticness is defined by so called Structure Matrices in <span class="math notranslate nohighlight">\(\mathbb{R}^{2d \times 2d}\)</span>, which can and will be in our case, a skew-smmetric, bilinear form.
@@ -394,7 +394,7 @@ J = \begin{pmatrix}
               -I_{d} &amp; 0\\
           \end{pmatrix} \in \mathbb{R}^{2d \times 2d}
 \end{split}\]</div>
-<p>For <span class="math notranslate nohighlight">\(d = 1, \Omega(\xi, \eta) = \xi^p \eta^q - \xi^q\eta^p\)</span> as the area of the oriented area of the parallogram spanned by <span class="math notranslate nohighlight">\(\xi = \begin{pmatrix}
+<p>For <span class="math notranslate nohighlight">\(d = 1, \Omega(\xi, \eta) = \xi^p \eta^q - \xi^q\eta^p\)</span> as the oriented area of the parallogram spanned by <span class="math notranslate nohighlight">\(\xi = \begin{pmatrix}
 \xi^q \\
 \xi^p
 \end{pmatrix}\)</span> and <span class="math notranslate nohighlight">\(\eta = \begin{pmatrix}
@@ -405,7 +405,7 @@ J = \begin{pmatrix}
 \[
 \Omega(\xi, \eta) = \sum_{i=1}^{d} \xi^{p}_i \eta^{q}_i - \xi^{q}_i\eta^{p}_i
 \]</div>
-<p>If we now look at a 2-dimensional sub manifold <span class="math notranslate nohighlight">\(M\)</span> of <span class="math notranslate nohighlight">\(\mathbb{R}^{2d}\)</span> given by a parameterization as <span class="math notranslate nohighlight">\(M = \psi(K), K \subset \mathbb{R}^{2}\)</span> with <span class="math notranslate nohighlight">\(\psi(s, t)\)</span> being a continously differentiable function.
+<p>We now consider a 2-dimensional sub manifold <span class="math notranslate nohighlight">\(M\)</span> of <span class="math notranslate nohighlight">\(\mathbb{R}^{2d}\)</span>, given by a parameterization as <span class="math notranslate nohighlight">\(M = \psi(K), K \subset \mathbb{R}^{2}\)</span>, with <span class="math notranslate nohighlight">\(\psi(s, t)\)</span> being a continously differentiable function.
 We can then consider M as the limit of a union of small parallelograms spanned by</p>
 <div class="math notranslate nohighlight">
 \[
@@ -413,7 +413,7 @@ We can then consider M as the limit of a union of small parallelograms spanned b
 \]</div>
 <p>For one such parallelogram we consider now the sum over the Projections as given above and get as the limit</p>
 <div class="math notranslate nohighlight">
-\[ 
+\[
 \int_M \Omega = \iint_K \Omega(\frac{\partial \psi}{\partial s}(s, t), \frac{\partial \psi}{\partial t}(s, t)) \,ds\,dt
 \]</div>
 <p>If we now take a symplectic mapping <span class="math notranslate nohighlight">\(\varphi: \mathbb{R}^{2d} \rightarrow \mathbb{R}^{2d}\)</span> we get that</p>
@@ -512,20 +512,20 @@ For more details on the wedge-product, differential 1-forms and symplecticness, 
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="lagrangian.html"
+       href="livensprinciple.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">A Brief Overview of Lagrangian Mechanics</p>
+        <p class="prev-next-title">Livens principle</p>
       </div>
     </a>
     <a class="right-next"
-       href="livensprinciple.html"
+       href="structuralproperties.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Livens principle</p>
+        <p class="prev-next-title">Structural Properties and Variational Integrators</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

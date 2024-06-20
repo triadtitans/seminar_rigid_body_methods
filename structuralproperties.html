@@ -64,8 +64,8 @@
     <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Applying Lagrangian Mechanics" href="applylag.html" />
-    <link rel="prev" title="Livens principle" href="livensprinciple.html" />
+    <link rel="next" title="The Integrator" href="integrator.html" />
+    <link rel="prev" title="Symplecticness" href="symplecticness.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -177,7 +177,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Symplectic integration on lie groups?
+                    Simulating rigid body mechanics
                 </a>
             </li>
         </ul>
@@ -185,12 +185,12 @@
 <li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive demonstration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="objtrans.html">Object Transformation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lagrangian.html">A Brief Overview of Lagrangian Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="symplecticness.html">Symplecticness</a></li>
-<li class="toctree-l1"><a class="reference internal" href="livensprinciple.html">Livens principle</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Structural Properties and Variational Integrators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="applylag.html">Applying Lagrangian Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="livensprinciple.html">Livens principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="symplecticness.html">Symplecticness</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Structural Properties and Variational Integrators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="integrator.html">The Integrator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="constraints.html">Constraints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constraints.html">An Extension: Constraints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
 
@@ -419,12 +419,12 @@ d\dot{p} = \begin{pmatrix} \frac{\partial^2 L}{\partial q \partial q} &amp; \fra
 <p><span class="math notranslate nohighlight">\(
 dp = \begin{pmatrix} \frac{\partial^2 L}{\partial v \partial q} &amp; \frac{\partial^2 L}{\partial v \partial v}\end{pmatrix} \begin{pmatrix} dq\\ dv \end{pmatrix} = \frac{\partial^2 L}{\partial v \partial q}dq + \frac{\partial^2 L}{\partial v \partial v}dv
 \)</span></p>
-<p>Furthermore the matrices <span class="math notranslate nohighlight">\(\frac{\partial^2 L}{\partial q \partial q}, \frac{\partial^2 L}{\partial q \partial v}, \frac{\partial^2 L}{\partial v \partial q}, \frac{\partial^2 L}{\partial v \partial v}\)</span> are symmetric which leads us to</p>
+<p>Furthermore the matrices <span class="math notranslate nohighlight">\(\frac{\partial^2 L}{\partial q \partial q} \frac{\partial^2 L}{\partial v \partial v}\)</span> are symmetric which leads us to</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial}{\partial t}(dq \land dp) = dv \land \frac{\partial^2 L}{\partial v \partial q}dq + dv \land \frac{\partial^2 L}{\partial v \partial v}dv + dq \land \frac{\partial^2 L}{\partial q \partial q}dq + dq \land \frac{\partial^2 L}{\partial q \partial v}dv
 \]</div>
-<p>The second and the thrid term vanish and we get</p>
+<p>The second and the third term vanish and we get</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial}{\partial t}(dq \land dp) = \frac{\partial^2 L}{\partial v \partial q}dv \land dq - \frac{\partial^2 L}{\partial q \partial v}dv \land dq = 0
@@ -436,7 +436,7 @@ is symplectic if the map <span class="math notranslate nohighlight">\(\psi_h\)</
 <section id="variational-integrators">
 <h2>Variational Integrators<a class="headerlink" href="#variational-integrators" title="Link to this heading">#</a></h2>
 <p>Variational Integrators are used for approaches determining the equations of motions through a variational principle. As we based our approach on the Livens principle and constructed a variational Integrator we will give a general introduction this sort of Integrators.</p>
-<p>When constructing Varational Integrators we consider an action integral, like given in <a class="reference internal" href="livensprinciple.html#equation-livens">(10)</a>:</p>
+<p>When constructing Varational Integrators we consider an action integral, like given in <a class="reference internal" href="livensprinciple.html#equation-livens">(23)</a>:</p>
 <div class="math notranslate nohighlight">
 \[
     \mathcal{S}(q,v,p) = \int_{t_0}^{T} L(q,v) + p(\dot{q}-v) \,dt.
@@ -459,7 +459,6 @@ q_n = q(t_n),\ v_n = v(t_n),\ p_n = p(t_n)
 \[
 q_{n+1} = q(t_{n+1}),\ v_{n+1} = v(t_{n+1}),\ p_{n+1} = p(t_{n+1})
 \]</div>
-<p>For completeness we not that fo classical Hamiltonian Systems variational Integrators based on Hamiltons principle are symplectic. (See <span id="id2">[<a class="reference internal" href="bibliography.html#id7" title="Ernst Hairer, Christian Lubich, and Gerhard Wanner. Geometric numerical integration : structure-preserving algorithms for ordinary differential equations. Springer series in computational mathematics. Springer, Berlin [u.a.], 2. ed. edition, 2006. ISBN 3540306633.">HLW06</a>]</span>) A proof for the symplecticity of our constructed Intergrator will be shown afterwards.</p>
 </section>
 </section>
 
@@ -494,20 +493,20 @@ q_{n+1} = q(t_{n+1}),\ v_{n+1} = v(t_{n+1}),\ p_{n+1} = p(t_{n+1})
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="livensprinciple.html"
+       href="symplecticness.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Livens principle</p>
+        <p class="prev-next-title">Symplecticness</p>
       </div>
     </a>
     <a class="right-next"
-       href="applylag.html"
+       href="integrator.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Applying Lagrangian Mechanics</p>
+        <p class="prev-next-title">The Integrator</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

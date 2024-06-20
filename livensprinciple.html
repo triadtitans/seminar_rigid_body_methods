@@ -64,8 +64,8 @@
     <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Structural Properties and Variational Integrators" href="structuralproperties.html" />
-    <link rel="prev" title="Symplecticness" href="symplecticness.html" />
+    <link rel="next" title="Symplecticness" href="symplecticness.html" />
+    <link rel="prev" title="Applying Lagrangian Mechanics" href="applylag.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -177,7 +177,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Symplectic integration on lie groups?
+                    Simulating rigid body mechanics
                 </a>
             </li>
         </ul>
@@ -185,12 +185,12 @@
 <li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive demonstration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="objtrans.html">Object Transformation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lagrangian.html">A Brief Overview of Lagrangian Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="symplecticness.html">Symplecticness</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Livens principle</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structuralproperties.html">Structural Properties and Variational Integrators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="applylag.html">Applying Lagrangian Mechanics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Livens principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="symplecticness.html">Symplecticness</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structuralproperties.html">Structural Properties and Variational Integrators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="integrator.html">The Integrator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="constraints.html">Constraints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constraints.html">An Extension: Constraints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
 
@@ -476,16 +476,16 @@ tangent and cotangent bundle can also be described via a constraint analogous to
 </section>
 <section id="action-integral-mathcal-s">
 <h2>Action Integral <span class="math notranslate nohighlight">\(\mathcal{S}\)</span><a class="headerlink" href="#action-integral-mathcal-s" title="Link to this heading">#</a></h2>
-<p>In order to apply Variational Integration to the mechanics of this rigid body system we have to specify an action functional to be varied and extremized. Normally this is the Integral over the Lagrangian as in <a class="reference internal" href="#equation-test">(9)</a></p>
+<p>In order to apply Variational Integration to the mechanics of this rigid body system we have to specify an action functional to be varied and extremized. Normally this is the Integral over the Lagrangian as in <a class="reference internal" href="#equation-test">(22)</a></p>
 <div class="math notranslate nohighlight" id="equation-test">
-<span class="eqno">(9)<a class="headerlink" href="#equation-test" title="Link to this equation">#</a></span>\[    \label{actionintegral}
+<span class="eqno">(22)<a class="headerlink" href="#equation-test" title="Link to this equation">#</a></span>\[    \label{actionintegral}
     \mathcal{S}(q) = \int_{t_0}^{T} L(q,\dot{q}) \,dt.\]</div>
 <p>Where <span class="math notranslate nohighlight">\(L:T\mathcal{Q}\to \mathbb{R}\)</span> ist the Lagrangian given through <span class="math notranslate nohighlight">\(L(q,\dot{q})=T(\dot{q})+U(q)\)</span>,
 <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(U\)</span> being the kinetic and potential energy respectivley. Note that <span class="math notranslate nohighlight">\(T\)</span> depends only on <span class="math notranslate nohighlight">\(\dot{q}\)</span> and <span class="math notranslate nohighlight">\(U\)</span> only on <span class="math notranslate nohighlight">\(q\)</span>.</p>
 <p>The Livens principle, on the other hand, describes an alternative action functional to be extremized. <span id="id3">[<a class="reference internal" href="bibliography.html#id6" title="Philipp L. Kinon, Peter Betsch, and Simeon Schneider. Structure-preserving integrators based on a new variational principle for constrained mechanical systems. Nonlinear Dynamics, 111(15):14231–14261, June 2023. URL: http://dx.doi.org/10.1007/s11071-023-08522-7, doi:10.1007/s11071-023-08522-7.">KBS23b</a>]</span>
 This reads as follows</p>
 <div class="math notranslate nohighlight" id="equation-livens">
-<span class="eqno">(10)<a class="headerlink" href="#equation-livens" title="Link to this equation">#</a></span>\[
+<span class="eqno">(23)<a class="headerlink" href="#equation-livens" title="Link to this equation">#</a></span>\[
     \mathcal{S}(q,v,p) = \int_{t_0}^{T} L(q,v) + p(\dot{q}-v) \,dt.
 \]</div>
 <p>Note the two additonal independent variables <span class="math notranslate nohighlight">\(v\in T \mathcal{Q}\)</span> and <span class="math notranslate nohighlight">\(p \in T^{*} \mathcal{Q}\)</span>. Where <span class="math notranslate nohighlight">\(T\mathcal{Q}\)</span>,
@@ -500,9 +500,9 @@ These Lagrangian multiplies can later be identified as the conjugate momenta of 
 Let <span class="math notranslate nohighlight">\(\delta q \in C^\infty\)</span> be a variation of <span class="math notranslate nohighlight">\(q\)</span>, so that <span class="math notranslate nohighlight">\(\delta q(0)=\delta q(T)=0\)</span>. We
 define <span class="math notranslate nohighlight">\(q^\varepsilon := q+\varepsilon\cdot\delta q \)</span> it follows
 <span class="math notranslate nohighlight">\(\dot{q^\varepsilon}=\dot{q}+\varepsilon \cdot \delta \dot{q}\)</span>. We substitute
-<span class="math notranslate nohighlight">\(q^\varepsilon\)</span> for <span class="math notranslate nohighlight">\(q\)</span> in  <a class="reference internal" href="#equation-livens">(10)</a> and derivate in <span class="math notranslate nohighlight">\(\varepsilon\)</span>:</p>
+<span class="math notranslate nohighlight">\(q^\varepsilon\)</span> for <span class="math notranslate nohighlight">\(q\)</span> in  <a class="reference internal" href="#equation-livens">(23)</a> and derivate in <span class="math notranslate nohighlight">\(\varepsilon\)</span>:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-0ab3cfb8-d3f7-4e73-9b88-06ad7f7a7380">
-<span class="eqno">(11)<a class="headerlink" href="#equation-0ab3cfb8-d3f7-4e73-9b88-06ad7f7a7380" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(24)<a class="headerlink" href="#equation-0ab3cfb8-d3f7-4e73-9b88-06ad7f7a7380" title="Permalink to this equation">#</a></span>\[\begin{align}
 
 \frac{d}{d\varepsilon = 0}\mathcal{S}({q^\varepsilon},v,p) 
         =&amp;\; \frac{d}{d\varepsilon = 0}  \int_{t_0}^{T} L(q^\varepsilon,v)\cdot \delta q + p(\dot{q^\varepsilon}-v) \,dt. \\
@@ -513,7 +513,7 @@ define <span class="math notranslate nohighlight">\(q^\varepsilon := q+\varepsil
 \end{align}\]</div>
 <p>Now we integrate partially under the assumption that <span class="math notranslate nohighlight">\(\delta q(0)=\delta q(T)=0\)</span>:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-a0dca20a-a793-40da-9cb9-e4a2a8151982">
-<span class="eqno">(12)<a class="headerlink" href="#equation-a0dca20a-a793-40da-9cb9-e4a2a8151982" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(25)<a class="headerlink" href="#equation-a0dca20a-a793-40da-9cb9-e4a2a8151982" title="Permalink to this equation">#</a></span>\[\begin{align}
 
  \int_{t_0}^{T} \frac{\partial L}{\partial q}(q,v)\cdot \delta q &amp;+ p\cdot\delta \dot{q} \,dt =\\
         =&amp;\; \int_{t_0}^{T} \frac{\partial L}{\partial q}(q,v)\cdot \delta q \,dt + \int_{t_0}^{T}p\cdot\delta \dot{q}\, dt\\
@@ -543,7 +543,7 @@ receive the Euler-Langrage equation.</p>
 \frac{\partial L}{\partial q}(q,v) = \frac{\partial L}{\partial q}(q,\dot{q}) =
             \dot{p}(q,\dot{q}) =  \frac{d}{dt}\frac{\partial L}{\partial v}(q,\dot{q})\\
 \end{split}\]</div>
-<p>Now we have shown that the functional <a class="reference internal" href="#equation-livens">(10)</a> describes the same system as the Lagrangian. For
+<p>Now we have shown that the functional <a class="reference internal" href="#equation-livens">(23)</a> describes the same system as the Lagrangian. For
 a more in depth investigation of the properties of the Livens principle see <span id="id4">[<a class="reference internal" href="bibliography.html#id6" title="Philipp L. Kinon, Peter Betsch, and Simeon Schneider. Structure-preserving integrators based on a new variational principle for constrained mechanical systems. Nonlinear Dynamics, 111(15):14231–14261, June 2023. URL: http://dx.doi.org/10.1007/s11071-023-08522-7, doi:10.1007/s11071-023-08522-7.">KBS23b</a>]</span>.</p>
 </section>
 </section>
@@ -579,20 +579,20 @@ a more in depth investigation of the properties of the Livens principle see <spa
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="symplecticness.html"
+       href="applylag.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Symplecticness</p>
+        <p class="prev-next-title">Applying Lagrangian Mechanics</p>
       </div>
     </a>
     <a class="right-next"
-       href="structuralproperties.html"
+       href="symplecticness.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Structural Properties and Variational Integrators</p>
+        <p class="prev-next-title">Symplecticness</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
