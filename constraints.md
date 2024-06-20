@@ -30,15 +30,6 @@ $$
     \mathcal{S}(q,v,p) = \int_{t_0}^{T} L(q,v) + p(\dot{q}-v) + \lambda \cdot g(q) \,dt.
 $$
 
-```{admonition} TODO: adapt to section on final equations
-This results in a change in the equations of motion:
-
-$$
-    \dot{p} = J_V(q) - J_g(q)^T \cdot \lambda \\
-    g(q) = 0
-$$
-```
-
 {cite}`ggl`
 
 ### An Alternative Point of View
@@ -73,19 +64,58 @@ $M$ and $R(t)$ are block diagonal matrices containing all mass and rotation matr
 
 This constraint is now dependant on both $q$ and $p$ and can therefore not be dealt with by inclusion into $V(q)$.
 
-```{admonition} TODO: adapt to section on final equations
-This results in a change in the equations of motion:
+
+This results in a change in the equations of motion, see below. New parts of the system are highlighted.
+
+**For every body:**
 
 $$
-    \dot{q} = M{-1}p + J_g
-    \dot{p} = J_V(q) - J_{g^v(q, p)}^T \cdot \lambda \\
-    g^v(q, p) = 0
+\frac{1}{h}(a_{i+1}-a_i) = v_{a_i} \bf{~+ \frac{\partial g^v}{\partial p}(q_{i+1}, p_{i+1})_{trans}}
 $$
-```
-```{admonition} TODO: symplecticness
-symplectic? This scheme is symplectic. {cite}`ggl`
-```
 
+$$
+\frac{1}{h}Skew(B_{i+1/2}^{-1}(B_{i+1} - B_i)) = \hat{v}_{rot_i} \bf{~+ \frac{\partial g^v}{\partial p}(q_{i+1}, p_{i+1})_{rot}}
+$$
+
+<hr>
+
+$$
+M\hat{v}_i = \hat{p}_i
+$$
+
+<hr>
+
+$$
+\frac{\bar{p}_{a_i} - p_{a_i}}{h/2} = f_{trans}(q_{i}) \bf{~+ \frac{d}{d p}} \bf{~+ \frac{\partial g^v}{\partial q}(q_{i}, p_{i})_{trans}}
+$$
+
+$$
+\frac{{p}_{a_i} - \bar{p}_{a_{i+1}}}{h/2} = f_{trans}(q_{i+1}) \bf{~+ \frac{\partial g^v}{\partial q}(q_{i+1}, p_{i+1})_{trans}}
+$$
+
+$$
+Skew(B_i^T(\frac{B_i\bar{p}_{rot_i}-B_{i+1/2}p_{rot_i}}{h/2} - f_{rot}(q_{i}) \bf{~- \frac{\partial g^v}{\partial q}(q_{i}, p_{i})_{rot}})) = 0
+$$
+
+$$
+\ Skew(B_{i+1}^T(\frac{B_{i+1/2}p_{rot_i} - B_{i+1}\bar{p}_{rot_{i+1}}}{h/2} - f_{rot}(q_{i+1}) \bf{~- \frac{\partial g^v}{\partial q}(q_{i+1}, p_{i+1})_{rot}})) = 0
+$$
+
+$$
+B_{i+1}^T B_{i+1} = I
+$$
+
+**Globally:**
+
+$$
+    \bf{g(q) = 0}
+$$
+
+$$
+    \bf{g^v(q, p) = 0}
+$$
+
+Note that the primary constraints are integrated into the force.
 
 ### Performance
 
@@ -116,4 +146,4 @@ This makes for a total cost of $O((b+c)^6)$ for every step.
 However, already the most minimal setup including a beam has proven to be rather computationally expensive.
 Apart from that, further tests will have to be made on whether or not more than one beam or beams of length zero are feasible.
 
-Adding to that, it can be
+Adding to that, it can be recommended to take additional measures to stabilize the algorithm when using constraints.

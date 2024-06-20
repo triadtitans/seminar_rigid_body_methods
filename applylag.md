@@ -26,11 +26,7 @@ These generalised coordinates and constraints describe the configuration space o
 
 ## Kinetic Energy
 
-In order to use the laws of langrangian mechanics, the langrangian function $L = T - V$ of a rigid-body may be set up.
-<!-- Let $ U(t)(x) = (t) + R(t) \cdot x \in SE(3) $. (See [](inertiaframes).) -->
-```{admonition} TODO
-adapt to section on Schöberl's equations
-```
+In order to use the laws of langrangian mechanics, the langrangian function $L = T - V$ of a rigid-body is set up.
 
 ### Translation
 

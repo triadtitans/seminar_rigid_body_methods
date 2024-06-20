@@ -33,7 +33,7 @@ This website documents the process.
 At the center of the project stands ASC-ODE, an inplementation using C++ and Python.
 ````
 
-Many thanks to Dipl.-Ing. Matthias Hochsteger for his help with jupyterlite.
+Many thanks to Dipl.-Ing. Matthias Hochsteger for his help with jupyterlite!
 
 
 
