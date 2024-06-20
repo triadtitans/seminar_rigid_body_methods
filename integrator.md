@@ -102,7 +102,7 @@ $$
 $$
 
 $$
-Skew(B_i^T(\frac{B_i\bar{p}_{rot_i}-B_{i+1/2}p_{rot_i}}{h/2} =  f_{rot}(q_{i}))) = 0\ \ \ 3 \ equations
+Skew(B_i^T(\frac{B_i\bar{p}_{rot_i}-B_{i+1/2}p_{rot_i}}{h/2} - f_{rot}(q_{i}))) = 0\ \ \ 3 \ equations
 $$
 
 $$
