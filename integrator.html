@@ -14,22 +14,22 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
@@ -38,16 +38,16 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -75,23 +75,27 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -113,13 +117,8 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
     </header>
   
 
@@ -207,7 +206,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -216,14 +215,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -332,9 +331,9 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -370,39 +369,40 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="the-integrator">
 <h1>The Integrator<a class="headerlink" href="#the-integrator" title="Link to this heading">#</a></h1>
 <p>With Livens Principle and the Lagrangian at our disposal we are now ready to examine the integrator
-employed in our project. Trough variation of the liven’s principle we obtain equations as in <a class="reference internal" href="livensprinciple.html"><span class="doc std std-doc">Livens principle</span></a>
-which we discretize in time. This result in a nonlinear syststem of equations.</p>
-<p>We start again with the Livens principle which states that the variation of the action functional <a class="reference internal" href="livensprinciple.html#equation-livens">(23)</a> vanishes and take again the variation with respect to each variable. As shown in the chapter about the livens principle we get</p>
+employed in our project. Through variation of the Livens principle we obtain equations as in <a class="reference internal" href="livensprinciple.html"><span class="doc std std-doc">Livens principle</span></a>
+which we discretize in time. This results in a nonlinear system of equations.</p>
+<p>We start again with the Livens principle which states that the variation of the action functional <a class="reference internal" href="livensprinciple.html#equation-livens">(23)</a> vanishes and again take the variation with respect to each variable.
+As shown in the chapter about the Livens principle we get</p>
 <div class="math notranslate nohighlight">
 \[ v=\dot{q}\]</div>
 <div class="math notranslate nohighlight">
 \[ p=\frac{\partial T}{\partial v}(v) \]</div>
-<p>For the third equation we have used that the boundary terms from the equation by parts vanish because we have chosen test functions which vanish at <span class="math notranslate nohighlight">\(t=0\)</span> and <span class="math notranslate nohighlight">\(t=T\)</span>. We have then obtained a system of ODEs but now still require initial conditions <span class="math notranslate nohighlight">\(q(0)\)</span> and <span class="math notranslate nohighlight">\(p(0)\)</span>.
-Therefore for the variation with respect to <span class="math notranslate nohighlight">\(q\)</span> we modify the action integral by adding boundary terms</p>
+<p>For the third equation, we have used that the boundary terms from the equation by parts vanish because we have chosen test functions which vanish at <span class="math notranslate nohighlight">\(t=0\)</span> and <span class="math notranslate nohighlight">\(t=T\)</span>.
+We have then obtained a system of ODEs but now still require initial conditions <span class="math notranslate nohighlight">\(q(0)\)</span> and <span class="math notranslate nohighlight">\(p(0)\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[
 \int_{0}^{T} T(v) - V(q) + p(\dot{q} - v) \,dt + \bar{p}(0)q(0) - \bar{p}(T)q(T)
 \]</div>
-<p>We introduce the new variables <span class="math notranslate nohighlight">\(\bar{p}\)</span> which is independent but approximates the same function <span class="math notranslate nohighlight">\(p\)</span>. If we now take again the variation with respect to <span class="math notranslate nohighlight">\(q\)</span> and integration py parts we get</p>
+<p>We introduce the new variables <span class="math notranslate nohighlight">\(\bar{p}\)</span> which are independent but approximate the same function <span class="math notranslate nohighlight">\(p\)</span>. If we now - again - take the variation with respect to <span class="math notranslate nohighlight">\(q\)</span> and integrate by parts we get</p>
 <div class="math notranslate nohighlight">
 \[
 \int_{0}^{T} (\frac{\partial V}{\partial q}(q)-\dot{q})\delta q \,dt + (p-\bar{p})q\Biggr|_{0}^{T}=0 \ \ \forall \delta q
 \]</div>
-<p>This equation contains the differential equation in <span class="math notranslate nohighlight">\((0, T)\)</span>, and boundary conditions <span class="math notranslate nohighlight">\(p(0)=\bar{p}(0)\)</span> and <span class="math notranslate nohighlight">\(p(T)=\bar{p}(T)\)</span>.</p>
+<p>This equation contains the differential equation in <span class="math notranslate nohighlight">\((0, T)\)</span>, boundary conditions <span class="math notranslate nohighlight">\(p(0)=\bar{p}(0)\)</span> and <span class="math notranslate nohighlight">\(p(T)=\bar{p}(T)\)</span>.</p>
 <section id="numerical-method">
 <h2>Numerical Method<a class="headerlink" href="#numerical-method" title="Link to this heading">#</a></h2>
-<p>We now derive the nurmecial method behind our variational Integrator.
-The Liven’s principle including boundary terms can be interpreted as follows:
-Given starting values <span class="math notranslate nohighlight">\(q(0)\)</span> and <span class="math notranslate nohighlight">\(\bar{p}(0)\)</span>, we can solve for functions <span class="math notranslate nohighlight">\(q, v, p\)</span> on <span class="math notranslate nohighlight">\([0, T]\)</span>, and the value <span class="math notranslate nohighlight">\(\bar{p}(T)\)</span>. At the end-point we take <span class="math notranslate nohighlight">\(q(T)\)</span> and the momentum <span class="math notranslate nohighlight">\(\bar{p}\)</span>. If we now continou on a time intervall <span class="math notranslate nohighlight">\([T, T_2]\)</span> with the initial values <span class="math notranslate nohighlight">\(q(T)\)</span> and <span class="math notranslate nohighlight">\(\bar{p}(T)\)</span>.
-Given a time interval <span class="math notranslate nohighlight">\([t_i, t_{i+1}]\)</span> we approximate <span class="math notranslate nohighlight">\(q\biggr|_{[t_i, t_{i+1}]}\)</span> by a linear polynomial and the variables <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(p\)</span> by costant functions <span class="math notranslate nohighlight">\(p_i\)</span> and <span class="math notranslate nohighlight">\(v_i\)</span> on <span class="math notranslate nohighlight">\([t_i, t_{i+1}]\)</span>. The moments <span class="math notranslate nohighlight">\(\bar{p}(t_i)\)</span> are only existing in the point <span class="math notranslate nohighlight">\(t_i\)</span>.</p>
+<p>We now derive the numerical method behind our variational integrator.
+The Livens principle including boundary terms can be interpreted as follows:
+Given starting values <span class="math notranslate nohighlight">\(q(0)\)</span> and <span class="math notranslate nohighlight">\(\bar{p}(0)\)</span>, we can solve for functions <span class="math notranslate nohighlight">\(q, v, p\)</span> on <span class="math notranslate nohighlight">\([0, T]\)</span>, and the value <span class="math notranslate nohighlight">\(\bar{p}(T)\)</span>. At the end-point we take <span class="math notranslate nohighlight">\(q(T)\)</span> and the momentum <span class="math notranslate nohighlight">\(\bar{p}\)</span>. If we now continue on a time intervall <span class="math notranslate nohighlight">\([T, T_2]\)</span> with the initial values <span class="math notranslate nohighlight">\(q(T)\)</span> and <span class="math notranslate nohighlight">\(\bar{p}(T)\)</span>.
+Given a time interval <span class="math notranslate nohighlight">\([t_i, t_{i+1}]\)</span> we approximate <span class="math notranslate nohighlight">\(q\biggr|_{[t_i, t_{i+1}]}\)</span> by a linear polynomial and the variables <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(p\)</span> by constant functions <span class="math notranslate nohighlight">\(p_i\)</span> and <span class="math notranslate nohighlight">\(v_i\)</span> on <span class="math notranslate nohighlight">\([t_i, t_{i+1}]\)</span>. The moments <span class="math notranslate nohighlight">\(\bar{p}(t_i)\)</span> only exist in the point <span class="math notranslate nohighlight">\(t_i\)</span>.</p>
 <p>We now get a time-stepping method propagating <span class="math notranslate nohighlight">\((q(t_i), p(t_i))\)</span> to <span class="math notranslate nohighlight">\((q(t_{i+1}), p(t_{i+1}))\)</span>, which we will now specify.
-For the Method we will use the fact that we can write the velocity and impulse as <span class="math notranslate nohighlight">\(v_i = (v_{a_i}, B_{i+1/2}v_{rot_i})\)</span> and <span class="math notranslate nohighlight">\(p_i = (p_{a_i}, B_{i+1/2}p_{rot_i})\)</span> where <span class="math notranslate nohighlight">\(v_{rot_i}\)</span> and <span class="math notranslate nohighlight">\(p_{rot_i}\)</span> denot skew-symmetric matrices.
-We start with a fixed time interval <span class="math notranslate nohighlight">\([t_i, t_i +h]\)</span> the first Euler-Lagrange equation</p>
+For the method we will use the fact that we can write the velocity and momentum as <span class="math notranslate nohighlight">\(v_i = (v_{a_i}, B_{i+1/2}v_{rot_i})\)</span> and <span class="math notranslate nohighlight">\(p_i = (p_{a_i}, B_{i+1/2}p_{rot_i})\)</span> where <span class="math notranslate nohighlight">\(v_{rot_i}\)</span> and <span class="math notranslate nohighlight">\(p_{rot_i}\)</span> denote skew-symmetric matrices.
+We start with a fixed time interval <span class="math notranslate nohighlight">\([t_i, t_i +h]\)</span> and the first Euler-Lagrange equation</p>
 <div class="math notranslate nohighlight">
 \[
 \int_{t_i}^{t_i+h} (\dot{q} - v) \delta q \,dt = h(\frac{q_{i+1} - q_i}{h} -v_i) \delta q = 0 \iff \frac{q_{i+1} - q_i}{h} = v_i
 \]</div>
-<p>In our case we have <span class="math notranslate nohighlight">\(q_i = (a_i, B_i), \ q_{i+1} = (a_{i+1}, B_{i+1})\)</span> then get</p>
+<p>In our case we have <span class="math notranslate nohighlight">\(q_i = (a_i, B_i), \ q_{i+1} = (a_{i+1}, B_{i+1})\)</span>, which leads to</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{1}{h}(a_{i+1}-a_i, B_{i+1} - B_i) = (v_{a_i}, B_{i+1/2}v_{rot_i})
@@ -415,13 +415,14 @@ We start with a fixed time interval <span class="math notranslate nohighlight">\
 \[
 \frac{1}{h}Skew(B_{i+1/2}^{-1}(B_{i+1} - B_i)) = \hat{v}_{rot_i}, \ \ \ 3 \ equations
 \]</div>
-<p>Where <span class="math notranslate nohighlight">\(\hat{v}_{rot_i}\)</span> is now the matix <span class="math notranslate nohighlight">\(v_{rot_i}\)</span> transformd by the hat-map. From now on we only consider <span class="math notranslate nohighlight">\(\hat{v}_i = (v_{a_i}, \hat{v}_{rot_i})\)</span> as our velocity and <span class="math notranslate nohighlight">\(\hat{p}_i = (p_{a_i}, \hat{p}_{rot_i})\)</span> with <span class="math notranslate nohighlight">\(\hat{p}_{rot_i}\)</span> as the skew symmetric part of <span class="math notranslate nohighlight">\(p_{rot_i}\)</span> as our momentum. Accordingly we also use the notation <span class="math notranslate nohighlight">\(\hat{\bar{p}}_i\)</span> for <span class="math notranslate nohighlight">\(\bar{p}_i\)</span>.</p>
+<p>Where <span class="math notranslate nohighlight">\(\hat{v}_{rot_i}\)</span> is now the matix <span class="math notranslate nohighlight">\(v_{rot_i}\)</span> transformed by the hat-map. From now on, we only consider <span class="math notranslate nohighlight">\(\hat{v}_i = (v_{a_i}, \hat{v}_{rot_i})\)</span> as our velocity and <span class="math notranslate nohighlight">\(\hat{p}_i = (p_{a_i}, \hat{p}_{rot_i})\)</span> with <span class="math notranslate nohighlight">\(\hat{p}_{rot_i}\)</span> as the skew symmetric part of <span class="math notranslate nohighlight">\(p_{rot_i}\)</span> as our momentum.
+Accordingly, we also use the notation <span class="math notranslate nohighlight">\(\hat{\bar{p}}_i\)</span> for <span class="math notranslate nohighlight">\(\bar{p}_i\)</span>.</p>
 <p>Through the second equation we get</p>
 <div class="math notranslate nohighlight">
 \[
 \int_{t_i}^{t_i+h} (\frac{\partial T}{\partial v}(v) - p) \delta v \,dt = \int_{t_i}^{t_i+h} (Mv - p) \delta v \,dt = h(Mv_i -p_i) \delta v = 0 \iff \frac{\partial T}{\partial v}(v) = Mv_i = p_i
 \]</div>
-<p>where the second equality holds because we assume <span class="math notranslate nohighlight">\(v_i\)</span> and <span class="math notranslate nohighlight">\(p_i\)</span> to be constant on <span class="math notranslate nohighlight">\([t_i, t_i +h]\)</span>. And get with our new notaion</p>
+<p>where the second equation holds because we assume <span class="math notranslate nohighlight">\(v_i\)</span> and <span class="math notranslate nohighlight">\(p_i\)</span> to be constant on <span class="math notranslate nohighlight">\([t_i, t_i +h]\)</span>. And with our new notation, we obtain</p>
 <div class="math notranslate nohighlight">
 \[
 M\hat{v}_i = \hat{p}_i\ \ \ 6 \ equations
@@ -431,7 +432,7 @@ M\hat{v}_i = \hat{p}_i\ \ \ 6 \ equations
 \[
 \int_{0}^{T} (\frac{\partial V}{\partial q}(q)-\dot{q})\delta q \,dt + (p-\bar{p})q\Biggr|_{0}^{T}=0 \ \ \forall \delta q
 \]</div>
-<p>We us the trapezoidal-rule for <span class="math notranslate nohighlight">\(\frac{\partial V}{\partial q}(q)\)</span> and integrate the rest to get</p>
+<p>We use the trapezoidal rule for <span class="math notranslate nohighlight">\(\frac{\partial V}{\partial q}(q)\)</span> and integrate the rest to get</p>
 <div class="math notranslate nohighlight">
 \[
 p_i(\delta q_{i+1} - \delta q_i) + \frac{h}{2}(\frac{\partial V}{\partial q}(q_i) \delta q_i + \frac{\partial V}{\partial q}(q_{i+1}) \delta q_{i+1}) - \bar{p}_i \delta q_{i+1} + \bar{p}_i \delta q_i = 0
@@ -446,7 +447,7 @@ p_i(\delta q_{i+1} - \delta q_i) + \frac{h}{2}(\frac{\partial V}{\partial q}(q_i
 \[
 (\frac{h}{2}\frac{\partial V}{\partial q}(q_{i+1}) + p_i - \bar{p}_{i+1})\delta q_{i+1}) 0 = \iff (\frac{p_i - \bar{p}_{i+1}}{h/2}) = -\frac{\partial V}{\partial q}(q_{i+1})
 \]</div>
-<p>If we now replace erverything with our skew-symmetric notation we derive</p>
+<p>If we now replace everything with our skew-symmetric notation we obtain</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\bar{p}_{a_i} - p_{a_i}}{h/2} = f_{trans}(q_{i})\ \ \ 3 \ equations
@@ -463,12 +464,13 @@ Skew(B_i^T(\frac{B_i\bar{p}_{rot_i}-B_{i+1/2}p_{rot_i}}{h/2} - f_{rot}(q_{i}))) 
 \[
 \ Skew(B_{i+1}^T(\frac{B_{i+1/2}p_{rot_i} - B_{i+1}\bar{p}_{rot_{i+1}}}{h/2} - f_{rot}(q_{i+1}))) = 0\ \ \ 3 \ equations
 \]</div>
-<p>And last but not least we have to make sure that <span class="math notranslate nohighlight">\(B_{i+1}\)</span> is a rotation matrix</p>
+<p>And last but not least, we have to make sure that <span class="math notranslate nohighlight">\(B_{i+1}\)</span> is a rotation matrix</p>
 <div class="math notranslate nohighlight">
 \[
 B_{i+1}^T B_{i+1} = I\ \ \ 6 \ equations
 \]</div>
-<p>We now count the unknowns. We have given <span class="math notranslate nohighlight">\(q_i, \ \bar{p}_i\)</span> and would like to find <span class="math notranslate nohighlight">\(q_{i+1}, \ \bar{p}_{i+1}\)</span>. As we have seen we actually just need to find <span class="math notranslate nohighlight">\(q_{i+1}, \ \hat{\bar{p}}_{i+1}\)</span> (<span class="math notranslate nohighlight">\(12\)</span> and <span class="math notranslate nohighlight">\(6\)</span> variables) for which we need to find <span class="math notranslate nohighlight">\(\hat{v}_i, \ \hat{p}_i\)</span> which have <span class="math notranslate nohighlight">\(6\)</span> and <span class="math notranslate nohighlight">\(6\)</span> variables. All together we have <span class="math notranslate nohighlight">\(30\)</span> unknowns and <span class="math notranslate nohighlight">\(30\)</span> variables.</p>
+<p>We now count the unknowns. We have given <span class="math notranslate nohighlight">\(q_i, \ \bar{p}_i\)</span> and would like to find <span class="math notranslate nohighlight">\(q_{i+1}, \ \bar{p}_{i+1}\)</span>. As we have seen, we actually just need to find <span class="math notranslate nohighlight">\(q_{i+1}, \ \hat{\bar{p}}_{i+1}\)</span> (<span class="math notranslate nohighlight">\(12\)</span> and <span class="math notranslate nohighlight">\(6\)</span> variables), for which we need to find <span class="math notranslate nohighlight">\(\hat{v}_i, \ \hat{p}_i\)</span> which have <span class="math notranslate nohighlight">\(6\)</span> and <span class="math notranslate nohighlight">\(6\)</span> variables, respectively.
+All together we have <span class="math notranslate nohighlight">\(30\)</span> unknowns and <span class="math notranslate nohighlight">\(30\)</span> variables.</p>
 </section>
 </section>
 
@@ -499,7 +501,7 @@ B_{i+1}^T B_{i+1} = I\ \ \ 6 \ equations
               
               
               
-                <footer class="prev-next-footer d-print-none">
+                <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -585,8 +587,8 @@ By Linus Knoll, Tobias Leichtfried, Norbert Hammer
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -14,22 +14,22 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
@@ -38,16 +38,16 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -75,23 +75,27 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -113,13 +117,8 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
     </header>
   
 
@@ -207,7 +206,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -216,14 +215,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -332,9 +331,9 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -371,7 +370,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="structural-properties-and-variational-integrators">
 <h1>Structural Properties and Variational Integrators<a class="headerlink" href="#structural-properties-and-variational-integrators" title="Link to this heading">#</a></h1>
-<p>For the treatment of constrained mechanical Systems, its structural properties derived from the Equations of Motion are very important. In this section we will focus on the simplecticness of the flow generated by the Equations of Motions derived from the Livens Principle to see the importance of integration methods preserving the symplecticity of the system:
+<p>For the treatment of constrained mechanical systems, its structural properties derived from the equations of motion are very important. In this section we will focus on the symplecticness of the flow generated by the equations of motions derived from the Livens principle to see the importance of integration methods preserving the symplecticity of the system:
 <span id="id1">[<a class="reference internal" href="bibliography.html#id6" title="Philipp L. Kinon, Peter Betsch, and Simeon Schneider. Structure-preserving integrators based on a new variational principle for constrained mechanical systems. Nonlinear Dynamics, 111(15):14231–14261, June 2023. URL: http://dx.doi.org/10.1007/s11071-023-08522-7, doi:10.1007/s11071-023-08522-7.">KBS23b</a>]</span></p>
 <div class="math notranslate nohighlight">
 \[
@@ -389,12 +388,12 @@ document.write(`
 <section id="conservation-of-energy">
 <h2>Conservation of Energy<a class="headerlink" href="#conservation-of-energy" title="Link to this heading">#</a></h2>
 <p>The first important property is the conservation of energy in the system.
-We know the energy function of a mechanical sytsem is given as</p>
+We know the energy function of a mechanical system is given as</p>
 <div class="math notranslate nohighlight">
 \[
 E(q,v,p) = p\cdot{v} - L(q,v)
 \]</div>
-<p>To asses the change of energy in the system we take the derivative with respect to time</p>
+<p>To assess the change of energy in the system we take the derivative with respect to time</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial E}{\partial t} = \dot{p}\cdot{v} - \frac{\partial L}{\partial q}\cdot{\dot{q}} + (p - \frac{\partial L}{\partial v})\cdot{\dot{v}}
@@ -403,13 +402,13 @@ E(q,v,p) = p\cdot{v} - L(q,v)
 </section>
 <section id="symplecticness-of-flow">
 <h2>Symplecticness of Flow<a class="headerlink" href="#symplecticness-of-flow" title="Link to this heading">#</a></h2>
-<p>Now we want to check if the flow generated by the Equations of motions is symplectic.
+<p>Now we want to check if the flow generated by the equations of motions is symplectic.
 We therefore take the derivative of the wedge product with respect to time</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial}{\partial t}(dq \land dp) = \sum_{i=1}^{d}\frac{\partial}{\partial t}[dp_idq_i - dq_idp_i] = (d\dot{q} \land dp) + (dq \land d\dot{p})
 \]</div>
-<p>If we now make use of our equations and use the properties of the wedgeproduct get</p>
+<p>If we now make use of our equations and use the properties of the wedge product, we obtain</p>
 <p><span class="math notranslate nohighlight">\(
 d\dot{q} = dv\\
 \)</span></p>
@@ -419,7 +418,7 @@ d\dot{p} = \begin{pmatrix} \frac{\partial^2 L}{\partial q \partial q} &amp; \fra
 <p><span class="math notranslate nohighlight">\(
 dp = \begin{pmatrix} \frac{\partial^2 L}{\partial v \partial q} &amp; \frac{\partial^2 L}{\partial v \partial v}\end{pmatrix} \begin{pmatrix} dq\\ dv \end{pmatrix} = \frac{\partial^2 L}{\partial v \partial q}dq + \frac{\partial^2 L}{\partial v \partial v}dv
 \)</span></p>
-<p>Furthermore the matrices <span class="math notranslate nohighlight">\(\frac{\partial^2 L}{\partial q \partial q} \frac{\partial^2 L}{\partial v \partial v}\)</span> are symmetric which leads us to</p>
+<p>Furthermore the matrices <span class="math notranslate nohighlight">\(\frac{\partial^2 L}{\partial q \partial q} \frac{\partial^2 L}{\partial v \partial v}\)</span> are symmetric, which leads us to</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial}{\partial t}(dq \land dp) = dv \land \frac{\partial^2 L}{\partial v \partial q}dq + dv \land \frac{\partial^2 L}{\partial v \partial v}dv + dq \land \frac{\partial^2 L}{\partial q \partial q}dq + dq \land \frac{\partial^2 L}{\partial q \partial v}dv
@@ -429,19 +428,19 @@ dp = \begin{pmatrix} \frac{\partial^2 L}{\partial v \partial q} &amp; \frac{\par
 \[
 \frac{\partial}{\partial t}(dq \land dp) = \frac{\partial^2 L}{\partial v \partial q}dv \land dq - \frac{\partial^2 L}{\partial q \partial v}dv \land dq = 0
 \]</div>
-<p>We now see that the flow of motion is smplectic which motivates the following definition of a symplectic procedure</p>
+<p>We now see that the flow of motion is symplectic which motivates the following definition of a symplectic procedure.</p>
 <p>For a fixed step size <span class="math notranslate nohighlight">\(h\)</span> and a procedure <span class="math notranslate nohighlight">\(\psi_h: \mathbb{R}^{2d} \rightarrow \mathbb{R}^{2d}: (q_n, p_n) \mapsto (q_{n+1}, p_{n+1})\)</span>
 is symplectic if the map <span class="math notranslate nohighlight">\(\psi_h\)</span> is symplectic.</p>
 </section>
 <section id="variational-integrators">
 <h2>Variational Integrators<a class="headerlink" href="#variational-integrators" title="Link to this heading">#</a></h2>
-<p>Variational Integrators are used for approaches determining the equations of motions through a variational principle. As we based our approach on the Livens principle and constructed a variational Integrator we will give a general introduction this sort of Integrators.</p>
-<p>When constructing Varational Integrators we consider an action integral, like given in <a class="reference internal" href="livensprinciple.html#equation-livens">(23)</a>:</p>
+<p>Variational integrators are used for approaches determining the equations of motions through a variational principle. As we based our approach on the Livens principle and constructed a variational integrator, we will give a general introduction to this kind of integrator.</p>
+<p>When constructing varational integrators, we consider an action integral as given in <a class="reference internal" href="livensprinciple.html#equation-livens">(23)</a>:</p>
 <div class="math notranslate nohighlight">
 \[
     \mathcal{S}(q,v,p) = \int_{t_0}^{T} L(q,v) + p(\dot{q}-v) \,dt.
 \]</div>
-<p>and try to approximate the Integral with a discrtization</p>
+<p>and try to approximate the integral with a discretization</p>
 <div class="math notranslate nohighlight">
 \[
     \mathcal{S}_h((q_n)^{N}_0, (v_n)^{N}_0, (p_n)^{N}_0) = \sum_{i=1}^{N-1} L_h(q_i, v_i, p_i, q_{i+1}, v_{i+1}, p_{i+1})
@@ -489,7 +488,7 @@ q_{n+1} = q(t_{n+1}),\ v_{n+1} = v(t_{n+1}),\ p_{n+1} = p(t_{n+1})
               
               
               
-                <footer class="prev-next-footer d-print-none">
+                <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -577,8 +576,8 @@ By Linus Knoll, Tobias Leichtfried, Norbert Hammer
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
