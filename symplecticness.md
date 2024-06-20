@@ -89,7 +89,7 @@ d\hat{f} = \sum_{i=1}^{n} \sum_{j=1}^{n} \frac{\partial f}{\partial \hat{z}_j}\f
 = \sum_{i=1}^{n} \frac{\partial f}{\partial \hat{z}_j}d\hat{z}_j
 $$
 
-with $d\hat{z}_j = \sum_{i=1}^{n}{\frac{\partial \varphi}{\partial z_i}dz_i}$ and $d\hat{z} = \varphi_z(z)\cdot{d_z}$
+with $d\hat{z}_j = \sum_{i=1}^{n}{\frac{\partial \varphi}{\partial z_i}dz_i}$ and $d\hat{z} = \varphi_z(z)\cdot{dz}$
 
 We can rewrite the bilinear from from above as
 
