@@ -1,6 +1,6 @@
 # The Integrator
 With Livens Principle and the Lagrangian at our disposal we are now ready to examine the integrator
-employed in our project. Trough variation of the livings principle we obtain equations as in [](#livensprinciple)
+employed in our project. Trough variation of the liven's principle we obtain equations as in [](#livensprinciple)
 which we discretize in time. This result in a nonlinear syststem of equations.
 
 We start again with the Livens principle which states that the variation of the action functional {eq}`livens` vanishes and take again the variation with respect to each variable. As shown in the chapter about the livens principle we get 
