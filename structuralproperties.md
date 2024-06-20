@@ -53,13 +53,13 @@ $
 dp = \begin{pmatrix} \frac{\partial^2 L}{\partial v \partial q} & \frac{\partial^2 L}{\partial v \partial v}\end{pmatrix} \begin{pmatrix} dq\\ dv \end{pmatrix} = \frac{\partial^2 L}{\partial v \partial q}dq + \frac{\partial^2 L}{\partial v \partial v}dv
 $
 
-Furthermore the matrices $\frac{\partial^2 L}{\partial q \partial q}, \frac{\partial^2 L}{\partial q \partial v}, \frac{\partial^2 L}{\partial v \partial q}, \frac{\partial^2 L}{\partial v \partial v}$ are symmetric which leads us to
+Furthermore the matrices $\frac{\partial^2 L}{\partial q \partial q} \frac{\partial^2 L}{\partial v \partial v}$ are symmetric which leads us to
 
 $$
 \frac{\partial}{\partial t}(dq \land dp) = dv \land \frac{\partial^2 L}{\partial v \partial q}dq + dv \land \frac{\partial^2 L}{\partial v \partial v}dv + dq \land \frac{\partial^2 L}{\partial q \partial q}dq + dq \land \frac{\partial^2 L}{\partial q \partial v}dv
 $$
 
-The second and the thrid term vanish and we get
+The second and the third term vanish and we get
 
 $$
 \frac{\partial}{\partial t}(dq \land dp) = \frac{\partial^2 L}{\partial v \partial q}dv \land dq - \frac{\partial^2 L}{\partial q \partial v}dv \land dq = 0
@@ -99,4 +99,3 @@ $$
 q_{n+1} = q(t_{n+1}),\ v_{n+1} = v(t_{n+1}),\ p_{n+1} = p(t_{n+1})
 $$
 
-For completeness we not that fo classical Hamiltonian Systems variational Integrators based on Hamiltons principle are symplectic. (See {cite}`hairer`) A proof for the symplecticity of our constructed Intergrator will be shown afterwards.

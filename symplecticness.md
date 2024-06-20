@@ -1,6 +1,6 @@
 # Symplecticness
 In this chapter we focus on the important property of symplecticness of maps.
-At first a general definition of symplecticness of smooth maps is given, its importance to mechanical systems and a geometric interpretation and. {cite}`Reich` {cite}`hairer`
+At first a general definition of symplecticness of smooth maps is given, then its importance to mechanical systems and a geometric interpretation follow. {cite}`Reich` {cite}`hairer`
 
 ## Symplecticnes of smooth mappings
 
@@ -28,7 +28,7 @@ J = \begin{pmatrix}
           \end{pmatrix} \in \mathbb{R}^{2d \times 2d}
 $$
 
-For $d = 1, \Omega(\xi, \eta) = \xi^p \eta^q - \xi^q\eta^p$ as the area of the oriented area of the parallogram spanned by $\xi = \begin{pmatrix}
+For $d = 1, \Omega(\xi, \eta) = \xi^p \eta^q - \xi^q\eta^p$ as the oriented area of the parallogram spanned by $\xi = \begin{pmatrix}
 \xi^q \\
 \xi^p
 \end{pmatrix}$ and $\eta = \begin{pmatrix}
@@ -40,7 +40,7 @@ $$
 \Omega(\xi, \eta) = \sum_{i=1}^{d} \xi^{p}_i \eta^{q}_i - \xi^{q}_i\eta^{p}_i
 $$
 
-If we now look at a 2-dimensional sub manifold $M$ of $\mathbb{R}^{2d}$ given by a parameterization as $M = \psi(K), K \subset \mathbb{R}^{2}$ with $\psi(s, t)$ being a continously differentiable function.
+We now consider a 2-dimensional sub manifold $M$ of $\mathbb{R}^{2d}$, given by a parameterization as $M = \psi(K), K \subset \mathbb{R}^{2}$, with $\psi(s, t)$ being a continously differentiable function.
 We can then consider M as the limit of a union of small parallelograms spanned by
 
 $$
@@ -49,7 +49,7 @@ $$
 
 For one such parallelogram we consider now the sum over the Projections as given above and get as the limit
 
-$$ 
+$$
 \int_M \Omega = \iint_K \Omega(\frac{\partial \psi}{\partial s}(s, t), \frac{\partial \psi}{\partial t}(s, t)) \,ds\,dt
 $$
 
