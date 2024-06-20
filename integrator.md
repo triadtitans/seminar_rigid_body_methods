@@ -10,8 +10,8 @@ $$ v=\dot{q}$$
 
 $$ p=\frac{\partial T}{\partial v}(v) $$
 
-For the third equation we have used that the boundary terms from the integration by parts vanished because we have chosen test functions which vanish at $t=0$ and $t=T$. We have then obtained a system of ODEs but now still require initial conditions $q(0)$ and $p(0)$.
-For the variation with respect to $q$ we thus modify the action integral by adding boundary terms
+For the third equation, we have used that the boundary terms from the equation by parts vanish because we have chosen test functions which vanish at $t=0$ and $t=T$.
+We have then obtained a system of ODEs but now still require initial conditions $q(0)$ and $p(0)$.
 
 $$
 \int_{0}^{T} T(v) - V(q) + p(\dot{q} - v) \,dt + \bar{p}(0)q(0) - \bar{p}(T)q(T)
