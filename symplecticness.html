@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -373,7 +373,7 @@ document.write(`
 At first, a general definition of symplecticness of smooth maps is given, then its importance to mechanical systems and a geometric interpretation follow. <span id="id1">[<a class="reference internal" href="bibliography.html#id10" title="Leimkuhler Reich. Simulating Hamiltonian Dynamics. Cambridge University Press, 2005. ISBN 978052177290.">Rei05</a>]</span> <span id="id2">[<a class="reference internal" href="bibliography.html#id7" title="Ernst Hairer, Christian Lubich, and Gerhard Wanner. Geometric numerical integration : structure-preserving algorithms for ordinary differential equations. Springer series in computational mathematics. Springer, Berlin [u.a.], 2. ed. edition, 2006. ISBN 3540306633.">HLW06</a>]</span></p>
 <section id="symplecticness-of-smooth-mappings">
 <h2>Symplecticness of smooth mappings<a class="headerlink" href="#symplecticness-of-smooth-mappings" title="Link to this heading">#</a></h2>
-<p>Symplecticness is defined by so-called structure matrices in <span class="math notranslate nohighlight">\(\mathbb{R}^{2d \times 2d}\)</span>, which can be (and in our case, will be), skew-symmetric, bilinear forms.
+<p>Symplecticness is defined by so-called structure matrices in <span class="math notranslate nohighlight">\(\mathbb{R}^{2d \times 2d}\)</span>, which can be (and in our case, will be) skew-symmetric, bilinear forms.
 Such a form can be described by a matrix <span class="math notranslate nohighlight">\(J\)</span> and gives the following definition.</p>
 <p>A linear map <span class="math notranslate nohighlight">\(L: \mathbb{R}^{2d} \rightarrow \mathbb{R}^{2d}\)</span> is called symplectic with regard to the structure matrix <span class="math notranslate nohighlight">\(J\)</span> if</p>
 <div class="math notranslate nohighlight">
@@ -429,8 +429,8 @@ We can then consider M as the limit of a union of small parallelograms spanned b
 </section>
 <section id="the-wedge-product">
 <h2>The wedge product<a class="headerlink" href="#the-wedge-product" title="Link to this heading">#</a></h2>
-<p>The above definitions for symplecticness of a given map is not very convenient which is why we will now derive a different approach with the wedge product.
-We consider the parial derivative of a function f as</p>
+<p>The above definitions for symplecticness of a given map is not very convenient, so we will now derive a different approach with the wedge product.
+We consider the partial derivative of a function f as</p>
 <div class="math notranslate nohighlight">
 \[
 df(\xi) = \sum_{i=1}^{n} \frac{\partial f}{\partial z_1}dz_i(\xi)
@@ -461,7 +461,7 @@ dq \land dp = d\hat{q} \land d\hat{p},\ \ (\hat{q}, \hat{p}) = \varphi(q,p)
 <ol class="arabic simple">
 <li><p>Skew-symmetry</p></li>
 <li><p>Bilinearity</p></li>
-<li><p>Rule of Matrix multiplication:</p></li>
+<li><p>Rule of matrix multiplication:</p></li>
 </ol>
 <div class="math notranslate nohighlight">
 \[

@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -368,10 +368,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-integrator">
 <h1>The Integrator<a class="headerlink" href="#the-integrator" title="Link to this heading">#</a></h1>
-<p>With Livens Principle and the Lagrangian at our disposal we are now ready to examine the integrator
+<p>With the Livens principle and the Lagrangian function at our disposal we are now ready to examine the integrator
 employed in our project. Through variation of the Livens principle we obtain equations as in <a class="reference internal" href="livensprinciple.html"><span class="doc std std-doc">Livens principle</span></a>
-which we discretize in time. This results in a nonlinear system of equations.</p>
-<p>We start again with the Livens principle which states that the variation of the action functional <a class="reference internal" href="livensprinciple.html#equation-livens">(23)</a> vanishes and again take the variation with respect to each variable.
+which we discretise in time. This results in a nonlinear system of equations.</p>
+<p>We start again with the Livens principle, which states that the variation of the action functional <a class="reference internal" href="livensprinciple.html#equation-livens">(23)</a> vanishes and again take the variation with respect to each variable.
 As shown in the chapter about the Livens principle we get</p>
 <div class="math notranslate nohighlight">
 \[ v=\dot{q}\]</div>
@@ -393,7 +393,8 @@ We have then obtained a system of ODEs but now still require initial conditions 
 <h2>Numerical Method<a class="headerlink" href="#numerical-method" title="Link to this heading">#</a></h2>
 <p>We now derive the numerical method behind our variational integrator.
 The Livens principle including boundary terms can be interpreted as follows:
-Given starting values <span class="math notranslate nohighlight">\(q(0)\)</span> and <span class="math notranslate nohighlight">\(\bar{p}(0)\)</span>, we can solve for functions <span class="math notranslate nohighlight">\(q, v, p\)</span> on <span class="math notranslate nohighlight">\([0, T]\)</span>, and the value <span class="math notranslate nohighlight">\(\bar{p}(T)\)</span>. At the end-point we take <span class="math notranslate nohighlight">\(q(T)\)</span> and the momentum <span class="math notranslate nohighlight">\(\bar{p}\)</span>. If we now continue on a time intervall <span class="math notranslate nohighlight">\([T, T_2]\)</span> with the initial values <span class="math notranslate nohighlight">\(q(T)\)</span> and <span class="math notranslate nohighlight">\(\bar{p}(T)\)</span>.
+Given starting values <span class="math notranslate nohighlight">\(q(0)\)</span> and <span class="math notranslate nohighlight">\(\bar{p}(0)\)</span>, we can solve for functions <span class="math notranslate nohighlight">\(q, v, p\)</span> on <span class="math notranslate nohighlight">\([0, T]\)</span>, and the value <span class="math notranslate nohighlight">\(\bar{p}(T)\)</span>.
+At the end-point we take <span class="math notranslate nohighlight">\(q(T)\)</span> and the momentum <span class="math notranslate nohighlight">\(\bar{p}\)</span>. If we now continue on a time interval <span class="math notranslate nohighlight">\([T, T_2]\)</span> with the initial values <span class="math notranslate nohighlight">\(q(T)\)</span> and <span class="math notranslate nohighlight">\(\bar{p}(T)\)</span>.
 Given a time interval <span class="math notranslate nohighlight">\([t_i, t_{i+1}]\)</span> we approximate <span class="math notranslate nohighlight">\(q\biggr|_{[t_i, t_{i+1}]}\)</span> by a linear polynomial and the variables <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(p\)</span> by constant functions <span class="math notranslate nohighlight">\(p_i\)</span> and <span class="math notranslate nohighlight">\(v_i\)</span> on <span class="math notranslate nohighlight">\([t_i, t_{i+1}]\)</span>. The moments <span class="math notranslate nohighlight">\(\bar{p}(t_i)\)</span> only exist in the point <span class="math notranslate nohighlight">\(t_i\)</span>.</p>
 <p>We now get a time-stepping method propagating <span class="math notranslate nohighlight">\((q(t_i), p(t_i))\)</span> to <span class="math notranslate nohighlight">\((q(t_{i+1}), p(t_{i+1}))\)</span>, which we will now specify.
 For the method we will use the fact that we can write the velocity and momentum as <span class="math notranslate nohighlight">\(v_i = (v_{a_i}, B_{i+1/2}v_{rot_i})\)</span> and <span class="math notranslate nohighlight">\(p_i = (p_{a_i}, B_{i+1/2}p_{rot_i})\)</span> where <span class="math notranslate nohighlight">\(v_{rot_i}\)</span> and <span class="math notranslate nohighlight">\(p_{rot_i}\)</span> denote skew-symmetric matrices.
@@ -415,7 +416,7 @@ We start with a fixed time interval <span class="math notranslate nohighlight">\
 \[
 \frac{1}{h}Skew(B_{i+1/2}^{-1}(B_{i+1} - B_i)) = \hat{v}_{rot_i}, \ \ \ 3 \ equations
 \]</div>
-<p>Where <span class="math notranslate nohighlight">\(\hat{v}_{rot_i}\)</span> is now the matix <span class="math notranslate nohighlight">\(v_{rot_i}\)</span> transformed by the hat-map. From now on, we only consider <span class="math notranslate nohighlight">\(\hat{v}_i = (v_{a_i}, \hat{v}_{rot_i})\)</span> as our velocity and <span class="math notranslate nohighlight">\(\hat{p}_i = (p_{a_i}, \hat{p}_{rot_i})\)</span> with <span class="math notranslate nohighlight">\(\hat{p}_{rot_i}\)</span> as the skew symmetric part of <span class="math notranslate nohighlight">\(p_{rot_i}\)</span> as our momentum.
+<p>Where <span class="math notranslate nohighlight">\(\hat{v}_{rot_i}\)</span> is now the matix <span class="math notranslate nohighlight">\(v_{rot_i}\)</span> transformed by the hat-map. From now on, we only consider <span class="math notranslate nohighlight">\(\hat{v}_i = (v_{a_i}, \hat{v}_{rot_i})\)</span> as our velocity and <span class="math notranslate nohighlight">\(\hat{p}_i = (p_{a_i}, \hat{p}_{rot_i})\)</span> with <span class="math notranslate nohighlight">\(\hat{p}_{rot_i}\)</span> as the skew symmetric part of our momentum <span class="math notranslate nohighlight">\(p_{rot_i}\)</span>.
 Accordingly, we also use the notation <span class="math notranslate nohighlight">\(\hat{\bar{p}}_i\)</span> for <span class="math notranslate nohighlight">\(\bar{p}_i\)</span>.</p>
 <p>Through the second equation we get</p>
 <div class="math notranslate nohighlight">
@@ -427,7 +428,7 @@ Accordingly, we also use the notation <span class="math notranslate nohighlight"
 \[
 M\hat{v}_i = \hat{p}_i\ \ \ 6 \ equations
 \]</div>
-<p>The last equation is a bit more complicated to integrate</p>
+<p>The last equation is a bit more complicated to integrate.</p>
 <div class="math notranslate nohighlight">
 \[
 \int_{0}^{T} (\frac{\partial V}{\partial q}(q)-\dot{q})\delta q \,dt + (p-\bar{p})q\Biggr|_{0}^{T}=0 \ \ \forall \delta q
@@ -469,7 +470,8 @@ Skew(B_i^T(\frac{B_i\bar{p}_{rot_i}-B_{i+1/2}p_{rot_i}}{h/2} - f_{rot}(q_{i}))) 
 \[
 B_{i+1}^T B_{i+1} = I\ \ \ 6 \ equations
 \]</div>
-<p>We now count the unknowns. We have given <span class="math notranslate nohighlight">\(q_i, \ \bar{p}_i\)</span> and would like to find <span class="math notranslate nohighlight">\(q_{i+1}, \ \bar{p}_{i+1}\)</span>. As we have seen, we actually just need to find <span class="math notranslate nohighlight">\(q_{i+1}, \ \hat{\bar{p}}_{i+1}\)</span> (<span class="math notranslate nohighlight">\(12\)</span> and <span class="math notranslate nohighlight">\(6\)</span> variables), for which we need to find <span class="math notranslate nohighlight">\(\hat{v}_i, \ \hat{p}_i\)</span> which have <span class="math notranslate nohighlight">\(6\)</span> and <span class="math notranslate nohighlight">\(6\)</span> variables, respectively.
+<p>We now count the unknowns. We have given <span class="math notranslate nohighlight">\(q_i, \ \bar{p}_i\)</span> and would like to find <span class="math notranslate nohighlight">\(q_{i+1}, \ \bar{p}_{i+1}\)</span>.
+As we have seen, we actually just need to find <span class="math notranslate nohighlight">\(q_{i+1}, \ \hat{\bar{p}}_{i+1}\)</span> (<span class="math notranslate nohighlight">\(12\)</span> and <span class="math notranslate nohighlight">\(6\)</span> variables), for which we need to find <span class="math notranslate nohighlight">\(\hat{v}_i, \ \hat{p}_i\)</span> which have <span class="math notranslate nohighlight">\(6\)</span> and <span class="math notranslate nohighlight">\(6\)</span> variables, respectively.
 All together we have <span class="math notranslate nohighlight">\(30\)</span> unknowns and <span class="math notranslate nohighlight">\(30\)</span> variables.</p>
 </section>
 </section>

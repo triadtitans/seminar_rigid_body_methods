@@ -176,7 +176,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Symplectic integration on lie groups?
+                    Simulating rigid body mechanics
                 </a>
             </li>
         </ul>
@@ -184,12 +184,12 @@
 <li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive demonstration</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Object Transformation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lagrangian.html">A Brief Overview of Lagrangian Mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="symplecticness.html">Symplecticness</a></li>
-<li class="toctree-l1"><a class="reference internal" href="livensprinciple.html">Livens principle</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structuralproperties.html">Structural Properties</a></li>
 <li class="toctree-l1"><a class="reference internal" href="applylag.html">Applying Lagrangian Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="livensprinciple.html">Livens principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="symplecticness.html">Symplecticness</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structuralproperties.html">Structural Properties and Variational Integrators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="integrator.html">The Integrator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="constraints.html">Constraints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constraints.html">An Extension: Constraints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
 
@@ -381,7 +381,7 @@ document.write(`
 defined by three parameters: <span class="math notranslate nohighlight">\(x_0 \in \mathbb{R}^{3}\)</span>, for three dimensions in space.</p></li>
 <li><p><strong>Rotations</strong>
 <span class="math notranslate nohighlight">\(R_O(x) = O \cdot x\)</span>
-with <span class="math notranslate nohighlight">\(O\)</span> being an orthogonal transformation <span class="math notranslate nohighlight">\(O: \mathbb{R}^{3} \mapsto \mathbb{R}^{3}\)</span> having <span class="math notranslate nohighlight">\(det(O) = 1\)</span> (for rotations) and <span class="math notranslate nohighlight">\(O^T = O^{-1}\)</span>.
+with <span class="math notranslate nohighlight">\(O\)</span> being an orthogonal transformation <span class="math notranslate nohighlight">\(O: \mathbb{R}^{3} \mapsto \mathbb{R}^{3}\)</span> having <span class="math notranslate nohighlight">\(det(O) = 1\)</span> (to exclude mirroring) and <span class="math notranslate nohighlight">\(O^T = O^{-1}\)</span>.
 Rotations have three degrees of freedom for the three axes of rotation.</p></li>
 </ul>
 <div class="proof definition admonition" id="definition-0">
@@ -389,33 +389,32 @@ Rotations have three degrees of freedom for the three axes of rotation.</p></li>
 <section class="definition-content" id="proof-content">
 <p>A <strong>lie group</strong> is a <strong>group</strong> which is also a <strong>smooth manifold</strong> on which the group operations are smooth functions.
 If the group operation of a lie group can be seen as a matrix multiplication, it is called a <strong>matrix lie group</strong>.
-The topological tangent space of a matrix lie group is called <strong>lie algebra</strong>.</p>
+The topological tangent space of a matrix lie group is called its <strong>lie algebra</strong>.</p>
 </section>
 </div><div class="proof definition admonition" id="definition-1">
 <p class="admonition-title"><span class="caption-number">Definition 2 </span> (Special orthogonal Group <span class="math notranslate nohighlight">\(SO(3)\)</span>)</p>
 <section class="definition-content" id="proof-content">
-<p>The special orthogonal group consists of rotations <span class="math notranslate nohighlight">\(R_O\)</span>.</p>
+<p>The special orthogonal group consists of all rotations <span class="math notranslate nohighlight">\(R_O\)</span>.</p>
 </section>
 </div><div class="proof definition admonition" id="definition-2">
 <p class="admonition-title"><span class="caption-number">Definition 3 </span> (Special euclidean group <span class="math notranslate nohighlight">\(SE(3)\)</span>)</p>
 <section class="definition-content" id="proof-content">
-<p>The special euclidean group consists of rotations <span class="math notranslate nohighlight">\(R_O\)</span> combined with translations <span class="math notranslate nohighlight">\(T_{x_0}\)</span>.
-We write an element <span class="math notranslate nohighlight">\(E \in SE(3)\)</span> as <span class="math notranslate nohighlight">\( E = (a, O)\)</span> where <span class="math notranslate nohighlight">\(a\)</span> defines a translation and <span class="math notranslate nohighlight">\(O\)</span> a rotation.
+<p>The special euclidean group consists of all rotations <span class="math notranslate nohighlight">\(R_O\)</span> combined with all translations <span class="math notranslate nohighlight">\(T_{x_0}\)</span>.
+We write an element <span class="math notranslate nohighlight">\(E \in SE(3)\)</span> as <span class="math notranslate nohighlight">\( E = (a, O)\)</span> where <span class="math notranslate nohighlight">\(a\)</span> defines a translation vector and <span class="math notranslate nohighlight">\(O\)</span> a rotation matrix.
 An element of <span class="math notranslate nohighlight">\(SE(3)\)</span> shall be called a <strong>transformation</strong>.
-The group operation on SE(3) is defined as <span class="math notranslate nohighlight">\((O_1, t_1) \cdot (O_2, t_2) = (O_1 O_2, O_1 t_2 + t_1)\)</span></p>
+The group operation on <span class="math notranslate nohighlight">\(SE(3)\)</span> is defined as <span class="math notranslate nohighlight">\((t_1, O_1) \cdot (t_2, O_2) = (O_1 t_2 + t_1, O_1 O_2)\)</span></p>
 </section>
 </div><p><span id="id1">[<a class="reference internal" href="bibliography.html#id5" title="Peter Betsch, editor. Structure-preserving integrators in nonlinear structural dynamics and flexible multibody dynamics. Volume 565 of CISM International Centre for Mechanical Sciences. Courses and Lectures. Springer, [Cham], 2016. ISBN 978-3-319-31877-6; 978-3-319-31879-0. Lecture notes from the course held at the International Centre for Mechanical Sciences (CISM), Udine, October 7–11, 2013.">Bet16</a>, Chapter 2.1]</span></p>
-<p>The implementation in ASC-ODE also uses <span class="math notranslate nohighlight">\(SE(3)\)</span>.
-The group operation can be reproduced using <code class="docutils literal notranslate"><span class="pre">Transformation.applyTranslation</span></code> and <code class="docutils literal notranslate"><span class="pre">Transformation.applyRotation</span></code>.
-ASC-ODE also makes use of the product group <span class="math notranslate nohighlight">\(SO(3) \times \RR^3\)</span>.
-The group operations of these groups are implemented as + for <span class="math notranslate nohighlight">\(SO(3) \times \RR^3\)</span> and * for <span class="math notranslate nohighlight">\(SE(3)\)</span>. (See python API.)</p>
+<p>The implementation in ASC-ODE uses <span class="math notranslate nohighlight">\(SE(3)\)</span>, but also the product group <span class="math notranslate nohighlight">\(SO(3) \times \RR^3\)</span>.
+The group operations of these groups are implemented as <code class="docutils literal notranslate"><span class="pre">+</span></code> for <span class="math notranslate nohighlight">\(SO(3) \times \RR^3\)</span> and <code class="docutils literal notranslate"><span class="pre">*</span></code> for <span class="math notranslate nohighlight">\(SE(3)\)</span>.
+(See the python API.)</p>
 <p><span class="math notranslate nohighlight">\(SO(3)\)</span>, <span class="math notranslate nohighlight">\(SE(3)\)</span> and <span class="math notranslate nohighlight">\(SO(3) \times \RR^3\)</span> are lie groups <span id="id2">[<a class="reference internal" href="bibliography.html#id5" title="Peter Betsch, editor. Structure-preserving integrators in nonlinear structural dynamics and flexible multibody dynamics. Volume 565 of CISM International Centre for Mechanical Sciences. Courses and Lectures. Springer, [Cham], 2016. ISBN 978-3-319-31877-6; 978-3-319-31879-0. Lecture notes from the course held at the International Centre for Mechanical Sciences (CISM), Udine, October 7–11, 2013.">Bet16</a>, p. 96]</span>.
 They are even matrix lie groups <span id="id3">[<a class="reference internal" href="bibliography.html#id5" title="Peter Betsch, editor. Structure-preserving integrators in nonlinear structural dynamics and flexible multibody dynamics. Volume 565 of CISM International Centre for Mechanical Sciences. Courses and Lectures. Springer, [Cham], 2016. ISBN 978-3-319-31877-6; 978-3-319-31879-0. Lecture notes from the course held at the International Centre for Mechanical Sciences (CISM), Udine, October 7–11, 2013.">Bet16</a>, p. 95]</span>.
-As their subgroup <span class="math notranslate nohighlight">\(SO(3)\)</span> (rotations) is not commutative, they are not commutative, either.</p>
+As their subgroup <span class="math notranslate nohighlight">\(SO(3)\)</span> (rotations) is not commutative, they are not commutative either.</p>
 <p>In the following example, ASC-ODE also makes use of the following:
-<span class="math notranslate nohighlight">\(R \in SO(3)\)</span> if and only if there exists an orthonormal basis <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(\varphi \in [0, \pi]\)</span> such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-730ca483-cb1d-426a-bbfc-858560aa4f1f">
-<span class="eqno">(1)<a class="headerlink" href="#equation-730ca483-cb1d-426a-bbfc-858560aa4f1f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="math notranslate nohighlight">\(R \in SO(3)\)</span> if and only if there exists an orthonormal matrix <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(\varphi \in [0, \pi]\)</span> such that</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3996fae9-9f46-48b7-8688-ecfcd637add0">
+<span class="eqno">(1)<a class="headerlink" href="#equation-3996fae9-9f46-48b7-8688-ecfcd637add0" title="Permalink to this equation">#</a></span>\[\begin{equation}
    A = B^{-1}
    \begin{pmatrix}
       1 &amp; 0           &amp; 0 \\
@@ -427,11 +426,11 @@ As their subgroup <span class="math notranslate nohighlight">\(SO(3)\)</span> (r
 <p>This matrix has a one-dimensional eigenspace, the axis of rotation.
 <span class="math notranslate nohighlight">\(\varphi\)</span> is the rotation angle.
 The lower right block of the matrix lies in <span class="math notranslate nohighlight">\(SO(2)\)</span>, which is commutative. Therefore, rotations around the same axis are commutative.</p>
-<p>For any given matrix <span class="math notranslate nohighlight">\(R \in SO(3)\)</span>, the axis of rotation can be calculated as it’s eigenvector with eigenvalue 1.
-(Although there might be more than one eigenvector, for example if <span class="math notranslate nohighlight">\(R = I\)</span>.)
+<p>For any given matrix <span class="math notranslate nohighlight">\(R \in SO(3)\)</span>, the axis of rotation can be calculated as its eigenvector with eigenvalue 1.
+(Although there exists more than one eigenvector if <span class="math notranslate nohighlight">\(R = I\)</span>.)
 The angle can be calculated due to the fact that the trace of a matrix is similarity-invariant:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2b64dcc5-b932-4354-8d77-8b81472e0b23">
-<span class="eqno">(2)<a class="headerlink" href="#equation-2b64dcc5-b932-4354-8d77-8b81472e0b23" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6fa048df-a5e4-43a2-aca7-460120d94483">
+<span class="eqno">(2)<a class="headerlink" href="#equation-6fa048df-a5e4-43a2-aca7-460120d94483" title="Permalink to this equation">#</a></span>\[\begin{equation}
    \varphi = arccos \left( \frac{tr(R) - 1}{2} \right)
 \end{equation}\]</div>
 <p><span id="id4">[<a class="reference internal" href="bibliography.html#id3" title="Hans Havlicek. Lineare Algebra für technische Mathematik. Berliner Studienreihe zur Mathematik. Heldermann Verlag, Lemgo, vierte, korrigierte und erweiterte auflage edition, 2022. ISBN 3885381168.">Hav22</a>, 12.4.14]</span></p>
@@ -445,7 +444,7 @@ The angle can be calculated due to the fact that the trace of a matrix is simila
 </section>
 <section id="spatial-frame-and-body-frame">
 <span id="inertiaframes"></span><h2>Spatial Frame and Body Frame<a class="headerlink" href="#spatial-frame-and-body-frame" title="Link to this heading">#</a></h2>
-<p>The motion of a body can now be described by a function <span class="math notranslate nohighlight">\(U: \mathbb{R} \rightarrow SO(3) \times \RR^3\)</span> as the following:</p>
+<p>The motion of a body can now be described by a function <span class="math notranslate nohighlight">\(U: \mathbb{R} \rightarrow SO(3) \times \RR^3\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[ U(t)(x) = a(t) + O(t) \cdot x \]</div>
 <p>with <span class="math notranslate nohighlight">\(x \in \RR^3\)</span>.</p>
@@ -461,8 +460,8 @@ A coordinate system specific to the body in which the body is stationary.</p>
 <p>Let <span class="math notranslate nohighlight">\(a(t), O(t)\)</span> describe the transformation of a body.
 Then <span class="math notranslate nohighlight">\(U\)</span> converts vectors from the body frame to the spatial frame.
 Therefore, the body frame can be seen as the affine space</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b0b9254d-0496-4085-82c6-fc0364365427">
-<span class="eqno">(3)<a class="headerlink" href="#equation-b0b9254d-0496-4085-82c6-fc0364365427" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e6443c3a-03f6-4885-bbe2-556ff947d766">
+<span class="eqno">(3)<a class="headerlink" href="#equation-e6443c3a-03f6-4885-bbe2-556ff947d766" title="Permalink to this equation">#</a></span>\[\begin{equation}
    U(\RR^3) = a(t) + O(t) \cdot \RR^3
 \end{equation}\]</div>
 <p>During the project, <span class="math notranslate nohighlight">\(U\)</span> was used as such a conversion function. This has proven useful for multibody interaction (via springs and beams) and visualisation.</p>
@@ -486,13 +485,13 @@ A transformation $(a,O) \in SE(3)$ can be stored by storing $a$ and $O$ seperate
 </section>
 <section id="motion-in-so-3">
 <h2>Motion in <span class="math notranslate nohighlight">\(SO(3)\)</span><a class="headerlink" href="#motion-in-so-3" title="Link to this heading">#</a></h2>
-<p>ASC-ODE treats velocity in <span class="math notranslate nohighlight">\(SO(3)\)</span> and <span class="math notranslate nohighlight">\(\RR^3\)</span> seperately.</p>
+<p>ASC-ODE treats velocity in <span class="math notranslate nohighlight">\(SO(3)\)</span> and <span class="math notranslate nohighlight">\(\RR^3\)</span> separately.</p>
 <div class="proof definition admonition" id="definition-3">
 <p class="admonition-title"><span class="caption-number">Definition 4 </span> (Skew symmetric matrix)</p>
 <section class="definition-content" id="proof-content">
 <p>A <strong>skew-symmetric</strong> matrix is a matrix <span class="math notranslate nohighlight">\(\widehat{\omega}\)</span> such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c392bbd0-a948-490c-9a66-96c5badc3286">
-<span class="eqno">(4)<a class="headerlink" href="#equation-c392bbd0-a948-490c-9a66-96c5badc3286" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-71d69642-4af9-473d-95e7-0a91ef0d6eb5">
+<span class="eqno">(4)<a class="headerlink" href="#equation-71d69642-4af9-473d-95e7-0a91ef0d6eb5" title="Permalink to this equation">#</a></span>\[\begin{equation}
    \widehat{\omega}^T = -\widehat{\omega}
 \end{equation}\]</div>
 <p>Here, the hat <span class="math notranslate nohighlight">\(\widehat{\cdot}\)</span> will be commonly used to denote skew-symmetry.</p>
@@ -500,20 +499,20 @@ A transformation $(a,O) \in SE(3)$ can be stored by storing $a$ and $O$ seperate
 </div><div class="proof lemma admonition" id="lemma-4">
 <p class="admonition-title"><span class="caption-number">Lemma 1 </span></p>
 <section class="lemma-content" id="proof-content">
-<div class="amsmath math notranslate nohighlight" id="equation-9aa22bcd-2f5a-455d-b2bb-803398322e04">
-<span class="eqno">(5)<a class="headerlink" href="#equation-9aa22bcd-2f5a-455d-b2bb-803398322e04" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9fca10ad-be44-4ef4-9719-2b56e8407d10">
+<span class="eqno">(5)<a class="headerlink" href="#equation-9fca10ad-be44-4ef4-9719-2b56e8407d10" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \forall~ t~ \exists~ \widehat{\omega}_{body}~ \text{skew-symmetric}:~~ \frac{dO}{dt}(t) = O(t)\widehat{\omega}_{body}
 \end{equation}\]</div>
 <p>or alternatively:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bb2df3f8-716c-405f-a64c-d6da137b96e2">
-<span class="eqno">(6)<a class="headerlink" href="#equation-bb2df3f8-716c-405f-a64c-d6da137b96e2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a10727a0-7af9-4283-9548-63f2894c8e89">
+<span class="eqno">(6)<a class="headerlink" href="#equation-a10727a0-7af9-4283-9548-63f2894c8e89" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \forall~ t~ \exists~ \widehat{\omega}_{space}~ \text{skew-symmetric}:~~ \frac{dO}{dt}(t) = \widehat{\omega}_{space}O(t)
 \end{equation}\]</div>
 <p><span class="math notranslate nohighlight">\(\widehat{\omega}_{body}\)</span> and <span class="math notranslate nohighlight">\(\widehat{\omega}_{space}\)</span> are called the body and space angular velocities. <span id="id6">[<a class="reference internal" href="bibliography.html#id4" title="Darryl D Holm. Geometric mechanics : 2. Rotating, translating and rolling. World Scientific Publ. Imperial College Press, Singapore [u.a.] London, 2008. ISBN 1848161557.">Hol08</a>, 2.1.24]</span>
 ASC-ODE uses <span class="math notranslate nohighlight">\(\widehat{\omega}_{body}\)</span>.</p>
 </section>
 </div><div class="proof admonition" id="proof">
-<p>Proof. For the first equation, we prove <span class="math notranslate nohighlight">\(\exists~\widehat{\omega} ~ skew-symmetric:~ \widehat{\omega} = O^{-1}\dot{O}\)</span>:</p>
+<p>Proof. For the first equation, we prove <span class="math notranslate nohighlight">\(\exists~\widehat{\omega} ~ \text{skew-symmetric:}~ \widehat{\omega} = O^{-1}\dot{O}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{equation}
 0 = \dot{I} = (O^TO)~\dot{} = \dot{O}^TO + O^T\dot{O} = (O^T \dot{O})^T + O^T\dot{O} =  (O^{-1} \dot{O})^T + O^{-1}\dot{O} =
@@ -526,8 +525,8 @@ ASC-ODE uses <span class="math notranslate nohighlight">\(\widehat{\omega}_{body
 <p class="admonition-title"><span class="caption-number">Remark 1 </span> (Hat map)</p>
 <section class="remark-content" id="proof-content">
 <p>The hat <span class="math notranslate nohighlight">\(\widehat{\cdot}\)</span> can be seen as a function</p>
-<div class="amsmath math notranslate nohighlight" id="equation-35f884a7-4649-40e2-845d-852111fa9fe9">
-<span class="eqno">(7)<a class="headerlink" href="#equation-35f884a7-4649-40e2-845d-852111fa9fe9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3f212bc1-4913-4897-937d-81c78601db05">
+<span class="eqno">(7)<a class="headerlink" href="#equation-3f212bc1-4913-4897-937d-81c78601db05" title="Permalink to this equation">#</a></span>\[\begin{align}
 \widehat{\cdot}: \RR^3 &amp; \rightarrow \{ M \in \RR^{3 \times 3} ~|~ M~ \text{skew symmetric}\} \\
 \omega &amp; \mapsto
    \begin{pmatrix}

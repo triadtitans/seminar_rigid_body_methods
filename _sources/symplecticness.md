@@ -4,7 +4,7 @@ At first, a general definition of symplecticness of smooth maps is given, then i
 
 ## Symplecticness of smooth mappings
 
-Symplecticness is defined by so-called structure matrices in $\mathbb{R}^{2d \times 2d}$, which can be (and in our case, will be), skew-symmetric, bilinear forms.
+Symplecticness is defined by so-called structure matrices in $\mathbb{R}^{2d \times 2d}$, which can be (and in our case, will be) skew-symmetric, bilinear forms.
 Such a form can be described by a matrix $J$ and gives the following definition.
 
 A linear map $L: \mathbb{R}^{2d} \rightarrow \mathbb{R}^{2d}$ is called symplectic with regard to the structure matrix $J$ if 
@@ -69,8 +69,8 @@ For $d = 1$ this implies the conservation of area under a symplectic map and for
 
 ## The wedge product
 
-The above definitions for symplecticness of a given map is not very convenient which is why we will now derive a different approach with the wedge product.
-We consider the parial derivative of a function f as
+The above definitions for symplecticness of a given map is not very convenient, so we will now derive a different approach with the wedge product.
+We consider the partial derivative of a function f as
 
 $$
 df(\xi) = \sum_{i=1}^{n} \frac{\partial f}{\partial z_1}dz_i(\xi)
@@ -107,7 +107,7 @@ For the wedge product, some useful prperties are known which make calculations e
 
 1. Skew-symmetry
 2. Bilinearity
-3. Rule of Matrix multiplication:
+3. Rule of matrix multiplication:
 
 $$
 dq \land (Adp) = (A^{T}dq) \land dp

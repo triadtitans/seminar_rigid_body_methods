@@ -3,10 +3,10 @@
 ## Describing Position and Rotation
 $\require{mathtools}$
 The generalised coordinates of a mass-point with rotation consist of the components of the translation vector and rotation matrix.
-A solver like ASC-ODE solves for a matrix that forms the rotation matrix of the body.
+A solver like ASC-ODE solves for a matrix that forms the rotation matrix of the body (among other values).
 Therefore, it needs to ensure that the resulting matrix $B$ actually lies in $SO(3)$.
 
- - $\bf{det B = 1}$ This has proven to be negligable.
+ - $\bf{det B = 1}$ This has proven to be negligable. After all, $det B(t)$ ist continuous as the composition of continuous functions.
  - $\bf{B}$ **orthonormal** needs to be reformulated into an equation that is easy to check.
 
 \begin{align}
@@ -34,7 +34,7 @@ The translational part of the kinetic energy is given by:
 \begin{equation}
     T(v_{trans}) = \frac{1}{2} m v_{trans}^2
 \end{equation}
-where $v_{trans}$ is the translational part of the velocity and m the mass of the body.
+where $v_{trans}$ is the translational part of the velocity and $m$ the mass of the body.
 {cite}`theorph{p. 131}`
 There also holds $ p_{trans} = m \cdot v_{trans} $, where $p_{trans}$ is the (translational) momentum of the body.
 
@@ -56,9 +56,9 @@ If we define $(\cdot, \cdot)$ as
 \begin{equation}
     (a, b) \coloneqq \frac{1}{2} \int_V \rho(x)~ (a \times x) \cdot (b \times x) ~ dx
 \end{equation}
-then one obtains $T(v_{rot}) = (v_{rot}, v_{rot})$.
+then we obtain $T(v_{rot}) = (v_{rot}, v_{rot})$.
 
-For an efficient implementation of this scalar product, it's gram matrix is used.
+For an efficient implementation of this scalar product, its gram matrix is used.
 This matrix is called the **inertia tensor** (or moment of inertia tensor):
 $\newcommand{\II}[0]{{\mathbb{I}}}$
 \begin{equation}
@@ -68,7 +68,7 @@ $\newcommand{\II}[0]{{\mathbb{I}}}$
               I_{zx} & I_{zy} & I_{zz}
           \end{pmatrix} \in \mathbb{R}^{3 \times 3}
 \end{equation}
-It's components $I_{ij}$ are called the *moments of inertia*.
+Its components $I_{ij}$ are called the *moments of inertia*.
 The inertia tensor is not time-dependent.
 
 From the definition of the (symmetric) bilinear form above follows that $\II$ is symmetric.
@@ -79,9 +79,9 @@ The inertia frame described by this basis is called *principle axis frame*.
 
 The inertia matrix can be considered invertible:
 Assume that it is not invertible. Let $a \neq 0, a \in ker \II$. Then $a$ represents a rotation speed.
-Increasing that rotation speed will however not affect the kinetic energy $T = \II \cdot \vrot.
+Increasing that rotation speed will however not affect the kinetic energy $T = \II \cdot v_{rot}$.
 
-This tensor can be obtained from a library like `netgen.occ` .
+The inertia tensor can be obtained from a library like `netgen.occ`.
 
 ### Angular Momentum
 
@@ -128,13 +128,12 @@ These can be combined into one matrix equation
     \end{pmatrix}
 \end{equation}
 The above block matrix is called the **mass matrix** of the body.
+(The term mass matrix is also used for matrices with a totally different structure.)
 
 If the mass matrix is denoted by $\bf M$ and $p \coloneqq \begin{pmatrix} p_{trans} \\ p_{rot} \end{pmatrix} $ as well as
 $v \coloneqq \begin{pmatrix} v_{trans} \\ v_{rot} \end{pmatrix} $, the equation can be written as $\bf p = M \cdot v$.
 The mass matrix is not time-dependent as the inertia tensor and mass do not depent on time.
 As the left upper diagonal and $\II$ are invertible, the mass matrix is also invertible.
-
-Note that the mass matrix represents the Legendre transform.
 
 An object:
 !["hammer"](hammer.png "hammer")
@@ -151,7 +150,7 @@ and its mass matrix from `netgen.occ`:
 \end{pmatrix}
 \end{equation}
 
-Note that the the absolute values of all off-diagonal values lie below the double precision epsilon.
+Note that the absolute values of all off-diagonal values lie below the double precision epsilon.
 
 <!--
 ### The Center of Mass and the Origin of the Inertia System
@@ -180,7 +179,7 @@ The following is already possible just with kinetic energy:
 
 ASC-ODE also implements potential energy.
 To account for interactions between bodies, the potential is calculated **globally**.
-That is, all potential energies of all bodies are summed up.
+That is, all potential energies of all bodies are summed up. This allows for the interaction of bodies.
 Let $q_i \in SE(3)$ represent the transformations of the individual bodies.
 Then the result is a scalar-valued potential function
 \begin{equation}
@@ -188,25 +187,25 @@ Then the result is a scalar-valued potential function
 \end{equation}
 
 $V$ is then differenciated with respect to all components of all $q_i$.
-As the derivative of the potential is the force, the values of resulting gradient are forces.
+As the derivative of the potential is the force, the values of the resulting gradient are forces.
 These forces act on the component values of the $q_i$ and thus on the transformations of the objects.
 
-ASC-ODE implements simple gravity and spring.
+ASC-ODE implements simple gravity and springs.
 
 ### "Gravity"
 
-A simplified form of gravity can be implemented via a constant force that depends on the mass.
+A simplified form of gravity can be implemented via a constant "downward" force.
 A force that acts homogenously on the body does not influence it's rotation.
-Therefore, the body can be seen as a point mass. The bodies can also be treated individually.
+Therefore, the body can be seen as a mass point. The bodies can also be treated individually.
 
-Using $F = m \cdot a$, the force on a point mass can be specified as an acceleration vector $a \in \mathbb{R}^3$ and the body mass $m$.
+Using $F = m \cdot a$, the force on a point mass can be specified using an acceleration vector $a \in \mathbb{R}^3$ and the body mass $m$.
 For any given translation vector $x$, the antiderivative or potential of that force is
 \begin{equation}
     m \cdot (a \cdot x).
 \end{equation}
 
 In ASC-ODE, the mass is automatically calculated and the *negative* acceleration vector can be specified:
-`rbs.gravity = (0, 9.81, 0)` for downward force.
+e.g. `rbs.gravity = (0, 9.81, 0)` for downward force.
 
 ````{div} full-width
 ```{dropdown} Jupyterlite
@@ -216,10 +215,12 @@ In ASC-ODE, the mass is automatically calculated and the *negative* acceleration
 
 ### Springs
 
-Let $x_1$, $x_2$ be vectors in the systems of inertia of two different bodies. Their conversion to global coordinates is $U_1(x_1)$ and $U_2(x_1)$, respectively.
-Consider these points to be connected by a spring with stiffness $k$, length at rest $l$ and elongation $e = \| U_1(x_1) - U_2(x_2) \| - l$.
+Let $x_1$, $x_2$ be vectors in the systems of inertia of two different bodies.
+Their conversion to global coordinates is $U_1(x_1)$ and $U_2(x_1)$, respectively.
+Consider these points to be connected by a spring with stiffness $k$, length at rest $l$
+and elongation $e = \| U_1(x_1) - U_2(x_2) \| - l$.
 
-Then Hooke's law states that the resulting force is given by $F = k \cdot e$ {cite}`theorph{p. 312}`.
+Then Hooke's law states that the resulting (scalar) force is given by $F = k \cdot e$ {cite}`theorph{p. 312}`.
 Then the resulting potential is
 \begin{equation}
     \frac{k}{2} e^2.
@@ -227,6 +228,6 @@ Then the resulting potential is
 
 ````{div} full-width
 ```{dropdown} Jupyterlite
-<iframe src="https://triadtitans.github.io/rigid_body_interactive/lab/index.html?path=rbs_fem.ipynb" width=100% height="700"></iframe>
+<iframe src="https://triadtitans.github.io/rigid_body_interactive/lab/index.html?path=springs.ipynb" width=100% height="700"></iframe>
 ```
 ````

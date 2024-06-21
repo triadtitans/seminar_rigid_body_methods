@@ -1,10 +1,6 @@
 # Simulating rigid body mechanics
-### An approach using variational integration and the Livens principle
+## An approach using variational integration and the Livens principle
 
-
-Variational integration based on the Livens principle
-Rigid body motion
-Livens principle
 
 ````{card}
 
@@ -22,7 +18,7 @@ The latter implements lagrangian mechanics and an ODE solver as well as a novel 
 --->
 
 In computational chemistry and other domains of science, so-called rigid-body simulations are used.
-These permit the physically accurate prediction of body motions.
+These permit the physically accurate calculation of an object's motion.
 The aim of this seminar project was to implement a simulation algorithm and analyse it.
 This website documents the process.
 

@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -384,14 +384,14 @@ document.write(`
 <h2>Describing Position and Rotation<a class="headerlink" href="#describing-position-and-rotation" title="Link to this heading">#</a></h2>
 <p><span class="math notranslate nohighlight">\(\require{mathtools}\)</span>
 The generalised coordinates of a mass-point with rotation consist of the components of the translation vector and rotation matrix.
-A solver like ASC-ODE solves for a matrix that forms the rotation matrix of the body.
+A solver like ASC-ODE solves for a matrix that forms the rotation matrix of the body (among other values).
 Therefore, it needs to ensure that the resulting matrix <span class="math notranslate nohighlight">\(B\)</span> actually lies in <span class="math notranslate nohighlight">\(SO(3)\)</span>.</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\bf{det B = 1}\)</span> This has proven to be negligable.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\bf{det B = 1}\)</span> This has proven to be negligable. After all, <span class="math notranslate nohighlight">\(det B(t)\)</span> ist continuous as the composition of continuous functions.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\bf{B}\)</span> <strong>orthonormal</strong> needs to be reformulated into an equation that is easy to check.</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-0e603818-9061-4e75-993f-18ed1807b890">
-<span class="eqno">(9)<a class="headerlink" href="#equation-0e603818-9061-4e75-993f-18ed1807b890" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-194f01eb-4f8a-4e4a-8f25-59d42dfd7346">
+<span class="eqno">(9)<a class="headerlink" href="#equation-194f01eb-4f8a-4e4a-8f25-59d42dfd7346" title="Permalink to this equation">#</a></span>\[\begin{align}
     B ~ \text{orthonormal} \\
     \Leftrightarrow \forall x \in \mathbb{R}^3:~ \| Bx \| &amp; = \| x \| \\
     \Leftrightarrow \forall x \in \mathbb{R}^3:~ \| Bx \|^2 &amp; = \| x \|^2 \\
@@ -409,11 +409,11 @@ However, as <span class="math notranslate nohighlight">\(B^TB\)</span> is symmet
 <section id="translation">
 <h3>Translation<a class="headerlink" href="#translation" title="Link to this heading">#</a></h3>
 <p>The translational part of the kinetic energy is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cc838232-11b0-498d-9980-734ff12b2075">
-<span class="eqno">(10)<a class="headerlink" href="#equation-cc838232-11b0-498d-9980-734ff12b2075" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4145aadf-3ba5-4816-8065-c9d8aadc61ec">
+<span class="eqno">(10)<a class="headerlink" href="#equation-4145aadf-3ba5-4816-8065-c9d8aadc61ec" title="Permalink to this equation">#</a></span>\[\begin{equation}
     T(v_{trans}) = \frac{1}{2} m v_{trans}^2
 \end{equation}\]</div>
-<p>where <span class="math notranslate nohighlight">\(v_{trans}\)</span> is the translational part of the velocity and m the mass of the body.
+<p>where <span class="math notranslate nohighlight">\(v_{trans}\)</span> is the translational part of the velocity and <span class="math notranslate nohighlight">\(m\)</span> the mass of the body.
 <span id="id2">[<a class="reference internal" href="bibliography.html#id2" title="Matthias Bartelmann, Björn Feuerbacher, Timm Krüger, Dieter Lüst, Anton Rebhan, and Andreas Wipf. Theoretische Physik. Springer Berlin Heidelberg, Berlin, Heidelberg, 2015. ISBN 3642546188. URL: 10.1007/978-3-642-54618-1.">BFK+15</a>, p. 131]</span>
 There also holds <span class="math notranslate nohighlight">\( p_{trans} = m \cdot v_{trans} \)</span>, where <span class="math notranslate nohighlight">\(p_{trans}\)</span> is the (translational) momentum of the body.</p>
 </section>
@@ -425,29 +425,29 @@ without translation. It also assumes that the center of mass lies in the center 
 Let the angular velocity of the body be given by <span class="math notranslate nohighlight">\(v_{rot} \in \mathbb{R}^3\)</span>.
 Assume that the body only rotates around it’s center of mass (no translation) and that <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(v_{rot}\)</span> are in the body’s system of inertia.
 Then the kinetic energy of this motion fulfills</p>
-<div class="amsmath math notranslate nohighlight" id="equation-635252d9-1589-454f-bc9a-839eea4b1e0b">
-<span class="eqno">(11)<a class="headerlink" href="#equation-635252d9-1589-454f-bc9a-839eea4b1e0b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b98f59fd-973a-4fac-a26c-9cbb37440a67">
+<span class="eqno">(11)<a class="headerlink" href="#equation-b98f59fd-973a-4fac-a26c-9cbb37440a67" title="Permalink to this equation">#</a></span>\[\begin{equation}
     T(v_{rot}) = \frac{1}{2} \int_V \rho(x)~ | v_{rot} \times x |^2 dx
                = \frac{1}{2} \int_V \rho(x)~ | \widehat{v_{rot}} x |^2 dx
 \end{equation}\]</div>
 <p>If we define <span class="math notranslate nohighlight">\((\cdot, \cdot)\)</span> as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-efa2f609-62fd-4cc5-b3d9-155a1e63bffc">
-<span class="eqno">(12)<a class="headerlink" href="#equation-efa2f609-62fd-4cc5-b3d9-155a1e63bffc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9ba99913-803d-4aae-8a67-add9e114bbaa">
+<span class="eqno">(12)<a class="headerlink" href="#equation-9ba99913-803d-4aae-8a67-add9e114bbaa" title="Permalink to this equation">#</a></span>\[\begin{equation}
     (a, b) \coloneqq \frac{1}{2} \int_V \rho(x)~ (a \times x) \cdot (b \times x) ~ dx
 \end{equation}\]</div>
-<p>then one obtains <span class="math notranslate nohighlight">\(T(v_{rot}) = (v_{rot}, v_{rot})\)</span>.</p>
-<p>For an efficient implementation of this scalar product, it’s gram matrix is used.
+<p>then we obtain <span class="math notranslate nohighlight">\(T(v_{rot}) = (v_{rot}, v_{rot})\)</span>.</p>
+<p>For an efficient implementation of this scalar product, its gram matrix is used.
 This matrix is called the <strong>inertia tensor</strong> (or moment of inertia tensor):
 <span class="math notranslate nohighlight">\(\newcommand{\II}[0]{{\mathbb{I}}}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-8ad8c9e5-e2d0-4d04-8c8d-ed964fedafe2">
-<span class="eqno">(13)<a class="headerlink" href="#equation-8ad8c9e5-e2d0-4d04-8c8d-ed964fedafe2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6dd6c7c1-d2b4-4395-a8cd-c76394f00730">
+<span class="eqno">(13)<a class="headerlink" href="#equation-6dd6c7c1-d2b4-4395-a8cd-c76394f00730" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \II = \begin{pmatrix}
               I_{xx} &amp; I_{xy} &amp; I_{xz} \\
               I_{yx} &amp; I_{yy} &amp; I_{yz} \\
               I_{zx} &amp; I_{zy} &amp; I_{zz}
           \end{pmatrix} \in \mathbb{R}^{3 \times 3}
 \end{equation}\]</div>
-<p>It’s components <span class="math notranslate nohighlight">\(I_{ij}\)</span> are called the <em>moments of inertia</em>.
+<p>Its components <span class="math notranslate nohighlight">\(I_{ij}\)</span> are called the <em>moments of inertia</em>.
 The inertia tensor is not time-dependent.</p>
 <p>From the definition of the (symmetric) bilinear form above follows that <span class="math notranslate nohighlight">\(\II\)</span> is symmetric.
 There also exists a orthonormal basis with respect to which <span class="math notranslate nohighlight">\(\II\)</span> is diagonal.
@@ -455,14 +455,14 @@ The inertia frame described by this basis is called <em>principle axis frame</em
 <p><span id="id3">[<a class="reference internal" href="bibliography.html#id4" title="Darryl D Holm. Geometric mechanics : 2. Rotating, translating and rolling. World Scientific Publ. Imperial College Press, Singapore [u.a.] London, 2008. ISBN 1848161557.">Hol08</a>, chapter 2.1]</span></p>
 <p>The inertia matrix can be considered invertible:
 Assume that it is not invertible. Let <span class="math notranslate nohighlight">\(a \neq 0, a \in ker \II\)</span>. Then <span class="math notranslate nohighlight">\(a\)</span> represents a rotation speed.
-Increasing that rotation speed will however not affect the kinetic energy $T = \II \cdot \vrot.</p>
-<p>This tensor can be obtained from a library like <code class="docutils literal notranslate"><span class="pre">netgen.occ</span></code> .</p>
+Increasing that rotation speed will however not affect the kinetic energy <span class="math notranslate nohighlight">\(T = \II \cdot v_{rot}\)</span>.</p>
+<p>The inertia tensor can be obtained from a library like <code class="docutils literal notranslate"><span class="pre">netgen.occ</span></code>.</p>
 </section>
 <section id="angular-momentum">
 <h3>Angular Momentum<a class="headerlink" href="#angular-momentum" title="Link to this heading">#</a></h3>
 <p>In a body’s system of inertia, the angular momentum is the derivative of the kinetic energy with respect to the angular velocity:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f70d5684-d0c5-4ef4-a03c-f5170501d79e">
-<span class="eqno">(14)<a class="headerlink" href="#equation-f70d5684-d0c5-4ef4-a03c-f5170501d79e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-60f08821-219b-4fc7-98c4-80c648c3d384">
+<span class="eqno">(14)<a class="headerlink" href="#equation-60f08821-219b-4fc7-98c4-80c648c3d384" title="Permalink to this equation">#</a></span>\[\begin{align}
     \Pi = \frac{\partial T}{\partial v_{rot}}
         &amp;= \frac{\partial}{\partial v_{rot}} \frac{1}{2} \int_V \rho(x)~ | v_{rot} \times x |^2 dx \\
         &amp;= \int_V \rho(x)~ x \times ( v_{rot} \times x ) dx \\
@@ -475,18 +475,18 @@ Increasing that rotation speed will however not affect the kinetic energy $T = \
 <section id="the-mass-matrix">
 <h3>The Mass Matrix<a class="headerlink" href="#the-mass-matrix" title="Link to this heading">#</a></h3>
 <p>From the above, two equations on the momentum of a body can be gathered:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-43e10ef8-953a-4854-9ca2-5c0755c8c0a1">
-<span class="eqno">(15)<a class="headerlink" href="#equation-43e10ef8-953a-4854-9ca2-5c0755c8c0a1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-17ddca06-1d75-4058-bf65-3ebf2a6b4e08">
+<span class="eqno">(15)<a class="headerlink" href="#equation-17ddca06-1d75-4058-bf65-3ebf2a6b4e08" title="Permalink to this equation">#</a></span>\[\begin{equation}
     p_{trans} = m \cdot v_{trans}
 \end{equation}\]</div>
 <p>and</p>
-<div class="amsmath math notranslate nohighlight" id="equation-88b36367-98c6-4c20-9cbe-a8f9a1d39cc1">
-<span class="eqno">(16)<a class="headerlink" href="#equation-88b36367-98c6-4c20-9cbe-a8f9a1d39cc1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bcce8b2d-cba4-49b5-8f76-4625cd9f0fa5">
+<span class="eqno">(16)<a class="headerlink" href="#equation-bcce8b2d-cba4-49b5-8f76-4625cd9f0fa5" title="Permalink to this equation">#</a></span>\[\begin{equation}
     p_{rot} = \II \cdot v_{rot}.
 \end{equation}\]</div>
 <p>These can be combined into one matrix equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d83f9285-e9d2-4277-8d59-9c2cd6947e72">
-<span class="eqno">(17)<a class="headerlink" href="#equation-d83f9285-e9d2-4277-8d59-9c2cd6947e72" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b43f76d5-80aa-4c33-befb-ca32ccaf945d">
+<span class="eqno">(17)<a class="headerlink" href="#equation-b43f76d5-80aa-4c33-befb-ca32ccaf945d" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \begin{pmatrix}
         p_{trans} \\
         p_{rot}
@@ -504,17 +504,17 @@ Increasing that rotation speed will however not affect the kinetic energy $T = \
         v_{rot}
     \end{pmatrix}
 \end{equation}\]</div>
-<p>The above block matrix is called the <strong>mass matrix</strong> of the body.</p>
+<p>The above block matrix is called the <strong>mass matrix</strong> of the body.
+(The term mass matrix is also used for matrices with a totally different structure.)</p>
 <p>If the mass matrix is denoted by <span class="math notranslate nohighlight">\(\bf M\)</span> and <span class="math notranslate nohighlight">\(p \coloneqq \begin{pmatrix} p_{trans} \\ p_{rot} \end{pmatrix} \)</span> as well as
 <span class="math notranslate nohighlight">\(v \coloneqq \begin{pmatrix} v_{trans} \\ v_{rot} \end{pmatrix} \)</span>, the equation can be written as <span class="math notranslate nohighlight">\(\bf p = M \cdot v\)</span>.
 The mass matrix is not time-dependent as the inertia tensor and mass do not depent on time.
 As the left upper diagonal and <span class="math notranslate nohighlight">\(\II\)</span> are invertible, the mass matrix is also invertible.</p>
-<p>Note that the mass matrix represents the Legendre transform.</p>
 <p>An object:
 <img alt="&quot;hammer&quot;" src="_images/hammer.png" /></p>
 <p>and its mass matrix from <code class="docutils literal notranslate"><span class="pre">netgen.occ</span></code>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2db90cff-cce9-4432-94e0-499e17d597ad">
-<span class="eqno">(18)<a class="headerlink" href="#equation-2db90cff-cce9-4432-94e0-499e17d597ad" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7470118f-581b-4db4-a891-604a86a971b2">
+<span class="eqno">(18)<a class="headerlink" href="#equation-7470118f-581b-4db4-a891-604a86a971b2" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{pmatrix}
     2.06283 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
     0 &amp; 2.06283 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
@@ -524,7 +524,7 @@ As the left upper diagonal and <span class="math notranslate nohighlight">\(\II\
     0 &amp; 0 &amp; 0 &amp; 3.65922e-18 &amp; -1.58022e-17 &amp; 0.9915
 \end{pmatrix}
 \end{equation}\]</div>
-<p>Note that the the absolute values of all off-diagonal values lie below the double precision epsilon.</p>
+<p>Note that the absolute values of all off-diagonal values lie below the double precision epsilon.</p>
 <!--
 ### The Center of Mass and the Origin of the Inertia System
 
@@ -553,30 +553,30 @@ jupyter(lite) example
 <h2>Potential Energy<a class="headerlink" href="#potential-energy" title="Link to this heading">#</a></h2>
 <p>ASC-ODE also implements potential energy.
 To account for interactions between bodies, the potential is calculated <strong>globally</strong>.
-That is, all potential energies of all bodies are summed up.
+That is, all potential energies of all bodies are summed up. This allows for the interaction of bodies.
 Let <span class="math notranslate nohighlight">\(q_i \in SE(3)\)</span> represent the transformations of the individual bodies.
 Then the result is a scalar-valued potential function</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c9e07624-957b-4377-b25c-ac57545a7f92">
-<span class="eqno">(19)<a class="headerlink" href="#equation-c9e07624-957b-4377-b25c-ac57545a7f92" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-515daa1a-5d30-4b80-99d3-e8c2b33bc20d">
+<span class="eqno">(19)<a class="headerlink" href="#equation-515daa1a-5d30-4b80-99d3-e8c2b33bc20d" title="Permalink to this equation">#</a></span>\[\begin{equation}
     V( q_1, q_2, q_3, ...).
 \end{equation}\]</div>
 <p><span class="math notranslate nohighlight">\(V\)</span> is then differenciated with respect to all components of all <span class="math notranslate nohighlight">\(q_i\)</span>.
-As the derivative of the potential is the force, the values of resulting gradient are forces.
+As the derivative of the potential is the force, the values of the resulting gradient are forces.
 These forces act on the component values of the <span class="math notranslate nohighlight">\(q_i\)</span> and thus on the transformations of the objects.</p>
-<p>ASC-ODE implements simple gravity and spring.</p>
+<p>ASC-ODE implements simple gravity and springs.</p>
 <section id="gravity">
 <h3>“Gravity”<a class="headerlink" href="#gravity" title="Link to this heading">#</a></h3>
-<p>A simplified form of gravity can be implemented via a constant force that depends on the mass.
+<p>A simplified form of gravity can be implemented via a constant “downward” force.
 A force that acts homogenously on the body does not influence it’s rotation.
-Therefore, the body can be seen as a point mass. The bodies can also be treated individually.</p>
-<p>Using <span class="math notranslate nohighlight">\(F = m \cdot a\)</span>, the force on a point mass can be specified as an acceleration vector <span class="math notranslate nohighlight">\(a \in \mathbb{R}^3\)</span> and the body mass <span class="math notranslate nohighlight">\(m\)</span>.
+Therefore, the body can be seen as a mass point. The bodies can also be treated individually.</p>
+<p>Using <span class="math notranslate nohighlight">\(F = m \cdot a\)</span>, the force on a point mass can be specified using an acceleration vector <span class="math notranslate nohighlight">\(a \in \mathbb{R}^3\)</span> and the body mass <span class="math notranslate nohighlight">\(m\)</span>.
 For any given translation vector <span class="math notranslate nohighlight">\(x\)</span>, the antiderivative or potential of that force is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c436dc48-1472-449c-8d22-4603863999ce">
-<span class="eqno">(20)<a class="headerlink" href="#equation-c436dc48-1472-449c-8d22-4603863999ce" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c6ce7015-7655-46eb-b001-1cf35cc9a147">
+<span class="eqno">(20)<a class="headerlink" href="#equation-c6ce7015-7655-46eb-b001-1cf35cc9a147" title="Permalink to this equation">#</a></span>\[\begin{equation}
     m \cdot (a \cdot x).
 \end{equation}\]</div>
 <p>In ASC-ODE, the mass is automatically calculated and the <em>negative</em> acceleration vector can be specified:
-<code class="docutils literal notranslate"><span class="pre">rbs.gravity</span> <span class="pre">=</span> <span class="pre">(0,</span> <span class="pre">9.81,</span> <span class="pre">0)</span></code> for downward force.</p>
+e.g. <code class="docutils literal notranslate"><span class="pre">rbs.gravity</span> <span class="pre">=</span> <span class="pre">(0,</span> <span class="pre">9.81,</span> <span class="pre">0)</span></code> for downward force.</p>
 <div class="full-width docutils">
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -587,19 +587,21 @@ For any given translation vector <span class="math notranslate nohighlight">\(x\
 </section>
 <section id="springs">
 <h3>Springs<a class="headerlink" href="#springs" title="Link to this heading">#</a></h3>
-<p>Let <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span> be vectors in the systems of inertia of two different bodies. Their conversion to global coordinates is <span class="math notranslate nohighlight">\(U_1(x_1)\)</span> and <span class="math notranslate nohighlight">\(U_2(x_1)\)</span>, respectively.
-Consider these points to be connected by a spring with stiffness <span class="math notranslate nohighlight">\(k\)</span>, length at rest <span class="math notranslate nohighlight">\(l\)</span> and elongation <span class="math notranslate nohighlight">\(e = \| U_1(x_1) - U_2(x_2) \| - l\)</span>.</p>
-<p>Then Hooke’s law states that the resulting force is given by <span class="math notranslate nohighlight">\(F = k \cdot e\)</span> <span id="id6">[<a class="reference internal" href="bibliography.html#id2" title="Matthias Bartelmann, Björn Feuerbacher, Timm Krüger, Dieter Lüst, Anton Rebhan, and Andreas Wipf. Theoretische Physik. Springer Berlin Heidelberg, Berlin, Heidelberg, 2015. ISBN 3642546188. URL: 10.1007/978-3-642-54618-1.">BFK+15</a>, p. 312]</span>.
+<p>Let <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span> be vectors in the systems of inertia of two different bodies.
+Their conversion to global coordinates is <span class="math notranslate nohighlight">\(U_1(x_1)\)</span> and <span class="math notranslate nohighlight">\(U_2(x_1)\)</span>, respectively.
+Consider these points to be connected by a spring with stiffness <span class="math notranslate nohighlight">\(k\)</span>, length at rest <span class="math notranslate nohighlight">\(l\)</span>
+and elongation <span class="math notranslate nohighlight">\(e = \| U_1(x_1) - U_2(x_2) \| - l\)</span>.</p>
+<p>Then Hooke’s law states that the resulting (scalar) force is given by <span class="math notranslate nohighlight">\(F = k \cdot e\)</span> <span id="id6">[<a class="reference internal" href="bibliography.html#id2" title="Matthias Bartelmann, Björn Feuerbacher, Timm Krüger, Dieter Lüst, Anton Rebhan, and Andreas Wipf. Theoretische Physik. Springer Berlin Heidelberg, Berlin, Heidelberg, 2015. ISBN 3642546188. URL: 10.1007/978-3-642-54618-1.">BFK+15</a>, p. 312]</span>.
 Then the resulting potential is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a00e1f11-2182-4f15-8a58-2379b013fadc">
-<span class="eqno">(21)<a class="headerlink" href="#equation-a00e1f11-2182-4f15-8a58-2379b013fadc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a103ab30-33c6-4c6f-b3c8-543b81fc9785">
+<span class="eqno">(21)<a class="headerlink" href="#equation-a103ab30-33c6-4c6f-b3c8-543b81fc9785" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{k}{2} e^2.
 \end{equation}\]</div>
 <div class="full-width docutils">
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Jupyterlite</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
-<iframe src="https://triadtitans.github.io/rigid_body_interactive/lab/index.html?path=rbs_fem.ipynb" width=100% height="700"></iframe>
+<iframe src="https://triadtitans.github.io/rigid_body_interactive/lab/index.html?path=springs.ipynb" width=100% height="700"></iframe>
 </div>
 </details></div>
 </section>

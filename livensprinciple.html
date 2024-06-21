@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -371,8 +371,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="livens-principle">
 <h1>Livens principle<a class="headerlink" href="#livens-principle" title="Link to this heading">#</a></h1>
-<p>This section will introduce the Livens principle, show that it is equivalent to the Lagrangian approach of mechanics
-and explain how it is used in our integrator. First, however, we need some background on conjugate momenta and the configuration manifold.</p>
+<p>This section, we will introduce the Livens principle, show that it is equivalent to the Lagrangian approach of mechanics
+and explain how it is used in our integrator. Firstly, however, we need some background on conjugate momenta and the configuration manifold.</p>
 <section id="conjugate-moment-p">
 <h2>Conjugate Moment <span class="math notranslate nohighlight">\(p\)</span><a class="headerlink" href="#conjugate-moment-p" title="Link to this heading">#</a></h2>
 <p>If we consider a mechanical system described in some minimal coordinates <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span>, we
@@ -386,7 +386,7 @@ know that the Lagrangian takes the form</p>
         \end{cases}
 \end{split}\]</div>
 <p>In addition, it has already been established that the path <span class="math notranslate nohighlight">\(q: \mathbb{R} \to \mathcal{Q}\)</span> taken by the system
-follows the euler lagrange equation. In order to move from Lagrangian to hamiltonian mechanics
+fulfills the Euler-Lagrange equation. In order to move from Lagrangian to Hamiltonian mechanics
 one defines the conjugate momenta as follows:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -404,32 +404,32 @@ one defines the conjugate momenta as follows:</p>
 \end{split}\]</div>
 <p>This definition obviously requires that the map <span class="math notranslate nohighlight">\(v \mapsto p(q,v)\)</span> is invertible for every <span class="math notranslate nohighlight">\(q\in\mathcal{Q}\)</span>.
 Such an inverse assigns a velocity <span class="math notranslate nohighlight">\(v\)</span> to a pair of position and conjugate moment and is called Legendre transform.
-<span id="id1">[<a class="reference internal" href="bibliography.html#id7" title="Ernst Hairer, Christian Lubich, and Gerhard Wanner. Geometric numerical integration : structure-preserving algorithms for ordinary differential equations. Springer series in computational mathematics. Springer, Berlin [u.a.], 2. ed. edition, 2006. ISBN 3540306633.">HLW06</a>, p.p. 181, 182]</span>. Having conjugate momenta to our disposal, we can formulate Hamilton’s
-canonical equation of motion:</p>
+(See the section on the mass matrix)<span id="id1">[<a class="reference internal" href="bibliography.html#id7" title="Ernst Hairer, Christian Lubich, and Gerhard Wanner. Geometric numerical integration : structure-preserving algorithms for ordinary differential equations. Springer series in computational mathematics. Springer, Berlin [u.a.], 2. ed. edition, 2006. ISBN 3540306633.">HLW06</a>, p.p. 181, 182]</span>
+Having conjugate momenta to our disposal, we can formulate Hamilton’s canonical equation of motion:</p>
 <div class="math notranslate nohighlight">
 \[
     \dot{p} = -\frac{\partial H}{\partial q}(p,q) \quad
     \dot{q} = \frac{\partial H}{\partial p}(p,q)
 \]</div>
 <p>It can be shown <span id="id2">[and is in <a class="reference internal" href="bibliography.html#id7" title="Ernst Hairer, Christian Lubich, and Gerhard Wanner. Geometric numerical integration : structure-preserving algorithms for ordinary differential equations. Springer series in computational mathematics. Springer, Berlin [u.a.], 2. ed. edition, 2006. ISBN 3540306633.">HLW06</a>]</span> that these equations are equivalent to the now already
-familiar Euler-lagrange equation.</p>
-<p>As we discuss the Livens principle these conjugate momenta will resurface. But before that we have
-to adjust our theory a little bit in order to accommodate constrained systems. Untial now
-the configuration space <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span> was always choosen minimally, this means that
-postion, velocity and conjugate moment all live in the same space <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span>. However, if the
+familiar Euler-Lagrange equation.</p>
+<p>As we discuss the Livens principle, these conjugate momenta will resurface. But before that, we have
+to adjust our theory a little bit in order to accommodate constrained systems. Until now,
+the configuration space <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span> was always chosen minimally.
+This means that positions, velocities and conjugate momenta all live in the same space <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span>. However, if the
 coordinates are not minimal, this is generally not the case.</p>
 </section>
 <section id="configuration-manifold-mathcal-q">
 <h2>Configuration Manifold <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span><a class="headerlink" href="#configuration-manifold-mathcal-q" title="Link to this heading">#</a></h2>
-<p>The mechanical system we are modelling consists of <span class="math notranslate nohighlight">\(N\)</span> rigid bodies, each having 6 degrees of freedom. The
-3 cartesian coordinates and the three axes of rotation respectively. This would suggest the following
-minimal  configuration space</p>
+<p>The mechanical system we are modelling consists of <span class="math notranslate nohighlight">\(N\)</span> rigid bodies, each having 6 degrees of freedom; the
+three cartesian coordinates and the three axes of rotation respectively. This would suggest the following
+minimal configuration space</p>
 <div class="math notranslate nohighlight">
 \[
     \mathcal{Q_{\text{min}}} = \mathbb{R}^{6N}.
 \]</div>
 <p>But in these minimal coordinates, the rotation of a body is rather hard to work with. It would be preferable if
-the rotation was represented as a matrix <span class="math notranslate nohighlight">\(B\in\mathbb{R}^{3\times3}\)</span>. As in</p>
+the rotation was represented as a matrix <span class="math notranslate nohighlight">\(B\in\mathbb{R}^{3\times3}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
     \tilde{\mathcal{Q}} = (\mathbb{R}^{3}\times\mathbb{R}^{3\times3})^N.
@@ -441,7 +441,7 @@ such matrices:</p>
 \[
     \mathcal{Q} = \{(a,B) \in \mathbb{R}^{3}\times\mathbb{R}^{3\times3} \mid B^TB=I \}^N
 \]</div>
-<p>Finally, <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span> is a (sub)manifold  (of <span class="math notranslate nohighlight">\(\tilde{\mathcal{Q}}\)</span>) given trough the condition <span class="math notranslate nohighlight">\(g(q)=0\)</span>, where</p>
+<p>Finally, <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span> is a (sub)manifold  (of <span class="math notranslate nohighlight">\(\tilde{\mathcal{Q}}\)</span>) given by the condition <span class="math notranslate nohighlight">\(g(q)=0\)</span>, where</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
     g: 
@@ -451,7 +451,7 @@ such matrices:</p>
         \end{cases}
 \end{split}\]</div>
 <p>This manifold is of course <span class="math notranslate nohighlight">\(SE(3)\)</span>.
-Now that we have a representation of the postion of a body (or a whole system of bodies), the next step is to investigate
+Now that we have a representation of the position of a body (or a whole system of bodies), the next step is to investigate
 how velocities should be treated. Given a path <span class="math notranslate nohighlight">\(q : \mathbb{R} \to \mathcal{Q}\)</span>
 the velocity is the time derivative of the position <span class="math notranslate nohighlight">\( v = \dot{q} \)</span>. This means that at every point in time <span class="math notranslate nohighlight">\(t\)</span></p>
 <div class="math notranslate nohighlight">
@@ -466,20 +466,20 @@ and the Lagrangian of our system as a function of the following form.</p>
             (q,v) \mapsto T(v)-U(q)
         \end{cases}\end{split}\]</div>
 <p>Note the difference in the domain compared to the Lagrangian for minimal coordinates.</p>
-<p>The conjugate momenta are given through the legendre transform via <span class="math notranslate nohighlight">\(p=\frac{\partial}{\partial v}L(q,v)\)</span>.
+<p>The conjugate momenta are given by the Legendre transform via <span class="math notranslate nohighlight">\(p=\frac{\partial}{\partial v}L(q,v)\)</span>.
 For every <span class="math notranslate nohighlight">\(v\in T_q\mathcal{Q}\)</span> this derivative can be understood as linear map <span class="math notranslate nohighlight">\(T_q \to \mathbb{R}\)</span>
 and therefore as a functional in the dual space of the tangent space <span class="math notranslate nohighlight">\(p \in T^*_q\)</span>. As an analogon
-to the tanget bundle we also introduce the cotangent bundle
+to the tangent bundle we also introduce the cotangent bundle
 <span class="math notranslate nohighlight">\(T^*\mathcal{Q} = \{(p,q) \mid q\in\mathcal{Q},\; p \in  T^*_q\mathcal{Q} \}\)</span>. Both the
 tangent and cotangent bundle can also be described via a constraint analogous to <span class="math notranslate nohighlight">\(\mathcal{Q}\)</span>.</p>
 </section>
 <section id="action-integral-mathcal-s">
 <h2>Action Integral <span class="math notranslate nohighlight">\(\mathcal{S}\)</span><a class="headerlink" href="#action-integral-mathcal-s" title="Link to this heading">#</a></h2>
-<p>In order to apply Variational Integration to the mechanics of this rigid body system we have to specify an action functional to be varied and extremized. Normally this is the Integral over the Lagrangian as in <a class="reference internal" href="#equation-test">(22)</a></p>
+<p>In order to apply variational integration to the mechanics of this rigid body system we have to specify an action functional to be varied and extremized. Normally, this is the integral over the Lagrangian as in <a class="reference internal" href="#equation-test">(22)</a></p>
 <div class="math notranslate nohighlight" id="equation-test">
 <span class="eqno">(22)<a class="headerlink" href="#equation-test" title="Link to this equation">#</a></span>\[    \label{actionintegral}
     \mathcal{S}(q) = \int_{t_0}^{T} L(q,\dot{q}) \,dt.\]</div>
-<p>Where <span class="math notranslate nohighlight">\(L:T\mathcal{Q}\to \mathbb{R}\)</span> ist the Lagrangian given through <span class="math notranslate nohighlight">\(L(q,\dot{q})=T(\dot{q})+U(q)\)</span>,
+<p>Where <span class="math notranslate nohighlight">\(L:T\mathcal{Q}\to \mathbb{R}\)</span> is the Lagrangian given by <span class="math notranslate nohighlight">\(L(q,\dot{q})=T(\dot{q})+U(q)\)</span>,
 <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(U\)</span> being the kinetic and potential energy respectivley. Note that <span class="math notranslate nohighlight">\(T\)</span> depends only on <span class="math notranslate nohighlight">\(\dot{q}\)</span> and <span class="math notranslate nohighlight">\(U\)</span> only on <span class="math notranslate nohighlight">\(q\)</span>.</p>
 <p>The Livens principle, on the other hand, describes an alternative action functional to be extremized. <span id="id3">[<a class="reference internal" href="bibliography.html#id6" title="Philipp L. Kinon, Peter Betsch, and Simeon Schneider. Structure-preserving integrators based on a new variational principle for constrained mechanical systems. Nonlinear Dynamics, 111(15):14231–14261, June 2023. URL: http://dx.doi.org/10.1007/s11071-023-08522-7, doi:10.1007/s11071-023-08522-7.">KBS23b</a>]</span>
 This reads as follows</p>
@@ -487,7 +487,7 @@ This reads as follows</p>
 <span class="eqno">(23)<a class="headerlink" href="#equation-livens" title="Link to this equation">#</a></span>\[
     \mathcal{S}(q,v,p) = \int_{t_0}^{T} L(q,v) + p(\dot{q}-v) \,dt.
 \]</div>
-<p>Note the two additonal independent variables <span class="math notranslate nohighlight">\(v\in T \mathcal{Q}\)</span> and <span class="math notranslate nohighlight">\(p \in T^{*} \mathcal{Q}\)</span>. Where <span class="math notranslate nohighlight">\(T\mathcal{Q}\)</span>,
+<p>Note the two additional independent variables <span class="math notranslate nohighlight">\(v\in T \mathcal{Q}\)</span> and <span class="math notranslate nohighlight">\(p \in T^{*} \mathcal{Q}\)</span>. Where <span class="math notranslate nohighlight">\(T\mathcal{Q}\)</span>,
 <span class="math notranslate nohighlight">\(T^*\mathcal{Q}\)</span> are the tangent and cotangent bundle.</p>
 <p>This functional can be understood as a Lagrangian with constraint <span class="math notranslate nohighlight">\(\dot{q}-v\)</span> and corresponding Lagrangian multipliers <span class="math notranslate nohighlight">\(p\)</span>.
 These Lagrangian multiplies can later be identified as the conjugate momenta of the system.</p>
@@ -495,13 +495,13 @@ These Lagrangian multiplies can later be identified as the conjugate momenta of 
 <section id="varying-mathcal-s">
 <h2>Varying <span class="math notranslate nohighlight">\(\mathcal{S}\)</span><a class="headerlink" href="#varying-mathcal-s" title="Link to this heading">#</a></h2>
 <p>In this section we show that by varying <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> we can obtain the Euler-Lagrange equations.</p>
-<p>We vary <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> we respect to each individual variable separatly.
+<p>We vary <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> we respect to each individual variable separately.
 Let <span class="math notranslate nohighlight">\(\delta q \in C^\infty\)</span> be a variation of <span class="math notranslate nohighlight">\(q\)</span>, so that <span class="math notranslate nohighlight">\(\delta q(0)=\delta q(T)=0\)</span>. We
 define <span class="math notranslate nohighlight">\(q^\varepsilon := q+\varepsilon\cdot\delta q \)</span> it follows
 <span class="math notranslate nohighlight">\(\dot{q^\varepsilon}=\dot{q}+\varepsilon \cdot \delta \dot{q}\)</span>. We substitute
 <span class="math notranslate nohighlight">\(q^\varepsilon\)</span> for <span class="math notranslate nohighlight">\(q\)</span> in  <a class="reference internal" href="#equation-livens">(23)</a> and derivate in <span class="math notranslate nohighlight">\(\varepsilon\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c4677287-c1b2-467c-b1bb-e195c7f36fcf">
-<span class="eqno">(24)<a class="headerlink" href="#equation-c4677287-c1b2-467c-b1bb-e195c7f36fcf" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9d52f17c-fc5b-43cb-9d12-5123f29209ef">
+<span class="eqno">(24)<a class="headerlink" href="#equation-9d52f17c-fc5b-43cb-9d12-5123f29209ef" title="Permalink to this equation">#</a></span>\[\begin{align}
 
 \frac{d}{d\varepsilon = 0}\mathcal{S}({q^\varepsilon},v,p) 
         =&amp;\; \frac{d}{d\varepsilon = 0}  \int_{t_0}^{T} L(q^\varepsilon,v)\cdot \delta q + p(\dot{q^\varepsilon}-v) \,dt. \\
@@ -511,8 +511,8 @@ define <span class="math notranslate nohighlight">\(q^\varepsilon := q+\varepsil
 
 \end{align}\]</div>
 <p>Now we integrate partially under the assumption that <span class="math notranslate nohighlight">\(\delta q(0)=\delta q(T)=0\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ae3d2ecc-171a-4f65-ab04-a9fe5d9b7532">
-<span class="eqno">(25)<a class="headerlink" href="#equation-ae3d2ecc-171a-4f65-ab04-a9fe5d9b7532" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cc40e9df-7a55-4721-8a77-78d03b26e292">
+<span class="eqno">(25)<a class="headerlink" href="#equation-cc40e9df-7a55-4721-8a77-78d03b26e292" title="Permalink to this equation">#</a></span>\[\begin{align}
 
  \int_{t_0}^{T} \frac{\partial L}{\partial q}(q,v)\cdot \delta q &amp;+ p\cdot\delta \dot{q} \,dt =\\
         =&amp;\; \int_{t_0}^{T} \frac{\partial L}{\partial q}(q,v)\cdot \delta q \,dt + \int_{t_0}^{T}p\cdot\delta \dot{q}\, dt\\
@@ -527,7 +527,7 @@ define <span class="math notranslate nohighlight">\(q^\varepsilon := q+\varepsil
 \frac{\partial L}{\partial q} = 
             \dot{p} \\
 \end{split}\]</div>
-<p>Through variation of <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(p\)</span> in a similiar fashion we obtain:</p>
+<p>Through variation of <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(p\)</span> in a similar fashion we obtain:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \frac{\partial L}{\partial v} = 
@@ -536,14 +536,14 @@ define <span class="math notranslate nohighlight">\(q^\varepsilon := q+\varepsil
             \dot{q}=v \\
 \end{split}\]</div>
 <p>At this point we can identify <span class="math notranslate nohighlight">\(p\)</span> as the conjugate momentum. Combining these equations we
-receive the Euler-Langrage equation.</p>
+obtain the Euler-Langrage equation.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \frac{\partial L}{\partial q}(q,v) = \frac{\partial L}{\partial q}(q,\dot{q}) =
             \dot{p}(q,\dot{q}) =  \frac{d}{dt}\frac{\partial L}{\partial v}(q,\dot{q})\\
 \end{split}\]</div>
 <p>Now we have shown that the functional <a class="reference internal" href="#equation-livens">(23)</a> describes the same system as the Lagrangian. For
-a more in depth investigation of the properties of the Livens principle see <span id="id4">[<a class="reference internal" href="bibliography.html#id6" title="Philipp L. Kinon, Peter Betsch, and Simeon Schneider. Structure-preserving integrators based on a new variational principle for constrained mechanical systems. Nonlinear Dynamics, 111(15):14231–14261, June 2023. URL: http://dx.doi.org/10.1007/s11071-023-08522-7, doi:10.1007/s11071-023-08522-7.">KBS23b</a>]</span>.</p>
+a more in-depth investigation of the properties of the Livens principle see <span id="id4">[<a class="reference internal" href="bibliography.html#id6" title="Philipp L. Kinon, Peter Betsch, and Simeon Schneider. Structure-preserving integrators based on a new variational principle for constrained mechanical systems. Nonlinear Dynamics, 111(15):14231–14261, June 2023. URL: http://dx.doi.org/10.1007/s11071-023-08522-7, doi:10.1007/s11071-023-08522-7.">KBS23b</a>]</span>.</p>
 </section>
 </section>
 
