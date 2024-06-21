@@ -1,6 +1,6 @@
 # Livens principle
-This section will introduce the Livens principle, show that it is equivalent to the Lagrangian approach of mechanics
-and explain how it is used in our integrator. First, however, we need some background on conjugate momenta and the configuration manifold.
+This section, we will introduce the Livens principle, show that it is equivalent to the Lagrangian approach of mechanics
+and explain how it is used in our integrator. Firstly, however, we need some background on conjugate momenta and the configuration manifold.
 
 ## Conjugate Moment $p$
 If we consider a mechanical system described in some minimal coordinates $\mathcal{Q}$, we
@@ -15,7 +15,7 @@ $$
 $$
 
 In addition, it has already been established that the path $q: \mathbb{R} \to \mathcal{Q}$ taken by the system
-follows the euler lagrange equation. In order to move from Lagrangian to hamiltonian mechanics
+fulfills the Euler-Lagrange equation. In order to move from Lagrangian to Hamiltonian mechanics
 one defines the conjugate momenta as follows:
 
 $$
@@ -34,34 +34,34 @@ $$
 $$
 This definition obviously requires that the map $v \mapsto p(q,v)$ is invertible for every $q\in\mathcal{Q}$.
 Such an inverse assigns a velocity $v$ to a pair of position and conjugate moment and is called Legendre transform.
-{cite}`hairer{p.p. 181, 182}`. Having conjugate momenta to our disposal, we can formulate Hamilton's
-canonical equation of motion:
+(See the section on the mass matrix){cite}`hairer{p.p. 181, 182}`
+Having conjugate momenta to our disposal, we can formulate Hamilton's canonical equation of motion:
 
 $$
     \dot{p} = -\frac{\partial H}{\partial q}(p,q) \quad
     \dot{q} = \frac{\partial H}{\partial p}(p,q)
 $$
 It can be shown {cite}`{and is in}hairer` that these equations are equivalent to the now already
-familiar Euler-lagrange equation.
+familiar Euler-Lagrange equation.
 
-As we discuss the Livens principle these conjugate momenta will resurface. But before that we have
-to adjust our theory a little bit in order to accommodate constrained systems. Untial now 
-the configuration space $\mathcal{Q}$ was always choosen minimally, this means that 
-postion, velocity and conjugate moment all live in the same space $\mathcal{Q}$. However, if the
+As we discuss the Livens principle, these conjugate momenta will resurface. But before that, we have
+to adjust our theory a little bit in order to accommodate constrained systems. Until now,
+the configuration space $\mathcal{Q}$ was always chosen minimally.
+This means that positions, velocities and conjugate momenta all live in the same space $\mathcal{Q}$. However, if the
 coordinates are not minimal, this is generally not the case.
 
 ## Configuration Manifold $\mathcal{Q}$
 
-The mechanical system we are modelling consists of $N$ rigid bodies, each having 6 degrees of freedom. The
-3 cartesian coordinates and the three axes of rotation respectively. This would suggest the following
-minimal  configuration space
+The mechanical system we are modelling consists of $N$ rigid bodies, each having 6 degrees of freedom; the
+three cartesian coordinates and the three axes of rotation respectively. This would suggest the following
+minimal configuration space
 
 $$
     \mathcal{Q_{\text{min}}} = \mathbb{R}^{6N}.
 $$
 
 But in these minimal coordinates, the rotation of a body is rather hard to work with. It would be preferable if
-the rotation was represented as a matrix $B\in\mathbb{R}^{3\times3}$. As in
+the rotation was represented as a matrix $B\in\mathbb{R}^{3\times3}$:
 
 $$
     \tilde{\mathcal{Q}} = (\mathbb{R}^{3}\times\mathbb{R}^{3\times3})^N.
@@ -75,7 +75,7 @@ $$
     \mathcal{Q} = \{(a,B) \in \mathbb{R}^{3}\times\mathbb{R}^{3\times3} \mid B^TB=I \}^N
 $$
 
-Finally, $\mathcal{Q}$ is a (sub)manifold  (of $\tilde{\mathcal{Q}}$) given trough the condition $g(q)=0$, where
+Finally, $\mathcal{Q}$ is a (sub)manifold  (of $\tilde{\mathcal{Q}}$) given by the condition $g(q)=0$, where
 
 $$
     g: 
@@ -86,7 +86,7 @@ $$
 $$
 
 This manifold is of course $SE(3)$.
-Now that we have a representation of the postion of a body (or a whole system of bodies), the next step is to investigate
+Now that we have a representation of the position of a body (or a whole system of bodies), the next step is to investigate
 how velocities should be treated. Given a path $q : \mathbb{R} \to \mathcal{Q}$
 the velocity is the time derivative of the position $ v = \dot{q} $. This means that at every point in time $t$
 
@@ -106,17 +106,17 @@ and the Lagrangian of our system as a function of the following form.
 ```
 Note the difference in the domain compared to the Lagrangian for minimal coordinates.
 
-The conjugate momenta are given through the legendre transform via $p=\frac{\partial}{\partial v}L(q,v)$.
+The conjugate momenta are given by the Legendre transform via $p=\frac{\partial}{\partial v}L(q,v)$.
 For every $v\in T_q\mathcal{Q}$ this derivative can be understood as linear map $T_q \to \mathbb{R}$
 and therefore as a functional in the dual space of the tangent space $p \in T^*_q$. As an analogon
-to the tanget bundle we also introduce the cotangent bundle
+to the tangent bundle we also introduce the cotangent bundle
 $T^*\mathcal{Q} = \{(p,q) \mid q\in\mathcal{Q},\; p \in  T^*_q\mathcal{Q} \}$. Both the 
 tangent and cotangent bundle can also be described via a constraint analogous to $\mathcal{Q}$.
 
 ## Action Integral $\mathcal{S}$
 
 
-In order to apply Variational Integration to the mechanics of this rigid body system we have to specify an action functional to be varied and extremized. Normally this is the Integral over the Lagrangian as in {eq}`test`
+In order to apply variational integration to the mechanics of this rigid body system we have to specify an action functional to be varied and extremized. Normally, this is the integral over the Lagrangian as in {eq}`test`
 
 ```{math}
     :label: test
@@ -124,7 +124,7 @@ In order to apply Variational Integration to the mechanics of this rigid body sy
     \mathcal{S}(q) = \int_{t_0}^{T} L(q,\dot{q}) \,dt.
 ```
 
-Where $L:T\mathcal{Q}\to \mathbb{R}$ ist the Lagrangian given through $L(q,\dot{q})=T(\dot{q})+U(q)$,
+Where $L:T\mathcal{Q}\to \mathbb{R}$ is the Lagrangian given by $L(q,\dot{q})=T(\dot{q})+U(q)$,
 $T$ and $U$ being the kinetic and potential energy respectivley. Note that $T$ depends only on $\dot{q}$ and $U$ only on $q$.
 
 The Livens principle, on the other hand, describes an alternative action functional to be extremized. {cite}`Kinon2023`
@@ -134,7 +134,7 @@ $$
     \mathcal{S}(q,v,p) = \int_{t_0}^{T} L(q,v) + p(\dot{q}-v) \,dt.
 $$(livens)
 
-Note the two additonal independent variables $v\in T \mathcal{Q}$ and $p \in T^{*} \mathcal{Q}$. Where $T\mathcal{Q}$,
+Note the two additional independent variables $v\in T \mathcal{Q}$ and $p \in T^{*} \mathcal{Q}$. Where $T\mathcal{Q}$,
 $T^*\mathcal{Q}$ are the tangent and cotangent bundle.
 
 This functional can be understood as a Lagrangian with constraint $\dot{q}-v$ and corresponding Lagrangian multipliers $p$.
@@ -144,7 +144,7 @@ These Lagrangian multiplies can later be identified as the conjugate momenta of 
 ## Varying $\mathcal{S}$
 In this section we show that by varying $\mathcal{S}$ we can obtain the Euler-Lagrange equations.
 
-We vary $\mathcal{S}$ we respect to each individual variable separatly.
+We vary $\mathcal{S}$ we respect to each individual variable separately.
 Let $\delta q \in C^\infty$ be a variation of $q$, so that $\delta q(0)=\delta q(T)=0$. We
 define $q^\varepsilon := q+\varepsilon\cdot\delta q $ it follows 
 $\dot{q^\varepsilon}=\dot{q}+\varepsilon \cdot \delta \dot{q}$. We substitute 
@@ -176,7 +176,7 @@ $$
 \frac{\partial L}{\partial q} = 
             \dot{p} \\
 $$
-Through variation of $v$ and $p$ in a similiar fashion we obtain:
+Through variation of $v$ and $p$ in a similar fashion we obtain:
 
 $$
 \frac{\partial L}{\partial v} = 
@@ -185,11 +185,11 @@ $$
             \dot{q}=v \\
 $$
 At this point we can identify $p$ as the conjugate momentum. Combining these equations we
-receive the Euler-Langrage equation.
+obtain the Euler-Langrage equation.
 
 $$
 \frac{\partial L}{\partial q}(q,v) = \frac{\partial L}{\partial q}(q,\dot{q}) =
             \dot{p}(q,\dot{q}) =  \frac{d}{dt}\frac{\partial L}{\partial v}(q,\dot{q})\\
 $$
 Now we have shown that the functional {eq}`livens` describes the same system as the Lagrangian. For
-a more in depth investigation of the properties of the Livens principle see {cite}`Kinon2023`.
+a more in-depth investigation of the properties of the Livens principle see {cite}`Kinon2023`.

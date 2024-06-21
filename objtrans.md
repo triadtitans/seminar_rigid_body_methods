@@ -10,42 +10,41 @@ The motion of a body in $\mathbb{R}^3$ can be described using two types of funct
     defined by three parameters: $x_0 \in \mathbb{R}^{3}$, for three dimensions in space.
  - **Rotations**
     $R_O(x) = O \cdot x$
-     with $O$ being an orthogonal transformation $O: \mathbb{R}^{3} \mapsto \mathbb{R}^{3}$ having $det(O) = 1$ (for rotations) and $O^T = O^{-1}$.
+     with $O$ being an orthogonal transformation $O: \mathbb{R}^{3} \mapsto \mathbb{R}^{3}$ having $det(O) = 1$ (to exclude mirroring) and $O^T = O^{-1}$.
      Rotations have three degrees of freedom for the three axes of rotation.
 
 ```{prf:definition} Lie group
 
 A **lie group** is a **group** which is also a **smooth manifold** on which the group operations are smooth functions.
 If the group operation of a lie group can be seen as a matrix multiplication, it is called a **matrix lie group**.
-The topological tangent space of a matrix lie group is called **lie algebra**.
+The topological tangent space of a matrix lie group is called its **lie algebra**.
 ```
 
 ```{prf:definition} Special orthogonal Group $SO(3)$
 
-The special orthogonal group consists of rotations $R_O$.
+The special orthogonal group consists of all rotations $R_O$.
 ```
 
 ```{prf:definition} Special euclidean group $SE(3)$
 
-The special euclidean group consists of rotations $R_O$ combined with translations $T_{x_0}$.
-We write an element $E \in SE(3)$ as $ E = (a, O)$ where $a$ defines a translation and $O$ a rotation.
+The special euclidean group consists of all rotations $R_O$ combined with all translations $T_{x_0}$.
+We write an element $E \in SE(3)$ as $ E = (a, O)$ where $a$ defines a translation vector and $O$ a rotation matrix.
 An element of $SE(3)$ shall be called a **transformation**.
-The group operation on SE(3) is defined as $(O_1, t_1) \cdot (O_2, t_2) = (O_1 O_2, O_1 t_2 + t_1)$
+The group operation on $SE(3)$ is defined as $(t_1, O_1) \cdot (t_2, O_2) = (O_1 t_2 + t_1, O_1 O_2)$
 ```
 {cite}`betschstruc{Chapter 2.1}`
 
-The implementation in ASC-ODE also uses $SE(3)$.
-The group operation can be reproduced using `Transformation.applyTranslation` and `Transformation.applyRotation`.
-ASC-ODE also makes use of the product group $SO(3) \times \RR^3$.
-The group operations of these groups are implemented as + for $SO(3) \times \RR^3$ and * for $SE(3)$. (See python API.)
+The implementation in ASC-ODE uses $SE(3)$, but also the product group $SO(3) \times \RR^3$.
+The group operations of these groups are implemented as `+` for $SO(3) \times \RR^3$ and `*` for $SE(3)$.
+(See the python API.)
 
 
 $SO(3)$, $SE(3)$ and $SO(3) \times \RR^3$ are lie groups {cite}`betschstruc{p. 96}`.
 They are even matrix lie groups {cite}`betschstruc{p. 95}`.
-As their subgroup $SO(3)$ (rotations) is not commutative, they are not commutative, either.
+As their subgroup $SO(3)$ (rotations) is not commutative, they are not commutative either.
 
 In the following example, ASC-ODE also makes use of the following:
-$R \in SO(3)$ if and only if there exists an orthonormal basis $B$ and $\varphi \in [0, \pi]$ such that
+$R \in SO(3)$ if and only if there exists an orthonormal matrix $B$ and $\varphi \in [0, \pi]$ such that
 \begin{equation}
    A = B^{-1}
    \begin{pmatrix}
@@ -60,8 +59,8 @@ This matrix has a one-dimensional eigenspace, the axis of rotation.
 $\varphi$ is the rotation angle.
 The lower right block of the matrix lies in $SO(2)$, which is commutative. Therefore, rotations around the same axis are commutative.
 
-For any given matrix $R \in SO(3)$, the axis of rotation can be calculated as it's eigenvector with eigenvalue 1.
-(Although there might be more than one eigenvector, for example if $R = I$.)
+For any given matrix $R \in SO(3)$, the axis of rotation can be calculated as its eigenvector with eigenvalue 1.
+(Although there exists more than one eigenvector if $R = I$.)
 The angle can be calculated due to the fact that the trace of a matrix is similarity-invariant:
 \begin{equation}
    \varphi = arccos \left( \frac{tr(R) - 1}{2} \right)
@@ -77,7 +76,7 @@ The angle can be calculated due to the fact that the trace of a matrix is simila
 
 (inertiaframes)=
 ## Spatial Frame and Body Frame
-The motion of a body can now be described by a function $U: \mathbb{R} \rightarrow SO(3) \times \RR^3$ as the following:
+The motion of a body can now be described by a function $U: \mathbb{R} \rightarrow SO(3) \times \RR^3$:
 
 $$ U(t)(x) = a(t) + O(t) \cdot x $$
 
@@ -122,7 +121,7 @@ A transformation $(a,O) \in SE(3)$ can be stored by storing $a$ and $O$ seperate
 
 ## Motion in $SO(3)$
 
-ASC-ODE treats velocity in $SO(3)$ and $\RR^3$ seperately.
+ASC-ODE treats velocity in $SO(3)$ and $\RR^3$ separately.
 
 ```{prf:definition} Skew symmetric matrix
 A **skew-symmetric** matrix is a matrix $\widehat{\omega}$ such that
@@ -147,7 +146,7 @@ $\widehat{\omega}_{body}$ and $\widehat{\omega}_{space}$ are called the body and
 ASC-ODE uses $\widehat{\omega}_{body}$.
 ```
 ````{prf:proof}
-For the first equation, we prove $\exists~\widehat{\omega} ~ skew-symmetric:~ \widehat{\omega} = O^{-1}\dot{O}$:
+For the first equation, we prove $\exists~\widehat{\omega} ~ \text{skew-symmetric:}~ \widehat{\omega} = O^{-1}\dot{O}$:
 ```{math}
 \begin{equation}
 0 = \dot{I} = (O^TO)~\dot{} = \dot{O}^TO + O^T\dot{O} = (O^T \dot{O})^T + O^T\dot{O} =  (O^{-1} \dot{O})^T + O^{-1}\dot{O} =

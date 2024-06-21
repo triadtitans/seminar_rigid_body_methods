@@ -54,7 +54,7 @@ dp = \begin{pmatrix} \frac{\partial^2 L}{\partial v \partial q} & \frac{\partial
 $
 
 
-Furthermore the matrices $\frac{\partial^2 L}{\partial q \partial q} \frac{\partial^2 L}{\partial v \partial v}$ are symmetric, which leads us to
+Furthermore, the matrices $\frac{\partial^2 L}{\partial q \partial q} \frac{\partial^2 L}{\partial v \partial v}$ are symmetric, which leads us to
 
 $$
 \frac{\partial}{\partial t}(dq \land dp) = dv \land \frac{\partial^2 L}{\partial v \partial q}dq + dv \land \frac{\partial^2 L}{\partial v \partial v}dv + dq \land \frac{\partial^2 L}{\partial q \partial q}dq + dq \land \frac{\partial^2 L}{\partial q \partial v}dv
@@ -66,9 +66,9 @@ $$
 \frac{\partial}{\partial t}(dq \land dp) = \frac{\partial^2 L}{\partial v \partial q}dv \land dq - \frac{\partial^2 L}{\partial q \partial v}dv \land dq = 0
 $$
 
-We now see that the flow of motion is symplectic which motivates the following definition of a symplectic procedure.
+We now see that the flow of motion is symplectic. This motivates the following definition of a symplectic procedure.
 
-For a fixed step size $h$ and a procedure $\psi_h: \mathbb{R}^{2d} \rightarrow \mathbb{R}^{2d}: (q_n, p_n) \mapsto (q_{n+1}, p_{n+1})$
+For a fixed step size $h$, the procedure $\psi_h: \mathbb{R}^{2d} \rightarrow \mathbb{R}^{2d}: (q_n, p_n) \mapsto (q_{n+1}, p_{n+1})$
 is symplectic if the map $\psi_h$ is symplectic.
 
 ## Variational Integrators
@@ -86,7 +86,7 @@ $$
     \mathcal{S}_h((q_n)^{N}_0, (v_n)^{N}_0, (p_n)^{N}_0) = \sum_{i=1}^{N-1} L_h(q_i, v_i, p_i, q_{i+1}, v_{i+1}, p_{i+1})
 $$
 
-with q, v and p being the exact solutions of the Euler-Lagrange Equations and 
+with $q$, $v$ and $p$ being the exact solutions of the Euler-Lagrange equations and
 
 $$
 L_h(q_n, v_n, p_n, q_{n+1}, v_{n+1}, p_{n+1}) \approx \int_{t_n}^{t_{n+1}} L(q,v) + p(\dot{q}-v) \,dt, \\

@@ -46,7 +46,7 @@ Therefore, modifying the calculation of $V$ and adding the equation $g(q) = 0$ i
 ### A Drawback
 
 In ASC-ODE however, this has proven not to work.
-In the implementation, the momentum tried to compensate for the constraint and leaves the cotangent space.
+In the implementation, the momentum tried to compensate for the constraint and left the cotangent space.
 This lead to the numerical system being so unstable that only a few simulation steps were possible.
 
 ## Secondary constraints
@@ -62,8 +62,7 @@ Note that these equations need to be viewed on a global scale as g might depend 
 Therefore, $q(t)$ needs to contain all transformations;
 $M$ and $R(t)$ are block diagonal matrices containing all mass and rotation matrices of all bodies.
 
-This constraint is now dependant on both $q$ and $p$ and can therefore not be dealt with by inclusion into $V(q)$.
-
+This constraint now depends on both $q$ and $p$ and can therefore not be dealt with by modifying $V(q)$.
 
 This results in a change in the equations of motion, see below. New parts of the system are highlighted.
 
@@ -127,7 +126,7 @@ For every step, the computer *recursively* needs to:
     - set up the Jacobian of the system
         - evaluate the equation function of the system itself
             - calculate the derivative of $g^v$
-                - Evaluate $g^v$
+                - evaluate $g^v$
                     - calculate $J_g$
                         - evaluate $g$
 
@@ -137,7 +136,7 @@ Taking a system with $b$ bodies and $c$ constraints:
  - set up the Jacobian of the system: $O((b + c)^2)$ evaluations of the equation function (using numerical differentiation)
  - evaluate the equation function of the system itself: $O(b + c)$, one system of equations for every body and constraint
  - calculate the derivative of $g^v$: $O((b + c)^2)$
- - Evaluate $g^v$: evaluates $J_g$ once
+ - Evaluate $g^v$: evaluate $J_g$ once
  - calculate $J_g$: $O(b+c)$
  - evaluate $g$: $O(1)$
 
