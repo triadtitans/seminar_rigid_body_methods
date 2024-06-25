@@ -20,7 +20,7 @@ $$
 We introduce the new variables $\bar{p}$ which are independent but approximate the same function $p$. If we now - again - take the variation with respect to $q$ and integrate by parts we get
 
 $$
-\int_{0}^{T} (\frac{\partial V}{\partial q}(q)-\dot{q})\delta q \,dt + (p-\bar{p})q\Biggr|_{0}^{T}=0 \ \ \forall \delta q
+\int_{0}^{T} (\frac{\partial V}{\partial q}(q)\delta q - p\delta \dot{q} \,dt + (p-\bar{p})q\Biggr|_{0}^{T}=0 \ \ \forall \delta q
 $$
 
 This equation contains the differential equation in $(0, T)$, boundary conditions $p(0)=\bar{p}(0)$ and $p(T)=\bar{p}(T)$.
@@ -73,7 +73,7 @@ $$
 The last equation is a bit more complicated to integrate.
 
 $$
-\int_{0}^{T} (\frac{\partial V}{\partial q}(q)-\dot{q})\delta q \,dt + (p-\bar{p})q\Biggr|_{0}^{T}=0 \ \ \forall \delta q
+\int_{0}^{T} (\frac{\partial V}{\partial q}(q)\delta q - p\delta \dot{q} \,dt + (p-\bar{p})q\Biggr|_{0}^{T}=0 \ \ \forall \delta q
 $$
 
 We use the trapezoidal rule for $\frac{\partial V}{\partial q}(q)$ and integrate the rest to get
