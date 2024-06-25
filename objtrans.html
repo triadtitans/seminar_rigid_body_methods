@@ -14,40 +14,40 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -75,23 +75,27 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -113,13 +117,8 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
     </header>
   
 
@@ -207,7 +206,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -216,14 +215,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -332,9 +331,9 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -414,8 +413,8 @@ They are even matrix lie groups <span id="id3">[<a class="reference internal" hr
 As their subgroup <span class="math notranslate nohighlight">\(SO(3)\)</span> (rotations) is not commutative, they are not commutative either.</p>
 <p>In the following example, ASC-ODE also makes use of the following:
 <span class="math notranslate nohighlight">\(R \in SO(3)\)</span> if and only if there exists an orthonormal matrix <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(\varphi \in [0, \pi]\)</span> such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1a9e305f-7664-4070-85a3-aaa20bd52978">
-<span class="eqno">(1)<a class="headerlink" href="#equation-1a9e305f-7664-4070-85a3-aaa20bd52978" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d0c6d009-2065-482b-ac50-4bf89c20ecb9">
+<span class="eqno">(1)<a class="headerlink" href="#equation-d0c6d009-2065-482b-ac50-4bf89c20ecb9" title="Permalink to this equation">#</a></span>\[\begin{equation}
    A = B^{-1}
    \begin{pmatrix}
       1 &amp; 0           &amp; 0 \\
@@ -430,8 +429,8 @@ The lower right block of the matrix lies in <span class="math notranslate nohigh
 <p>For any given matrix <span class="math notranslate nohighlight">\(R \in SO(3)\)</span>, the axis of rotation can be calculated as its eigenvector with eigenvalue 1.
 (Although there exists more than one eigenvector if <span class="math notranslate nohighlight">\(R = I\)</span>.)
 The angle can be calculated due to the fact that the trace of a matrix is similarity-invariant:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ded53d56-5d4d-4ad1-b6f0-6dee395b1d19">
-<span class="eqno">(2)<a class="headerlink" href="#equation-ded53d56-5d4d-4ad1-b6f0-6dee395b1d19" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4a2c022a-dc8e-494c-9112-43cdf2a10572">
+<span class="eqno">(2)<a class="headerlink" href="#equation-4a2c022a-dc8e-494c-9112-43cdf2a10572" title="Permalink to this equation">#</a></span>\[\begin{equation}
    \varphi = arccos \left( \frac{tr(R) - 1}{2} \right)
 \end{equation}\]</div>
 <p><span id="id4">[<a class="reference internal" href="bibliography.html#id3" title="Hans Havlicek. Lineare Algebra für technische Mathematik. Berliner Studienreihe zur Mathematik. Heldermann Verlag, Lemgo, vierte, korrigierte und erweiterte auflage edition, 2022. ISBN 3885381168.">Hav22</a>, 12.4.14]</span></p>
@@ -461,8 +460,8 @@ A coordinate system specific to the body in which the body is stationary.</p>
 <p>Let <span class="math notranslate nohighlight">\(a(t), O(t)\)</span> describe the transformation of a body.
 Then <span class="math notranslate nohighlight">\(U\)</span> converts vectors from the body frame to the spatial frame.
 Therefore, the body frame can be seen as the affine space</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2db32e07-51b7-4167-941a-411c805dd6e4">
-<span class="eqno">(3)<a class="headerlink" href="#equation-2db32e07-51b7-4167-941a-411c805dd6e4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-87a07c35-3cde-4d49-a532-9659d067518b">
+<span class="eqno">(3)<a class="headerlink" href="#equation-87a07c35-3cde-4d49-a532-9659d067518b" title="Permalink to this equation">#</a></span>\[\begin{equation}
    U(\RR^3) = a(t) + O(t) \cdot \RR^3
 \end{equation}\]</div>
 <p>During the project, <span class="math notranslate nohighlight">\(U\)</span> was used as such a conversion function. This has proven useful for multibody interaction (via springs and beams) and visualisation.</p>
@@ -491,8 +490,8 @@ A transformation $(a,O) \in SE(3)$ can be stored by storing $a$ and $O$ seperate
 <p class="admonition-title"><span class="caption-number">Definition 4 </span> (Skew symmetric matrix)</p>
 <section class="definition-content" id="proof-content">
 <p>A <strong>skew-symmetric</strong> matrix is a matrix <span class="math notranslate nohighlight">\(\widehat{\omega}\)</span> such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b8c75d7a-32d8-468f-9982-65c8e88c6301">
-<span class="eqno">(4)<a class="headerlink" href="#equation-b8c75d7a-32d8-468f-9982-65c8e88c6301" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e0845e49-f1d6-4da2-b6b2-70a2d6448285">
+<span class="eqno">(4)<a class="headerlink" href="#equation-e0845e49-f1d6-4da2-b6b2-70a2d6448285" title="Permalink to this equation">#</a></span>\[\begin{equation}
    \widehat{\omega}^T = -\widehat{\omega}
 \end{equation}\]</div>
 <p>Here, the hat <span class="math notranslate nohighlight">\(\widehat{\cdot}\)</span> will be commonly used to denote skew-symmetry.</p>
@@ -500,13 +499,13 @@ A transformation $(a,O) \in SE(3)$ can be stored by storing $a$ and $O$ seperate
 </div><div class="proof lemma admonition" id="lemma-4">
 <p class="admonition-title"><span class="caption-number">Lemma 1 </span></p>
 <section class="lemma-content" id="proof-content">
-<div class="amsmath math notranslate nohighlight" id="equation-4b3b8e85-98e3-4b04-89fa-a89fe80ca278">
-<span class="eqno">(5)<a class="headerlink" href="#equation-4b3b8e85-98e3-4b04-89fa-a89fe80ca278" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-86e05064-bc93-41ad-8ecd-a3935d17d41d">
+<span class="eqno">(5)<a class="headerlink" href="#equation-86e05064-bc93-41ad-8ecd-a3935d17d41d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \forall~ t~ \exists~ \widehat{\omega}_{body}~ \text{skew-symmetric}:~~ \frac{dO}{dt}(t) = O(t)\widehat{\omega}_{body}
 \end{equation}\]</div>
 <p>or alternatively:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-15e66319-2d2d-48c7-b590-71dc8b891ba7">
-<span class="eqno">(6)<a class="headerlink" href="#equation-15e66319-2d2d-48c7-b590-71dc8b891ba7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-de278ac2-9541-4eb9-836c-fda956cf0bad">
+<span class="eqno">(6)<a class="headerlink" href="#equation-de278ac2-9541-4eb9-836c-fda956cf0bad" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \forall~ t~ \exists~ \widehat{\omega}_{space}~ \text{skew-symmetric}:~~ \frac{dO}{dt}(t) = \widehat{\omega}_{space}O(t)
 \end{equation}\]</div>
 <p><span class="math notranslate nohighlight">\(\widehat{\omega}_{body}\)</span> and <span class="math notranslate nohighlight">\(\widehat{\omega}_{space}\)</span> are called the body and space angular velocities. <span id="id6">[<a class="reference internal" href="bibliography.html#id4" title="Darryl D Holm. Geometric mechanics : 2. Rotating, translating and rolling. World Scientific Publ. Imperial College Press, Singapore [u.a.] London, 2008. ISBN 1848161557.">Hol08</a>, 2.1.24]</span>
@@ -526,8 +525,8 @@ ASC-ODE uses <span class="math notranslate nohighlight">\(\widehat{\omega}_{body
 <p class="admonition-title"><span class="caption-number">Remark 1 </span> (Hat map)</p>
 <section class="remark-content" id="proof-content">
 <p>The hat <span class="math notranslate nohighlight">\(\widehat{\cdot}\)</span> can be seen as a function</p>
-<div class="amsmath math notranslate nohighlight" id="equation-61c2653c-6492-4104-b763-82bebc4b8c43">
-<span class="eqno">(7)<a class="headerlink" href="#equation-61c2653c-6492-4104-b763-82bebc4b8c43" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0ed35122-b625-4082-9ea3-85cde5e10e37">
+<span class="eqno">(7)<a class="headerlink" href="#equation-0ed35122-b625-4082-9ea3-85cde5e10e37" title="Permalink to this equation">#</a></span>\[\begin{align}
 \widehat{\cdot}: \RR^3 &amp; \rightarrow \{ M \in \RR^{3 \times 3} ~|~ M~ \text{skew symmetric}\} \\
 \omega &amp; \mapsto
    \begin{pmatrix}
@@ -573,7 +572,7 @@ The overall velocity of a body can therefore be written as a vector in <span cla
               
               
               
-                <footer class="prev-next-footer d-print-none">
+                <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -661,8 +660,8 @@ By Linus Knoll, Tobias Leichtfried, Norbert Hammer
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
